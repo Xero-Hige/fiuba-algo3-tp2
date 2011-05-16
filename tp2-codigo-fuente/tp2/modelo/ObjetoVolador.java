@@ -1,5 +1,9 @@
 package tp2.modelo;
 
-public abstract class ObjetoVolador {
+public abstract class ObjetoVolador extends Movil {
+
+	public ObjetoVolador() {
+		
+	}
 
 }

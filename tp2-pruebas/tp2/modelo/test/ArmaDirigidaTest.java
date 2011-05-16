@@ -26,7 +26,7 @@ public class ArmaDirigidaTest {
 	}
 	
 	@test
-	public void Disparar1(){		
+	public void TestDisparar1(){		
 		//Disparamos el primer proyectil, y debería alcanzar a la únicaa nave de la flota
 		proyectil1 = arma.disparar();
 		proyectil1.MoverDurante(10000);
@@ -34,7 +34,7 @@ public class ArmaDirigidaTest {
 	}
 	
 	@test
-	public void Disparar2(){
+	public void TestDisparar2(){
 		//Disparamos un segundo proyectil, y debería alcanzar al segundo objetivo, porque destruimos el primero
 		flota.AgregarNave(objetivo2);
 		objetivo1.Destruir();
@@ -44,11 +44,11 @@ public class ArmaDirigidaTest {
 	}
 	
 	@test
-	public void Disparar3(){
+	public void TestDisparar3(){
 		//Disparamos un tercer proyectil con todos los objetivos destruídos, y tiene que seguir la dirección de vuelo indicada
 		objetivo1.Destruir();
 		objetivo2.Destruir();
 		proyectil2 = arma.Disparar();
 		proyectil2.MoverDurante(10);
-		Assert.assertTrue((proyectil2.ObtenerPosicion().Distancia((810 @ 601))) <= (1e-10));
+		Assert.assertTrue((proyectil2.ObtenerPosicion().Distancia((810 @ 601))) <= (1E-10));
 	}

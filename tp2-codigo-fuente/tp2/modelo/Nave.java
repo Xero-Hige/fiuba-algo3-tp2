@@ -14,4 +14,11 @@ public class Nave extends ObjetoVolador {
 		this.energia = energia;
 	}
 
+	@Override
+	public void actuar(double tiempo) {
+		// Ordena a la nave actuar durante el tiempo específicado. La nave debe
+		// tener un vuelo y un escenario especificados, o de lo contrario se
+		// levanta una excepción.
+	}
+
 }

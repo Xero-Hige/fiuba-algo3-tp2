@@ -10,11 +10,11 @@ import tp2.auxiliares.*;
 public class ChoqueNaveMilitarControladaTest {
 	
 	
-	Escenario escenario;
-	Nave nave;
-	Nave naveEnemiga;
-	Bono bono;
-	Comportamiento comportamiento;
+	private Escenario escenario;
+	private Nave nave;
+	private Nave naveEnemiga;
+	private Bono bono;
+	private Comportamiento comportamiento;
 	
 	@Before
 	public void Arrange(){

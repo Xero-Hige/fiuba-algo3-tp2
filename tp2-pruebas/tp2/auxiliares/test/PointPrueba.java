@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import tp2.auxiliares.Point;
 
-import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class PointPrueba extends TestCase{
@@ -16,7 +15,7 @@ public class PointPrueba extends TestCase{
 		// Probamos de sumar los dos puntos
 		punto = punto.sumar(desplazamiento);
 		double error = punto.distance(new Point(8, 10));
-		Assert.assertEquals(0, error, 1e-10);
+		assertEquals(0, error, 1e-10);
 	}
 	
 	@Test
@@ -28,6 +27,6 @@ public class PointPrueba extends TestCase{
 		punto.rotar(angulo, centro);
 		Point resultado = new Point(5 + Math.sqrt(2) / 2, 7 - Math.sqrt(2)/2);
 		double error = punto.distance(resultado);
-		Assert.assertEquals(0, error, 1e-10);
+		assertEquals(0, error, 1e-10);
 	}
 }

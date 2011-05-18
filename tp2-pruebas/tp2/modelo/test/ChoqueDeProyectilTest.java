@@ -10,8 +10,8 @@ import tp2.auxiliares.*;
 public class ChoqueDeProyectilTest {
 	private Proyectil proyectil;
 	private Comportamiento comportamiento;
-	private Nave aliado;
-	private Nave enemigo;
+	private ObjetoVolador aliado;
+	private ObjetoVolador enemigo;
 	private Escenario escenario;
 	
 	@Betfore

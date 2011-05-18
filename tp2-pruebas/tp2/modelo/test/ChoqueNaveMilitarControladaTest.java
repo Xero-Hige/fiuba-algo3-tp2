@@ -11,8 +11,8 @@ public class ChoqueNaveMilitarControladaTest {
 	
 	
 	private Escenario escenario;
-	private Nave nave;
-	private Nave naveEnemiga;
+	private ObjetoVolador nave;
+	private ObjetoVolador naveEnemiga;
 	private Bono bono;
 	private Comportamiento comportamiento;
 	

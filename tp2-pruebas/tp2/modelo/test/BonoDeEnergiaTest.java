@@ -10,8 +10,8 @@ import tp2.auxiliares.*;
 public class BonoDeEnergiaTest {	
 	
 	private Bono bono;
-	private Nave nave;
-	private Nave naveReceptora;
+	private ObjetoVolador nave;
+	private ObjetoVolador naveReceptora;
 	private Escenario escenario;	
 
 	@Before

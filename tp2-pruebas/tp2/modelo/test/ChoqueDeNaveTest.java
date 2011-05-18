@@ -9,10 +9,10 @@ import tp2.auxiliares.*;
 
 public class ChoqueDeNaveTest {
 	
-	 private Nave nave;
+	 private ObjetoVolador nave;
 	 private Comportamiento comportamiento; 
-	 private Nave aliado; 
-	 private Nave enemigo; 
+	 private ObjetoVolador aliado; 
+	 private ObjetoVolador enemigo; 
 	 private Escenario escenario;
 	 private Proyectil proyectilAliado;
 	 private Proyectil proyectilEnemigo;

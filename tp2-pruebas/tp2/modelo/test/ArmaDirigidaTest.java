@@ -15,8 +15,8 @@ public class ArmaDirigidaTest{
 	private Proyectil proyectil1;
 	private Proyectil proyectil2;
 	private Proyectil proyectil3;
-	private Nave objetivo1; 
-	private Nave objetivo2;
+	private ObjetoVolador objetivo1; 
+	private ObjetoVolador objetivo2;
 	
 	@Before
 	public void Arrange(){

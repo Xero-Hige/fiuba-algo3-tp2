@@ -26,21 +26,21 @@ public class ObjetoEspacialPrueba {
 	public void testEstaSuperpuesto1(){
 		//Creamos otro objeto a 5 unidades de distancia.
 		objeto2 = new Nave(new Point(4, 3), 2, escenario, 1, 1);
-		assertFalse(objeto1.estaSuperpuesto(objeto2));
+		assertFalse(objeto1.estaSuperpuestoCon(objeto2));
 	}
 	
 	@Test
 	public void testEstaSuperpuesto2(){
 		objeto2 = new Nave(new Point(4, 3), 2.1, escenario, 1, 1);
 		// Los objetos están superpuestos
-		assertTrue(objeto1.estaSuperpuesto(objeto2));
+		assertTrue(objeto1.estaSuperpuestoCon(objeto2));
 	}
 	
 	@Test
 	public void testEstaSuperpuesto3(){
 		objeto2 = new Nave(new Point(10, 0), 2.1, escenario, 1, 1);
 		// Los objetos no están superpuestos
-		assertFalse(objeto1.estaSuperpuesto(objeto2));
+		assertFalse(objeto1.estaSuperpuestoCon(objeto2));
 	}
 	
 	@Test

@@ -15,6 +15,7 @@ public class ChoqueDeObjetoEspacial {
 
 	private ObjetoEspacial objeto;
 	
+	// Constructor
 	public ChoqueDeObjetoEspacial(ObjetoEspacial unObjetoEspacial) {
 		/////////////////////////////////////////////////////////
 		// TERMINAR

@@ -4,6 +4,7 @@ package tp2.modelo;
 // choque frente a los demás objetos del espacio.
 public class ChoqueDeNave extends ChoqueDeObjetoEspacial {
 	
+	// Constructor
 	public ChoqueDeNave(Nave unaNave) {
 		super(unaNave);
 	}

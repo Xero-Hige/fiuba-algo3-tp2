@@ -45,7 +45,7 @@ public abstract class Movil extends ObjetoEspacial {
 	public void desplazarEn(Point desplazamiento) {
 		// Recibe el desplazamiento y mueve al móvil de acuerdo al mismo,
 		// respecto a su posición actual.
-		this.setPosicion(this.getPosicion().sumar(desplazamiento));
+		this.setPosicion(this.getPosicion().sumarCon(desplazamiento));
 	}
 
 }

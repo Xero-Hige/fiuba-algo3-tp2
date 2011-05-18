@@ -24,13 +24,13 @@ public class Point extends Point2D {
 		this.y = y;
 	}
 	
-	public Point sumar(Point punto){
+	public Point sumarCon(Point punto){
 		// Devuelve la suma entre el punto recibido por parámetro y el receptor del
 		// mensaje.
 		return new Point(this.getX() + punto.getX(), this.getY() + punto.getY());
 	}
 	
-	public Point opuesto(){
+	public Point getOpuesto(){
 		// Devuelve el punto opuesto al receptor del mensaje.
 		return new Point(-this.getX(), -this.getY());
 	}
@@ -44,15 +44,15 @@ public class Point extends Point2D {
 		return Math.atan2(this.getY(), this.getX());
 	}
 
-	public void rotar(double angulo, Point centro) {
+	public void rotarEn(double angulo, Point centro) {
 		// Rota el punto respecto al centro y ángulo (en radianes) recibido.
-		Point relativo = this.sumar(centro.opuesto());
+		Point relativo = this.sumarCon(centro.getOpuesto());
 		double x, y, norma;
 		norma = relativo.norma();
 		angulo += relativo.argumento();
 		x = Math.cos(angulo) * norma;
 		y = Math.sin(angulo) * norma;
-		this.setLocation(centro.sumar(new Point(x, y)));
+		this.setLocation(centro.sumarCon(new Point(x, y)));
 	}
 
 }

@@ -5,15 +5,15 @@ import tp2.auxiliares.Point;
 public abstract class ObjetoEspacial {
 
 	private Point posicion;
-	private double tamano;
+	private double tamanio;
 	private Escenario escenario;
 	private boolean destruido;
 
-	public ObjetoEspacial(Point posicion, double tamano, Escenario escenario) {
+	public ObjetoEspacial(Point posicion, double tamanio, Escenario escenario) {
 		// Inicializa el objeto con la posición, tamaño y escenario recibidos.
 		// Lo agrega al escenario.
 		this.posicion = posicion;
-		this.tamano = tamano;
+		this.tamanio = tamanio;
 		this.escenario = escenario;
 		this.destruido = false;
 		// Falta agregarlo al escenario
@@ -23,8 +23,8 @@ public abstract class ObjetoEspacial {
 		return posicion;
 	}
 
-	public double getTamano() {
-		return tamano;
+	public double getTamanio() {
+		return tamanio;
 	}
 
 	public Escenario getEscenario() {
@@ -40,7 +40,7 @@ public abstract class ObjetoEspacial {
 		// del mensaje. Sino false.
 
 		double distanciaMaxima, distancia;
-		distanciaMaxima = this.getTamano() + objetoEspacial.getTamano();
+		distanciaMaxima = this.getTamanio() + objetoEspacial.getTamanio();
 		distancia = this.getPosicion().distance(objetoEspacial.getPosicion());
 		return distancia < distanciaMaxima;
 	}

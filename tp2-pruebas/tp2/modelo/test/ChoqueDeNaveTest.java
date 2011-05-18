@@ -9,10 +9,10 @@ import tp2.auxiliares.*;
 
 public class ChoqueDeNaveTest {
 	
-	 private ObjetoVolador nave;
+	 private Nave nave;
 	 private Comportamiento comportamiento; 
-	 private ObjetoVolador aliado; 
-	 private ObjetoVolador enemigo; 
+	 private Nave aliado; 
+	 private Nave enemigo; 
 	 private Escenario escenario;
 	 private Proyectil proyectilAliado;
 	 private Proyectil proyectilEnemigo;
@@ -31,7 +31,7 @@ public class ChoqueDeNaveTest {
 		 enemigo.CambiarEquipoA("enemigos");
 	 }	 
 	 
-	 @Before
+	 @Before 
 	 public void Arrange(){
 		 escenario = new Escenario(new Rectangle());
 		 nave = new Nave(new Point(0,0),1,escenario,1,100);

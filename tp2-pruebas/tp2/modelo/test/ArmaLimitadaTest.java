@@ -13,7 +13,7 @@ public class ArmaLimitadaTest {
 	private Escenario escenario;
 
 	//Idem variables
-	@Before
+	@Before 
 	public void Arrange(){
 		escenario = new Escenario(new Rectangle());
 		arma = new ArmaLimitada(new Point(0,0),escenario,100,1,new Point(4,3),"arma");

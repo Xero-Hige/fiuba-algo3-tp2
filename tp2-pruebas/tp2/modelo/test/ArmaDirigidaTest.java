@@ -15,10 +15,10 @@ public class ArmaDirigidaTest{
 	private Proyectil proyectil1;
 	private Proyectil proyectil2;
 	private Proyectil proyectil3;
-	private ObjetoVolador objetivo1; 
-	private ObjetoVolador objetivo2;
+	private Nave objetivo1; 
+	private Nave objetivo2;
 	
-	@Before
+	@Before 
 	public void Arrange(){
 		 escenario = new Escenario(new Rectangle());
 		 arma = new ArmaDirigida (new Point(10,1),escenario,100,1,new Point(4,3),"arma");

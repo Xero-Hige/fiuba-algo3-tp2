@@ -9,10 +9,9 @@ import tp2.auxiliares.*;
 
 public class ChoqueNaveMilitarControladaTest {
 	
-	
 	private Escenario escenario;
-	private ObjetoVolador nave;
-	private ObjetoVolador naveEnemiga;
+	private Nave nave;
+	private Nave naveEnemiga;
 	private Bono bono;
 	private Comportamiento comportamiento;
 	

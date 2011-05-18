@@ -15,7 +15,7 @@ public class ArmaTest {
 	private Proyectil proyectil2;
 	private Posicion posicionInicial;
 	
-	@Before
+	@Before 
 	public void Arrange(){
 		escenario = new Escenario(new Rectangle ());
 		arma = new Arma(new Point(10,1),escenario,100,1,new Point(4,3),"arma");
@@ -46,7 +46,7 @@ public class ArmaTest {
 	
 	@Test
 	public void TestMoverDurante(){
-		private ObjetoVolador nave = new NaveMilitar(new Point(56,71),1,escenario,1,100);
+		private Nave nave = new NaveMilitar(new Point(56,71),1,escenario,1,100);
 		arma = new Arma(new Point(5,5),escenario,100,1,new Point(4,3),"arma");
 		//Intentamos mover el arma sin que esta pertenezca a ninguna nave
 		arma.MoverDurante(10);

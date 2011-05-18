@@ -13,7 +13,7 @@ public class ChoqueDeObjetoEspacialTest{
 	private Comportamiento comportamiento;
 	private Escenario escenario;
 
-	@Before
+	@Before 
 	public void Arrange(){
 		escenario = new Escenario(new Rectangle());
 		objetoEspacial = new ObjetoEspacial(new Point(0,0),1,escenario);

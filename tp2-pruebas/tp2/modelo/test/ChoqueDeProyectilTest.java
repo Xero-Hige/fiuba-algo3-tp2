@@ -10,11 +10,11 @@ import tp2.auxiliares.*;
 public class ChoqueDeProyectilTest {
 	private Proyectil proyectil;
 	private Comportamiento comportamiento;
-	private ObjetoVolador aliado;
-	private ObjetoVolador enemigo;
+	private Nave aliado;
+	private Nave enemigo;
 	private Escenario escenario;
 	
-	@Betfore
+	@Before
 	public void Arrenge(){
 		escenario = new Escenario(new Rectangle());
 		proyectil = new Proyectil(new Point(0,0),0.1,0,10);

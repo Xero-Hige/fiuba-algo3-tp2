@@ -10,12 +10,12 @@ import tp2.auxiliares.*;
 public class BonoDeArmasTest {
 	
 	private Bono bono;
-	private ObjetoVolador nave;
-	private ObjetoVolador naveReceptora;
+	private Nave nave;
+	private Nave naveReceptora;
 	private Arma arma;
 	private Escenario escenario;	
 	
-	@Before
+	@Before 
 	public void Arrange(){
 		escenario = new Escenario(new Rectangle());
 		nave = new NaveEnemiga(new Point(243,71),1,escenario,1,100);

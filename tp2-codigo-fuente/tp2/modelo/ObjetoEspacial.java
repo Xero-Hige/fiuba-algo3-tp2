@@ -35,7 +35,7 @@ public abstract class ObjetoEspacial {
 		this.posicion = posicion;
 	}
 
-	public boolean estaSuperpuesto(ObjetoEspacial objetoEspacial) {
+	public boolean estaSuperpuestoCon(ObjetoEspacial objetoEspacial) {
 		// Devuelve true si el objeto recibido está superpuesto con el receptor
 		// del mensaje. Sino false.
 
@@ -50,7 +50,7 @@ public abstract class ObjetoEspacial {
 	// debería permitir actuar a objetos que no tengan un escenario, y además,
 	// si alguno está destruido, debería desaparecer de su escenario y no
 	// realizar nada más.
-	public abstract void actuar(double tiempo);
+	public abstract void actuarDurante(double tiempo);
 
 	public void destruir() {
 		// Destruye al objeto y le impide realizar acciones en el futuro.

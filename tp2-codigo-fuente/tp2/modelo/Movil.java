@@ -32,7 +32,7 @@ public abstract class Movil extends ObjetoEspacial {
 		this.equipo = equipo;
 	}
 
-	public Boolean esAliado(Movil movil) {
+	public Boolean esAliadoDe(Movil movil) {
 		// Devuelve si el móvil pertenece al mismo equipo del recibido.
 		if (this.getEquipo() == null)
 			return false;
@@ -42,7 +42,7 @@ public abstract class Movil extends ObjetoEspacial {
 	// Mueve al móvil de acuerdo al tiempo recibido.
 	public abstract void moverDurante(double tiempo);
 
-	public void desplazar(Point desplazamiento) {
+	public void desplazarEn(Point desplazamiento) {
 		// Recibe el desplazamiento y mueve al móvil de acuerdo al mismo,
 		// respecto a su posición actual.
 		this.setPosicion(this.getPosicion().sumar(desplazamiento));

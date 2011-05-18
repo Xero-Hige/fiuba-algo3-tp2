@@ -11,4 +11,12 @@ public abstract class ObjetoVolador extends Movil {
 		// tamaño, escenario y velocidad recibidos. Lo agrega al escenario.
 	}
 
+	@Override
+	public void moverDurante(double tiempo) {
+		// Mueve al objeto volador de acuerdo al tiempo recibido y el vuelo que
+		// tenga. Si no tiene un vuelo definido o un escenario asignado, se
+		// levanta una excepción.
+
+	}
+
 }

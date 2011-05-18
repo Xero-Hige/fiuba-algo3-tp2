@@ -30,38 +30,32 @@ public class ChoqueDeObjetoEspacial {
 	}
 	
 	// Por defecto, a un objeto espacial no le pasa nada cuando choca con un bono.
-	public void sufrirChoqueDeBono(Bono unBono)
-	{
+	public void sufrirChoqueDeBono(Bono unBono) {
 		this.verificarInicializacion();
 	}
 	
 	// Por defecto, a un objeto espacial no le pasa nada cuando choca con una nave.
-	public void sufrirChoqueDeNave(Nave unaNave)
-	{
+	public void sufrirChoqueDeNave(Nave unaNave) {
 		this.verificarInicializacion();
 	}
 	
 	// Por defecto, a un objeto espacial no le pasa nada cuando choca con una nave civil.
-	public void sufrirChoqueDeNaveCivil(NaveCivil unaNaveCivil)
-	{
+	public void sufrirChoqueDeNaveCivil(NaveCivil unaNaveCivil)	{
 		this.verificarInicializacion();
 	}
 	
 	// Por defecto, a un objeto espacial no le pasa nada cuando choca con una nave militar.
-	public void sufrirChoqueDeNaveMilitar(NaveMilitar unaNaveMilitar)
-	{
+	public void sufrirChoqueDeNaveMilitar(NaveMilitar unaNaveMilitar) {
 		this.verificarInicializacion();
 	}
 	
 	// Por defecto, a un objeto espacial no le pasa nada cuando choca con otro objeto espacial.
-	public void sufrirChoqueDeObjetoEspacial(ObjetoEspacial unObjetoEspacial)
-	{
+	public void sufrirChoqueDeObjetoEspacial(ObjetoEspacial unObjetoEspacial) {
 		this.verificarInicializacion();
 	}
 	
 	// Por defecto, a un objeto espacial no le pasa nada cuando choca con un proyectil.
-	public void sufrirChoqueDeProyectil(Proyectil unProyectil)
-	{
+	public void sufrirChoqueDeProyectil(Proyectil unProyectil) {
 		this.verificarInicializacion();
 	}
 	

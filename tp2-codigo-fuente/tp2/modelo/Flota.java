@@ -27,7 +27,7 @@ public class Flota {
 		
 	}
 	
-	private void setNaveGuia(NaveGuia nuevaNaveGuia){
+	protected void setNaveGuia(NaveGuia nuevaNaveGuia){
 		
 	}
 	

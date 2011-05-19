@@ -2,7 +2,7 @@ package tp2.modelo;
 
 // El juego en sí. Se encarga de iniciar los diferentes escenarios en cada nivel, 
 // y de crear las flotas enemigas (y la del Algo42) cada vez que es necesario.
-public abstract class Juego {
+public class Juego {
 
 	private Escenario escenario;
 	private FabricaDeNaves fabricaJugador, fabricaEnemiga;
@@ -25,7 +25,9 @@ public abstract class Juego {
 	// este método debería depender de cada nivel (escenario), y podría variar entre 
 	// flota y flota del mismo nivel. Lo que sí se debe respetar es que cada flota 
 	// tenga al menos 15 naves.
-	public abstract void iniciarRonda();
+	public void iniciarRonda() {
+		
+	}
 	
 	// Empieza un nuevo nivel. Se crea un nuevo escenario, la nave del jugador con 
 	// su flota y se inicia la primera ronda del nivel.
@@ -40,53 +42,43 @@ public abstract class Juego {
 		
 	}
 	
-	public void setEscenario(Escenario nuevoEscenario) {
-		
-	}
-	
 	public Escenario getEscenario() {
 		return this.escenario;
 	}
 	
-	public void setFabricaEnemiga(FabricaDeNaves nuevoFabricaEnemiga) {
+	protected void setEscenario(Escenario nuevoEscenario) {
 		
 	}
-	
+		
 	public FabricaDeNaves getFabricaEnemiga() {
 		return this.fabricaEnemiga;
 	}
 	
-	public void setFabricaJugador(FabricaDeNaves nuevoFabricaJugador) {
+	protected void setFabricaEnemiga(FabricaDeNaves nuevoFabricaEnemiga) {
 		
 	}
-	
+		
 	public FabricaDeNaves getFabricaJugador() {
 		return this.fabricaJugador;
 	}
 	
-	public void setFlotaAliada(Flota nuevaFlotaAliada) {
+	protected void setFabricaJugador(FabricaDeNaves nuevoFabricaJugador) {
 		
 	}
-	
+		
 	public Flota getFlotaAliada() {
 		return this.flotaAliada;
 	}
 	
-
-	public void setFlotaEnemiga(Flota nuevaFlotaEnemiga) {
+	protected void setFlotaAliada(Flota nuevaFlotaAliada) {
 		
 	}
-	
+
 	public Flota getFlotaEnemiga() {
 		return this.flotaEnemiga;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	protected void setFlotaEnemiga(Flota nuevaFlotaEnemiga) {
+		
+	}
 }

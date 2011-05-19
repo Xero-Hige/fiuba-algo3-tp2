@@ -85,11 +85,11 @@ public class FabricaDeNaves {
 		
 	}
 	
-	public void setEquipoDeLaNave(Equipo nuevoEquipo){
+	protected void setEquipoDeLaNave(Equipo nuevoEquipo){
 		
 	}
 	
-	public void setEscenario(Escenario nuevoEscenario){
+	protected void setEscenario(Escenario nuevoEscenario){
 		
 	}
 	
@@ -97,7 +97,7 @@ public class FabricaDeNaves {
 		
 	}
 	
-	public void setFlotaEnemiga(Flota nuevaFlota){
+	protected void setFlotaEnemiga(Flota nuevaFlota){
 		
 	}	
 }

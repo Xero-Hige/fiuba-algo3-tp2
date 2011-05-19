@@ -14,27 +14,7 @@ public abstract class Juego {
 	public Juego() {
 		
 	}
-	
-	private void cambiarEscenarioA(Escenario nuevoEscenario) {
 		
-	}
-	
-	private void cambiarFabricaEnemigaA(FabricaDeNaves nuevoFabricaEnemiga) {
-		
-	}
-	
-	private void cambiarFabricaJugadorA(FabricaDeNaves nuevoFabricaJugador) {
-		
-	}
-	
-	private void cambiarFlotaAliadaA(Flota nuevaFlotaAliada) {
-		
-	}
-	
-	private void cambiarFlotaEnemigaA(Flota nuevaFlotaEnemiga) {
-		
-	}
-	
 	// Crea un Algo42
 	public void crearNaveJugador() {
 		
@@ -60,23 +40,53 @@ public abstract class Juego {
 		
 	}
 	
+	public void setEscenario(Escenario nuevoEscenario) {
+		
+	}
+	
 	public Escenario getEscenario() {
 		return this.escenario;
+	}
+	
+	public void setFabricaEnemiga(FabricaDeNaves nuevoFabricaEnemiga) {
+		
 	}
 	
 	public FabricaDeNaves getFabricaEnemiga() {
 		return this.fabricaEnemiga;
 	}
 	
+	public void setFabricaJugador(FabricaDeNaves nuevoFabricaJugador) {
+		
+	}
+	
 	public FabricaDeNaves getFabricaJugador() {
 		return this.fabricaJugador;
+	}
+	
+	public void setFlotaAliada(Flota nuevaFlotaAliada) {
+		
 	}
 	
 	public Flota getFlotaAliada() {
 		return this.flotaAliada;
 	}
 	
+
+	public void setFlotaEnemiga(Flota nuevaFlotaEnemiga) {
+		
+	}
+	
 	public Flota getFlotaEnemiga() {
 		return this.flotaEnemiga;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

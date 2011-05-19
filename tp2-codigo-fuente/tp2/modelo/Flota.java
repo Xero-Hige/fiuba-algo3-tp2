@@ -14,11 +14,7 @@ public class Flota {
 	public Flota(NaveGuia naveGuia){
 		
 	}
-	
-	private void cambiarNaveGuiaA(NaveGuia nuevaNaveGuia){
 		
-	}
-	
 	// Agrega la nave a la flota (si ya se encontraba, se ignora el mensaje). Si la 
 	// nave no pertencece al mismo equipo que la guía, se levanta una excepción.
 	public void agregarNave(NaveMilitar unaNaveMilitar){
@@ -28,6 +24,10 @@ public class Flota {
 	// Ordena a los aviones de la flota detener sus disparos y huir en la direccion 
 	// recibida.
 	public void iniciarRetiradaEnDireccion(Point unaDireccion){
+		
+	}
+	
+	private void setNaveGuia(NaveGuia nuevaNaveGuia){
 		
 	}
 	

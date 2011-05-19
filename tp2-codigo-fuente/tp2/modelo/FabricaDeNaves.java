@@ -15,22 +15,6 @@ public class FabricaDeNaves {
 		
 	}
 	
-	private void cambiarEquipoDeLaNaveA(Equipo nuevoEquipo){
-		
-	}
-	
-	private void cambiarEscenarioA(Escenario nuevoEscenario){
-		
-	}
-	
-	private void cambiarFabricaDeArmas(FabricaDeArmas nuevaFabricaDeArmas){
-		
-	}
-	
-	private void cambiarFlotaEnemiga(Flota nuevaFlota){
-		
-	}
-	
 	// Crea un Algo42 en el escenario de la fábrica y con el equipo de la 
 	// misma, en la posición recibida. El mismo tiene una energía de 500, 
 	// un tamaño de 7, velocidad igual a 25 y un cañón láser. Su vuelo es en 
@@ -101,5 +85,19 @@ public class FabricaDeNaves {
 		
 	}
 	
+	public void setEquipoDeLaNave(Equipo nuevoEquipo){
+		
+	}
 	
+	public void setEscenario(Escenario nuevoEscenario){
+		
+	}
+	
+	public void setFabricaDeArmas(FabricaDeArmas nuevaFabricaDeArmas){
+		
+	}
+	
+	public void setFlotaEnemiga(Flota nuevaFlota){
+		
+	}	
 }

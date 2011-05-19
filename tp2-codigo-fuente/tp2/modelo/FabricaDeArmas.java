@@ -10,7 +10,7 @@ public class FabricaDeArmas {
 		
 	}
 	
-	public void cambiarEscenarioA(Escenario otroEscenario) {
+	private void cambiarEscenarioA(Escenario otroEscenario) {
 		
 	}
 	

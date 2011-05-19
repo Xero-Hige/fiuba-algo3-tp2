@@ -22,11 +22,11 @@ public class ChoqueDeObjetoEspacial {
 		/////////////////////////////////////////////////////////
 	}
 	
-	public void cambiarObjetoA(ObjetoEspacial nuevoObjeto) {
+	private void cambiarObjetoA(ObjetoEspacial nuevoObjeto) {
 		objeto = nuevoObjeto;
 	}
 	
-	public ObjetoEspacial obtenerObjeto() {
+	private ObjetoEspacial obtenerObjeto() {
 		return this.objeto;
 	}
 	

@@ -1,5 +1,6 @@
 package tp2.modelo.test;
 
+import java.awt.Dimension;
 import java.awt.Rectangle;
 
 import org.junit.*;
@@ -14,43 +15,43 @@ public class ChoqueDeObjetoEspacialTest{
 	private Escenario escenario;
 
 	@Before 
-	public void Arrange(){
-		escenario = new Escenario(new Rectangle());
+	public void arrange(){
+		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
 		objetoEspacial = new ObjetoEspacial(new Point(0,0),1,escenario);
-		comportamiento = objetoEspacial.ObtenerComportamiento();
+		comportamiento = objetoEspacial.obtenerComportamiento();
 	}
 	
 	@Test
-	public void TestSufrirChoqueDeBono(){
+	public void testSufrirChoqueDeBono(){
 	//Pedimos que el objeto no se destruya cuando sufra el choque
-	comportamiento.SufrirChoqueDeBono(new BonoDeEnergia(1));
-	Assert.assertFalse(objetoEspacial.EstaDestruido())
+	comportamiento.sufrirChoqueDeBono(new BonoDeEnergia(1));
+	Assert.assertFalse(objetoEspacial.estaDestruido())
 	}
 	
 	@Test
-	public void TestSufrirChoqueDeNaveCivil(){
+	public void testSufrirChoqueDeNaveCivil(){
 		//Pedimos que el objeto no se destruya cuando sufra el choque
-		comportamiento.SufrirChoqueDeNaveCivil(new NaveCivil(new Point(0,0),1,escenario,1,100);
-		Assert.assertFalse(objetoEspacial.EstaDestruido())
+		comportamiento.sufrirChoqueDeNaveCivil(new NaveCivil(new Point(0,0),1,escenario,1,100);
+		Assert.assertFalse(objetoEspacial.estaDestruido())
 	}
 	
 	@Test
-	public void TestSufrirChoqueDeNaveMilitar(){
+	public void testSufrirChoqueDeNaveMilitar(){
 		//Pedimos que el objeto no se destruya cuando sufra el choque
-		comportamiento.SufrirChoqueDeNaveMilitar(new NaveMilitar(new Point(0,0),1,escenario,1,100);
-		Assert.assertFalse(objetoEspacial.EstaDestruido());
+		comportamiento.sufrirChoqueDeNaveMilitar(new NaveMilitar(new Point(0,0),1,escenario,1,100);
+		Assert.assertFalse(objetoEspacial.estaDestruido());
 	}
 
 	@Test
-	public void TestSufrirChoqueDeObjetoEspacial(){
+	public void testSufrirChoqueDeObjetoEspacial(){
 		//Pedimos que el objeto no se destruya cuando sufra el choque
-		comportamiento.SufrirChoqueDeObjetoEspacial(new ObjetoEspacial(new Point(0,0),1,escenario);
-		Assert.assertFalse(objetoEspacial.EstaDestruido());
+		comportamiento.sufrirChoqueDeObjetoEspacial(new ObjetoEspacial(new Point(0,0),1,escenario);
+		Assert.assertFalse(objetoEspacial.estaDestruido());
 	}
 
 	@Test
-	public void TestSufrirChoqueDeProyectil(){
+	public void testSufrirChoqueDeProyectil(){
 		//Pedimos que el objeto no se destruya cuando sufra el choque
-		comportamiento.SufrirChoqueDeProyectil(new Proyectil(new Point(0,0),0.1,0,10);
-		Assert.assertFalse(objetoEspacial.EstaDestruido());
+		comportamiento.sufrirChoqueDeProyectil(new Proyectil(new Point(0,0),0.1,0,10);
+		Assert.assertFalse(objetoEspacial.estaDestruido());
 	}

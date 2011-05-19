@@ -1,5 +1,6 @@
 package tp2.modelo.test;
 
+import java.awt.Dimension;
 import java.awt.Rectangle;
 
 import org.junit.*;
@@ -16,21 +17,21 @@ public class ChoqueNaveMilitarControladaTest {
 	private Comportamiento comportamiento;
 	
 	@Before
-	public void Arrange(){
-		escenario = new Escenario(new Rectangle());
+	public void arrange(){
+		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
 		nave = new NaveMilitarControlada(new Point(0,0),1,escenario,1,100);
 		naveEnemiga = NaveEnemiga(new Point(0,0),1,escenario,1,30);
 		bono = new BonoDeEnergia(1);
-		naveEnemiga.CambiarBonoA(bono);
-		nave.RecibirDanio(50);
-		comportamiento = nave.ObtenerComportamiento();
+		naveEnemiga.cambiarBonoA(bono);
+		nave.recibirDanio(50);
+		comportamiento = nave.obtenerComportamiento();
 	}
 	
 	@Test
-	public void TestSufrirChoqueDeBono(){
+	public void testSufrirChoqueDeBono(){
 	//Pedimos que al sufrir el choque del bono, la nave recupere los 30 puntos de energía del enemigo
-	comportamiento.SufrirChoqueDeBono(bono);
-	Assert.assertTrue(nave.ObtenerEnergia() = 80);
+	comportamiento.sufrirChoqueDeBono(bono);
+	Assert.assertTrue(nave.obtenerEnergia() = 80);
 	}
 
 }

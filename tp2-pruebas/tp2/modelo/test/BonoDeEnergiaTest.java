@@ -1,5 +1,6 @@
 package tp2.modelo.test;
 
+import java.awt.Dimension;
 import java.awt.Rectangle;
 
 import org.junit.*;
@@ -15,20 +16,20 @@ public class BonoDeEnergiaTest {
 	private Escenario escenario;	
 
 	@Before 
-	public void Arrange(){
-		escenario = new Escenario(new Rectangle());
+	public void arrange(){
+		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
 		nave = new NaveEnemiga(new Point(243,71),1,escenario,1,50);
 		naveReceptora = new NaveMilitarControlada((2,271),1,escenario,1,200);
-		naveReceptora.RecibirDanio(100);
+		naveReceptora.recibirDanio(100);
 		bono = new BonoDeEnergia(1);
-		nave.CambiarBonoA(bono);
+		nave.cambiarBonoA(bono);
 	}
 	
 	@Test
-	public void TestEntregarBonoA(){
+	public void testEntregarBonoA(){
 		//Le damos el bono a la nave receptora, y vemos si efectivamente recibió la energía
-		bono.EntregarBonoA(naveReceptora);
-		Assert.assertTrue(naveReceptora.ObtenerEnergia() = 150);
+		bono.entregarBonoA(naveReceptora);
+		Assert.assertTrue(naveReceptora.obtenerEnergia() = 150);
 	}
 
 }

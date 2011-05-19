@@ -1,4 +1,6 @@
 package tp2.modelo.test;
+
+import java.awt.Dimension;
 import java.awt.Rectangle;
 
 import org.junit.*;
@@ -14,20 +16,20 @@ public class ArmaLimitadaTest {
 
 	//Idem variables
 	@Before 
-	public void Arrange(){
-		escenario = new Escenario(new Rectangle());
+	public void arrange(){
+		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
 		arma = new ArmaLimitada(new Point(0,0),escenario,100,1,new Point(4,3),"arma");
-		arma.CambiarModeloDeProyectilA(new Proyectil(new Point(0,0),0.1,0,10));
-		arma.CargarCon(15);
+		arma.cambiarModeloDeProyectilA(new Proyectil(new Point(0,0),0.1,0,10));
+		arma.cargarCon(15);
 	}
 
 	@Test
-	public void TestDisparar(){
+	public void testDisparar(){
 		//Hay que probar que al disparar la carga vaya disminuyendo
 		int i = 0;
 		while (i<8){
-			arma.Disparar();
+			arma.disparar();
 			i++;
 		}
-		Assert.assertEquals(7,arma.ObtenerCarga());
+		Assert.assertEquals(7,arma.obtenerCarga());
 	}

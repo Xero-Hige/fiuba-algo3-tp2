@@ -10,7 +10,7 @@ import org.junit.*;
 import tp2.modelo.*;
 import tp2.auxiliares.*;
 
-public class ObjetoEspacialPrueba {
+public class ObjetoEspacialTest {
 
 	private ObjetoEspacial objeto1;
 	private ObjetoEspacial objeto2;

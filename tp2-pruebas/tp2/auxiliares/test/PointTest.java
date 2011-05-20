@@ -6,7 +6,7 @@ import tp2.auxiliares.Point;
 
 import junit.framework.TestCase;
 
-public class PointPrueba extends TestCase{
+public class PointTest extends TestCase{
 	
 	@Test
 	public void testSumarCon(){

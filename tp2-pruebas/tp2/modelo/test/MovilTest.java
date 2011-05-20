@@ -12,7 +12,7 @@ import tp2.modelo.Escenario;
 import tp2.modelo.Movil;
 import tp2.modelo.Nave;
 
-public class MovilPrueba {
+public class MovilTest {
 
 	private Escenario escenario;
 	private Movil movil, aliado, enemigo;

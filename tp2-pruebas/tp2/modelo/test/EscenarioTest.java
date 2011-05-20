@@ -21,12 +21,12 @@ public class EscenarioTest {
 	public void testAgregarObjeto(){
 
 		Escenario escenario2 = new Escenario(new Rectangle(new Dimension(2,1)));
-		ObjetoEspacial objeto = new ObjetoEspacial(new Point(0,0),1,escenario);
+		ObjetoEspacial objeto = new Nave(new Point(0,0),1,escenario, 1, 1);
 		
 		//Agregamos el objeto al escenario
 		escenario.agregarObjeto(objeto);
 		//Probamos agregarlo al escenario incorrecto
-		Assert.fail(escenario2.agregarObjeto(objeto)) //raise: ObjetoDesconocido
+		Assert.fail(escenario2.agregarObjeto(objeto)); //raise: ObjetoDesconocido
 	}
 
 	@Test

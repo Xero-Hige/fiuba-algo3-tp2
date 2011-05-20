@@ -9,9 +9,9 @@ public abstract class ObjetoEspacial {
 	private Escenario escenario;
 	private boolean destruido;
 
+	// Inicializa el objeto con la posición, tamaño y escenario recibidos.
+	// Lo agrega al escenario.
 	public ObjetoEspacial(Point posicion, double tamanio, Escenario escenario) {
-		// Inicializa el objeto con la posición, tamaño y escenario recibidos.
-		// Lo agrega al escenario.
 		this.posicion = posicion;
 		this.tamanio = tamanio;
 		this.escenario = escenario;
@@ -35,10 +35,9 @@ public abstract class ObjetoEspacial {
 		this.posicion = posicion;
 	}
 
+	// Devuelve true si el objeto recibido está superpuesto con el receptor
+	// del mensaje. Sino false.
 	public boolean estaSuperpuestoCon(ObjetoEspacial objetoEspacial) {
-		// Devuelve true si el objeto recibido está superpuesto con el receptor
-		// del mensaje. Sino false.
-
 		double distanciaMaxima, distancia;
 		distanciaMaxima = this.getTamanio() + objetoEspacial.getTamanio();
 		distancia = this.getPosicion().distance(objetoEspacial.getPosicion());
@@ -52,8 +51,8 @@ public abstract class ObjetoEspacial {
 	// realizar nada más.
 	public abstract void actuarDurante(double tiempo);
 
+	// Destruye al objeto y le impide realizar acciones en el futuro.
 	public void destruir() {
-		// Destruye al objeto y le impide realizar acciones en el futuro.
 		destruido = true;
 	}
 

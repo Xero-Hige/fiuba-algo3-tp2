@@ -7,10 +7,10 @@ public abstract class Movil extends ObjetoEspacial {
 	private double velocidad;
 	private String equipo;
 
+	// Inicializa el móvil con la posición, tamaño, escenario y velocidad
+	// recibidos. Lo agrega al escenario.
 	public Movil(Point posicion, double tamanio, Escenario escenario, double velocidad) {
 		super(posicion, tamanio, escenario);
-		// Inicializa el móvil con la posición, tamaño, escenario y velocidad
-		// recibidos. Lo agrega al escenario.
 		this.velocidad = velocidad;
 		this.equipo = null;
 	}
@@ -31,8 +31,8 @@ public abstract class Movil extends ObjetoEspacial {
 		this.equipo = equipo;
 	}
 
+	// Devuelve si el móvil pertenece al mismo equipo del recibido.
 	public Boolean esAliadoDe(Movil movil) {
-		// Devuelve si el móvil pertenece al mismo equipo del recibido.
 		if (this.getEquipo() == null)
 			return false;
 		return this.getEquipo() == movil.getEquipo();
@@ -41,9 +41,9 @@ public abstract class Movil extends ObjetoEspacial {
 	// Mueve al móvil de acuerdo al tiempo recibido.
 	public abstract void moverDurante(double tiempo);
 
+	// Recibe el desplazamiento y mueve al móvil de acuerdo al mismo,
+	// respecto a su posición actual.
 	public void desplazarEn(Point desplazamiento) {
-		// Recibe el desplazamiento y mueve al móvil de acuerdo al mismo,
-		// respecto a su posición actual.
 		this.setPosicion(this.getPosicion().sumarCon(desplazamiento));
 	}
 

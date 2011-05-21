@@ -1,6 +1,5 @@
 package tp2.modelo;
 
-
 // Clase abstracta. Define cómo debe comportarse un bono, pero esta clase no tiene 
 // ningún método concreto (salvo getters y setters). Cada tipo de bono debe heredar 
 // de esta clase y definir el comportamiento del bono al usarse.
@@ -8,16 +7,13 @@ public abstract class Bono extends ObjetoVolador {
 
 	private Nave naveDuenia;
 	
+	// Constructor
+	// Inicializa el bono con el tamaño recibido.
 	public Bono(double tamanio) {
-		super(tamanio);
-	}
-	
-	// Verifica que se haya llamado al método inicializarCon: un objeto distinto de 
-	// nil. Si no se hizo, se levanta una excepción.
-	private void verificarInicializacion() {
+		super(null, tamanio, null, 0);
 		
 	}
-	
+		
 	// Hace actuar al objeto volador en el escenario durante el tiempo específicado, 
 	// haciendo que el mismo vuele durante ese tiempo. Si no tiene escenario o vuelo,
 	// se levanta una excepción.

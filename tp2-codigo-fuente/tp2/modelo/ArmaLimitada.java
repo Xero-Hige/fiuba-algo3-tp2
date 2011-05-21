@@ -14,6 +14,7 @@ public class ArmaLimitada extends Arma {
 	// frecuencia de disparo, dirección de disparo y la identificación recibidos. 
 	// La carga inicial es cero.
 	public ArmaLimitada (Point posicion, Escenario escenario, int velocidad, int frecuencia, Point direccion, String id) {
+		
 		super(posicion, escenario, velocidad, frecuencia, direccion, id);
 	}
 	
@@ -40,7 +41,7 @@ public class ArmaLimitada extends Arma {
 	// al escenario en el cual se encuentra. La carga disminuye en una unidad.
 	// Se supone que este método protegido no se llama si la carga es cero.
 	public Proyectil disparar() {
-		
+		return null;
 	}
 	
 	public int getCarga() {

@@ -32,6 +32,6 @@ public class ArmaDirigida extends ArmaLimitada {
 	// la flota objetivo (si es que queda alguna sin destruir) y agrega el proyectil
 	// al escenario en el cual se encuentra. Devuelve el proyectil disparado.
 	public Proyectil disparar() {
-		
+		return null;
 	}
 }

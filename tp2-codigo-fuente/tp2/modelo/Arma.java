@@ -18,8 +18,11 @@ public class Arma extends Movil {
 	// Constructor
 	// Inicializa el arma con la posición, escenario, velocidad de disparo, 
 	// frecuencia de disparo, dirección de disparo y la identificación recibidos.
-	public Arma(Point posicion, Escenario escenario, int velocidad, int frecuencia, Point direccion, String id) {
-		super(posicion, escenario, velocidad, frecuencia, direccion, id);
+	public Arma(Point posicion, Escenario escenario, int velocidad, int frecuencia, Point direccion, String id) {	
+		super(posicion, 0, escenario, velocidad);
+		this.frecuenciaDeDisparo = frecuencia;
+		this.direccionDeDisparo = direccion;
+		this.identificacion = id;
 	}
 	
 	@Override
@@ -42,7 +45,7 @@ public class Arma extends Movil {
 	// Dispara el arma en la dirección hacia la cual apunta, y agrega el proyectil 
 	// al escenario en el cual se encuentra. Devuelve el proyectil disparado.
 	public Proyectil disparar() {
-	
+		return null;
 	}
 	
 	public boolean estaDisparando() {

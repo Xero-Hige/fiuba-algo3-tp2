@@ -19,7 +19,7 @@ public class FabricaDeArmas {
 	// de disparo 5. Devuelve el cañón, apuntando por defecto hacia abajo y 
 	// posicionado en el origen.
 	public Arma crearCanionLaser() {
-		
+		return null;
 	}
 	
 	// Crea un lanzacohetes (identificación: LanzaCohetes) que tiene carga 
@@ -27,7 +27,7 @@ public class FabricaDeArmas {
 	// proyectil 50. Devuelve el lanzacohetes, apuntando por defecto hacia 
 	// abajo y posicionada en el origen.
 	public ArmaLimitada crearLanzaCohetes() {
-		
+		return null;
 	}
 	
 	// Crea un lanzatorpedos (identificación: LanzaTorpedos) que tiene carga 
@@ -37,6 +37,6 @@ public class FabricaDeArmas {
 	// el mismo persiga a una nave de esa flota. Devuelve el lanzatorpedos, 
 	// apuntando por defecto hacia abajo.
 	public ArmaDirigida crearLanzaTorpedos() {
-		
+		return null;
 	}
 }

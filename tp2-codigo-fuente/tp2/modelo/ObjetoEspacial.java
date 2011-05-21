@@ -4,11 +4,11 @@ import tp2.auxiliares.Point;
 
 public abstract class ObjetoEspacial {
 
-	private Point posicion;
-	private double tamanio;
-	private Escenario escenario;
-	private boolean destruido;
-	private ChoqueDeObjetoEspacial comportamientoAlChocar;
+	protected Point posicion;
+	protected double tamanio;
+	protected Escenario escenario;
+	protected boolean destruido;
+	protected ChoqueDeObjetoEspacial comportamientoAlChocar;
 
 
 	// Constructor

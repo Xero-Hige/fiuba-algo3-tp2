@@ -25,4 +25,9 @@ public abstract class ObjetoVolador extends Movil {
 		return this.vuelo;
 	}
 
+	// Asigna un nuevo Vuelo al objeto volador. De ahora en más, el objeto va a 
+	// volar de acuerdo a dicho vuelo en cada acción que realice.
+	public void setVuelo(Vuelo nuevoVuelo) {
+		
+	}
 }

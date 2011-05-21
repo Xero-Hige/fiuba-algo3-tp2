@@ -42,11 +42,11 @@ public class Arma extends Movil {
 	// Dispara el arma en la dirección hacia la cual apunta, y agrega el proyectil 
 	// al escenario en el cual se encuentra. Devuelve el proyectil disparado.
 	public Proyectil disparar() {
-		
+	
 	}
 	
 	public boolean estaDisparando() {
-		
+		return this.disparando;
 	}
 	
 	// Acciona el arma para que esta empiece a disparar.
@@ -71,7 +71,7 @@ public class Arma extends Movil {
 	}
 
 	public Point getDireccionDeDisparo() {
-		
+		return this.direccionDeDisparo;
 	}
 	
 	// Cambia la dirección de disparo, que no debe ser nula.
@@ -80,7 +80,7 @@ public class Arma extends Movil {
 	}
 	
 	public int getFrecuenciaDeDisparo() {
-		
+		return this.frecuenciaDeDisparo;
 	}
 	
 	// Cambia la frecuencia de disparo, que debe ser mayor a cero.
@@ -89,7 +89,7 @@ public class Arma extends Movil {
 	}
 	
 	public String getIdentificacion() {
-		
+		return this.identificacion;
 	}
 	
 	// Asigna una identificación comparable al arma. Si dos armas tienen la misma 
@@ -99,7 +99,7 @@ public class Arma extends Movil {
 	}
 	
 	public Proyectil getModeloDeProyectil() {
-		
+		return this.modeloDeProyectil;
 	}
 	
 	// Asigna una copia del modelo de proyectil al arma. Dicho modelo no debe tener 
@@ -109,7 +109,7 @@ public class Arma extends Movil {
 	}
 	
 	public Nave getNaveDuenia() {
-		
+		return this.naveDuenia;
 	}
 	
 	// Asigna la nave dueña al arma. Cada vez que actúe, la misma será puesta en la 
@@ -119,7 +119,7 @@ public class Arma extends Movil {
 	}
 	
 	public int getVelocidadDeDisparo() {
-		
+		return this.velocidadDeDisparo;
 	}
 	
 	// Cambia la velocidad de disparo, que debe ser mayor a cero.

@@ -11,6 +11,7 @@ public class Flota {
 	private List<NaveMilitar> navesMilitares;
 	
 	// Constructor
+	// Inicializa una flota con la nave guía recibida.
 	public Flota(NaveGuia naveGuia){
 		
 	}

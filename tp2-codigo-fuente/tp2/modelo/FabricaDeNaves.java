@@ -85,7 +85,7 @@ public class FabricaDeNaves {
 		return null;
 	}
 	
-	protected void setEquipoDeLaNave(String nuevoEquipo){
+	public void setEquipoDeLaNave(String nuevoEquipo){
 
 	}
 	

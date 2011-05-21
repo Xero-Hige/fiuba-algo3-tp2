@@ -62,5 +62,4 @@ public class Point extends Point2D {
 	public double norma(){
 		return this.distance(0, 0);
 	}
-
 }

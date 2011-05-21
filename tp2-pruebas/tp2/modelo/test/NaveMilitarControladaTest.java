@@ -21,7 +21,7 @@ public class NaveMilitarControladaTest {
 		nave = new NaveMilitarControlada(new Point(5,5),1,escenario,1,100);
 		nave.setVelocidad(10);
 		arma1 = new Arma(new Point(10,1),escenario,100,1,new Point(4,3),"arma1");
-		arma1 = new Arma(new Point(10,1),escenario,100,1,new Point(4,3),"arma2");
+		arma2 = new Arma(new Point(10,1),escenario,100,1,new Point(4,3),"arma2");
 		arma1.setModeloDeProyectil( new Proyectil(new Point(0,0),0.1,0,10));
 		arma2.setModeloDeProyectil( new Proyectil(new Point(0,0),0.1,0,10));
 		nave.agregarArma(arma1);

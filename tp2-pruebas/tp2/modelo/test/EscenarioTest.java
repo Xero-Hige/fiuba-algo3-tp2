@@ -25,8 +25,15 @@ public class EscenarioTest {
 		
 		//Agregamos el objeto al escenario
 		escenario.agregarObjeto(objeto);
-		//Probamos agregarlo al escenario incorrecto
-		Assert.fail(escenario2.agregarObjeto(objeto)); //raise: ObjetoDesconocido
+		//Probamos agregarlo al escenario incorrecto		
+		try {
+			escenario2.agregarObjeto(objeto);
+			Assert.fail("Prueba Escenario fallo.");
+		} 
+		catch (IndexOutOfBoundsException e) {
+			Assert.assertTrue(true);
+		}
+
 	}
 
 	@Test
@@ -34,9 +41,10 @@ public class EscenarioTest {
 		//Ponemos en el escenario una nave preparada para volar
 		Nave nave = new Nave (new Point(23,87),1,escenario,3,100);
 		Vuelo vuelo = new VueloEnLineaRecta(nave,new Point(1,0));
-		nave.cambiarVueloA(vuelo);
+		nave.setVuelo(vuelo);
 		
 		//Avanzamos el tiempo del escenario y verificamos que la nave se haya movido
 		escenario.avanzarTiempoEn(1);
-		Assert.assertTrue(nave.getPosicion().distance(new Point(26,87)) <= 1E-10);
+		Assert.assertTrue(nave.getPosicion().distance(new Point(26,87)) <= (1E-10));
+	}
 }

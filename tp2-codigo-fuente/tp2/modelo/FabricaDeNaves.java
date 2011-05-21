@@ -63,7 +63,7 @@ public class FabricaDeNaves {
 	// de 6, velocidad igual a 10 y un lanzatorpedos no dirigido. Su vuelo es en V 
 	// hacia abajo. Su puntuación por destrucción es de 30. Devuelve la colección de 
 	// los cazas.
-	public NaveEnemiga crearGrupoCazaEn(Point unaPosicion){
+	public NaveEnemiga[] crearGrupoCazaEn(Point unaPosicion){
 		return null;
 	}
 	

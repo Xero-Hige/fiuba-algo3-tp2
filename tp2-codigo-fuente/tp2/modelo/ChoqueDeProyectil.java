@@ -4,14 +4,29 @@ package tp2.modelo;
 // frente a los demás objetos del espacio.
 public class ChoqueDeProyectil extends ChoqueDeObjetoEspacial {
 
-	// Constructor
+	// Inicializa el comportamiento del proyectil recibido.
 	public ChoqueDeProyectil(Proyectil unProyectil) {
-		super(unProyectil);
+		super((ObjetoEspacial)unProyectil);
 	}
 	
 	@Override
 	// Un proyectil se destruye cuando choca con una nave.
 	public void sufrirChoqueDeNave(Nave unaNave) {
-		
+		Proyectil objeto = (Proyectil) this.getObjeto();
+		if(!objeto.esAliadoDe(unaNave)){
+			objeto.destruir();
+		}
+	}
+
+	@Override
+	// Un proyectil se destruye cuando choca con una nave civil.
+	public void sufrirChoqueDeNaveCivil(NaveCivil unaNaveCivil) {
+		this.sufrirChoqueDeNave((Nave) unaNaveCivil);
+	}
+
+	@Override
+	// Un proyectil se destruye cuando choca con una nave militar.
+	public void sufrirChoqueDeNaveMilitar(NaveMilitar unaNaveMilitar) {
+		this.sufrirChoqueDeNave((Nave) unaNaveMilitar);
 	}
 }

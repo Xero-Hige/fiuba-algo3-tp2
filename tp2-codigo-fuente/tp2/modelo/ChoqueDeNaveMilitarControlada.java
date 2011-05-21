@@ -4,14 +4,14 @@ package tp2.modelo;
 // en un choque frente a los demás objetos del espacio.
 public class ChoqueDeNaveMilitarControlada extends ChoqueDeNave {
 
-	// Constructor
+	// Inicializa el comportamiento de la nave recibida.
 	public ChoqueDeNaveMilitarControlada(NaveMilitarControlada unaNaveMilitarControlada) {
-		super(unaNaveMilitarControlada);
+		super((Nave) unaNaveMilitarControlada);
 	}
 	
 	@Override
 	// Una nave militar controlada puede recolectar los bonos al chocar con ellos.
 	public void sufrirChoqueDeBono(Bono unBono) {
-		
+		unBono.entregarBonoA((Nave) this.getObjeto());
 	}
 }

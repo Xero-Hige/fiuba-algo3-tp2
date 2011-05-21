@@ -4,21 +4,27 @@ package tp2.modelo;
 // choque frente a los demás objetos del espacio.
 public class ChoqueDeNave extends ChoqueDeObjetoEspacial {
 	
-	// Constructor
+	// Inicializa el comportamiento de la nave recibida.
 	public ChoqueDeNave(Nave unaNave) {
-		super(unaNave);
+		super((ObjetoEspacial) unaNave);
 	}
 	
 	@Override
-	// Una nave civil se destruye cuando choca con una nave militar que no es aliada.
+	// Una nave se destruye cuando choca con una nave militar que no es aliada.
 	public void sufrirChoqueDeNaveMilitar(NaveMilitar unaNaveMilitar) {
-
+		Nave objeto = (Nave) this.getObjeto();
+		if(!objeto.esAliadoDe(unaNaveMilitar)){
+			objeto.destruir();
+		}
 	}
 	
 	@Override
-	// Una nave civil recibe el daño del proyectil con el que choca salvo que sea aliado.
+	// Una nave recibe el daño del proyectil con el que choca salvo que sea aliado.
 	public void sufrirChoqueDeProyectil(Proyectil unProyectil) {
-		
+		Nave objeto = (Nave) this.getObjeto();
+		if(!objeto.esAliadoDe(unProyectil)){
+			objeto.recibirDanio(unProyectil.getDanio());
+		}
 	}
 	
 }

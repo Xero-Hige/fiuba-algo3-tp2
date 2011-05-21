@@ -1,5 +1,7 @@
 package tp2.modelo;
 
+import tp2.modelo.excepciones.ComposicionIncompleta;
+
 
 // Esta clase define el comportamiento receptor de un objeto espacial frente a los 
 // demás. Cada método indica cómo se ve afectado el objeto espacial al chocar con
@@ -15,13 +17,12 @@ public class ChoqueDeObjetoEspacial {
 
 	private ObjetoEspacial objeto;
 	
-	// Constructor
+	// Inicializa el comportamiento del objeto recibido.
 	public ChoqueDeObjetoEspacial(ObjetoEspacial unObjetoEspacial) {
+		if(unObjetoEspacial == null){
+			throw new ComposicionIncompleta("El comportamiento de choque no fue inicializado correctamente.");
+		}
 		this.objeto = unObjetoEspacial;
-	}
-	
-	private ObjetoEspacial obtenerObjeto() {
-		return this.objeto;
 	}
 	
 	// Por defecto, a un objeto espacial no le pasa nada cuando choca con un bono.
@@ -52,6 +53,10 @@ public class ChoqueDeObjetoEspacial {
 	// Por defecto, a un objeto espacial no le pasa nada cuando choca con un proyectil.
 	public void sufrirChoqueDeProyectil(Proyectil unProyectil) {
 		return;
+	}
+
+	protected ObjetoEspacial getObjeto() {
+		return objeto;
 	}
 	
 }

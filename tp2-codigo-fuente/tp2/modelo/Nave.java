@@ -10,7 +10,6 @@ public class Nave extends ObjetoVolador {
 	// escenario, velocidad y energía recibidos. La agrega al escenario.
 	public Nave(Point posicion, double tamanio, Escenario escenario, double velocidad, double energia) {
 		super(posicion, tamanio, escenario, velocidad);
-
 		this.energia = energia;
 	}
 
@@ -20,5 +19,13 @@ public class Nave extends ObjetoVolador {
 	// levanta una excepción.
 	public void actuarDurante(double unTiempo) {
 		
+	}
+
+	// Disminuye la energía de la nave según el daño recibido. Si la energía llega a cero, la nave se destruye.
+	public void recibirDanio(double unDanio) {
+		this.energia -= unDanio;
+		if(this.energia <= 0){
+			this.destruir();
+		}
 	}
 }

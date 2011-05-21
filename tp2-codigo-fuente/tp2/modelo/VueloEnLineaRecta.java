@@ -36,9 +36,5 @@ public class VueloEnLineaRecta extends Vuelo {
 		this.aumentarTrayectoriaEn(tiempo * velocidad);
 		return (this.getDireccion().multiplicar(tiempo * velocidad));
 	}
-
-	public Point getDireccion() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }

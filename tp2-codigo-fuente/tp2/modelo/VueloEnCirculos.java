@@ -61,4 +61,5 @@ public class VueloEnCirculos extends Vuelo {
 	public double trayectoriaPorPeriodo(){
 		return 2 * Math.PI * this.radio;
 	}
+
 }

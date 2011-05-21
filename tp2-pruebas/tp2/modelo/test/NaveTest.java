@@ -24,7 +24,7 @@ public class NaveTest {
 	public void testRecibirDanio1(){
 		//Vemos si le podemos hacer 30 de daño
 		nave.recibirDanio(30);
-		Assert.assertTrue(nave.getEnergia() == 20);
+		Assert.assertEquals(nave.getEnergia(), 20, 1e-10);
 	}
 	
 	
@@ -44,21 +44,20 @@ public class NaveTest {
 	
 	@Test
 	public void testRecuperarEnergiaEn1(){
-		new Nave(new Point(0,0),1,escenario,1,100);
+		nave = new Nave(new Point(0,0),1,escenario,1,100);
 		nave.recibirDanio(50);
-		
+		Assert.assertEquals(50, nave.getEnergia(), 1e-10);
 		//Vemos si le podemos recuperar 30 de daño
 		nave.recuperarEnergiaEn(30);
-		Assert.assertTrue(nave.getEnergia() == 80);
+		Assert.assertEquals(80, nave.getEnergia(), 1e-10);
 	}
 	
 	@Test
 	public void testRecuperarEnergiaEn2(){
-		new Nave(new Point(0,0),1,escenario,1,100);
+		nave = new Nave(new Point(0,0),1,escenario,1,100);
 		nave.recibirDanio(50);
-		
 		//Vemos si le podemos recuperar 30 de daño
 		nave.recuperarEnergiaEn(1000);
-		Assert.assertTrue(nave.getEnergia() == 100);
+		Assert.assertEquals(100, nave.getEnergia(), 1e-10);
 	}
 }

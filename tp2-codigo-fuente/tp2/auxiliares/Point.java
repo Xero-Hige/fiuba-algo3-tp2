@@ -40,7 +40,7 @@ public class Point extends Point2D {
 		return Math.atan2(this.getY(), this.getX());
 	}
 	// Rota el punto respecto al centro y ángulo (en radianes) recibido.
-	public void rotarEn(double angulo, Point centro) {
+	public Point rotarEn(double angulo, Point centro) {
 		Point relativo = this.sumarCon(centro.getOpuesto());
 		double x, y, norma;
 		norma = relativo.norma();
@@ -48,6 +48,7 @@ public class Point extends Point2D {
 		x = Math.cos(angulo) * norma;
 		y = Math.sin(angulo) * norma;
 		this.setLocation(centro.sumarCon(new Point(x, y)));
+		return this;
 	}
 
 	public Point multiplicar(double multiplicador) {
@@ -62,4 +63,5 @@ public class Point extends Point2D {
 	public double norma(){
 		return this.distance(0, 0);
 	}
+	
 }

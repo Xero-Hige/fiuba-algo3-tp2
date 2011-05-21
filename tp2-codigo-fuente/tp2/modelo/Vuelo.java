@@ -35,6 +35,10 @@ public abstract class Vuelo {
 		return trayectoriaDeVuelo;
 	}
 
+	protected void setTrayectoriaDeVuelo(double trayectoriaDeVuelo) {
+		this.trayectoriaDeVuelo = trayectoriaDeVuelo;
+	}
+
 	// Inicia el vuelo con su origen en el lugar actual donde está posicionado
 	// el objeto. Si el vuelo ya fue iniciado, se levanta una excepción.
 	public void iniciar(){

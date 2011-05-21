@@ -29,7 +29,30 @@ public class Nave extends ObjetoVolador {
 		}
 	}
 	
+	// Aumenta la energia de la nave en la cantidad recibida (limitándola por 
+	// la máxima energía que tiene). Dicha cantidad debe ser mayor a cero.
+	public void recuperarEnergiaEn(double unTiempo) {
+		
+	}
+	
+	@Override
+	// Hace sufrir al objeto recibido los efectos de chocar una nave, según su 
+	// comportamiento.
+	public void responderChoqueDe(ObjetoEspacial unObjetoEspacial) {
+		
+	}
+	
 	public double getEnergia() {
+		return 0;
+	}
+	
+	// Cambia el valor de la energía y máxima energía de la nave al valor 
+	// recibido. La energía debe ser mayor a cero.
+	public void setEnergia(double nuevaEnergia) {
+		
+	}
+	
+	public double getMaxEnergia() {
 		return 0;
 	}
 }

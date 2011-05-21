@@ -1,7 +1,5 @@
 package tp2.modelo;
 
-import java.util.EmptyStackException;
-
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.VueloIniciado;
 
@@ -51,7 +49,7 @@ public abstract class Vuelo {
 	// nave en dicho intervalo y devuelve el mismo. En cada reimplementación, si
 	// el vuelo no ha iniciado, debe levantarse una excepción del tipo
 	// VueloNoIniciado.
-	public abstract void avanzarDurante(double tiempo);
+	public abstract Point avanzarDurante(double tiempo);
 
 	// Aumenta el valor de la trayectoria de vuelo de acuerdo al valor, que debe
 	// ser mayor a cero, recibido.

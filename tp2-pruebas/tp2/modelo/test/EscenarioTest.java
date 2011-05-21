@@ -38,5 +38,5 @@ public class EscenarioTest {
 		
 		//Avanzamos el tiempo del escenario y verificamos que la nave se haya movido
 		escenario.avanzarTiempoEn(1);
-		Assert.assertTrue(nave.obtenerPosicion().distancia(new Point(26,87)) <= 1E-10);
+		Assert.assertTrue(nave.getPosicion().distance(new Point(26,87)) <= 1E-10);
 }

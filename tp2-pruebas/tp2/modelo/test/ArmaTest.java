@@ -14,13 +14,13 @@ public class ArmaTest {
 	private Arma arma;
 	private Proyectil proyectil;
 	private Proyectil proyectil2;
-	private Posicion posicionInicial;
+	private Point posicionInicial;
 	
 	@Before 
 	public void arrange(){
 		escenario = new Escenario(new Rectangle (new Dimension(1,1)));
 		arma = new Arma(new Point(10,1),escenario,100,1,new Point(4,3),"arma");
-		arma.cambiarModeloDeProyectilA(new Proyectil(new Point(0,0),0.1,0,10);
+		arma.setModeloDeProyectil(new Proyectil(new Point(0,0),0.1,0,10));
 	}
 	
 	@Test
@@ -28,11 +28,11 @@ public class ArmaTest {
 		
 		//Disparamos y verificamos que el proyectil siga la ruta correcta
 		proyectil = arma.disparar();
-		posicionInicial = proyectil.obtenerPosicion();
+		posicionInicial = proyectil.getPosicion();
 		proyectil.moverDurante(1); //Se desplazó en (80 @ 60)
 		
-		Assert.assertTrue((posicionInicial.distancia(new Point(10,1)) < 1E-10));
-		Assert.assertTrue((proyectil.obtenerPosicion().distancia(new Point(90,61)) < 1E-10);
+		Assert.assertTrue((posicionInicial.distance(new Point(10,1)) < 1E-10));
+		Assert.assertTrue((proyectil.getPosicion().distance(new Point(90,61)) < 1E-10));
 	}
 
 	@Test
@@ -47,16 +47,16 @@ public class ArmaTest {
 	
 	@Test
 	public void testMoverDurante(){
-		private Nave nave = new NaveMilitar(new Point(56,71),1,escenario,1,100);
+		NaveMilitar nave = new NaveMilitar(new Point(56,71),1,escenario,1,100);
 		arma = new Arma(new Point(5,5),escenario,100,1,new Point(4,3),"arma");
 		//Intentamos mover el arma sin que esta pertenezca a ninguna nave
 		arma.moverDurante(10);
-		Assert.assertTrue(arma.obtenerPosicion().distancia(new Point(5,5)) <= 1E-10);
+		Assert.assertTrue(arma.getPosicion().distance(new Point(5,5)) <= 1E-10);
 		
 		//Ahora le asignamos una nave y la volvemos a mover
 		
-		arma.cambiarDuenoA(nave);
+		arma.setNaveDuenia(nave);
 		arma.moverDurante(10);
-		Assert.assertTrue(arma.obtenerPosicion().distancia(new Point(56,71)) <= 1E-10);
+		Assert.assertTrue(arma.getPosicion().distance(new Point(56,71)) <= 1E-10);
 		}
 }

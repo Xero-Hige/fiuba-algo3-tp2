@@ -10,7 +10,7 @@ import tp2.auxiliares.*;
 
 public class ChoqueDeProyectilTest {
 	private Proyectil proyectil;
-	private Comportamiento comportamiento;
+	private ChoqueDeObjetoEspacial comportamiento;
 	private Nave aliado;
 	private Nave enemigo;
 	private Escenario escenario;
@@ -19,24 +19,25 @@ public class ChoqueDeProyectilTest {
 	public void arrenge(){
 		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
 		proyectil = new Proyectil(new Point(0,0),0.1,0,10);
-		proyectil.CambiarEquipoA("aliados");
+		proyectil.setEquipo("aliados");
 		aliado = new NaveMilitar (new Point(0,0),1,escenario,1,100);
-		aliado.CambiarEquipoA("aliados");
+		aliado.setEquipo("aliados");
 		enemigo = new NaveMilitar (new Point(0,0),1,escenario,1,100);
-		enemigo.CambiarEquipoA("enemigos");
-		comportamiento = proyectil.ObtenerComportamiento();
+		enemigo.setEquipo("enemigos");
+		comportamiento = proyectil.getComportamiento();
 	}
 
 	@Test
 	public void testSufrirChoqueDeNaveMilitar1(){
 		//Pedimos que el proyectil no sea destruído al sufrir el choque del aliado
-		comportamiento.sufrirChoqueDeNaveMilitar(aliado);
+		comportamiento.sufrirChoqueDeNaveMilitar((NaveMilitar) aliado);
 		Assert.assertFalse(proyectil.estaDestruido());
 	}
 
 	@Test
 	public void testSufrirChoqueDeNaveMilitar2(){
 		//Pedimos que el proyectil sea destruído al sufrir el choque del enemigo
-		comportamiento.sufrirChoqueDeNaveMilitar(enemigo);
+		comportamiento.sufrirChoqueDeNaveMilitar((NaveMilitar) enemigo);
 		Assert.assertTrue(proyectil.estaDestruido());
+	}
 }

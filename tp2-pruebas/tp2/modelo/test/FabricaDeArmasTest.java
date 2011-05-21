@@ -21,72 +21,72 @@ public class FabricaDeArmasTest {
 	
 	@Test
 	public void testCrearCanionLaser(){
-		CanionLaser canion = fabricaDeArmas.crearCanonLaser();
-		canion.cambiarPosicionA(new Point(200,400));
-		Laser laserDisparado = canion.disparar();
+		Arma canion = fabricaDeArmas.crearCanionLaser();
+		canion.setPosicion(new Point(200,400));
+		Proyectil laserDisparado = canion.disparar();
 		laserDisparado.moverDurante(1);
 		
 		//Pedimos que el proyectil se desplace 100 unidades hacia abajo por unidad de tiempo
-		Assert.assertTrue(laserDisparado.obtenerPosicion().distancia(new point(200,300)) <= 1E-10);
+		Assert.assertTrue(laserDisparado.getPosicion().distance(new Point(200,300)) <= 1E-10);
 		//Pedimos que su identificación sea: CanonLaser
-		Assert.assertTrue(canion.obtenerIdentificacion() == "CanionLaser");
+		Assert.assertTrue(canion.getIdentificacion() == "CanionLaser");
 		//Pedimos que la carga sea infinita
-		Assert.assertTrue(canion.obtenerCarga() = (Float(infinity))); //Does this even work?
+		Assert.assertTrue(canion.getCarga() == (Float(infinity))); //Does this even work?
 		//Pedimos que el láser tenga el daño igual a 10
-		Assert.assertTrue((laserDisparado.obtenerDanio()) = 10);
+		Assert.assertTrue((laserDisparado.getDanio()) == 10);
 		//Pedimos que la frecuencia de disparo sea 5
-		Assert.assertTrue((canion.obtenerFrecuenciaDeDisparo()= 5);
+		Assert.assertTrue((canion.getFrecuenciaDeDisparo()== 5);
 	}
 
 	@Test
 	public void testCrearLanzaCohetes(){
-		LanzaCohetes lanzaCohetes = fabricaDeArmas.crearLanzaCohete();
-		lanzaCohetes.cambiarPosicionA(new Point(200,400));
-		Cohete coheteDisparado = lanzaCohetes.disparar();
+		Arma lanzaCohetes = fabricaDeArmas.crearLanzaCohete();
+		lanzaCohetes.setPosicion(new Point(200,400));
+		Proyectil coheteDisparado = lanzaCohetes.disparar();
 		//Pedimos que el proyectil se desplace 50 unidades hacia abajo por unidad de tiempo
 		coheteDisparado.moverDurante(1);
-		Assert.assertTrue((coheteDisparado.obtenerPosicion().distancia(new Point(200,350)) <= 1E-10));
+		Assert.assertTrue((coheteDisparado.getPosicion().distance(new Point(200,350)) <= 1E-10));
 		//Pedimos que su identificación sea: LanzaCohetes
-		Assert.assertTrue((lanzaCohetes.obtenerIdentificacion() == "LanzaCohetes"));
+		Assert.assertTrue((lanzaCohetes.getIdentificacion() == "LanzaCohetes"));
 		//Pedimos que la carga sea inicialmente 10, o sea ahora que disparó un cohete: 9
-		Assert.assertTrue(lanzaCohetes.obtenerCarga() == 9);
+		Assert.assertTrue(lanzaCohetes.getCarga() == 9);
 		//Pedimos que el cohete tenga el daño igual a 50
-		Assert.assertTrue((coheteDisparado.obtenerDanio) == 50);
+		Assert.assertTrue((coheteDisparado.getDanio) == 50);
 		//Pedimos que la frecuencia de disparo sea 5
-		Assert.assertTrue((lanzaCohetes.obtenerFrecuenciaDeDisparo() == 2);
+		Assert.assertTrue((lanzaCohetes.getFrecuenciaDeDisparo() == 2);
 	}
 	
 	@Test
 	public void testCrearLanzaTorpedos1(){
-		LanzaTorpedos lanzaCohetes = fabricaDeArmas.crearLanzaTorpedos();
-		lanzaTorpedos.cambiarPosicionA(new Point(200,400));
-		Torpedo torpedoDisparado = lanzaTorpedos.disparar();
+		Arma lanzaTorpedos = fabricaDeArmas.crearLanzaTorpedos();
+		lanzaTorpedos.setPosicion(new Point(200,400));
+		Proyectil torpedoDisparado = lanzaTorpedos.disparar();
 		//Pedimos que el proyectil se desplace 20 unidades hacia abajo por unidad de tiempo
 		torpedoDisparado.moverDurante(1);
-		Assert.assertTrue((torpedoDisparado.obtenerPosicion().distancia(new Point (200,380)) <= 1E-10));
+		Assert.assertTrue((torpedoDisparado.getPosicion().distance(new Point (200,380)) <= 1E-10));
 		//Pedimos que su identificación sea: LanzaTorpedos
-		Assert.assertTrue((lanzaTorpedos.obtenerIdentificacion() == "LanzaTorpedos"));
+		Assert.assertTrue((lanzaTorpedos.getIdentificacion() == "LanzaTorpedos"));
 		//Pedimos que la carga sea inicialmente 5, o sea ahora que disparó un cohete: 4
-		Assert.assertTrue((lanzaTorpedos.obtenerCarga() == 4));
+		Assert.assertTrue((lanzaTorpedos.getCarga() == 4));
 		//Pedimos que el torpedo tenga el daño igual a 150
-		Assert.assertTrue((torpedoDisparado.obtenerDanio() == 150)); 
+		Assert.assertTrue((torpedoDisparado.getDanio() == 150)); 
 		//Pedimos que la frecuencia de disparo sea 5
-		Assert.assertTrue((lanzaTorpedos.obtenerFrecuenciaDeDisparo()== 0.5));
+		Assert.assertTrue((lanzaTorpedos.getFrecuenciaDeDisparo()== 0.5));
 	}
 	
 	@Test
 	public void testCrearLanzaTorpedos2(){
-		LanzaTorpedos lanzaTorpedos = fabricaDeArmas.crearLanzaTorpedos();
-		lanzaTorpedos.cambiarPosicionA(new Point(200,400));
+		Arma lanzaTorpedos = fabricaDeArmas.crearLanzaTorpedos();
+		lanzaTorpedos.setPosicion(new Point(200,400));
 		//Ahora probamos de dirigirle un disparo a una nave de una flota
 		Nave objetivo = new NaveMilitar();
-		objetivo.cambiarPosicionA(new Point(34.234,89.238));
-		objetivo.cambiarEquipoA("aliados");
+		objetivo.setPosicion(new Point(34.234,89.238));
+		objetivo.setEquipo("aliados");
 		Flota flotaObjetivo = new Flota(objetivo);
-		lanzaTorpedos.cambiarFlotaObjetivoA(flotaObjetivo);
-		Torpedo torpedoDisparado = lanzaTorpedos.disparar();
+		lanzaTorpedos.setFlotaObjetivo(flotaObjetivo);
+		Proyectil torpedoDisparado = lanzaTorpedos.disparar();
 		torpedoDisparado.moverDurante(10000);
-		Assert.assertTrue(torpedoDisparado.obtenerPosicion().distancia(objetivo.obtenerPosicion()) <= 1E-10);
+		Assert.assertTrue(torpedoDisparado.getPosicion().distance(objetivo.getPosicion()) <= 1E-10);
 	}
 
 }

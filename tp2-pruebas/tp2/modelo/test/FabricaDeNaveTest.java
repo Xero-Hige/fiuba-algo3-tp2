@@ -23,20 +23,20 @@ public class FabricaDeNaveTest {
 
 	@Test
 	public void testCrearAlgo42En(){
-		Nave bombardero = fabrica.crearAlgo42En(new Point(50,100)); //Habia alguna razon especial para que se llamara bombardero?
+		NaveMilitarControlada algo42 = fabrica.crearAlgo42En(new Point(50,100));
 		//Pedimos que la energía sea 500
-		Assert.assertTrue(bombardero.getEnergia(500);
+		Assert.assertTrue(algo42.getEnergia() == 500);
 		//Pedimos que la velocidad sea 25
-		Assert.assertTrue(bombardero.getVelocidad() == 25);
+		Assert.assertTrue(algo42.getVelocidad() == 25);
 		//Pedimos que el tamanio sea 7
-		Assert.assertTrue(bombardero.getTamanio == 7);
+		Assert.assertTrue(algo42.getTamanio() == 7);
 		//Pedimos que tenga un cañón láser
-		Assert.assertTrue(bombardero.getArmas().size() == 1);
+		Assert.assertTrue(algo42.getArmas().size() == 1);
 		}
 
 	@Test
 	public void testCrearAvionCivilEn(){
-		Nave avionCivil = fabrica.crearAvionCivilEn(new Point(50,100));
+		NaveCivil avionCivil = fabrica.crearAvionCivilEn(new Point(50,100));
 		//Pedimos que la energía sea 1
 		Assert.assertTrue(avionCivil.getEnergia() == 1);
 		//Pedimos que la velocidad sea 5
@@ -49,7 +49,7 @@ public class FabricaDeNaveTest {
 	
 	@Test
 	public void testCrearAvionetaEn(){
-		Nave avioneta = fabrica.crearAvionetaEn(new Point(50,100));
+		NaveEnemiga avioneta = fabrica.crearAvionetaEn(new Point(50,100));
 		//Pedimos que la energía sea 10
 		Assert.assertTrue(avioneta.getEnergia() == 10);
 		//Pedimos que la velocidad sea 15
@@ -61,12 +61,13 @@ public class FabricaDeNaveTest {
 		//Pedimos que la puntuación por destrucción sea 20
 		Assert.assertTrue(avioneta.getPuntuacion() == 20);
 		//Pedimos que el destino del vuelo sea (0,-80)
-		Assert.assertTrue(avioneta.getVuelo().getDestino() == new Point(0,-80));
+		VueloDeIdaYVuelta vuelo = avioneta.getVuelo();
+		Assert.assertTrue(vuelo.getDestino() == new Point(0,-80));
 		}
 	
 	@Test
 	public void testCrearBombarderoEn(){
-		Nave bombardero = fabrica.crearBombarderoEn(new Point(50,100));
+		NaveEnemiga bombardero = fabrica.crearBombarderoEn(new Point(50,100));
 		//Pedimos que la energía sea 100
 		Assert.assertTrue (bombardero.getEnergia() == 100);
 		//Pedimos que la velocidad sea 7
@@ -74,26 +75,27 @@ public class FabricaDeNaveTest {
 		//Pedimos que el tamaño sea 7
 		Assert.assertTrue (bombardero.getTamanio() == 7);
 		//Pedimos que tenga las tres armas
-		Assert.assertTrue (bombardero.getArmas().size() == 3;
+		Assert.assertTrue (bombardero.getArmas().size() == 3);
 		//Pedimos que la puntuación por destrucción sea 30
 		Assert.assertTrue (bombardero.getPuntuacion() == 30);
 		//Pedimos que la dirección de vuelo del zig zag sea hacia abajo y la amplitud 10
-		Assert.assertTrue (bombardero.getVuelo().getDireccion().normalized() == new Point(0,-1));
-		Assert.assertTrue [bombardero.getVuelo().getAmplitud() == 10);
+		VueloEnZigZag vuelo = (VueloEnZigZag) bombardero.getVuelo();
+		Assert.assertTrue (vuelo.getDireccion().norma() == new Point(0,-1));
+		Assert.assertTrue (vuelo.getAmplitud() == 10);
 		}
 	
 	@Test
 	public void testCrearCazaEn(){
-		GrupoCazas cazas = fabrica.crearGrupoCazaEn(new Point(50,50));
+		NaveEnemiga[] cazas = fabrica.crearGrupoCazaEn(new Point(50,50));
 		//Pido las posiciones en V de tres cazas
-		Nave caza1 = cazas[1];
-		Nave caza2 = cazas[2];
-		Nave caza3 = cazas[3];
+		NaveEnemiga caza1 = cazas[0];
+		NaveEnemiga caza2 = cazas[1];
+		NaveEnemiga caza3 = cazas[2];
 		Assert.assertTrue (caza1.getPosicion()==(new Point(40,60)));
 		Assert.assertTrue (caza2.getPosicion()==(new Point(50,50)));
 		Assert.assertTrue (caza3.getPosicion()==(new Point(60,60)));
 		//Pedimos que la energía sea 30
-		Assert.assertTrue (caza1.getEnergia(30));
+		Assert.assertTrue (caza1.getEnergia() == 30);
 		//Pedimos que la velocidad sea 10
 		Assert.assertTrue (caza1.getVelocidad() == 10);
 		//Pedimos que el tamaño sea 6
@@ -106,7 +108,7 @@ public class FabricaDeNaveTest {
 	
 	@Test
 	public void testCrearExploradorEn(){
-		Nave explorador = fabrica.crearExploradorEn(new Point(50,100));
+		NaveEnemiga explorador = fabrica.crearExploradorEn(new Point(50,100));
 		//Pedimos que la energía sea 1
 		Assert.assertTrue (explorador.getEnergia() == 1);
 		//Pedimos que la velocidad sea 12
@@ -121,7 +123,7 @@ public class FabricaDeNaveTest {
 	
 	@Test
 	public void testCrearGuiaEnemigoEn(){
-		Nave guiaEnemigo = fabrica.crearGuiaEnemigoEn(new Point(50,100));
+		NaveGuia guiaEnemigo = fabrica.crearGuiaEnemigoEn(new Point(50,100));
 		//Pedimos que la energía sea 1000
 		Assert.assertTrue (guiaEnemigo.getEnergia() == 1000);
 		//Pedimos que la velocidad sea 5
@@ -134,7 +136,7 @@ public class FabricaDeNaveTest {
 
 	@Test
 	public void testCrearHelicopteroFederalEn(){
-		Nave helicopteroFederal = fabrica.crearHelicopteroFederalEn(new Point(50,100));
+		NaveCivil helicopteroFederal = fabrica.crearHelicopteroFederalEn(new Point(50,100));
 		//Pedimos que la energía sea 1
 		Assert.assertTrue (helicopteroFederal.getEnergia() == 1);
 		//Pedimos que la velocidad sea 5

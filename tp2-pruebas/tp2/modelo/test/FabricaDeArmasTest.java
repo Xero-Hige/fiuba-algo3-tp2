@@ -31,16 +31,16 @@ public class FabricaDeArmasTest {
 		//Pedimos que su identificación sea: CanonLaser
 		Assert.assertTrue(canion.getIdentificacion() == "CanionLaser");
 		//Pedimos que la carga sea infinita
-		Assert.assertTrue(canion.getCarga() == (Float(infinity))); //Does this even work?
+		Assert.assertTrue(canion.getCarga() == (Float.POSITIVE_INFINITY));
 		//Pedimos que el láser tenga el daño igual a 10
-		Assert.assertTrue((laserDisparado.getDanio()) == 10);
+		Assert.assertTrue(laserDisparado.getDanio() == 10);
 		//Pedimos que la frecuencia de disparo sea 5
-		Assert.assertTrue((canion.getFrecuenciaDeDisparo()== 5);
+		Assert.assertTrue(canion.getFrecuenciaDeDisparo()== 5);
 	}
 
 	@Test
 	public void testCrearLanzaCohetes(){
-		Arma lanzaCohetes = fabricaDeArmas.crearLanzaCohete();
+		ArmaLimitada lanzaCohetes = fabricaDeArmas.crearLanzaCohetes();
 		lanzaCohetes.setPosicion(new Point(200,400));
 		Proyectil coheteDisparado = lanzaCohetes.disparar();
 		//Pedimos que el proyectil se desplace 50 unidades hacia abajo por unidad de tiempo
@@ -51,14 +51,14 @@ public class FabricaDeArmasTest {
 		//Pedimos que la carga sea inicialmente 10, o sea ahora que disparó un cohete: 9
 		Assert.assertTrue(lanzaCohetes.getCarga() == 9);
 		//Pedimos que el cohete tenga el daño igual a 50
-		Assert.assertTrue((coheteDisparado.getDanio) == 50);
+		Assert.assertTrue((coheteDisparado.getDanio()) == 50);
 		//Pedimos que la frecuencia de disparo sea 5
-		Assert.assertTrue((lanzaCohetes.getFrecuenciaDeDisparo() == 2);
+		Assert.assertTrue(lanzaCohetes.getFrecuenciaDeDisparo() == 2);
 	}
 	
 	@Test
 	public void testCrearLanzaTorpedos1(){
-		Arma lanzaTorpedos = fabricaDeArmas.crearLanzaTorpedos();
+		ArmaDirigida lanzaTorpedos = fabricaDeArmas.crearLanzaTorpedos();
 		lanzaTorpedos.setPosicion(new Point(200,400));
 		Proyectil torpedoDisparado = lanzaTorpedos.disparar();
 		//Pedimos que el proyectil se desplace 20 unidades hacia abajo por unidad de tiempo
@@ -76,10 +76,10 @@ public class FabricaDeArmasTest {
 	
 	@Test
 	public void testCrearLanzaTorpedos2(){
-		Arma lanzaTorpedos = fabricaDeArmas.crearLanzaTorpedos();
+		ArmaDirigida lanzaTorpedos = fabricaDeArmas.crearLanzaTorpedos();
 		lanzaTorpedos.setPosicion(new Point(200,400));
 		//Ahora probamos de dirigirle un disparo a una nave de una flota
-		Nave objetivo = new NaveMilitar();
+		NaveMilitar objetivo = new NaveMilitar(new Point(0, 0), 1, escenario, 1, 1);
 		objetivo.setPosicion(new Point(34.234,89.238));
 		objetivo.setEquipo("aliados");
 		Flota flotaObjetivo = new Flota(objetivo);

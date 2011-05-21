@@ -128,6 +128,5 @@ public class Arma extends Movil {
 	// Cambia la velocidad de disparo, que debe ser mayor a cero.
 	public void setVelocidadDeDisparo(int nuevaVelocidad) {
 		
-	}
-	
+	}	
 }

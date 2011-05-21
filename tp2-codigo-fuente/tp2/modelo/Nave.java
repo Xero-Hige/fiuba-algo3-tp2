@@ -4,7 +4,7 @@ import tp2.auxiliares.Point;
 
 public class Nave extends ObjetoVolador {
 
-	protected double energia;
+	private double energia;
 
 	// Inicializa la nave sin un vuelo asignado, con la posición, tamaño,
 	// escenario, velocidad y energía recibidos. La agrega al escenario.
@@ -27,5 +27,9 @@ public class Nave extends ObjetoVolador {
 		if(this.energia <= 0){
 			this.destruir();
 		}
+	}
+	
+	public double getEnergia() {
+		return 0;
 	}
 }

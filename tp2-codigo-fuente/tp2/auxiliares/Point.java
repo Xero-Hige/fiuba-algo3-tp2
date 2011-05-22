@@ -68,4 +68,15 @@ public class Point extends Point2D {
     public Point sumar(Point otroPunto){
         return new Point(this.x + otroPunto.x, this.y + otroPunto.y);
     }
+    
+    // Devuelve el radio del punto en el sistema de coordenadas polares
+    public double radio() {
+    	return (Math.sqrt((this.x * this.x) + (this.y * this.y)));
+    }
+    
+    // Devuelve un punto nuevo normalizado.
+    public Point normalizar() {
+    	double r = this.radio();
+    	return new Point((this.x / r), (this.y / r));
+    }   
 }

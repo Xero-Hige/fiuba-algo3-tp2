@@ -63,11 +63,6 @@ public class Point extends Point2D {
 	public double norma(){
 		return this.distance(0, 0);
 	}
-	
-	// Suma de dos puntos
-    public Point sumar(Point otroPunto){
-        return new Point(this.x + otroPunto.x, this.y + otroPunto.y);
-    }
     
     // Devuelve el radio del punto en el sistema de coordenadas polares
     public double radio() {

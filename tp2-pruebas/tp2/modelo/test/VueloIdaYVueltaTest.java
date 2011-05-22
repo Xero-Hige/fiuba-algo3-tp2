@@ -34,11 +34,11 @@ public class VueloIdaYVueltaTest {
 		
 		//Verificamos que el vuelo siga la ruta esperada		
 		ArrayList<Point> posiciones = new ArrayList<Point>();
-		posicionActual = posicionActual + (vuelo.avanzarDurante(3));
+		posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(3));
 		posiciones.add(posicionActual);
-		posicionActual = posicionActual + (vuelo.avanzarDurante(2));
+		posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(2));
 		posiciones.add(posicionActual);
-		posicionActual = posicionActual + (vuelo.avanzarDurante(10));
+		posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(10));
 		posiciones.add(posicionActual);
 		Assert.assertTrue(((Point)posiciones.get(1)).distance(new Point(4,3))*(3/5) <= 1E-10);
 		Assert.assertTrue(((Point)posiciones.get(2)).distance(new Point(4,3)) <= 1E-10);

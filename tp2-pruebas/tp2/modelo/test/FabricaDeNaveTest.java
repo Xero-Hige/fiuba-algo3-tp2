@@ -61,7 +61,7 @@ public class FabricaDeNaveTest {
 		//Pedimos que la puntuación por destrucción sea 20
 		Assert.assertTrue(avioneta.getPuntuacion() == 20);
 		//Pedimos que el destino del vuelo sea (0,-80)
-		VueloDeIdaYVuelta vuelo = avioneta.getVuelo();
+		VueloDeIdaYVuelta vuelo = (VueloDeIdaYVuelta) avioneta.getVuelo();
 		Assert.assertTrue(vuelo.getDestino() == new Point(0,-80));
 		}
 	
@@ -80,7 +80,7 @@ public class FabricaDeNaveTest {
 		Assert.assertTrue (bombardero.getPuntuacion() == 30);
 		//Pedimos que la dirección de vuelo del zig zag sea hacia abajo y la amplitud 10
 		VueloEnZigZag vuelo = (VueloEnZigZag) bombardero.getVuelo();
-		Assert.assertTrue (vuelo.getDireccion().norma() == new Point(0,-1));
+		Assert.assertEquals(vuelo.getDireccion().normalizar(), new Point(0,-1));
 		Assert.assertTrue (vuelo.getAmplitud() == 10);
 		}
 	

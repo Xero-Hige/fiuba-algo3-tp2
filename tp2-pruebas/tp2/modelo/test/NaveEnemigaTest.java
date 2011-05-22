@@ -2,7 +2,6 @@ package tp2.modelo.test;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
-import java.util.ArrayList;
 
 import org.junit.*;
 
@@ -26,7 +25,7 @@ public class NaveEnemigaTest {
 	public void testCambiarPuntuacion(){
 		//Probamos agregar una puntuación positiva
 		naveEnemiga.setPuntuacion(10);
-		Assert.assertEquals(naveEnemiga.getPuntuacion(),10);
+		Assert.assertEquals(naveEnemiga.getPuntuacion(), 10, 0);
 		
 		//Probamos agregar una puntuación negativa		 
 		try {

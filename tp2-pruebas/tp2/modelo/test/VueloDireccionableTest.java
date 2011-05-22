@@ -14,7 +14,6 @@ public class VueloDireccionableTest {
 
 	private VueloDireccionable vuelo;
 	private ObjetoVolador objetoVolador;
-	private Object desplazamiento;
 	private Escenario escenario;
 	private Point desplazamiento;
 	

@@ -14,7 +14,7 @@ public class VueloDirigidoTest {
 	
 	@Test
 	public void testAvanzarDurante(){
-		Escenario escenario = Escenario(new Rectangle(new Dimension(1,1));
+		Escenario escenario = Escenario(new Rectangle(new Dimension(1,1)));
 		ObjetoVolador objetoVolador = new ObjetoVolador(new Point(0,0),1,escenario,2);
 		ObjetoVolador objetivo = new ObjetoVolador(new Point(100,0),1,escenario,2);
 		Vuelo vuelo = new VueloDirigido(objetoVolador,objetivo);

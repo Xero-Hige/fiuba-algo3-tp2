@@ -11,8 +11,8 @@ import tp2.auxiliares.*;
 public class ChoqueDeProyectilTest {
 	private Proyectil proyectil;
 	private ChoqueDeObjetoEspacial comportamiento;
-	private Nave aliado;
-	private Nave enemigo;
+	private NaveMilitar aliado;
+	private NaveMilitar enemigo;
 	private Escenario escenario;
 	
 	@Before
@@ -30,7 +30,7 @@ public class ChoqueDeProyectilTest {
 	@Test
 	public void testSufrirChoqueDeNaveMilitar1(){
 		//Pedimos que el proyectil no sea destruído al sufrir el choque del aliado
-		comportamiento.sufrirChoqueDeNaveMilitar((NaveMilitar) aliado);
+		comportamiento.sufrirChoqueDeNaveMilitar(aliado);
 		Assert.assertFalse(proyectil.estaDestruido());
 	}
 

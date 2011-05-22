@@ -37,7 +37,7 @@ public class VueloEnZigZagTest {
 		 vuelo.iniciar();
 		 
 		 //Verificamos que el vuelo siga la ruta esperada
-		 ArrayList posiciones = new ArrayList();
+		 ArrayList<Point> posiciones = new ArrayList<Point>();
 		 posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(1));
 		 posiciones.add(posicionActual);
 		 posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(2));

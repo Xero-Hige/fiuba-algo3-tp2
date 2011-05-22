@@ -28,7 +28,7 @@ public class VueloCompuestoTest {
 	
 	@Test
 	public void testAgregarVueloConTrayectoria1(){
-		//Intentamos agregar un vuelo de otra nave
+		// Intentamos agregar un vuelo de otra nave.
 		vueloParcial = new  VueloEnLineaRecta(ObjetoVolador(new Point(0,0),1,escenario,5),new Point(1,0));
 		 try {
 			 vueloCompuesto.agregarVuelo(vueloParcial,1);
@@ -44,7 +44,7 @@ public class VueloCompuestoTest {
 
 	@Test
 	public void testAgregarVueloConTrayectoria2(){
-		//Ahora intentamos agregar un vuelo correcto
+		// Ahora intentamos agregar un vuelo correcto.
 		vueloParcial = new VueloEnLineaRecta (objetoVolador, new Point(1,0));
 		try {
 			vueloCompuesto.agregarVuelo(vueloParcial,1);
@@ -57,7 +57,7 @@ public class VueloCompuestoTest {
 
 	@Test
 	public void testAgregarVueloConTrayectoria3(){
-		//Probamos ingresar un vuelo de trayectoria inválida
+		// Probamos ingresar un vuelo de trayectoria inválida.
 		try {
 			vueloCompuesto.agregarVuelo(vueloParcial,0);
 			Assert.fail("Se pudo agregar un vuelo con trayectoria inválida");
@@ -72,7 +72,7 @@ public class VueloCompuestoTest {
 	
 	@Test
 	public void testAvanzarDurante1(){
-		//Configuramos un vuelo compuesto en forma de S
+		// Configuramos un vuelo compuesto en forma de S.
 		Point posicionActual = new Point(0,0);
 		double velocidad = Math.PI / 2;
 		objetoVolador = new ObjetoVolador(posicionActual,1,escenario,velocidad);
@@ -83,8 +83,10 @@ public class VueloCompuestoTest {
 		vueloCompuesto.agregarVuelo(vueloParcial,Math.PI);
 		vueloCompuesto.iniciar();
 		
-		//Verificamos que el vuelo siga la ruta esperada, incluyendo un avance que involucre los dos vuelos parciales y luego otro que haga continuar al último vuelo por encima de la trayectoria programada
-		ArrayList posiciones = new ArrayList();
+		// Verificamos que el vuelo siga la ruta esperada, incluyendo un avance que 
+		// involucre los dos vuelos parciales y luego otro que haga continuar al 
+		// último vuelo por encima de la trayectoria programada.
+		ArrayList<Point> posiciones = new ArrayList<Point>();
 		posicionActual = posicionActual.sumarCon(vueloCompuesto.avanzarDurante(1));
 		posiciones.add(posicionActual);
 		posicionActual = posicionActual.sumarCon(vueloCompuesto.avanzarDurante(2));
@@ -98,7 +100,7 @@ public class VueloCompuestoTest {
 
 	@Test
 	public void testAvanzarDurante2(){
-		//Configuramos un vuelo compuesto en forma de S
+		// Configuramos un vuelo compuesto en forma de S.
 		Point posicionActual = new Point(0,0);
 		double velocidad = Math.PI / 2;
 		objetoVolador = new ObjetoVolador(posicionActual,1,escenario,velocidad);
@@ -107,7 +109,7 @@ public class VueloCompuestoTest {
 		vueloCompuesto.agregarVuelo(vueloParcial,Math.PI);
 		vueloParcial = new VueloEnCirculos(objetoVolador,new Point(0,1),false);
 		vueloCompuesto.agregarVuelo(vueloParcial,Math.PI);
-		//Intentamos avanzar el vuelo sin iniciarlo
+		// Intentamos avanzar el vuelo sin iniciarlo
 		try {
 			vueloCompuesto.avanzarDurante(1);
 			Assert.fail("El vuelo avanzó sin estar iniciado");

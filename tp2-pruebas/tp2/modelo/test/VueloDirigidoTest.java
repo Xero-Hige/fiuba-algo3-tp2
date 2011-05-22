@@ -20,7 +20,7 @@ public class VueloDirigidoTest {
 		Vuelo vuelo = new VueloDirigido(objetoVolador,objetivo);
 		vuelo.iniciar();
 		//Probamos que el desplazamiento sea el esperado
-		ArrayList desplazamientos = new ArrayList();
+		ArrayList<Point> desplazamientos = new ArrayList<Point>();
 		desplazamientos.add(vuelo.avanzarDurante(1));
 		objetoVolador.setPosicion(new Point(2,0));
 		objetivo.setPosicion(new Point(2,100));

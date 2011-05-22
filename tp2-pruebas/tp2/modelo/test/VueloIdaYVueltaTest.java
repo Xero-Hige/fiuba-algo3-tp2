@@ -33,7 +33,7 @@ public class VueloIdaYVueltaTest {
 		}
 		
 		//Verificamos que el vuelo siga la ruta esperada		
-		ArrayList posiciones = new ArrayList();
+		ArrayList<Point> posiciones = new ArrayList<Point>();
 		posicionActual = posicionActual + (vuelo.avanzarDurante(3));
 		posiciones.add(posicionActual);
 		posicionActual = posicionActual + (vuelo.avanzarDurante(2));

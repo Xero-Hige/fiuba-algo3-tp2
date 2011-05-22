@@ -19,7 +19,7 @@ public class ProyectilesTest {
 	public void testCambiarDanio1(){
 		//Probamos agregar una penalización positiva
 		proyectil.setDanio(10);
-		Assert.assertEquals(proyectil.getDanio(),10);
+		Assert.assertEquals(proyectil.getDanio(),10, 0);
 	}
 	
 		

@@ -69,20 +69,18 @@ public class TestDeIntegracion {
 		 Assert.assertTrue(algo42.estaDestruido());
 		 
 		 //Ahora ponemos a una avioneta persiguiendo de atrás a un avión civil. Nos fijamos (como son del mismo equipo) que se atraviesen sin que les pase nada
-		 Nave nave1 = fabricaDeNaves.crearAvionetaEn(new Point(50,50));
-		 Nave nave2 = fabricaDeNaves.crearAvionCivilEn(new Point(50,0));
+		 Nave nave1 = fabricaDeNaves.crearAvionCivilEn(new Point(50,0));
 		 for (i=0; i<=10; i = i + 0.02){
 			 escenario.avanzarTiempoEn(0.02);
 		 }
-		 Assert.assertFalse(nave2.estaDestruido());
+		 Assert.assertFalse(nave1.estaDestruido());
 		 
 		 //Lo mismo de antes pero con una pequeña modificación (para que quede claro que todo depende de los equipos)
-		 nave1 = fabricaDeNaves.crearAvionetaEn(new Point(500,50));
 		 fabricaDeNaves.setEquipoDeLaNave("ahora la avioneta no es mi aliada");
-		 nave2 = fabricaDeNaves.crearAvionCivilEn(new Point(500,0));
+		 nave1 = fabricaDeNaves.crearAvionCivilEn(new Point(500,0));
 		 for (i=0; i<=10; i = i + 0.02){
 			 escenario.avanzarTiempoEn(0.02);
 		 }
-		 Assert.assertTrue(nave2.estaDestruido());
+		 Assert.assertTrue(nave1.estaDestruido());
 	}
 }

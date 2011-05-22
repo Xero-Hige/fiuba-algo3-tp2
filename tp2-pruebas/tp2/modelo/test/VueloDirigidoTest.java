@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import org.junit.*;
 
 import tp2.modelo.*;
-import tp2.modelo.excepciones.*;
 import tp2.auxiliares.*;
 
 public class VueloDirigidoTest {
@@ -15,8 +14,8 @@ public class VueloDirigidoTest {
 	@Test
 	public void testAvanzarDurante(){
 		Escenario escenario = new Escenario(new Rectangle(new Dimension(1,1)));
-		ObjetoVolador objetoVolador = new ObjetoVolador(new Point(0,0),1,escenario,2);
-		ObjetoVolador objetivo = new ObjetoVolador(new Point(100,0),1,escenario,2);
+		ObjetoVolador objetoVolador = new Nave(new Point(0,0),1,escenario,2,10);
+		ObjetoVolador objetivo = new Nave(new Point(100,0),1,escenario,2,10);
 		Vuelo vuelo = new VueloDirigido(objetoVolador,objetivo);
 		vuelo.iniciar();
 		//Probamos que el desplazamiento sea el esperado

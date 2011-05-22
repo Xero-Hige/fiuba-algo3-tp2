@@ -2,7 +2,6 @@ package tp2.modelo.test;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
-import java.util.ArrayList;
 
 import org.junit.*;
 
@@ -19,7 +18,7 @@ public class ObjetoVoladorTest {
 	@Before
 	public void arrange(){
 		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
-		objetoVolador = new ObjetoVolador(new Point(10,3),1,escenario,5);
+		objetoVolador = new Nave(new Point(10,3),1,escenario,5,10);
 		vuelo = new VueloEnLineaRecta(objetoVolador, new Point(3,4));
 	}
 

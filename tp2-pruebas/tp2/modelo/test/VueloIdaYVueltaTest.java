@@ -17,7 +17,7 @@ public class VueloIdaYVueltaTest {
 		Escenario escenario = new Escenario(new Rectangle(new Dimension(1,1)));
 		Point posicionActual = new Point (0,0);
 		int velocidad = 1;
-		ObjetoVolador objetoVolador = new ObjetoVolador (posicionActual,1,escenario,velocidad);
+		ObjetoVolador objetoVolador = new Nave(posicionActual,1,escenario,velocidad,10);
 		VueloDeIdaYVuelta vuelo = new VueloDeIdaYVuelta (objetoVolador,new Point(4,3));
 		
 		//Intentamos avanzar el vuelo sin iniciarlo

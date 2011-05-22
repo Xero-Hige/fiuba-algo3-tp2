@@ -31,7 +31,7 @@ public class VueloEnCirculosTest {
 		 periodo = 17;
 		 
 		 velocidad = 2 * (Math.PI) * radioDeVuelo / periodo;
-		 objetoVolador = new ObjetoVolador (posicionInicial,1,escenario,velocidad);
+		 objetoVolador = new Nave(posicionInicial,1,escenario,velocidad,10);
 		 vuelo = new VueloEnCirculos(objetoVolador,(objetoVolador.getPosicion().getOpuesto()),true); 
 		 vuelo.iniciar();
 	 }
@@ -92,7 +92,7 @@ public class VueloEnCirculosTest {
 	 @Test
 	 public void testTrayectoriaPorPeriodo(){
 		 //Configuramos un vuelo de radio igual a 10
-		 vuelo = new VueloEnCirculos(new ObjetoVolador(new Point(10,3),1,escenario,5), new Point(8,-6),true);
+		 vuelo = new VueloEnCirculos(new Nave(new Point(10,3),1,escenario,5,10), new Point(8,-6),true);
 		 //Comprobamos que la trayectoria por período sea la esperada
 		 Assert.assertTrue(vuelo.trayectoriaPorPeriodo() == (2 * Math.PI * 10));
 	 }

@@ -19,7 +19,7 @@ public class VueloEnZigZagTest {
 		//Configuramos un vuelo en zig-zag hacia abajo con amplitud igual a 1
 		Point posicionActual = new Point (0,0);
 		double velocidad = Math.sqrt(2);
-		ObjetoVolador objetoVolador = new ObjetoVolador(posicionActual,1,escenario,velocidad);
+		ObjetoVolador objetoVolador = new Nave(posicionActual,1,escenario,velocidad,10);
 		VueloEnZigZag vuelo = new VueloEnZigZag(objetoVolador,1,new Point(0,-1));
 		
 		//Intentamos avanzar el vuelo sin iniciarlo

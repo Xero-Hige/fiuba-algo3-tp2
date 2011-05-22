@@ -21,7 +21,7 @@ public class VueloCompuestoTest {
 	public void arrange(){
 		
 		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
-		objetoVolador = new ObjetoVolador(new Point(0,0),1,escenario,5);
+		objetoVolador = new Nave(new Point(0,0),1,escenario,5,10);
 		vueloCompuesto = new VueloCompuesto(objetoVolador);
 	}
 		
@@ -29,7 +29,7 @@ public class VueloCompuestoTest {
 	@Test
 	public void testAgregarVueloConTrayectoria1(){
 		// Intentamos agregar un vuelo de otra nave.
-		vueloParcial = new  VueloEnLineaRecta(ObjetoVolador(new Point(0,0),1,escenario,5),new Point(1,0));
+		vueloParcial = new VueloEnLineaRecta(new Nave(new Point(0,0),1,escenario,5,10),new Point(1,0));
 		 try {
 			 vueloCompuesto.agregarVuelo(vueloParcial,1);
 			 Assert.fail("Se pudo agregar un vuelo inválido al compuesto");
@@ -75,7 +75,7 @@ public class VueloCompuestoTest {
 		// Configuramos un vuelo compuesto en forma de S.
 		Point posicionActual = new Point(0,0);
 		double velocidad = Math.PI / 2;
-		objetoVolador = new ObjetoVolador(posicionActual,1,escenario,velocidad);
+		objetoVolador = new Nave(posicionActual,1,escenario,velocidad,10);
 		vueloCompuesto = new VueloCompuesto(objetoVolador);
 		vueloParcial = new VueloEnCirculos(objetoVolador,new Point(0,1),true);
 		vueloCompuesto.agregarVuelo(vueloParcial,Math.PI);
@@ -103,7 +103,7 @@ public class VueloCompuestoTest {
 		// Configuramos un vuelo compuesto en forma de S.
 		Point posicionActual = new Point(0,0);
 		double velocidad = Math.PI / 2;
-		objetoVolador = new ObjetoVolador(posicionActual,1,escenario,velocidad);
+		objetoVolador = new Nave(posicionActual,1,escenario,velocidad,10);
 		vueloCompuesto = new VueloCompuesto(objetoVolador);
 		vueloParcial = new VueloEnCirculos(objetoVolador,new Point(0,1),true);
 		vueloCompuesto.agregarVuelo(vueloParcial,Math.PI);

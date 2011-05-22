@@ -2,12 +2,10 @@ package tp2.modelo.test;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
-import java.util.ArrayList;
 
 import org.junit.*;
 
 import tp2.modelo.*;
-import tp2.modelo.excepciones.*;
 import tp2.auxiliares.*;
 
 public class VueloDireccionableTest {
@@ -20,7 +18,7 @@ public class VueloDireccionableTest {
 	@Before
 	public void arrange(){
 		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
-		objetoVolador = new ObjetoVolador(new Point(0,0),1,escenario,2);
+		objetoVolador = new Nave(new Point(0,0),1,escenario,2,10);
 		vuelo = new VueloDireccionable(objetoVolador,new Point(2,4));
 		vuelo.iniciar();
 		desplazamiento = vuelo.avanzarDurante(1);		

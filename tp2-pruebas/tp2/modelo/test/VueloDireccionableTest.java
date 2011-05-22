@@ -21,7 +21,7 @@ public class VueloDireccionableTest {
 	public void arrange(){
 		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
 		objetoVolador = new ObjetoVolador(new Point(0,0),1,escenario,2);
-		vuelo = new VueloDireccionable (objetoVolador,(2,4));
+		vuelo = new VueloDireccionable(objetoVolador,new Point(2,4));
 		vuelo.iniciar();
 		desplazamiento = vuelo.avanzarDurante(1);		
 	}

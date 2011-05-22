@@ -27,7 +27,7 @@ public class VueloEnCirculosTest {
 		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
 		//iniciamos un vuelo con centro en el origen, con cierto radio de vuelo y período
 		 posicionActual = posicionInicial = new Point(4,3);
-		 radioDeVuelo = posicionInicial r. // Que hace? O_O		 
+		 radioDeVuelo = posicionInicial r;// Que hace? O_O		 
 		 periodo = 17;
 		 
 		 velocidad = 2 * (Math.PI) * radioDeVuelo / periodo;
@@ -41,7 +41,7 @@ public class VueloEnCirculosTest {
 	 public void testAvanzarDurante1(){
 		 //Hay que comprobar que la posición obtenida respete el radio de vuelo siempre, y que finalmente, habiendo recorrido un número de veces el período, la posición final sea igual a la inicial
 		 for (i=1; i<= (50 * periodo);i++){
-			 posicionActual = posicionActual + (vuelo.avanzarDurante(1));
+			 posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(1));
 			 Assert.assertEquals(posicionActual r,radioDeVuelo,1E-10); //Algun error que no se
 			 Assert.assertTrue(posicionActual.distance(posicionInicial) <= 1E-10);
 			 }
@@ -50,7 +50,7 @@ public class VueloEnCirculosTest {
 	 @Test
 	 public void testAvanzarDurante2(){
 		 //Avanzamos el vuelo en un cuarto del período y verificamos que esté en la posición correcta
-		 posicionActual = posicionInicial + (vuelo.avanzarDurante(periodo / 4.0));
+		 posicionActual = posicionInicial.sumarCon(vuelo.avanzarDurante(periodo / 4.0));
 		 Assert.assertTrue(posicionActual.distance(new Point(-3,4)) <= 1E-10);
 		 
 	 }

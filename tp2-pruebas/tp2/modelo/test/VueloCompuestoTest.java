@@ -85,11 +85,11 @@ public class VueloCompuestoTest {
 		
 		//Verificamos que el vuelo siga la ruta esperada, incluyendo un avance que involucre los dos vuelos parciales y luego otro que haga continuar al último vuelo por encima de la trayectoria programada
 		ArrayList posiciones = new ArrayList();
-		posicionActual = posicionActual + (vueloCompuesto.avanzarDurante(1));
+		posicionActual = posicionActual.sumarCon(vueloCompuesto.avanzarDurante(1));
 		posiciones.add(posicionActual);
-		posicionActual = posicionActual + (vueloCompuesto.avanzarDurante(2);
+		posicionActual = posicionActual.sumarCon(vueloCompuesto.avanzarDurante(2));
 		posiciones.add(posicionActual);
-		posicionActual = posicionActual + (vueloCompuesto.avanzarDurante(2);
+		posicionActual = posicionActual.sumarCon(vueloCompuesto.avanzarDurante(2));
 		posiciones.add(posicionActual);
 		Assert.assertTrue(((Point)(posiciones.get(1))).distance(new Point(1,1)) <= 1E-10);
 		Assert.assertTrue(((Point)(posiciones.get(2))).distance(new Point(-1,3)) <= 1E-10);

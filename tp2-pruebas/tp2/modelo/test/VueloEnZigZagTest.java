@@ -10,12 +10,12 @@ import tp2.modelo.*;
 import tp2.modelo.excepciones.*;
 import tp2.auxiliares.*;
 
-public class VueloEnZigZag {
+public class VueloEnZigZagTest {
 	
 	@Test
 	public void testAvanzarDurante(){
 		
-		Escenario escenario = new Escenario(new Rectangle(new Dimension(1,1));
+		Escenario escenario = new Escenario(new Rectangle(new Dimension(1,1)));
 		//Configuramos un vuelo en zig-zag hacia abajo con amplitud igual a 1
 		Point posicionActual = new Point (0,0);
 		double velocidad = Math.sqrt(2);
@@ -38,11 +38,11 @@ public class VueloEnZigZag {
 		 
 		 //Verificamos que el vuelo siga la ruta esperada
 		 ArrayList posiciones = new ArrayList();
-		 posicionActual = posicionActual + (vuelo.avanzarDurante(1));
+		 posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(1));
 		 posiciones.add(posicionActual);
-		 posicionActual = posicionActual + (vuelo.avanzarDurante(2));
+		 posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(2));
 		 posiciones.add(posicionActual);
-		 posicionActual = posicionActual + (vuelo.avanzarDurante(3));
+		 posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(3));
 		 posiciones.add(posicionActual);
 		 Assert.assertTrue(((Point)posiciones.get(1)).distance(new Point(1,-1)) <= 1E-10);
 		 Assert.assertTrue(((Point)posiciones.get(2)).distance(new Point(-1,-3)) <= 1E-10);

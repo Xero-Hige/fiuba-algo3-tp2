@@ -64,4 +64,8 @@ public class Point extends Point2D {
 		return this.distance(0, 0);
 	}
 	
+	// Suma de dos puntos
+    public Point sumar(Point otroPunto){
+        return new Point(this.x + otroPunto.x, this.y + otroPunto.y);
+    }
 }

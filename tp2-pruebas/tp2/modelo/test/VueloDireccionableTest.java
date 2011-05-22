@@ -29,7 +29,8 @@ public class VueloDireccionableTest {
 	@Test
 	public void testAvanzarDurante1(){
 		//Probamos que el desplazamiento sea el esperado
-		Assert.assertTrue(desplazamiento.distance(new Point(2,4)) normalized() * 2)) <= 1E-10);
+		Point punto = new Point(2,4).normalizar().multiplicar(2);
+		Assert.assertTrue(desplazamiento.distance(punto) <= (1E-10));
 	}
 	
 	

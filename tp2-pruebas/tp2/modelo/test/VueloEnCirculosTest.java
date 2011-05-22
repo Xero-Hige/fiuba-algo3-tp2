@@ -25,31 +25,34 @@ public class VueloEnCirculosTest {
 	 @Before 
 	 public void arrange(){
 		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
-		//iniciamos un vuelo con centro en el origen, con cierto radio de vuelo y período
+		// iniciamos un vuelo con centro en el origen, con cierto radio de vuelo y período
 		 posicionActual = posicionInicial = new Point(4,3);
-		 radioDeVuelo = posicionInicial r;// Que hace? O_O		 
+		 radioDeVuelo = posicionInicial.radio();		 
 		 periodo = 17;
 		 
 		 velocidad = 2 * (Math.PI) * radioDeVuelo / periodo;
-		 objetoVolador = new ObjetoVolador (posicionInicial,1,escenario,velocidad); //No va, por que se reemplaza?
-		 vuelo = new VueloEnCirculos(objetoVolador,(objetoVolador.getPosicion().negated()),true); //Nuevamente, que hace negated en smalltalk?
+		 objetoVolador = new ObjetoVolador (posicionInicial,1,escenario,velocidad);
+		 vuelo = new VueloEnCirculos(objetoVolador,(objetoVolador.getPosicion().getOpuesto()),true); 
 		 vuelo.iniciar();
 	 }
 	 
 	 
 	 @Test
 	 public void testAvanzarDurante1(){
-		 //Hay que comprobar que la posición obtenida respete el radio de vuelo siempre, y que finalmente, habiendo recorrido un número de veces el período, la posición final sea igual a la inicial
+		 // Hay que comprobar que la posición obtenida respete el radio de vuelo 
+		 // siempre, y que finalmente, habiendo recorrido un número de veces el 
+		 // período, la posición final sea igual a la inicial.
 		 for (i=1; i<= (50 * periodo);i++){
 			 posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(1));
-			 Assert.assertEquals(posicionActual r,radioDeVuelo,1E-10); //Algun error que no se
+			 Assert.assertEquals(posicionActual.radio(),radioDeVuelo,1E-10);
 			 Assert.assertTrue(posicionActual.distance(posicionInicial) <= 1E-10);
 			 }
 	 }
 	 
 	 @Test
 	 public void testAvanzarDurante2(){
-		 //Avanzamos el vuelo en un cuarto del período y verificamos que esté en la posición correcta
+		 // Avanzamos el vuelo en un cuarto del período y verificamos que esté 
+		 // en la posición correcta.
 		 posicionActual = posicionInicial.sumarCon(vuelo.avanzarDurante(periodo / 4.0));
 		 Assert.assertTrue(posicionActual.distance(new Point(-3,4)) <= 1E-10);
 		 
@@ -58,9 +61,9 @@ public class VueloEnCirculosTest {
 	 @Test
 	 public void testConfigurarConCentroYSentido(){
 		 vuelo = new VueloEnCirculos(objetoVolador,new Point(1,0),false);
-		 //Configuramos el vuelo con valores correctos
+		 // Configuramos el vuelo con valores correctos
 		 vuelo.configurarCon(new Point(23,10),true);	
-		 //Intentamos darle un centro nulo
+		 // Intentamos darle un centro nulo
 		 try {
 			 vuelo.configurarCon(new Point(0,0),true);
 			 Assert.fail("El vuelo fue configurado con un centro inválido.");

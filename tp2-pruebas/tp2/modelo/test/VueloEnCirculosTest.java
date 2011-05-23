@@ -35,8 +35,7 @@ public class VueloEnCirculosTest {
 		 vuelo = new VueloEnCirculos(objetoVolador,(objetoVolador.getPosicion().getOpuesto()),true); 
 		 vuelo.iniciar();
 	 }
-	 
-	 
+	 	 
 	 @Test
 	 public void testAvanzarDurante1(){
 		 // Hay que comprobar que la posición obtenida respete el radio de vuelo 
@@ -44,9 +43,10 @@ public class VueloEnCirculosTest {
 		 // período, la posición final sea igual a la inicial.
 		 for (i=1; i<= (50 * periodo);i++){
 			 posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(1));
-			 Assert.assertEquals(posicionActual.radio(),radioDeVuelo,1E-10);
-			 Assert.assertTrue(posicionActual.distance(posicionInicial) <= 1E-10);
+			 System.out.println(posicionActual);
+			 Assert.assertEquals(radioDeVuelo, posicionActual.radio(), 1E-10);
 			 }
+		 Assert.assertEquals(0, posicionActual.distance(posicionInicial), 1E-10);
 	 }
 	 
 	 @Test
@@ -54,7 +54,7 @@ public class VueloEnCirculosTest {
 		 // Avanzamos el vuelo en un cuarto del período y verificamos que esté 
 		 // en la posición correcta.
 		 posicionActual = posicionInicial.sumarCon(vuelo.avanzarDurante(periodo / 4.0));
-		 Assert.assertTrue(posicionActual.distance(new Point(-3,4)) <= 1E-10);
+		 Assert.assertEquals(0, posicionActual.distance(new Point(-3,4)), 1E-10);
 		 
 	 }
 	 

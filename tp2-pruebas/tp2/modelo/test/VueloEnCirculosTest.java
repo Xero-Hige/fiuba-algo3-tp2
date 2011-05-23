@@ -43,7 +43,6 @@ public class VueloEnCirculosTest {
 		 // período, la posición final sea igual a la inicial.
 		 for (i=1; i<= (50 * periodo);i++){
 			 posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(1));
-			 System.out.println(posicionActual);
 			 Assert.assertEquals(radioDeVuelo, posicionActual.radio(), 1E-10);
 			 }
 		 Assert.assertEquals(0, posicionActual.distance(posicionInicial), 1E-10);

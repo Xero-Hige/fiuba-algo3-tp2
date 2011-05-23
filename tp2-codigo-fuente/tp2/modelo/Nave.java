@@ -1,7 +1,5 @@
 package tp2.modelo;
 
-import java.util.Iterator;
-
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.ValorInvalido;
 

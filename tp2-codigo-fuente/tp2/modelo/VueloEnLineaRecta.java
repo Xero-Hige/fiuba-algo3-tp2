@@ -17,8 +17,8 @@ public class VueloEnLineaRecta extends Vuelo {
 	}
 
 	protected void setDireccion(Point direccion) {
-		if(direccion.norma() > 0){
-			direccion = direccion.multiplicar(1 / direccion.norma());
+		if(direccion.radio() > 0){
+			direccion = direccion.multiplicar(1 / direccion.radio());
 		}
 		this.direccion = direccion;
 	}

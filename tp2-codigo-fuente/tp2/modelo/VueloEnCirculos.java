@@ -25,10 +25,10 @@ public class VueloEnCirculos extends Vuelo {
 			throw new VueloIniciado(
 					"No se puede configurar el vuelo porque ya ha sido iniciado.");
 		}
-		if (centroRelativo.norma() == 0) {
+		if (centroRelativo.radio() == 0) {
 			throw new ValorInvalido("El centro relativo no debe ser el nulo.");
 		}
-		this.radio = centroRelativo.norma();
+		this.radio = centroRelativo.radio();
 		this.sentido = sentido;
 		// El ángulo del objeto respecto al centro determina la zona de la
 		// circunsferencia donde empieza el vuelo, lo cual reflejamos en la

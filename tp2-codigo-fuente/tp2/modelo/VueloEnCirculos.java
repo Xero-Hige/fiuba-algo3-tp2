@@ -33,7 +33,7 @@ public class VueloEnCirculos extends Vuelo {
 		// El ángulo del objeto respecto al centro determina la zona de la
 		// circunsferencia donde empieza el vuelo, lo cual reflejamos en la
 		// trayectoriaDeVuelo
-		this.setTrayectoriaDeVuelo(centroRelativo.argumento() * this.radio);
+		this.setTrayectoriaDeVuelo(centroRelativo.getOpuesto().argumento() * this.radio);
 	}
 
 	// Avanza el vuelo en el tiempo recibido, y devuelve el desplazamiento del
@@ -55,7 +55,7 @@ public class VueloEnCirculos extends Vuelo {
 		desplazamiento = desplazamiento.sumarCon((new Point(this.radio, 0))
 				.rotarEn(anguloActual, new Point(0, 0)).getOpuesto());
 		this.aumentarTrayectoriaEn(velocidadAngular * this.radio * tiempo);
-		return null;
+		return desplazamiento;
 	}
 	
 	public double trayectoriaPorPeriodo(){

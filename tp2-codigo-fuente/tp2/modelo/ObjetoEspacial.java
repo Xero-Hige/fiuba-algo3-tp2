@@ -44,8 +44,7 @@ public abstract class ObjetoEspacial {
 	public abstract void actuarDurante(double unTiempo);
 
 	// Hace chocar al objeto recibido con el receptor del mensaje. Ambos sufren
-	// el
-	// efecto del mismo según cómo esté definido su comportamiento ante el
+	// el efecto del mismo según cómo esté definido su comportamiento ante el
 	// mismo.
 	public void chocarCon(ObjetoEspacial unObjetoEspacial) {
 
@@ -55,13 +54,11 @@ public abstract class ObjetoEspacial {
 
 	// Este método tiene carácter de 'protegido de clase' (sólo deben llamarlo
 	// objetos de esta dentro de esta jerarquía). El objeto que recibe el
-	// mensaje
-	// responde el choque y le hace sufrir al objeto recibido sus efectos, de
-	// acuerdo al comportamiento frente al choque que este último tenga.
+	// mensaje responde el choque y le hace sufrir al objeto recibido sus efectos, 
+	// de acuerdo al comportamiento frente al choque que este último tenga.
 	// El receptor le pide al objeto recibido que le diga cómo tiene que ser
 	// afectado al chocar con los demás objetos existentes. Luego es el receptor
-	// el
-	// que selecciona de entre todo el comportamiento el correspondiente a él
+	// el que selecciona de entre todo el comportamiento el correspondiente a él
 	// mismo.
 	public void responderChoqueDe(ObjetoEspacial unObjetoEspacial) {
 		unObjetoEspacial.sufrirChoqueDeObjetoEspacial(this);
@@ -80,8 +77,7 @@ public abstract class ObjetoEspacial {
 	}
 
 	// Hace que el objeto receptor del mensaje sea afectado por por la nave
-	// civil
-	// recibida.
+	// civil recibida.
 	public void sufrirChoqueDeNaveCivil(NaveCivil unaNaveCivil) {
 		this.comportamientoAlChocar.sufrirChoqueDeNaveCivil(unaNaveCivil);
 	}
@@ -93,8 +89,7 @@ public abstract class ObjetoEspacial {
 	}
 
 	// Hace que el objeto receptor del mensaje sea afectado por el objeto
-	// espacial
-	// recibido.
+	// espacial recibido.
 	public void sufrirChoqueDeObjetoEspacial(ObjetoEspacial unObjetoEspacial) {
 		this.comportamientoAlChocar
 				.sufrirChoqueDeObjetoEspacial(unObjetoEspacial);
@@ -107,8 +102,7 @@ public abstract class ObjetoEspacial {
 	}
 
 	// El objeto se borra del escenario. Si no pertenece a ninguno, se levanta
-	// una
-	// excepción.
+	// una excepción.
 	public void desaparecerDelEscenario() {
 
 		if (this.escenario == null) {

@@ -37,6 +37,6 @@ public class VueloDireccionableTest {
 		//Probamos ver si el desplazamiento es nulo para la dirección nula
 		vuelo.setDireccion(new Point(0,0));
 		desplazamiento = vuelo.avanzarDurante(1);
-		Assert.assertTrue(desplazamiento == new Point(0,0));
+		Assert.assertEquals(0, desplazamiento.radio(), 1e-10);
 	}
 }

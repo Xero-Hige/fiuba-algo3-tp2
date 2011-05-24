@@ -21,7 +21,9 @@ public abstract class ObjetoEspacial {
 		this.escenario = escenario;
 		this.destruido = false;
 		this.comportamientoAlChocar = new ChoqueDeObjetoEspacial(this);
-		this.escenario.agregarObjeto(this);
+		if (this.escenario != null){
+			this.escenario.agregarObjeto(this);
+		}
 	}
 
 	// Devuelve true si el objeto recibido está superpuesto con el receptor

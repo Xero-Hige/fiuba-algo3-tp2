@@ -1,6 +1,11 @@
 package tp2.modelo;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 import tp2.auxiliares.Point;
+import tp2.modelo.excepciones.*;
 
 // Es una nave guía que sabe controlar una flota, y comunicarse directamente con 
 // ella.
@@ -18,12 +23,31 @@ public class NaveGuia extends NaveMilitar {
 	// le asigna una nueva flota.
 	public NaveGuia(Point posicion, double tamanio, Escenario escenario, double velocidad, double energia) {
 		super(posicion, tamanio, escenario, velocidad, energia);
+		equipo = "equipo";
+		flota = new Flota(this);
+		
 	}
 	
 	@Override
 	// Ordena a la nave civil actuar en el escenario durante el tiempo específicado.
 	public void actuarDurante(double unTiempo) {
-		
+		if (this.estaDestruido()){
+			List<Arma> armas =this.getArmas();
+			Iterator<Arma> iterador = armas.iterator();
+			while(iterador.hasNext()){
+				iterador.next().desaparecerDelEscenario();
+			}
+			this.flota.iniciarRetiradaEnDireccion(direccionDeRetirada);
+			this.desaparecerDelEscenario();
+			return;
+		}
+		if (unTiempo <= 0) return;
+		Set<ObjetoEspacial> objetosChocados = this.getEscenario().getObjetosEnColisionCon(this);
+		Iterator<ObjetoEspacial> iterador = objetosChocados.iterator();
+		while(iterador.hasNext()){
+			this.chocarCon(iterador.next());
+			}
+		this.moverDurante(unTiempo);
 	}
 	
 	public Point getDireccionDeRetirada() {
@@ -32,7 +56,10 @@ public class NaveGuia extends NaveMilitar {
 	
 	// Cambia la dirección de retirada. La dirección debe ser no nula.
 	public void setDireccionDeRetirada(Point nuevaDireccionDeRetirada) {
-		
+		if (nuevaDireccionDeRetirada.radio() == 0){
+			throw new ValorInvalido("La dirección de retirada no puede ser nula");
+		}
+		direccionDeRetirada = nuevaDireccionDeRetirada;
 	}
 	
 	public Flota getFlota() {
@@ -41,6 +68,6 @@ public class NaveGuia extends NaveMilitar {
 	
 	// Le asigna una flota a la nave.
 	public void setFlota(Flota flota) {
-		
+		this.flota = flota; 
 	}
 }

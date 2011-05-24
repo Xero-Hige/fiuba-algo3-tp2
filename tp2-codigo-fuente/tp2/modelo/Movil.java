@@ -5,7 +5,7 @@ import tp2.auxiliares.Point;
 public abstract class Movil extends ObjetoEspacial {
 
 	private double velocidad;
-	private String equipo;
+	protected String equipo;
 
 	// Inicializa el móvil con la posición, tamaño, escenario y velocidad
 	// recibidos. Lo agrega al escenario.

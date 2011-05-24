@@ -1,6 +1,7 @@
 package tp2.modelo;
 
 import tp2.auxiliares.Point;
+import tp2.modelo.excepciones.*;
 
 // Define un arma, la cual puede disparar proyectiles en el escenario en donde esté.
 public class Arma extends Movil {
@@ -28,24 +29,47 @@ public class Arma extends Movil {
 	@Override
 	// Ordena al arma actuar en el escenario durante el tiempo específicado. Si no 
 	// tiene, se levanta una excepción.
-	public void actuarDurante(double tiempo) {
+	public void actuarDurante(double unTiempo) {
+
+		if (this.getEscenario() == null)
+			throw new ComposicionIncompleta("No se ha definido un escenario al objeto.");
 		
+		if (! (unTiempo <= 0)) {
+			this.moverDurante(unTiempo);
+			this.tiempoRestante -= unTiempo;
+			
+			if (this.disparando && (this.tiempoRestante <= 0))
+				this.disparar();
+		}
 	}
 	
 	// No hace nada. El arma tiene una carga infinita.
-	public void cargarCon(int unaCarga) {
-		
-	}
+	public void cargarCon(int unaCarga) {}
 	
 	// Acciona el arma para que esta empiece a disparar.
 	public void comenzarDisparos() {
-		
+		this.disparando = true;
 	}
 	
 	// Dispara el arma en la dirección hacia la cual apunta, y agrega el proyectil 
 	// al escenario en el cual se encuentra. Devuelve el proyectil disparado.
 	public Proyectil disparar() {
-		return null;
+		/*
+		 * | vuelo proyectilDisparado |
+			proyectilDisparado := modeloDeProyectil copy.
+			proyectilDisparado cambiarPosicionA: (self obtenerPosicion).
+			proyectilDisparado cambiarVelocidadA: velocidadDeDisparo.
+			vuelo := VueloEnLineaRecta inicializarCon: proyectilDisparado y: direccionDeDisparo.
+			proyectilDisparado cambiarVueloA: vuelo.
+			proyectilDisparado cambiarEscenarioA: (self obtenerEscenario).
+			tiempoRestante := 1 / frecuenciaDeDisparo.
+			^proyectilDisparado
+		 * 
+		 * 
+		 */
+		
+		
+		
 	}
 	
 	public boolean estaDisparando() {
@@ -54,7 +78,7 @@ public class Arma extends Movil {
 	
 	// Acciona el arma para que esta empiece a disparar.
 	public void frenarDisparos() {
-		
+		this.disparando = false;
 	}
 	
 	// Mueve el arma dependiendo de la posición de la nave dueña, sin importar el 
@@ -62,6 +86,8 @@ public class Arma extends Movil {
 	// se queda quieta.
 	public void moverDurante(double unTiempo) {
 		
+		if (!(this.naveDuenia == null))
+			this.setPosicion(this.naveDuenia.getPosicion());
 	}
 	
 	/*public float getCarga() {

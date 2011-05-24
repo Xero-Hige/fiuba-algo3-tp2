@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 import org.junit.*;
 
 import tp2.modelo.*;
+import tp2.modelo.excepciones.ObjetoDesconocido;
 import tp2.auxiliares.*;
 
 public class EscenarioTest {
@@ -30,7 +31,7 @@ public class EscenarioTest {
 			escenario2.agregarObjeto(objeto);
 			Assert.fail("Prueba Escenario fallo.");
 		} 
-		catch (IndexOutOfBoundsException e) {
+		catch (ObjetoDesconocido e) {
 			Assert.assertTrue(true);
 		}
 

@@ -16,6 +16,7 @@ public class ArmaLimitada extends Arma {
 	public ArmaLimitada (Point posicion, Escenario escenario, int velocidad, int frecuencia, Point direccion, String id) {
 		
 		super(posicion, escenario, velocidad, frecuencia, direccion, id);
+		carga = 0;
 	}
 	
 	@Override
@@ -28,7 +29,7 @@ public class ArmaLimitada extends Arma {
 	// Recibe el número de proyectiles con los cuales se va a cargar el arma, y se 
 	// los suma al número actual.
 	public void cargarCon(int unaCarga) {
-		
+		carga += unaCarga; 
 	}
 	
 	// Recibe el número de proyectiles que se van a descargar del arma, y se los  

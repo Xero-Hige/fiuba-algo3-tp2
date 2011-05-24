@@ -24,7 +24,7 @@ public class VueloDirigidoTest {
 		objetoVolador.setPosicion(new Point(2,0));
 		objetivo.setPosicion(new Point(2,100));
 		desplazamientos.add(vuelo.avanzarDurante(1000));
-		Assert.assertTrue(((Point)desplazamientos.get(1)).distance(new Point(2,0)) <= 1E-10);
-		Assert.assertTrue(((Point)desplazamientos.get(2)).distance(new Point(0,100)) <= 1E-10);
+		Assert.assertTrue(((Point)desplazamientos.get(0)).distance(new Point(2,0)) <= 1E-10);
+		Assert.assertTrue(((Point)desplazamientos.get(1)).distance(new Point(0,100)) <= 1E-10);
 	}
 }

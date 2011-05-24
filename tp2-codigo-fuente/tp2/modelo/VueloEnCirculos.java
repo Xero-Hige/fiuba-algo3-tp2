@@ -40,7 +40,7 @@ public class VueloEnCirculos extends Vuelo {
 	// mismo respecto al estado anterior. Si el vuelo no comenzó, se levanta una
 	// excepción.
 	@Override
-	public Point avanzarDurante(double tiempo) {
+	public Point avanzarDurante(double unTiempo) {
 		if (!this.estaIniciado()) {
 			throw new VueloNoIniciado("El vuelo no ha iniciado.");
 		}
@@ -51,10 +51,10 @@ public class VueloEnCirculos extends Vuelo {
 			velocidadAngular *= -1;
 		}
 		Point desplazamiento = (new Point(this.radio, 0)).rotarEn(anguloActual
-				+ velocidadAngular * tiempo, new Point(0, 0));
+				+ velocidadAngular * unTiempo, new Point(0, 0));
 		desplazamiento = desplazamiento.sumarCon((new Point(this.radio, 0))
 				.rotarEn(anguloActual, new Point(0, 0)).getOpuesto());
-		this.aumentarTrayectoriaEn(velocidadAngular * this.radio * tiempo);
+		this.aumentarTrayectoriaEn(velocidadAngular * this.radio * unTiempo);
 		return desplazamiento;
 	}
 	

@@ -27,7 +27,7 @@ public class VueloEnZigZag extends VueloCompuesto {
 	// Avanza el vuelo en el tiempo recibido, y devuelve el desplazamiento del 
 	// mismo respecto al estado anterior. Si el vuelo no comenzó, se levanta 
 	// una excepción.
-	public Point avanzarDurante(double tiempo) {
+	public Point avanzarDurante(double unTiempo) {
 		return null;
 	}
 	

@@ -28,12 +28,12 @@ public class VueloCompuesto extends Vuelo {
 	// mismo respecto al estado anterior. Si el vuelo no comenzó, se levanta una
 	// excepción.
 	@Override
-	public Point avanzarDurante(double tiempo) {
+	public Point avanzarDurante(double unTiempo) {
 		if (!this.estaIniciado()) {
 			throw new VueloNoIniciado("El vuelo no ha iniciado.");
 		}
 		double velocidad = this.getObjetoVolador().getVelocidad();
-		double tiempoRestante = tiempo;
+		double tiempoRestante = unTiempo;
 		Point desplazamiento = new Point(0, 0);
 		// Si al vuelo actual le queda menos tiempo que el recibido, y hay un
 		// siguiente vuelo parcial disponible, entonces también hay que

@@ -53,11 +53,11 @@ public abstract class Vuelo {
 	// nave en dicho intervalo y devuelve el mismo. En cada reimplementación, si
 	// el vuelo no ha iniciado, debe levantarse una excepción del tipo
 	// VueloNoIniciado.
-	public abstract Point avanzarDurante(double tiempo);
+	public abstract Point avanzarDurante(double unTiempo);
 
 	// Aumenta el valor de la trayectoria de vuelo de acuerdo al valor, que debe
 	// ser mayor a cero, recibido.
-	protected void aumentarTrayectoriaEn(double longitud){
-		this.trayectoriaDeVuelo = this.trayectoriaDeVuelo + longitud;
+	protected void aumentarTrayectoriaEn(double unaLongitud){
+		this.trayectoriaDeVuelo = this.trayectoriaDeVuelo + unaLongitud;
 	}
 }

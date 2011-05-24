@@ -20,7 +20,7 @@ public class VueloDirigido extends VueloDireccionable{
 	// Avanza el vuelo durante el tiempo indicado, dirigiéndose hacia la 
 	// posición del objetivo. Devuelve el desplazamiento del vuelo. Si el vuelo
 	// no fue iniciado, o si no se conoce al objetivo, se levanta una excepción.
-	public Point avanzarDurante(double tiempo) {
+	public Point avanzarDurante(double unTiempo) {
 		return null;
 	}
 	

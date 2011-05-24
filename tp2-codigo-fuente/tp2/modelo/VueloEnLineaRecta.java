@@ -27,14 +27,14 @@ public class VueloEnLineaRecta extends Vuelo {
 	// mismo respecto al estado anterior. Si el vuelo no comenzó, se levanta una
 	// excepción.
 	@Override
-	public Point avanzarDurante(double tiempo) {
+	public Point avanzarDurante(double unTiempo) {
 		double velocidad;
 		if(!this.estaIniciado()){
 			throw new VueloNoIniciado("El vuelo no ha iniciado.");			
 		}
 		velocidad = this.getObjetoVolador().getVelocidad();
-		this.aumentarTrayectoriaEn(tiempo * velocidad);
-		return (this.getDireccion().multiplicar(tiempo * velocidad));
+		this.aumentarTrayectoriaEn(unTiempo * velocidad);
+		return (this.getDireccion().multiplicar(unTiempo * velocidad));
 	}
 	
 }

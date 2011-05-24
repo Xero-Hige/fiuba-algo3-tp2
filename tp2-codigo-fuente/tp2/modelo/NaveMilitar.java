@@ -11,7 +11,7 @@ public class NaveMilitar extends Nave {
 
 	// las armas de la nave, la cual puede activarlas para que disparen o 
 	// desactivarlas cuando desee.
-	private List<Arma> armas;
+	protected List<Arma> armas;
 	
 	// Constructor
 	// Inicializa la nave sin un vuelo asignado ni armas, con la posición, tamaño, 

@@ -1,6 +1,9 @@
 package tp2.modelo;
 
+import java.util.Iterator;
+
 import tp2.auxiliares.Point;
+import tp2.modelo.excepciones.*;
 
 
 // Es una nave militar la cual permite ser controlada externamente. Se le puede 
@@ -13,18 +16,39 @@ public class NaveMilitarControlada extends NaveMilitar {
 	// escenario, velocidad y energía recibidos. La agrega al escenario.
 	public NaveMilitarControlada(Point posicion, double tamanio, Escenario escenario, double velocidad, double energia) {
 		super(posicion, tamanio, escenario, velocidad, energia);
+		Vuelo vueloControlado = new VueloDireccionable(this,new Point(0,0));
+		vuelo = vueloControlado;
+		comportamientoAlChocar = new ChoqueDeNaveMilitarControlada(this);
 	}
 	
 	// Recibe la identificación del arma que se desea disparar. Si no existe dicha 
 	// arma, se levanta una excepción.
 	public void iniciarFuegoConArmaDeId(String unaIdentificacion) {
 		
+		Iterator<Arma> iter = this.armas.iterator();
+		while(iter.hasNext()){
+			Arma arma = iter.next(); 
+			if (arma.getIdentificacion() == unaIdentificacion){
+				arma.comenzarDisparos();
+				return;
+			}
+		}
+		throw new ObjetoDesconocido("No se conoce el tipo del arma (no tiene identificación)");
 	}
 	
 	// Recibe la identificación del arma que se desea dejar de disparar. Si no 
 	// existe dicha arma, se levanta una excepción.
 	public void detenerFuegoConArmaDeId(String unaIdentificacion) {
 		
+		Iterator<Arma> iter = this.armas.iterator();
+		while(iter.hasNext()){
+			Arma arma = iter.next(); 
+			if (arma.getIdentificacion() == unaIdentificacion){
+				arma.frenarDisparos();
+				return;
+			}
+		}
+		throw new ObjetoDesconocido("No se conoce el tipo del arma (no tiene identificación)");
 	}
 	
 	// Cambia la dirección de la nave a la especificada. Si se desea que la nave se 
@@ -36,6 +60,6 @@ public class NaveMilitarControlada extends NaveMilitar {
 	@Override
 	// El vuelo de una nave controlada no puede cambiarse.
 	public void setVuelo(Vuelo nuevoVuelo) {
-		
+		return;
 	}
 }

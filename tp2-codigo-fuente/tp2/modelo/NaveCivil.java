@@ -24,7 +24,7 @@ public class NaveCivil extends Nave {
 	// Ordena a la nave civil actuar en el escenario durante el tiempo específicado.
 	public void actuarDurante(double unTiempo) {
 		if (this.estaDestruido()){
-			this.getEscenario().modificarPuntuacionEn(penalizacion*(-1));
+			this.getEscenario().modificarPuntuacionEn(-penalizacion);
 			this.desaparecerDelEscenario();
 			return;
 			}

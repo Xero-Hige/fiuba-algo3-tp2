@@ -6,12 +6,12 @@ public class ChoqueDeNaveMilitarControlada extends ChoqueDeNave {
 
 	// Inicializa el comportamiento de la nave recibida.
 	public ChoqueDeNaveMilitarControlada(NaveMilitarControlada unaNaveMilitarControlada) {
-		super((Nave) unaNaveMilitarControlada);
+		super((NaveMilitar) unaNaveMilitarControlada);
 	}
 	
 	@Override
 	// Una nave militar controlada puede recolectar los bonos al chocar con ellos.
 	public void sufrirChoqueDeBono(Bono unBono) {
-		unBono.entregarBonoA((Nave) this.getObjeto());
+		unBono.entregarBonoA((NaveMilitar) this.getObjeto());
 	}
 }

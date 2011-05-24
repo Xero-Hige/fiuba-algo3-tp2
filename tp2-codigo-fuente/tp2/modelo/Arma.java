@@ -67,7 +67,7 @@ public class Arma extends Movil {
 		 * 
 		 * 
 		 */
-		
+		return null;
 		
 		
 	}

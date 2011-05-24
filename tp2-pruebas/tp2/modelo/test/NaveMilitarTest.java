@@ -22,6 +22,6 @@ public class NaveMilitarTest {
 		//Probamos agregar ambas armas, y luego nos fijamos si la primer arma se cargó con la carga de la segunda"
 		nave.agregarArma(arma1);
 		nave.agregarArma(arma2);
-		Assert.assertEquals(arma1.getCarga(),30);
+		Assert.assertEquals(30,arma1.getCarga());
 	}
 }

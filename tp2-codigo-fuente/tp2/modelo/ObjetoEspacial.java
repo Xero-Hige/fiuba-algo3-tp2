@@ -10,6 +10,7 @@ public abstract class ObjetoEspacial {
 	protected Escenario escenario;
 	protected boolean destruido;
 	protected ChoqueDeObjetoEspacial comportamientoAlChocar;
+	private String identificacion;
 
 	// Constructor
 	// Inicializa el objeto con la posición, tamaño y escenario recibidos.
@@ -93,8 +94,7 @@ public abstract class ObjetoEspacial {
 	// Hace que el objeto receptor del mensaje sea afectado por el objeto
 	// espacial recibido.
 	public void sufrirChoqueDeObjetoEspacial(ObjetoEspacial unObjetoEspacial) {
-		this.comportamientoAlChocar
-				.sufrirChoqueDeObjetoEspacial(unObjetoEspacial);
+		this.comportamientoAlChocar.sufrirChoqueDeObjetoEspacial(unObjetoEspacial);
 	}
 
 	// Hace que el objeto receptor del mensaje sea afectado por el proyectil
@@ -108,8 +108,7 @@ public abstract class ObjetoEspacial {
 	public void desaparecerDelEscenario() {
 
 		if (this.escenario == null) {
-			throw new ComposicionIncompleta(
-					"El objeto no está en ningún escenario.");
+			throw new ComposicionIncompleta("El objeto no está en ningún escenario.");
 		}
 
 		this.escenario.borrarObjeto(this);
@@ -142,6 +141,16 @@ public abstract class ObjetoEspacial {
 
 	public Escenario getEscenario() {
 		return this.escenario;
+	}
+
+	public String getIdentificacion() {
+		return this.identificacion;
+	}
+	
+	// Asigna una identificación comparable al arma. Si dos armas tienen la misma 
+	// identificación, son del mismo tipo.
+	public void setIdentificacion(String nuevaIdentificacion) {
+		this.identificacion = nuevaIdentificacion;
 	}
 
 	// Cambia el escenario en donde se encuentra el objeto y agrega al mismo

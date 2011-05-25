@@ -12,9 +12,7 @@ public class Arma extends Movil {
 	private double tiempoRestante;
 	private boolean disparando;
 	private int velocidadDeDisparo;
-	private Point direccionDeDisparo;
-	private String identificacion;
-	
+	private Point direccionDeDisparo;	
 	
 	// Constructor
 	// Inicializa el arma con la posición, escenario, velocidad de disparo, 
@@ -23,7 +21,7 @@ public class Arma extends Movil {
 		super(posicion, 0, escenario, velocidad);
 		this.frecuenciaDeDisparo = frecuencia;
 		this.direccionDeDisparo = direccion;
-		this.identificacion = id;
+		this.setIdentificacion(id);
 	}
 	
 	@Override
@@ -120,16 +118,6 @@ public class Arma extends Movil {
 			throw new ValorInvalido("La frecuencia de disparo debe ser mayor a cero.");
 		
 		this.frecuenciaDeDisparo = nuevaFrecuencia;
-	}
-	
-	public String getIdentificacion() {
-		return this.identificacion;
-	}
-	
-	// Asigna una identificación comparable al arma. Si dos armas tienen la misma 
-	// identificación, son del mismo tipo.
-	public void setIdentificacion(String nuevaIdentificacion) {
-		this.identificacion = nuevaIdentificacion;
 	}
 	
 	public Proyectil getModeloDeProyectil() {

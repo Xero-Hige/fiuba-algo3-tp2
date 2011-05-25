@@ -24,7 +24,7 @@ public class PointTest extends TestCase{
 		Point centro = new Point(5, 7);
 		double angulo = Math.PI / 4;
 		// Rotamos el punto respecto al centro indicado
-		punto.rotarEn(angulo, centro);
+		punto = punto.rotarEn(angulo, centro);
 		Point resultado = new Point(5 + Math.sqrt(2) / 2, 7 - Math.sqrt(2)/2);
 		double error = punto.distance(resultado);
 		assertEquals(0, error, 1e-10);

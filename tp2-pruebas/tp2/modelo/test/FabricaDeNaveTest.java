@@ -3,6 +3,8 @@ package tp2.modelo.test;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 
+import java.util.*;
+
 import org.junit.*;
 
 import tp2.modelo.*;
@@ -86,11 +88,11 @@ public class FabricaDeNaveTest {
 	
 	@Test
 	public void testCrearCazaEn(){
-		NaveEnemiga[] cazas = fabrica.crearGrupoCazaEn(new Point(50,50));
+		List<NaveEnemiga> cazas = fabrica.crearGrupoCazaEn(new Point(50,50));
 		//Pido las posiciones en V de tres cazas
-		NaveEnemiga caza1 = cazas[0];
-		NaveEnemiga caza2 = cazas[1];
-		NaveEnemiga caza3 = cazas[2];
+		NaveEnemiga caza1 = cazas.get(0);
+		NaveEnemiga caza2 = cazas.get(1);
+		NaveEnemiga caza3 = cazas.get(2);
 		Assert.assertTrue (caza1.getPosicion()==(new Point(40,60)));
 		Assert.assertTrue (caza2.getPosicion()==(new Point(50,50)));
 		Assert.assertTrue (caza3.getPosicion()==(new Point(60,60)));

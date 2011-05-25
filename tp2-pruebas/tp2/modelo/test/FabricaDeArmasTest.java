@@ -31,7 +31,7 @@ public class FabricaDeArmasTest {
 		//Pedimos que su identificación sea: CanonLaser
 		Assert.assertTrue(canion.getIdentificacion() == "CanionLaser");
 		//Pedimos que la carga sea infinita
-		Assert.assertTrue(canion.getCarga() == (Float.POSITIVE_INFINITY));
+		Assert.assertTrue(canion.getCarga() == ((Number) Float.POSITIVE_INFINITY));
 		//Pedimos que el láser tenga el daño igual a 10
 		Assert.assertTrue(laserDisparado.getDanio() == 10);
 		//Pedimos que la frecuencia de disparo sea 5
@@ -49,7 +49,7 @@ public class FabricaDeArmasTest {
 		//Pedimos que su identificación sea: LanzaCohetes
 		Assert.assertTrue((lanzaCohetes.getIdentificacion() == "LanzaCohetes"));
 		//Pedimos que la carga sea inicialmente 10, o sea ahora que disparó un cohete: 9
-		Assert.assertTrue(lanzaCohetes.getCarga() == 9);
+		Assert.assertEquals(lanzaCohetes.getCarga(), 9);
 		//Pedimos que el cohete tenga el daño igual a 50
 		Assert.assertTrue((coheteDisparado.getDanio()) == 50);
 		//Pedimos que la frecuencia de disparo sea 5
@@ -67,7 +67,7 @@ public class FabricaDeArmasTest {
 		//Pedimos que su identificación sea: LanzaTorpedos
 		Assert.assertTrue((lanzaTorpedos.getIdentificacion() == "LanzaTorpedos"));
 		//Pedimos que la carga sea inicialmente 5, o sea ahora que disparó un cohete: 4
-		Assert.assertTrue((lanzaTorpedos.getCarga() == 4));
+		Assert.assertEquals(lanzaTorpedos.getCarga(), 4);
 		//Pedimos que el torpedo tenga el daño igual a 150
 		Assert.assertTrue((torpedoDisparado.getDanio() == 150)); 
 		//Pedimos que la frecuencia de disparo sea 5

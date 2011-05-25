@@ -44,8 +44,8 @@ public class VueloEnZigZagTest {
 		 posiciones.add(posicionActual);
 		 posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(3));
 		 posiciones.add(posicionActual);
-		 Assert.assertTrue(((Point)posiciones.get(1)).distance(new Point(1,-1)) <= 1E-10);
-		 Assert.assertTrue(((Point)posiciones.get(2)).distance(new Point(-1,-3)) <= 1E-10);
-		 Assert.assertTrue(((Point)posiciones.get(3)).distance(new Point(0,-6)) <= 1E-10);
+		 Assert.assertTrue(((Point)posiciones.get(0)).distance(new Point(1,-1)) <= 1E-10);
+		 Assert.assertTrue(((Point)posiciones.get(1)).distance(new Point(-1,-3)) <= 1E-10);
+		 Assert.assertTrue(((Point)posiciones.get(2)).distance(new Point(0,-6)) <= 1E-10);
 	}
 }

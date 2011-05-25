@@ -8,7 +8,6 @@ public class ArmaLimitada extends Arma {
 
 	private int carga;
 	
-	
 	// Constructor
 	// Inicializa el arma con la posición, escenario, velocidad de disparo, 
 	// frecuencia de disparo, dirección de disparo y la identificación recibidos. 
@@ -44,8 +43,9 @@ public class ArmaLimitada extends Arma {
 	public Proyectil disparar() {
 		return null;
 	}
-	
-	public int getCarga() {
+
+	@Override
+	public Number getCarga() {
 		return this.carga;
 	}
 }

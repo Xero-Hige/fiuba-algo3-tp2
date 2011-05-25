@@ -158,7 +158,7 @@ public class Arma extends Movil {
 		this.velocidadDeDisparo = nuevaVelocidad;
 	}
 	
-	public Float getCarga() {
+	public Number getCarga() {
 		return Float.POSITIVE_INFINITY;
 	}	
 }

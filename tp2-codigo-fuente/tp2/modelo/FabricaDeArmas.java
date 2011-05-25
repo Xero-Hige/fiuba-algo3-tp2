@@ -39,4 +39,8 @@ public class FabricaDeArmas {
 	public ArmaDirigida crearLanzaTorpedos() {
 		return null;
 	}
+
+	public void setEscenario(Escenario nuevoEscenario) {
+		escenarioActual = nuevoEscenario;
+	}
 }

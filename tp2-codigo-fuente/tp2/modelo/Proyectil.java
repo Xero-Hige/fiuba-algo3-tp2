@@ -2,8 +2,9 @@ package tp2.modelo;
 
 import tp2.auxiliares.Point;
 
+
 // Un proyectil es capaz de dañar naves no aliadas al impactar con ellas en el escenario.
-public class Proyectil extends ObjetoVolador {
+public class Proyectil extends ObjetoVolador implements Cloneable {
 
 	// El daño por impacto del proyectil.
 	protected double danio;
@@ -15,6 +16,25 @@ public class Proyectil extends ObjetoVolador {
 	public Proyectil(Point posicion, double tamanio, double velocidad, double danio) {
 		super(posicion, tamanio, null, velocidad);
 		this.danio = danio;
+	}
+	
+	@Override
+	// Deep Cloning del objeto.
+	public Proyectil clone() {
+		
+		Proyectil clone = null;
+
+		try {
+	      clone = (Proyectil) super.clone();
+	    }
+	    catch(CloneNotSupportedException e) { }
+
+	    // Implementación de la clonación profunda
+	    /*((CloneTest)clone).setArrayList((ArrayList)mArrayList.clone());
+	    ((CloneTest)clone).setHashMap((HashMap)mHashMap.clone());
+	    ((CloneTest)clone).setString(new String(mString));
+	    */
+		return clone;
 	}
 	
 	@Override

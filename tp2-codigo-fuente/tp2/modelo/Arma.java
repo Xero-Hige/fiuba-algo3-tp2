@@ -54,22 +54,26 @@ public class Arma extends Movil {
 	// Dispara el arma en la dirección hacia la cual apunta, y agrega el proyectil 
 	// al escenario en el cual se encuentra. Devuelve el proyectil disparado.
 	public Proyectil disparar() {
-		/*
-		 * | vuelo proyectilDisparado |
-			proyectilDisparado := modeloDeProyectil copy.
-			proyectilDisparado cambiarPosicionA: (self obtenerPosicion).
-			proyectilDisparado cambiarVelocidadA: velocidadDeDisparo.
-			vuelo := VueloEnLineaRecta inicializarCon: proyectilDisparado y: direccionDeDisparo.
-			proyectilDisparado cambiarVueloA: vuelo.
-			proyectilDisparado cambiarEscenarioA: (self obtenerEscenario).
-			tiempoRestante := 1 / frecuenciaDeDisparo.
-			^proyectilDisparado
-		 * 
-		 * 
-		 */
-		return null;
 		
+		Proyectil proyectilDisparado;
+		Vuelo vuelo;
 		
+		////////////////////////////////////////////////////////
+		// WARNING!!
+		//
+		// VERIFICAR CLONACION DE PROYECTIL!!!!!!!!!!!!!!!!!!!!
+		////////////////////////////////////////////////////////
+		proyectilDisparado = this.modeloDeProyectil.clone();
+		////////////////////////////////////////////////////////
+		proyectilDisparado.setPosicion(this.getPosicion());
+		proyectilDisparado.setVelocidad(this.velocidadDeDisparo);
+		
+		vuelo = new VueloEnLineaRecta(proyectilDisparado, this.direccionDeDisparo);
+		proyectilDisparado.setVuelo(vuelo);
+		proyectilDisparado.setEscenario(this.getEscenario());
+		this.tiempoRestante = 1 / this.frecuenciaDeDisparo;
+				
+		return proyectilDisparado;
 	}
 	
 	public boolean estaDisparando() {
@@ -90,13 +94,12 @@ public class Arma extends Movil {
 			this.setPosicion(this.naveDuenia.getPosicion());
 	}
 	
-	/*public float getCarga() {
-		
-	}*/
-	
 	// Cambia el equipo del arma.
 	public void setEquipo(String nuevoEquipo) {
-		
+
+		super.setEquipo(nuevoEquipo);
+		if (this.modeloDeProyectil != null)
+			this.modeloDeProyectil.setEquipo(nuevoEquipo);
 	}
 
 	public Point getDireccionDeDisparo() {
@@ -106,6 +109,10 @@ public class Arma extends Movil {
 	// Cambia la dirección de disparo, que no debe ser nula.
 	public void setDireccionDeDisparo(Point nuevaDireccion) {
 		
+		if (nuevaDireccion.radio() == 0) 
+			throw new ValorInvalido("La dirección de disparo no puede ser nula.");
+		
+		this.direccionDeDisparo = nuevaDireccion;
 	}
 	
 	public int getFrecuenciaDeDisparo() {
@@ -115,6 +122,10 @@ public class Arma extends Movil {
 	// Cambia la frecuencia de disparo, que debe ser mayor a cero.
 	public void setFrecuenciaDeDisparo(int nuevaFrecuencia) {
 		
+		if (nuevaFrecuencia <= 0) 
+			throw new ValorInvalido("La frecuencia de disparo debe ser mayor a cero.");
+		
+		this.frecuenciaDeDisparo = nuevaFrecuencia;
 	}
 	
 	public String getIdentificacion() {
@@ -124,7 +135,7 @@ public class Arma extends Movil {
 	// Asigna una identificación comparable al arma. Si dos armas tienen la misma 
 	// identificación, son del mismo tipo.
 	public void setIdentificacion(String nuevaIdentificacion) {
-		
+		this.identificacion = nuevaIdentificacion;
 	}
 	
 	public Proyectil getModeloDeProyectil() {
@@ -135,6 +146,17 @@ public class Arma extends Movil {
 	// un vuelo asignado, o sino se levantará una excepción.
 	public void setModeloDeProyectil(Proyectil unProyectil) {
 		
+		if (unProyectil.getVuelo() != null)
+			throw new VueloAsignado("El modelo de proyectil no puede tener un vuelo asignado.");
+		
+		////////////////////////////////////////////////////////
+		// WARNING!!
+		//
+		// VERIFICAR CLONACION DE PROYECTIL!!!!!!!!!!!!!!!!!!!!
+		////////////////////////////////////////////////////////
+		this.modeloDeProyectil = unProyectil.clone();
+		////////////////////////////////////////////////////////
+		this.modeloDeProyectil.setEquipo(this.getEquipo());
 	}
 	
 	public Nave getNaveDuenia() {
@@ -144,7 +166,7 @@ public class Arma extends Movil {
 	// Asigna la nave dueña al arma. Cada vez que actúe, la misma será puesta en la 
 	// posición de dicha nave.
 	public void setNaveDuenia(Nave nuevaNaveDuenia) {
-		
+		this.naveDuenia = nuevaNaveDuenia;
 	}
 	
 	public int getVelocidadDeDisparo() {
@@ -154,9 +176,13 @@ public class Arma extends Movil {
 	// Cambia la velocidad de disparo, que debe ser mayor a cero.
 	public void setVelocidadDeDisparo(int nuevaVelocidad) {
 		
+		if (nuevaVelocidad <= 0) 
+			throw new ValorInvalido("La velocidad de disparo debe ser mayor a cero.");
+		
+		this.velocidadDeDisparo = nuevaVelocidad;
 	}
 	
-	public int getCarga() {
-		return 0;
+	public Float getCarga() {
+		return Float.POSITIVE_INFINITY;
 	}	
 }

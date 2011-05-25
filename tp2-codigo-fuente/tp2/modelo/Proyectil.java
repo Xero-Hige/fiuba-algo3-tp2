@@ -24,7 +24,7 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 	}
 	
 	@Override
-	// Deep Cloning parcial del objeto.
+	// Simple Cloning parcial del objeto.
 	public Proyectil clone() {
 		
 		Proyectil clone = null;
@@ -34,14 +34,9 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 	    }
 	    catch(CloneNotSupportedException e) { }
 	    
-	    // FALTA CLONAR TIPOS NO PRIMITIVOS!!!!!!!!!!!!!!!!!!!!
-	    /*((Proyectil)clone).getPosicion();
-	    ((Proyectil)clone).setPosicion((Point)posicion.clone());
-	    ((Proyectil)clone).getEscenario();
-	    ((Proyectil)clone).setEscenario((Escenario)escenario.clone());
-	    ((Proyectil)clone).getIdentificacion();
-	    ((Proyectil)clone).setIdentificacion((String)identificacion.clone());*/
-	      
+	    clone.vuelo = null;
+	    clone.comportamientoAlChocar = new ChoqueDeProyectil(this); 
+	    
 		return clone;
 	}
 	

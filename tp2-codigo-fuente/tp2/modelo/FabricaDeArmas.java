@@ -1,5 +1,7 @@
 package tp2.modelo;
 
+import tp2.auxiliares.Point;
+
 // La fábrica de armas puede crear las armas particulares del juego.
 public class FabricaDeArmas {
 
@@ -7,11 +9,7 @@ public class FabricaDeArmas {
 		
 	// Constructor
 	public FabricaDeArmas(Escenario unEscenario) {
-		
-	}
-	
-	private void cambiarEscenarioA(Escenario otroEscenario) {
-		
+		escenarioActual = unEscenario;
 	}
 	
 	// Crea un cañón láser (identificación: CanonLaser) que tiene carga 
@@ -19,7 +17,10 @@ public class FabricaDeArmas {
 	// de disparo 5. Devuelve el cañón, apuntando por defecto hacia abajo y 
 	// posicionado en el origen.
 	public Arma crearCanionLaser() {
-		return null;
+		Arma canionLaser = new Arma(new Point(0,0),escenarioActual,100,5,new Point(0,-1),"CanonLaser");
+		Proyectil laser = new Proyectil(new Point(0,0),0.1,0,10);
+		canionLaser.setModeloDeProyectil(laser);
+		return canionLaser;
 	}
 	
 	// Crea un lanzacohetes (identificación: LanzaCohetes) que tiene carga 
@@ -27,7 +28,11 @@ public class FabricaDeArmas {
 	// proyectil 50. Devuelve el lanzacohetes, apuntando por defecto hacia 
 	// abajo y posicionada en el origen.
 	public ArmaLimitada crearLanzaCohetes() {
-		return null;
+		ArmaLimitada lanzacohetes = new ArmaLimitada(new Point(0,0),escenarioActual,50,2,new Point(0,-1),"LanzaCohetes");
+		lanzacohetes.cargarCon(10);
+		Proyectil cohete = new Proyectil(new Point(0,0),0.5,0,50);
+		lanzacohetes.setModeloDeProyectil(cohete);
+		return lanzacohetes;
 	}
 	
 	// Crea un lanzatorpedos (identificación: LanzaTorpedos) que tiene carga 
@@ -37,7 +42,11 @@ public class FabricaDeArmas {
 	// el mismo persiga a una nave de esa flota. Devuelve el lanzatorpedos, 
 	// apuntando por defecto hacia abajo.
 	public ArmaDirigida crearLanzaTorpedos() {
-		return null;
+		ArmaDirigida lanzatorpedos = new ArmaDirigida(new Point(0,0),escenarioActual,20,0.5,new Point(0,-1),"LanzaTorpedos");
+		lanzatorpedos.cargarCon(5);
+		Proyectil torpedo =new Proyectil(new Point(0,0),0.1,0,150);
+		lanzatorpedos.setModeloDeProyectil(torpedo);
+		return lanzatorpedos;
 	}
 
 	public void setEscenario(Escenario nuevoEscenario) {

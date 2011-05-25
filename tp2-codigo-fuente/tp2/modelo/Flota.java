@@ -9,7 +9,7 @@ import java.util.*;
 // sus miembros cuando sea necesario.
 public class Flota {
 
-	private NaveGuia naveGuia;
+	private NaveMilitar naveGuia;
 	private List<NaveMilitar> navesMilitares;
 	
 	// Constructor
@@ -49,11 +49,11 @@ public class Flota {
 	}
 	
 	private void setNaveGuia(NaveMilitar naveGuia){
-		this.naveGuia = (NaveGuia) naveGuia;
+		this.naveGuia = naveGuia;
 	}
 	
 	public NaveGuia getNaveGuia(){
-		return this.naveGuia;
+		return (NaveGuia)this.naveGuia;
 	}
 	
 	public List<NaveMilitar> getNaves(){

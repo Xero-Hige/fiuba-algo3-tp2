@@ -8,7 +8,7 @@ public class Arma extends Movil {
 
 	private Nave naveDuenia;
 	private Proyectil modeloDeProyectil;
-	private int frecuenciaDeDisparo;
+	private double frecuenciaDeDisparo;
 	private double tiempoRestante;
 	private boolean disparando;
 	private int velocidadDeDisparo;
@@ -17,7 +17,7 @@ public class Arma extends Movil {
 	// Constructor
 	// Inicializa el arma con la posición, escenario, velocidad de disparo, 
 	// frecuencia de disparo, dirección de disparo y la identificación recibidos.
-	public Arma(Point posicion, Escenario escenario, int velocidad, int frecuencia, Point direccion, String id) {	
+	public Arma(Point posicion, Escenario escenario, int velocidad, double frecuencia, Point direccion, String id) {	
 		super(posicion, 0, escenario, velocidad);
 		this.frecuenciaDeDisparo = frecuencia;
 		this.direccionDeDisparo = direccion;
@@ -107,7 +107,7 @@ public class Arma extends Movil {
 		this.direccionDeDisparo = nuevaDireccion;
 	}
 	
-	public int getFrecuenciaDeDisparo() {
+	public double getFrecuenciaDeDisparo() {
 		return this.frecuenciaDeDisparo;
 	}
 	

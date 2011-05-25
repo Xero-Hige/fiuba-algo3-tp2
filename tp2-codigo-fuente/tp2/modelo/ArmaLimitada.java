@@ -12,7 +12,7 @@ public class ArmaLimitada extends Arma {
 	// Inicializa el arma con la posición, escenario, velocidad de disparo, 
 	// frecuencia de disparo, dirección de disparo y la identificación recibidos. 
 	// La carga inicial es cero.
-	public ArmaLimitada (Point posicion, Escenario escenario, int velocidad, int frecuencia, Point direccion, String id) {
+	public ArmaLimitada (Point posicion, Escenario escenario, int velocidad, double frecuencia, Point direccion, String id) {
 		
 		super(posicion, escenario, velocidad, frecuencia, direccion, id);
 		carga = 0;

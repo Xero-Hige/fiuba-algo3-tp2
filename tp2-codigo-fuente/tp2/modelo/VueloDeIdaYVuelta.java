@@ -25,12 +25,6 @@ public class VueloDeIdaYVuelta extends VueloCompuesto {
 	
 	}
 	
-	@Override
-	// No se puede agregar un vuelo (desde afuera) a un objeto de esta clase.
-	public void agregarVuelo(Vuelo vuelo, double longitudTrayectoria) {
-		
-	}
-	
 	public Point getDestino() {
 		return this.destino;
 	}

@@ -1,6 +1,6 @@
 package tp2.modelo;
 
-import java.util.ArrayList;
+import java.util.*;
 
 import tp2.auxiliares.Point;
 
@@ -104,7 +104,7 @@ public class FabricaDeNaves {
 	// de 6, velocidad igual a 10 y un lanzatorpedos no dirigido. Su vuelo es en V 
 	// hacia abajo. Su puntuación por destrucción es de 30. Devuelve la colección de 
 	// los cazas.
-	public ArrayList<NaveEnemiga> crearGrupoCazaEn(Point unaPosicion){
+	public List<NaveEnemiga> crearGrupoCazaEn(Point unaPosicion){
 		ArrayList<NaveEnemiga> cazas = new ArrayList<NaveEnemiga>();
 		for(int i=0 ; i < 3 ; i++){
 			//Calculamos la posición para formar una V

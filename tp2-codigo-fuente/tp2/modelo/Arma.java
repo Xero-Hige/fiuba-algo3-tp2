@@ -22,6 +22,7 @@ public class Arma extends Movil {
 		this.frecuenciaDeDisparo = frecuencia;
 		this.direccionDeDisparo = direccion;
 		this.setIdentificacion(id);
+		this.velocidadDeDisparo = velocidad;
 	}
 	
 	@Override

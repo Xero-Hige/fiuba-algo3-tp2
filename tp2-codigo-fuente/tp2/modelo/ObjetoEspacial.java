@@ -147,7 +147,7 @@ public abstract class ObjetoEspacial {
 		return this.identificacion;
 	}
 	
-	// Asigna una identificación comparable al arma. Si dos armas tienen la misma 
+	// Asigna una identificación comparable al objeto. Si dos objetos tienen la misma 
 	// identificación, son del mismo tipo.
 	public void setIdentificacion(String nuevaIdentificacion) {
 		this.identificacion = nuevaIdentificacion;

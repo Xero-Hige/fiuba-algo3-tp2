@@ -19,7 +19,7 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 	}
 	
 	@Override
-	// Deep Cloning del objeto.
+	// Simple Cloning del objeto.
 	public Proyectil clone() {
 		
 		Proyectil clone = null;
@@ -29,11 +29,6 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 	    }
 	    catch(CloneNotSupportedException e) { }
 
-	    // Implementación de la clonación profunda
-	    /*((CloneTest)clone).setArrayList((ArrayList)mArrayList.clone());
-	    ((CloneTest)clone).setHashMap((HashMap)mHashMap.clone());
-	    ((CloneTest)clone).setString(new String(mString));
-	    */
 		return clone;
 	}
 	

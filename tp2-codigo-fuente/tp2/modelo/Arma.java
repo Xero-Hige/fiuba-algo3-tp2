@@ -57,14 +57,8 @@ public class Arma extends Movil {
 		
 		Proyectil proyectilDisparado;
 		Vuelo vuelo;
-		
-		////////////////////////////////////////////////////////
-		// WARNING!!
-		//
-		// VERIFICAR CLONACION DE PROYECTIL!!!!!!!!!!!!!!!!!!!!
-		////////////////////////////////////////////////////////
+
 		proyectilDisparado = this.modeloDeProyectil.clone();
-		////////////////////////////////////////////////////////
 		proyectilDisparado.setPosicion(this.getPosicion());
 		proyectilDisparado.setVelocidad(this.velocidadDeDisparo);
 		
@@ -149,13 +143,7 @@ public class Arma extends Movil {
 		if (unProyectil.getVuelo() != null)
 			throw new VueloAsignado("El modelo de proyectil no puede tener un vuelo asignado.");
 		
-		////////////////////////////////////////////////////////
-		// WARNING!!
-		//
-		// VERIFICAR CLONACION DE PROYECTIL!!!!!!!!!!!!!!!!!!!!
-		////////////////////////////////////////////////////////
 		this.modeloDeProyectil = unProyectil.clone();
-		////////////////////////////////////////////////////////
 		this.modeloDeProyectil.setEquipo(this.getEquipo());
 	}
 	

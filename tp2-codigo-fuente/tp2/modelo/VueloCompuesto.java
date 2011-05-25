@@ -73,7 +73,7 @@ public class VueloCompuesto extends Vuelo {
 	// trayectoria que se pretende que dure. Si el vuelo agregado pertenece a
 	// otro objeto, o la trayectoria recibida no es mayor a cero, se levanta una
 	// excepción.
-	public final void agregarVuelo(Vuelo vuelo, double longitudTrayectoria) {
+	public void agregarVuelo(Vuelo vuelo, double longitudTrayectoria) {
 		if (longitudTrayectoria <= 0) {
 			throw new ValorInvalido(
 					"La trayectoria de vuelo tiene que ser mayor que cero.");

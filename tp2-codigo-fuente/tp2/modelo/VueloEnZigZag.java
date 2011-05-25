@@ -108,4 +108,9 @@ public class VueloEnZigZag extends VueloCompuesto {
 		this.direccion = direccion.normalizar();
 	}
 
+	@Override
+	public void agregarVuelo(Vuelo vuelo, double longitudTrayectoria) {
+		throw new UnsupportedOperationException("No se pueden agregar vuelos.");
+	}
+
 }

@@ -34,4 +34,9 @@ public class VueloDeIdaYVuelta extends VueloCompuesto {
 	public void setDestino(Point posicionRelativa) {
 		
 	}
+	
+	@Override
+	public void agregarVuelo(Vuelo vuelo, double longitudTrayectoria) {
+		throw new UnsupportedOperationException("No se pueden agregar vuelos.");
+	}
 }

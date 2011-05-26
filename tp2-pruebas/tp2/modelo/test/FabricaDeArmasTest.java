@@ -31,7 +31,7 @@ public class FabricaDeArmasTest {
 		//Pedimos que su identificación sea: CanonLaser
 		Assert.assertTrue(canion.getIdentificacion() == "CanionLaser");
 		//Pedimos que la carga sea infinita
-		Assert.assertTrue(canion.getCarga() == ((Number) Float.POSITIVE_INFINITY));
+		Assert.assertEquals(Float.POSITIVE_INFINITY, canion.getCarga());
 		//Pedimos que el láser tenga el daño igual a 10
 		Assert.assertTrue(laserDisparado.getDanio() == 10);
 		//Pedimos que la frecuencia de disparo sea 5

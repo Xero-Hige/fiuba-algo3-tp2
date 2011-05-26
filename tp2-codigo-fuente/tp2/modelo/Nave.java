@@ -14,6 +14,7 @@ public class Nave extends ObjetoVolador {
 			double velocidad, double energia) {
 		super(posicion, tamanio, escenario, velocidad);
 		this.setEnergia(energia);
+		this.setComportamiento(new ChoqueDeNave(this));
 	}
 
 	@Override

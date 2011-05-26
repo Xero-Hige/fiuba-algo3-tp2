@@ -30,7 +30,7 @@ public class FabricaDeNaves {
 		NaveMilitarControlada algo42 = new NaveMilitarControlada(unaPosicion,7,escenarioActual,25,500);
 		algo42.setEquipo(equipoDeLaNave);
 		Arma canionLaser = fabricaDeArmas.crearCanionLaser();
-		canionLaser.setDireccionDeDisparo(new Point(1,0));
+		canionLaser.setDireccionDeDisparo(new Point(0, 1));
 		algo42.agregarArma(canionLaser);
 		
 		return algo42;

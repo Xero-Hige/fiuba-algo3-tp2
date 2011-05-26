@@ -39,7 +39,6 @@ public class Arma extends Movil {
 			
 			if (this.disparando && (this.tiempoRestante <= 0)){
 				this.disparar();
-				this.tiempoRestante += 1 / this.frecuenciaDeDisparo;
 			} else if(this.tiempoRestante <= 0){
 				this.tiempoRestante = 0;
 			}
@@ -68,7 +67,9 @@ public class Arma extends Movil {
 		vuelo = new VueloEnLineaRecta(proyectilDisparado, this.direccionDeDisparo);
 		proyectilDisparado.setVuelo(vuelo);
 		proyectilDisparado.setEscenario(this.getEscenario());
-				
+		
+		this.tiempoRestante += 1 / this.frecuenciaDeDisparo;
+		
 		return proyectilDisparado;
 	}
 	

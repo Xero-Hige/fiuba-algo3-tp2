@@ -32,8 +32,8 @@ public class NaveMilitarControlada extends NaveMilitar {
 				return;
 			}
 		}
-		throw new ObjetoDesconocido(
-				"No se conoce el tipo del arma (no tiene identificación)");
+		
+		throw new ObjetoDesconocido("No se conoce el tipo del arma (no tiene identificación)");
 	}
 
 	// Recibe la identificación del arma que se desea dejar de disparar. Si no

@@ -38,7 +38,7 @@ public class NaveMilitar extends Nave {
 		Iterator<ObjetoEspacial> iterador = objetosChocados.iterator();
 		while(iterador.hasNext()){
 			this.chocarCon(iterador.next());
-			}
+		}
 		this.moverDurante(unTiempo);
 	}
 	

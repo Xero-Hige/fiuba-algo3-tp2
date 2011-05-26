@@ -21,7 +21,7 @@ public class FabricaDeNaveTest {
 		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
 		flotaEnemiga = new Flota(new NaveGuia(new Point(0,0),1,escenario,1,100));
 		fabrica = new FabricaDeNaves(escenario,"aliados",flotaEnemiga);
-		}
+	}
 
 	@Test
 	public void testCrearAlgo42En(){
@@ -34,7 +34,7 @@ public class FabricaDeNaveTest {
 		Assert.assertTrue(algo42.getTamanio() == 7);
 		//Pedimos que tenga un cañón láser
 		Assert.assertTrue(algo42.getArmas().size() == 1);
-		}
+	}
 
 	@Test
 	public void testCrearAvionCivilEn(){
@@ -47,7 +47,7 @@ public class FabricaDeNaveTest {
 		Assert.assertTrue(avionCivil.getTamanio()== 5);
 		//Pedimos que la penalización por destrucción sea 300
 		Assert.assertTrue(avionCivil.getPenalizacion()== 300);
-		}
+	}
 	
 	@Test
 	public void testCrearAvionetaEn(){
@@ -64,8 +64,8 @@ public class FabricaDeNaveTest {
 		Assert.assertTrue(avioneta.getPuntuacion() == 20);
 		//Pedimos que el destino del vuelo sea (0,-80)
 		VueloDeIdaYVuelta vuelo = (VueloDeIdaYVuelta) avioneta.getVuelo();
-		Assert.assertTrue(vuelo.getDestino() == new Point(0,-80));
-		}
+		Assert.assertTrue(vuelo.getDestino().distance(new Point(0,-80)) <= 1e-10);
+	}
 	
 	@Test
 	public void testCrearBombarderoEn(){
@@ -84,7 +84,7 @@ public class FabricaDeNaveTest {
 		VueloEnZigZag vuelo = (VueloEnZigZag) bombardero.getVuelo();
 		Assert.assertEquals(vuelo.getDireccion().normalizar(), new Point(0,-1));
 		Assert.assertTrue (vuelo.getAmplitud() == 10);
-		}
+	}
 	
 	@Test
 	public void testCrearCazaEn(){
@@ -93,9 +93,11 @@ public class FabricaDeNaveTest {
 		NaveEnemiga caza1 = cazas.get(0);
 		NaveEnemiga caza2 = cazas.get(1);
 		NaveEnemiga caza3 = cazas.get(2);
-		Assert.assertTrue (caza1.getPosicion()==(new Point(40,60)));
-		Assert.assertTrue (caza2.getPosicion()==(new Point(50,50)));
-		Assert.assertTrue (caza3.getPosicion()==(new Point(60,60)));
+
+		Assert.assertTrue(caza1.getPosicion().distance(new Point(30,50)) <= 1E-10);
+		Assert.assertTrue(caza2.getPosicion().distance(new Point(40,60)) <= 1E-10);
+		Assert.assertTrue(caza3.getPosicion().distance(new Point(50,50)) <= 1E-10);
+		
 		//Pedimos que la energía sea 30
 		Assert.assertTrue (caza1.getEnergia() == 30);
 		//Pedimos que la velocidad sea 10
@@ -106,7 +108,7 @@ public class FabricaDeNaveTest {
 		Assert.assertTrue (caza1.getArmas().size() == 1);
 		//Pedimos que la puntuación por destrucción sea 30
 		Assert.assertTrue (caza1.getPuntuacion() == 30);
-		}
+	}
 	
 	@Test
 	public void testCrearExploradorEn(){
@@ -121,7 +123,7 @@ public class FabricaDeNaveTest {
 		Assert.assertTrue (explorador.getArmas().size() == 0);
 		//Pedimos que la puntuación por destrucción sea 50
 		Assert.assertTrue (explorador.getPuntuacion() == 50);
-		}
+	}
 	
 	@Test
 	public void testCrearGuiaEnemigoEn(){

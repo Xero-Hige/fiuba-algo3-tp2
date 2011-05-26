@@ -34,7 +34,7 @@ public class ChoqueDeNaveTest {
 	@Before 
 	public void arrange(){
 		escenario = new Escenario(new Rectangle(new Dimension(1,1)));
-		nave = new Nave(new Point(0,0),1,escenario,1,100);
+		nave = new Nave(new Point(0,0),1,escenario,1,15);
 		nave.setEquipo("aliados");
 		proyectilAliado = new Proyectil(new Point(0,0),0.1,0,10); 
 		proyectilAliado.setEquipo("aliados");

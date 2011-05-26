@@ -17,7 +17,7 @@ public class FabricaDeArmas {
 	// de disparo 5. Devuelve el cañón, apuntando por defecto hacia abajo y 
 	// posicionado en el origen.
 	public Arma crearCanionLaser() {
-		Arma canionLaser = new Arma(new Point(0,0),escenarioActual,100,5,new Point(0,-1),"CanonLaser");
+		Arma canionLaser = new Arma(new Point(0,0),escenarioActual,100,5,new Point(0,-1),"CanionLaser");
 		Proyectil laser = new Proyectil(new Point(0,0),0.1,0,10);
 		canionLaser.setModeloDeProyectil(laser);
 		return canionLaser;

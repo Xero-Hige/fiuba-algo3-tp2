@@ -21,7 +21,7 @@ public class BonoDeArmas extends Bono {
 		if (this.fueUsado()){
 			throw new BonoUtilizado("El bono ya ha sido utilizado previamente");
 		}
-		List<Arma> armas = naveDuenia.getArmas();
+		List<Arma> armas = this.getNaveDuenia().getArmas();
 		Iterator<Arma> iter = armas.iterator();
 		while(iter.hasNext()){
 			Arma arma = iter.next();

@@ -34,7 +34,7 @@ public class NaveEnemiga extends NaveMilitar {
 			while(iterador.hasNext()){
 				iterador.next().desaparecerDelEscenario();
 			}
-			escenario.modificarPuntuacionEn((int)puntuacion);
+			this.getEscenario().modificarPuntuacionEn((int)puntuacion);
 			this.desaparecerDelEscenario();
 			return;
 		}

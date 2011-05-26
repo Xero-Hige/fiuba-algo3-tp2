@@ -20,7 +20,7 @@ public class BonoDeEnergia extends Bono {
 		if (this.fueUsado()){
 			throw new BonoUtilizado("El bono ya ha sido utilizado previamente");
 		}
-		unaNaveMilitar.recuperarEnergiaEn(naveDuenia.getMaxEnergia());
+		unaNaveMilitar.recuperarEnergiaEn(this.getNaveDuenia().getMaxEnergia());
 		this.destruir();
 	}	
 }

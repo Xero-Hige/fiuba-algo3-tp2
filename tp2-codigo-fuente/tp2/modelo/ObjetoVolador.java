@@ -5,7 +5,7 @@ import tp2.modelo.excepciones.*;
 
 public abstract class ObjetoVolador extends Movil {
 
-	protected Vuelo vuelo;
+	private Vuelo vuelo;
 
 	// Constructor
 	// Inicializa el objeto volador sin un vuelo asignado, con la posición,

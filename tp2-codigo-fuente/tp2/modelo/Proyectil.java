@@ -20,7 +20,7 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 		super(posicion, tamanio, null, velocidad);
 		
 		this.danio = danio;
-		this.comportamientoAlChocar = new ChoqueDeProyectil(this);
+		this.setComportamiento(new ChoqueDeProyectil(this));
 	}
 	
 	@Override
@@ -34,8 +34,7 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 	    }
 	    catch(CloneNotSupportedException e) { }
 	    
-	    clone.vuelo = null;
-	    clone.comportamientoAlChocar = new ChoqueDeProyectil(this); 
+	    clone.setComportamiento(new ChoqueDeProyectil(this)); 
 	    
 		return clone;
 	}

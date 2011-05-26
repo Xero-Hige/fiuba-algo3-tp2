@@ -8,7 +8,7 @@ import java.util.*;
 // de esta clase y definir el comportamiento del bono al usarse.
 public abstract class Bono extends ObjetoVolador {
 
-	protected NaveMilitar naveDuenia;
+	private NaveMilitar naveDuenia;
 	
 	// Constructor
 	// Inicializa el bono con el tamaño recibido.

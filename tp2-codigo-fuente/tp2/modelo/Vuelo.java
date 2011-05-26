@@ -60,4 +60,5 @@ public abstract class Vuelo {
 	protected void aumentarTrayectoriaEn(double unaLongitud){
 		this.trayectoriaDeVuelo = this.trayectoriaDeVuelo + unaLongitud;
 	}
+
 }

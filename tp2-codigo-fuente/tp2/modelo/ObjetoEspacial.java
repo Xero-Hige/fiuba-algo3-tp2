@@ -5,11 +5,11 @@ import tp2.modelo.excepciones.*;
 
 public abstract class ObjetoEspacial {
 
-	protected Point posicion;
-	protected double tamanio;
-	protected Escenario escenario;
-	protected boolean destruido;
-	protected ChoqueDeObjetoEspacial comportamientoAlChocar;
+	private Point posicion;
+	private double tamanio;
+	private Escenario escenario;
+	private boolean destruido;
+	private ChoqueDeObjetoEspacial comportamientoAlChocar;
 	private String identificacion;
 
 	// Constructor
@@ -162,5 +162,10 @@ public abstract class ObjetoEspacial {
 
 	public ChoqueDeObjetoEspacial getComportamiento() {
 		return this.comportamientoAlChocar;
+	}
+
+	protected void setComportamiento(
+			ChoqueDeObjetoEspacial comportamientoAlChocar) {
+		this.comportamientoAlChocar = comportamientoAlChocar;
 	}
 }

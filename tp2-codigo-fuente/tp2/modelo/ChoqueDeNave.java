@@ -12,18 +12,18 @@ public class ChoqueDeNave extends ChoqueDeObjetoEspacial {
 	@Override
 	// Una nave se destruye cuando choca con una nave militar que no es aliada.
 	public void sufrirChoqueDeNaveMilitar(NaveMilitar unaNaveMilitar) {
-		Nave objeto = (Nave) this.getObjeto();
-		if(!objeto.esAliadoDe(unaNaveMilitar)){
-			objeto.destruir();
+		Nave nave = (Nave) this.getObjeto();
+		if(!nave.esAliadoDe(unaNaveMilitar)){
+			nave.destruir();
 		}
 	}
 	
 	@Override
 	// Una nave recibe el daño del proyectil con el que choca salvo que sea aliado.
 	public void sufrirChoqueDeProyectil(Proyectil unProyectil) {
-		Nave objeto = (Nave) this.getObjeto();
-		if(!objeto.esAliadoDe(unProyectil)){
-			objeto.recibirDanio(unProyectil.getDanio());
+		Nave nave = (Nave) this.getObjeto();
+		if(!nave.esAliadoDe(unProyectil)){
+			nave.recibirDanio(unProyectil.getDanio());
 		}
 	}
 	

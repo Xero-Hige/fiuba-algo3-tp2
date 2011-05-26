@@ -46,9 +46,8 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 
 	@Override
 	// Hace actuar al objeto volador en el escenario durante el tiempo
-	// específicado,
-	// haciendo que el mismo vuele durante ese tiempo. Si no tiene escenario o
-	// vuelo, se levanta una excepción.
+	// específicado, haciendo que el mismo vuele durante ese tiempo. Si no tiene
+	// escenario o vuelo, se levanta una excepción.
 	public void actuarDurante(double unTiempo) {
 
 		if (this.estaDestruido()) {
@@ -73,8 +72,7 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 
 	@Override
 	// Hace sufrir al objeto recibido los efectos de chocar un proyectil, según
-	// su
-	// comportamiento.
+	// su comportamiento.
 	public void responderChoqueDe(ObjetoEspacial unObjetoEspacial) {
 
 		unObjetoEspacial.getComportamiento().sufrirChoqueDeProyectil(this);

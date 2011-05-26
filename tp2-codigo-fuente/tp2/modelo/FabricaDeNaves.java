@@ -26,11 +26,13 @@ public class FabricaDeNaves {
 	// zig zag hacia abajo. Su vuelo (inicialmente quieto) y disparos pueden 
 	// controlarse y puede adquirir bonos de otras naves.
 	public NaveMilitarControlada crearAlgo42En(Point unaPosicion){
+		
 		NaveMilitarControlada algo42 = new NaveMilitarControlada(unaPosicion,7,escenarioActual,25,500);
 		algo42.setEquipo(equipoDeLaNave);
 		Arma canionLaser = fabricaDeArmas.crearCanionLaser();
 		canionLaser.setDireccionDeDisparo(new Point(1,0));
 		algo42.agregarArma(canionLaser);
+		
 		return algo42;
 	}
 	
@@ -39,10 +41,12 @@ public class FabricaDeNaves {
 	// de 5 y velocidad igual a 5. Su vuelo es en línea recta hacia abajo. Su 
 	// penalización por destrucción es de 300.
 	public NaveCivil crearAvionCivilEn(Point unaPosicion){
+		
 		NaveCivil avionCivil = new NaveCivil(unaPosicion,5,escenarioActual,5,1);
 		avionCivil.setEquipo(equipoDeLaNave);
 		avionCivil.setVuelo(new VueloEnLineaRecta(avionCivil,new Point(0,-1)));
 		avionCivil.setPenalizacion(300);
+		
 		return avionCivil;
 	}
 	
@@ -51,11 +55,13 @@ public class FabricaDeNaves {
 	// velocidad igual a 15 y un cañón láser. Su vuelo es de ida 80 unidades hacia 
 	// abajo, y luego de vuelta hacia arriba. Su puntuación por destrucción es de 20.
 	public NaveEnemiga crearAvionetaEn(Point unaPosicion){
+		
 		NaveEnemiga avioneta = new NaveEnemiga(unaPosicion,3,escenarioActual,15,10);
 		avioneta.setEquipo(equipoDeLaNave);
 		avioneta.agregarArma(fabricaDeArmas.crearCanionLaser());
 		avioneta.setVuelo(new VueloDeIdaYVuelta(avioneta,new Point(0,-80)));
 		avioneta.setPuntuacion(20);
+		
 		return avioneta;
 	}
 	
@@ -76,9 +82,8 @@ public class FabricaDeNaves {
 		bombardero.setVuelo(new VueloEnZigZag(bombardero,10,new Point(0,-1)));
 		bombardero.setPuntuacion(30);
 		bombardero.setBono(new BonoDeArmas(5));
+		
 		return bombardero;
-
-
 	}
 	
 	// Crea un explorador en el escenario de la fábrica y con el equipo de la misma, 
@@ -87,6 +92,7 @@ public class FabricaDeNaves {
 	// luego dos círculos horarios con centro 20 unidades más abajo, y finalmente salida
 	// hacia la derecha. Su puntuación por destrucción es de 50.
 	public NaveEnemiga crearExploradorEn(Point unaPosicion){
+		
 		NaveEnemiga explorador = new NaveEnemiga(unaPosicion,5,escenarioActual,12,1);
 		explorador.setEquipo(equipoDeLaNave);
 		VueloCompuesto vuelo = new VueloCompuesto(explorador);
@@ -96,6 +102,7 @@ public class FabricaDeNaves {
 		vuelo.agregarVuelo(new VueloEnLineaRecta(explorador,new Point(1,0)),40);
 		explorador.setVuelo(vuelo);
 		explorador.setPuntuacion(50);
+		
 		return explorador;
 	}
 	
@@ -105,6 +112,7 @@ public class FabricaDeNaves {
 	// hacia abajo. Su puntuación por destrucción es de 30. Devuelve la colección de 
 	// los cazas.
 	public List<NaveEnemiga> crearGrupoCazaEn(Point unaPosicion){
+		
 		ArrayList<NaveEnemiga> cazas = new ArrayList<NaveEnemiga>();
 		for(int i=0 ; i < 3 ; i++){
 			//Calculamos la posición para formar una V
@@ -116,7 +124,8 @@ public class FabricaDeNaves {
 			caza.setPuntuacion(30);
 			caza.setBono(new BonoDeEnergia(5));
 			cazas.add(caza);
-			}
+		}
+		
 		return cazas;
 	}
 	
@@ -126,6 +135,7 @@ public class FabricaDeNaves {
 	// y luego se mueve en pequeños círculos de centro: 5 unidades a la derecha y 
 	// antihorario.
 	public NaveGuia crearGuiaEnemigoEn(Point unaPosicion){
+		
 		NaveGuia guiaEnemigo = new  NaveGuia(unaPosicion,15,escenarioActual,5,1000);
 		guiaEnemigo.setEquipo(equipoDeLaNave);
 		VueloCompuesto vuelo = new VueloCompuesto(guiaEnemigo);
@@ -134,6 +144,7 @@ public class FabricaDeNaves {
 		vuelo.agregarVuelo(_vuelo,1);
 		vuelo.agregarVuelo(new VueloEnLineaRecta(guiaEnemigo,new Point(1,0)),40);
 		guiaEnemigo.setVuelo(vuelo);
+		
 		return guiaEnemigo;
 	}
 	
@@ -143,6 +154,7 @@ public class FabricaDeNaves {
 	// círculo antihorario con centro 10 unidades a la derecha, y salida hacia abajo. 
 	// Su penalización por destrucción es de 200.
 	public NaveCivil crearHelicopteroFederalEn(Point unaPosicion){
+		
 		NaveCivil helicopteroFederal = new NaveCivil(unaPosicion,5,escenarioActual,5,1);
 		helicopteroFederal.setEquipo(equipoDeLaNave);
 		VueloCompuesto vuelo = new VueloCompuesto(helicopteroFederal);
@@ -152,6 +164,7 @@ public class FabricaDeNaves {
 		vuelo.agregarVuelo(new VueloEnLineaRecta(helicopteroFederal,new Point(0,-1)),30);
 		helicopteroFederal.setVuelo(vuelo);
 		helicopteroFederal.setPenalizacion(200);
+		
 		return helicopteroFederal;
 	}
 	
@@ -160,7 +173,9 @@ public class FabricaDeNaves {
 	}
 	
 	public void setEscenario(Escenario nuevoEscenario){
+		
 		escenarioActual = nuevoEscenario;
+		
 		if(fabricaDeArmas != null){
 			fabricaDeArmas.setEscenario(nuevoEscenario);
 		}

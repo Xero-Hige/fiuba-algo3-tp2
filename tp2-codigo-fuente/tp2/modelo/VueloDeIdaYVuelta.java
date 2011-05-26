@@ -1,7 +1,5 @@
 package tp2.modelo;
 
-import javax.xml.bind.ValidationException;
-
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.ValorInvalido;
 import tp2.modelo.excepciones.VueloIniciado;

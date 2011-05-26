@@ -38,11 +38,12 @@ public class TestDeIntegracion {
 		Assert.assertTrue(escenario.getObjetos().size() == 12);
                 
 		//Ahora que tenemos 5 avionetas enfrentadas al Algo42, lo hacemos disparar su láser y en menos de 2 unidades de tiempo las 5 avionetas deberían estar destruídas
-		algo42.iniciarFuegoConArmaDeId("CanonLaser");
+		algo42.iniciarFuegoConArmaDeId("CanionLaser");
 		for (i=0; i<=2; i = i + 0.02) {
 			escenario.avanzarTiempoEn(0.02);
 		}
-                
+        
+		System.out.println(escenario.getPuntuacion());
 		Assert.assertTrue(escenario.getPuntuacion() == 100);
                 
 		//Ahora ponemos un avión civil en medio de la lluvia de lásers. La puntuación del escenario debería volver a cero después de un tiempo

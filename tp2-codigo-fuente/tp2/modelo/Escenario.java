@@ -73,7 +73,8 @@ public class Escenario {
 	// que algún objeto no tenga pueda actuar y tire una excepción, se levantará
 	// la misma.
 	public void avanzarTiempoEn(double unTiempo) {
-		for (ObjetoEspacial objeto : objetos.keySet()) {
+		Set<ObjetoEspacial> objetos = new HashSet<ObjetoEspacial>(this.objetos.keySet());
+		for (ObjetoEspacial objeto : objetos) {
 			objeto.actuarDurante(unTiempo);
 		}
 	}

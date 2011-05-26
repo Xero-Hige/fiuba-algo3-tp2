@@ -32,6 +32,7 @@ public class VueloIdaYVueltaTest {
 				 Assert.fail("Falla con una excepccion invalida");
 		}
 		
+		vuelo.iniciar();
 		//Verificamos que el vuelo siga la ruta esperada		
 		ArrayList<Point> posiciones = new ArrayList<Point>();
 		posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(3));
@@ -40,8 +41,8 @@ public class VueloIdaYVueltaTest {
 		posiciones.add(posicionActual);
 		posicionActual = posicionActual.sumarCon(vuelo.avanzarDurante(10));
 		posiciones.add(posicionActual);
-		Assert.assertTrue(((Point)posiciones.get(1)).distance(new Point(4,3))*(3/5) <= 1E-10);
-		Assert.assertTrue(((Point)posiciones.get(2)).distance(new Point(4,3)) <= 1E-10);
-		Assert.assertTrue(((Point)posiciones.get(3)).distance(new Point(-4,-3)) <= 1E-10);
+		Assert.assertTrue(((Point)posiciones.get(0)).distance(new Point(4,3).multiplicar(3.0/5)) <= 1E-10);
+		Assert.assertTrue(((Point)posiciones.get(1)).distance(new Point(4,3)) <= 1E-10);
+		Assert.assertTrue(((Point)posiciones.get(2)).distance(new Point(-4,-3)) <= 1E-10);
 	}
 }

@@ -39,7 +39,7 @@ public class TestDeIntegracion {
                 
 		//Ahora que tenemos 5 avionetas enfrentadas al Algo42, lo hacemos disparar su láser y en menos de 2 unidades de tiempo las 5 avionetas deberían estar destruídas
 		algo42.iniciarFuegoConArmaDeId("CanionLaser");
-		for (i=0; i<=2; i = i + 0.02) {
+		for (i=0; i<=3; i = i + 0.02) {
 			escenario.avanzarTiempoEn(0.02);
 		}
 		Assert.assertTrue(escenario.getPuntuacion() == 100);

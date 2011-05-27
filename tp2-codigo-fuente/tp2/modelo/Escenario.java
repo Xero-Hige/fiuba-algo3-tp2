@@ -43,6 +43,9 @@ public class Escenario {
 			throw new ObjetoDesconocido(
 					"El objeto no tiene asignado este escenario.");
 		}
+		if(objetos.containsKey(unObjetoEspacial)){
+			return;
+		}
 		objetos.put(unObjetoEspacial, proximoId);
 		proximoId++;
 	}

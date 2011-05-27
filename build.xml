@@ -1,27 +1,29 @@
-<project name="Algo42" default="corrertests" basedir=".">
+<project name="Algo42" default="Menu" basedir=".">
 
-    <description>
-        simple example build file
-    </description>
+    <description/>
 		<property name="srcfuente" value="tp2-codigo-fuente/" />
 		<property name="srctest" value="tp2-pruebas/" />
-		<property name="build" value="Compilado/" />
-		<property name="junitPath" value="junit/" />
-		<property name="classpath" value="junit/junit.jar" />
+		<property name="build" value="bin/" />
+		<property name="classpath" value="lib/" />
+		<property name="junitPath" value="lib/junit.jar" />
 		<property name="doc.dir" value="documentacion/javadoc" />
 		<property name="zip.name" value="Tp2-Algo42.zip" />
 
-  <target name="init">
+  <target name="init" depends="clean">
     <tstamp/>
-    <!-- Create the build directory structure used by compile -->
-    <mkdir dir="${build}"/>
+	<mkdir dir="${build}"/>
   </target>
 
+  <target name="clean">
+	<!--Elimina la carpeta de compilaciones pasadas y la vuelve a crear-->
+	<delete dir="${build}"/>  
+  </target>
+  
   <target name="compilar" depends="init"
         description="compile the source " >
     <!-- Compile the java code from ${src} into ${build} -->
     <javac srcdir="${srcfuente}" destdir="${build}"/>
-	<javac srcdir="${srctest}" classpath="${classpath}" destdir="${build}"/>	
+	<javac srcdir="${srctest}" classpath="${junitPath}" destdir="${build}"/>	
 	
   </target>
   
@@ -30,7 +32,30 @@
 		<formatter type="brief" usefile="false" />
 			<classpath>	
 				<pathelement path="${build}" />
-				<fileset dir="${junitPath}">
+				<fileset dir="${classpath}">
+					<include name="**/*.jar"/>
+				</fileset>
+			</classpath>
+			<batchtest>
+				<fileset dir="${build}" includes="**/*Test.class" />
+			</batchtest>
+		</junit>
+  </target>
+  
+  <target name="compilarWork" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${srcfuente}src/" destdir="${build}"/>
+	<javac srcdir="${srctest}src/" classpath="${junitPath}" destdir="${build}"/>	
+	
+  </target>
+  
+  <target name="corrertestsWork" depends="compilarWork">	
+	<junit>
+		<formatter type="brief" usefile="false" />
+			<classpath>	
+				<pathelement path="${build}" />
+				<fileset dir="${classpath}">
 					<include name="**/*.jar"/>
 				</fileset>
 			</classpath>
@@ -40,4 +65,12 @@
 		</junit>
   </target>
 	
+  <target name="Menu">
+		<echo>ant clean : limpia los directorios de compilaciones pasadas</echo>
+		<echo>ant compilar : compila el programa</echo>
+		<echo>ant corrertests : compila el programa y corre los tests</echo>
+		<echo>ant compilarWork : compila el programa desde la estructura del workspace</echo>
+		<echo>ant corrertestsWork : compila el programa y corre los tests desde la estructura del workspace</echo>
+  </target>
+  
 </project>

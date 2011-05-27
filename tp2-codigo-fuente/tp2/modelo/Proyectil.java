@@ -39,7 +39,7 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 		} catch (CloneNotSupportedException e) {
 		}
 
-		clone.setComportamiento(new ChoqueDeProyectil(this));
+		clone.setComportamiento(new ChoqueDeProyectil(clone));
 
 		return clone;
 	}

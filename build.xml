@@ -1,0 +1,43 @@
+<project name="Algo42" default="corrertests" basedir=".">
+
+    <description>
+        simple example build file
+    </description>
+		<property name="srcfuente" value="tp2-codigo-fuente/" />
+		<property name="srctest" value="tp2-pruebas/" />
+		<property name="build" value="Compilado/" />
+		<property name="junitPath" value="junit/" />
+		<property name="classpath" value="junit/junit.jar" />
+		<property name="doc.dir" value="documentacion/javadoc" />
+		<property name="zip.name" value="Tp2-Algo42.zip" />
+
+  <target name="init">
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compilar" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${srcfuente}" destdir="${build}"/>
+	<javac srcdir="${srctest}" classpath="${classpath}" destdir="${build}"/>	
+	
+  </target>
+  
+  <target name="corrertests" depends="compilar">	
+	<junit>
+		<formatter type="brief" usefile="false" />
+			<classpath>	
+				<pathelement path="${build}" />
+				<fileset dir="${junitPath}">
+					<include name="**/*.jar"/>
+				</fileset>
+			</classpath>
+			<batchtest>
+				<fileset dir="${build}" includes="**/*Test.class" />
+			</batchtest>
+		</junit>
+  </target>
+	
+</project>

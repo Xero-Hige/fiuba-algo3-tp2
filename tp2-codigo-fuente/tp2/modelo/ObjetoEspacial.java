@@ -1,9 +1,11 @@
 package tp2.modelo;
 
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
+import ar.uba.fi.algo3.titiritero.Posicionable;
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
 
-public abstract class ObjetoEspacial {
+public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 
 	private Point posicion;
 	private double tamanio;
@@ -45,6 +47,11 @@ public abstract class ObjetoEspacial {
 	// si alguno está destruido, debería desaparecer de su escenario y no
 	// realizar nada más.
 	public abstract void actuarDurante(double unTiempo);
+	
+	@Override
+	public void vivir() {
+		this.actuarDurante(20);
+	}	
 
 	// Hace chocar al objeto recibido con el receptor del mensaje. Ambos sufren
 	// el efecto del mismo según cómo esté definido su comportamiento ante el
@@ -129,6 +136,14 @@ public abstract class ObjetoEspacial {
 
 	public void setPosicion(Point posicion) {
 		this.posicion = posicion;
+	}
+	
+	public int getX() {
+		return (int) this.posicion.getX();
+	}
+
+	public int getY() {
+		return (int) this.posicion.getY();
 	}
 
 	public double getTamanio() {

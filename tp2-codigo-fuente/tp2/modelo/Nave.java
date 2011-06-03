@@ -78,6 +78,5 @@ public class Nave extends ObjetoVolador {
 
 	public double getMaxEnergia() {
 		return maxEnergia;
-	}
-	
+	}	
 }

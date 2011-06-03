@@ -50,7 +50,7 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	
 	@Override
 	public void vivir() {
-		this.actuarDurante(20);
+		this.actuarDurante(5);
 	}	
 
 	// Hace chocar al objeto recibido con el receptor del mensaje. Ambos sufren

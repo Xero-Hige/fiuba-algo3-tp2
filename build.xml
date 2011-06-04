@@ -22,7 +22,8 @@
 	
 	<target name="clean">
 	<!--Elimina la carpeta de compilaciones pasadas y la vuelve a crear-->
-	<delete dir="${build}"/>  
+		<delete dir="${build}"/>
+		<delete file="MANIFEST.MF"/>
 	</target>
 	
 	<target name="compilar" depends="init" description="compila la aplicacion" >
@@ -30,9 +31,9 @@
 		<javac srcdir="${srcfuente}" classpath="${classpath}" destdir="${build}">
 			<classpath refid="classpath" />
 		</javac>
-  </target>
+	</target>
 
-  <target name="compilarTest" depends="compilar" description="compila los tests" >
+	<target name="compilarTest" depends="compilar" description="compila los tests" >
 		<javac srcdir="${srctest}" classpath="${classpath}" destdir="${build}">
 			<classpath refid="classpath" />
 		</javac>
@@ -59,9 +60,9 @@
 		<javac srcdir="${srcfuente}src/" classpath="${build}" destdir="${build}">
 			<classpath refid="classpath" />
 		</javac>
-  </target>
-  
-  <target name="compilarTestWork" depends="compilarWork" description="compila los test" >
+	</target>
+	
+	<target name="compilarTestWork" depends="compilarWork" description="compila los test" >
 		<javac srcdir="${srctest}src/" classpath="${classpath}" destdir="${build}">
 			<classpath refid="classpath" />
 		</javac>	
@@ -82,10 +83,29 @@
 		</junit>
 	</target>
 	
+	<target name="makeJar" depends="compilar">
+		<manifest file="MANIFEST.MF">
+			<attribute name="Built-By" value="${Roshi}"/>
+			<attribute name="Main-Class" value="Main-Class: tp2.Programa"/>
+		</manifest>
+		<unjar dest="${build}" src="lib/titiritero.jar"/>
+		<jar destfile="release/Algo42.jar" basedir="bin" includes="**/*.class" manifest="tp2-codigo-fuente/manifiest"/>
+	</target>
+
+	<target name="correrPrograma" depends="makeJar">
+		<ant target="clean"/>
+		<java 
+			jar="release/Algo42.jar"
+			fork="true"
+			/>
+	</target>
+	
 	<target name="Menu">
-		<echo>ant clean : limpia los directorios de compilaciones pasadas</echo>
+		<echo>ant clean : limpia los directorios de compilaciones pasadas (No necesario en correrPrograma)</echo>
 		<echo>ant compilar : compila el programa</echo>
 		<echo>ant corrertests : compila el programa y corre los tests</echo>
+    <echo>ant correrPrograma : genera el archivo .jar y lo ejecuta</echo>
+		<echo>ant makeJar: genera un archivo .jar ejecutable del juego</echo>
 		<echo>ant compilarWork : compila el programa desde la estructura del workspace</echo>
 		<echo>ant corrertestsWork : compila el programa y corre los tests desde la estructura del workspace</echo>
 	</target>

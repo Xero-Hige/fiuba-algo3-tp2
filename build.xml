@@ -14,15 +14,20 @@
 	<mkdir dir="${build}"/>
   </target>
 
+  <target name="compilarTitiritero" depends="init">
+	<javac srcdir="titiritero\src" destdir="${build}"></javac>
+	<echo>"El titiritero fue compilado"</echo>
+  </target>
+	
   <target name="clean">
 	<!--Elimina la carpeta de compilaciones pasadas y la vuelve a crear-->
 	<delete dir="${build}"/>  
   </target>
   
-  <target name="compilar" depends="init"
+  <target name="compilar" depends="compilarTitiritero"
         description="compile the source " >
     <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${srcfuente}" destdir="${build}"/>
+    <javac srcdir="${srcfuente}" classpath="${build}" destdir="${build}"/>
 	<javac srcdir="${srctest}" classpath="${junitPath}" destdir="${build}"/>	
 	
   </target>
@@ -42,10 +47,10 @@
 		</junit>
   </target>
   
-  <target name="compilarWork" depends="init"
+  <target name="compilarWork" depends="compilarTitiritero"
         description="compile the source " >
     <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${srcfuente}src/" destdir="${build}"/>
+    <javac srcdir="${srcfuente}src/" classpath="${build}" destdir="${build}"/>
 	<javac srcdir="${srctest}src/" classpath="${junitPath}" destdir="${build}"/>	
 	
   </target>

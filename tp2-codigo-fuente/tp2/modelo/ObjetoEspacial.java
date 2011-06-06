@@ -50,7 +50,7 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	
 	@Override
 	public void vivir() {
-		this.actuarDurante(5);
+		this.actuarDurante(0.02);
 	}	
 
 	// Hace chocar al objeto recibido con el receptor del mensaje. Ambos sufren
@@ -139,11 +139,11 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	}
 	
 	public int getX() {
-		return (int) this.posicion.getX();
+		return (int) (this.posicion.getX() * (500 / 50));
 	}
 
 	public int getY() {
-		return (int) this.posicion.getY();
+		return (int) (this.posicion.getY() * (500 / 50));
 	}
 
 	public double getTamanio() {

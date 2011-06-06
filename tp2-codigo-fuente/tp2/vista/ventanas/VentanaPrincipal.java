@@ -27,7 +27,7 @@ public class VentanaPrincipal extends Ventana {
 		// PRUEBA DE AGREGAR UN OBJETO VIVO AL ESCENARIO
 		
 		Escenario escenario = new Escenario(new Rectangle(new Dimension(1,1)));
-		NaveMilitar nave = new NaveMilitar(new Point(0,0),1,escenario,1,100);
+		NaveMilitar nave = new NaveMilitar(new Point(0,0),1,escenario,10,100);
 		VueloEnLineaRecta vuelo = new VueloEnLineaRecta(nave, new Point(30,30));
 		nave.setVuelo(vuelo);
 		

@@ -40,11 +40,9 @@ public class VueloEnZigZag extends VueloCompuesto {
 		}
 		// Primero necesitamos dibujar los segmentos de zig-zag suficientes para
 		// avanzar el vuelo en el tiempo indicado.
-		double cantSegmentosADibujar = this.getObjetoVolador().getVelocidad()
-				* unTiempo
-				- (int) (this.trayectoriaRestante - this.trayectoriaPorSegmento)
-				+ 1;
-		for (int i = 1; i < cantSegmentosADibujar; i++) {
+		double cantSegmentosADibujar = (int) ((this.getObjetoVolador().getVelocidad()
+				* unTiempo - this.trayectoriaRestante) / this.trayectoriaPorSegmento) + 1;
+		for (int i = 0; i < cantSegmentosADibujar; i++) {
 			this.dibujarSegmentoDeLargo(this.trayectoriaPorSegmento);
 		}
 		this.trayectoriaRestante += cantSegmentosADibujar

@@ -62,7 +62,6 @@ public class NaveEnemiga extends NaveMilitar {
 	public void setBono(Bono unBono) {
 		bono = unBono;
 		bono.setNaveDuenia(this);
-		bono.setEscenario(this.getEscenario());
 	}
 	
 	// Devuelve la puntuación por destrucción de esta nave.

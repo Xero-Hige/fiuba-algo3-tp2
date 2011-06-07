@@ -1,15 +1,16 @@
 package tp2.vista.ventanas;
 
-import java.awt.Dimension;
 import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.List;
 
 import tp2.auxiliares.Point;
 import tp2.control.ControlKeyPressMenuPrincipal;
 import tp2.modelo.Escenario;
-import tp2.modelo.NaveMilitar;
-import tp2.modelo.VueloEnLineaRecta;
-import tp2.vista.objetosVivos.VistaNavePRUEBA;
+import tp2.modelo.FabricaDeNaves;
+import tp2.modelo.Nave;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
+import ar.uba.fi.algo3.titiritero.vista.Circulo;
 import ar.uba.fi.algo3.titiritero.vista.Ventana;
 
 public class VentanaPrincipal extends Ventana {
@@ -26,16 +27,23 @@ public class VentanaPrincipal extends Ventana {
 		
 		// PRUEBA DE AGREGAR UN OBJETO VIVO AL ESCENARIO
 		
-		Escenario escenario = new Escenario(new Rectangle(new Dimension(1,1)));
-		NaveMilitar nave = new NaveMilitar(new Point(0,0),1,escenario,10,100);
-		VueloEnLineaRecta vuelo = new VueloEnLineaRecta(nave, new Point(30,30));
-		nave.setVuelo(vuelo);
+		Escenario escenario = new Escenario(new Rectangle(50, 50));
+		FabricaDeNaves fabrica = new FabricaDeNaves(escenario, "asdf", null);
+		List<Nave> naves = new ArrayList<Nave>();
+		naves.add(fabrica.crearAvionetaEn(new Point(30, 90)));
+		naves.add(fabrica.crearBombarderoEn(new Point(15, 50)));
+		naves.add(fabrica.crearExploradorEn(new Point(-15, 45)));
+		//naves.add(fabrica.crearAlgo42En(new Point(15, 10)));
 		
-		VistaNavePRUEBA vistaNavePRUEBA = new VistaNavePRUEBA();
-		vistaNavePRUEBA.setPosicionable(nave);
-			
-		unControladorJuego.agregarDibujable(vistaNavePRUEBA);
-		unControladorJuego.agregarObjetoVivo(nave);
+		List<Circulo> vistas = new ArrayList<Circulo>();
+		for(Nave nave: naves){
+			Circulo circulo = new Circulo((int) (nave.getTamanio() * 10));
+			circulo.setPosicionable(nave);
+			vistas.add(circulo);
+			unControladorJuego.agregarDibujable(circulo);
+			unControladorJuego.agregarObjetoVivo(nave);
+		}
+		
 	
 	}	
 }

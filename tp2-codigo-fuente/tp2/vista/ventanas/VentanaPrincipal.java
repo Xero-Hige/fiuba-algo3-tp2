@@ -27,7 +27,7 @@ public class VentanaPrincipal extends Ventana {
 		
 		// PRUEBA DE AGREGAR UN OBJETO VIVO AL ESCENARIO
 		
-		Escenario escenario = new Escenario(new Rectangle(50, 50));
+		Escenario escenario = new Escenario(new Rectangle(500, 500));
 		FabricaDeNaves fabrica = new FabricaDeNaves(escenario, "asdf", null);
 		List<Nave> naves = new ArrayList<Nave>();
 		naves.add(fabrica.crearAvionetaEn(new Point(30, 90)));
@@ -37,13 +37,11 @@ public class VentanaPrincipal extends Ventana {
 		
 		List<Circulo> vistas = new ArrayList<Circulo>();
 		for(Nave nave: naves){
-			Circulo circulo = new Circulo((int) (nave.getTamanio() * 10));
+			Circulo circulo = new Circulo((int) (nave.getTamanio() * 5));
 			circulo.setPosicionable(nave);
 			vistas.add(circulo);
 			unControladorJuego.agregarDibujable(circulo);
 			unControladorJuego.agregarObjetoVivo(nave);
 		}
-		
-	
 	}	
 }

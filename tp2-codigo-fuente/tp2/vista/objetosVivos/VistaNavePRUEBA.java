@@ -7,7 +7,7 @@ import ar.uba.fi.algo3.titiritero.vista.Circulo;
 public class VistaNavePRUEBA extends Circulo {
 
 	public VistaNavePRUEBA() {
-		super(20);
+		super(10);
 		this.setColor(Color.red);
 	}
 

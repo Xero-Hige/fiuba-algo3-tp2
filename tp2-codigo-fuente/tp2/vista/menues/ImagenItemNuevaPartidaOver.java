@@ -1,4 +1,4 @@
-package tp2.vista.modelo;
+package tp2.vista.menues;
 
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 

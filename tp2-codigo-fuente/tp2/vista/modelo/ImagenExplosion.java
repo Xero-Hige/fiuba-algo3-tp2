@@ -8,7 +8,7 @@ public class ImagenExplosion extends ImagenAnimada {
 
 	private ImagenExplosion() {
 		super(false);
-		this.setImagenes("imagenes/explosion/explosion", "png", 17);
+		this.setImagenes("../imagenes/modelo/explosion/explosion", "png", 17);
 	}
 
 	private ImagenExplosion(ImagenAnimada imagen) {

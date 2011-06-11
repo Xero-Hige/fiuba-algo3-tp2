@@ -5,16 +5,11 @@ import ar.uba.fi.algo3.titiritero.Dibujable;
 
 public class FabricaDeDibujablesDelModelo {
 	
-	private static boolean imagenesCargadas;
-	
-	private static void cargarImagenes() {
+	public static void forzarCargaDeDibujos() {
 		ImagenExplosion.nuevaImagen();
 	}
 
 	public static Dibujable nuevoDibujoDeExplosion() {
-		if(!imagenesCargadas){
-			cargarImagenes();
-		}
 		return ImagenExplosion.nuevaImagen();
 	}
 	

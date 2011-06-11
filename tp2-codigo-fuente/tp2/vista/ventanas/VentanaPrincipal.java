@@ -2,6 +2,7 @@ package tp2.vista.ventanas;
 
 import tp2.modelo.menues.MenuPrincipal;
 import tp2.vista.menues.VistaMenuPrincipal;
+import tp2.vista.modelo.FabricaDeDibujablesDelMenu;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 import ar.uba.fi.algo3.titiritero.vista.Ventana;
@@ -20,7 +21,7 @@ public class VentanaPrincipal extends Ventana {
 		this.setResizable(false);
 		this.controladorJuego = unControladorJuego;
 		this.controlKeyPressActivo = null;
-		this.abrirMenuPrincipal();
+		this.inicializar();
 	}
 		
 //		// PRUEBA DE AGREGAR UN OBJETO VIVO AL ESCENARIO
@@ -42,34 +43,19 @@ public class VentanaPrincipal extends Ventana {
 //			unControladorJuego.agregarObjetoVivo(nave);
 //		}
 	
-	/** Abre el menú principal del juego. */
-	public void abrirMenuPrincipal() {
+	/** Inicializa la ventana principal mostrando el menú principal del juego */
+	public void inicializar() {
 		
 		MenuPrincipal menuPrincipal = new MenuPrincipal();
-		VistaMenuPrincipal vistaMenuPrincipal = new VistaMenuPrincipal(this);
+		VistaMenuPrincipal vistaMenuPrincipal = new VistaMenuPrincipal(this, FabricaDeDibujablesDelMenu.nuevaImagenFondoMenuPrincipal());
 		vistaMenuPrincipal.setPosicionable(menuPrincipal);
 		this.controladorJuego.agregarDibujable(vistaMenuPrincipal);	
 		this.controladorJuego.agregarKeyPressObservador(this.controlKeyPressActivo);
 	}
 	
-	/** Cierra el menú principal y abre el menú para una nueva partida. */
-	public void abrirMenuNuevaPartida() {
+	/** */
+	public void cambiarVistaActual() {
 		
-	}
-	
-	/** Cierra el menú principal y abre el menú para cargar una partida salvada. */
-	public void abrirMenuCargarPartida() {
-		
-	}
-	
-	/** Muestra los créditos del juego. */
-	public void abrirMenuCreditos() {
-		
-	}
-	
-	/** Cierra el juego. */
-	public void salirDelJuego() {
-	
 	}
 	
 	public ControladorJuego getControladorJuego() {

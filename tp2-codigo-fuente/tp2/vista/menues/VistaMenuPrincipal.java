@@ -8,8 +8,8 @@ public class VistaMenuPrincipal extends Imagen {
 
 	private VentanaPrincipal ventanaPrincipal;
 	
-	public VistaMenuPrincipal(VentanaPrincipal ventanaPrincipal) {
-		this.setNombreArchivoImagen("../imagenes/menues/menu-principal-fondo.jpg");
+	public VistaMenuPrincipal(VentanaPrincipal ventanaPrincipal, Imagen imagen) {
+		super(imagen);
 		this.ventanaPrincipal = ventanaPrincipal;
 		this.ventanaPrincipal.setControlKeyPressActivo(new ControlKeyPressMenuPrincipal(this));
 	}
@@ -26,4 +26,7 @@ public class VistaMenuPrincipal extends Imagen {
 		
 	}
 	
+	public void volverAMi() {
+		
+	}
 }

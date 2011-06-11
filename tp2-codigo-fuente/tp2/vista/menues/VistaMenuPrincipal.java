@@ -2,6 +2,8 @@ package tp2.vista.menues;
 
 import java.util.Map;
 import tp2.control.menu.ControlKeyPressMenuPrincipal;
+import tp2.modelo.menues.MenuI;
+import tp2.modelo.menues.MenuNuevaPartida;
 import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 

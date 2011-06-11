@@ -1,9 +1,9 @@
-package tp2.vista.menues;
+package tp2.modelo.menues;
 
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 
-public class MenuSalir implements MenuI, Posicionable {
+public class MenuCreditos implements MenuI, Posicionable {
 
 	@Override
 	public KeyPressedObservador getControlKeyPressed() {

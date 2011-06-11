@@ -1,4 +1,4 @@
-package tp2.vista;
+package tp2.vista.extras;
 
 import ar.uba.fi.algo3.titiritero.vista.ImagenAnimada;
 

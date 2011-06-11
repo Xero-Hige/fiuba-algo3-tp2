@@ -14,10 +14,6 @@ public class Programa {
 		ventana.setVisible(true);
 		
 		controlador.setIntervaloSimulacion(20);
-		int i = 0;
-		while(true){
-			controlador.comenzarJuego(1);
-			System.out.println(i++);
-		}
+		controlador.comenzarJuego();
 	}
 }

@@ -1,5 +1,6 @@
-package tp2.vista;
+package tp2.vista.extras;
 
+import tp2.vista.FabricaDeDibujables;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;

@@ -1,5 +1,6 @@
 package tp2.vista;
 
+import tp2.vista.extras.ImagenExplosion;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
 public class FabricaDeDibujables {

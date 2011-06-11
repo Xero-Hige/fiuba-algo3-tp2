@@ -5,6 +5,7 @@ import tp2.vista.menues.FabricaDeDibujablesDelMenu;
 import tp2.vista.menues.VistaMenuPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
+import ar.uba.fi.algo3.titiritero.vista.Imagen;
 import ar.uba.fi.algo3.titiritero.vista.Ventana;
 
 
@@ -47,7 +48,7 @@ public class VentanaPrincipal extends Ventana {
 	public void inicializar() {
 		
 		MenuPrincipal menuPrincipal = new MenuPrincipal();
-		VistaMenuPrincipal vistaMenuPrincipal = new VistaMenuPrincipal(this, FabricaDeDibujablesDelMenu.nuevaImagenFondoMenuPrincipal());
+		VistaMenuPrincipal vistaMenuPrincipal = new VistaMenuPrincipal(this, (Imagen) FabricaDeDibujablesDelMenu.nuevaImagenFondoMenuPrincipal());
 		vistaMenuPrincipal.setPosicionable(menuPrincipal);
 		this.controladorJuego.agregarDibujable(vistaMenuPrincipal);	
 		this.controladorJuego.agregarKeyPressObservador(this.controlKeyPressActivo);

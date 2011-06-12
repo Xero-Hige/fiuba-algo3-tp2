@@ -44,7 +44,7 @@
 	<junit>
 		<classpath>
 			<pathelement path="${build}" />
-			<fileset dir="${classpath}">
+			<fileset dir="${lib}">
 				<include name="**/*.jar"/>
 			</fileset>
 		</classpath>
@@ -73,7 +73,7 @@
 		<formatter type="brief" usefile="false" />
 			<classpath>	
 				<pathelement path="${build}" />
-				<fileset dir="${classpath}">
+				<fileset dir="${lib}">
 					<include name="**/*.jar"/>
 				</fileset>
 			</classpath>
@@ -85,13 +85,17 @@
 	
 	<target name="makeJar" depends="compilar" description="Crea un Jar ejecutable">
 		<manifest file="MANIFEST.MF">
-			<attribute name="Built-By" value="${Roshi}"/>
+			<attribute name="Built-By" value="Roshi"/>
 			<attribute name="Main-Class" value="tp2.Programa"/>
 		</manifest>
 		<unjar dest="${build}" src="lib/titiritero.jar"/>
 		<copy todir="${build}">
 			<fileset dir="${srcfuente}">
 				<include name="**/*.png"/>
+				<include name="**/*.gif"/>
+				<include name="**/*.jpg"/>
+				<include name="**/*.jpeg"/>
+				<include name="**/*.mpeg"/>
 				<include name="**/*.wav"/>
 				<exclude name="**/*.java"/>
 			</fileset>

@@ -1,0 +1,141 @@
+=======================
+LÉEME (README) Algo42  
+Última actualización 12-06-2011
+=======================
+
+______________________________________________________________________________
+
+Gracias por descargar Algo42. Este fichero README contiene información sobre aspectos del juego a modo de manual. 
+También contiene información sobre problemas detectados, tanto genéricos como de multijugador y hardware.
+
+El contenido de links a sitios web de este documento puede no estar sometido a control.
+______________________________________________________________________________
+
+Algo42: Algo42 es una marca registrada bajo licencia GNU GPL V3.
+
+============================================================
+ÍNDICE
+============================================================
+
+1. Requisitos de sistema mínimos
+
+2. Compilacion de codigo fuente
+    a.) Requisitos 
+    b.) Compilar Codigo
+    c.) Diferencias entre compilar y generar JAR
+
+3. Actualizaciones del codigo 
+    a.) Requisitos
+    b.) Actualizacion
+    c.) Pruebas de funcionamiento
+
+4. Ejecucion del Juego
+
+5. Nota sobre compatibilidad con equipos
+
+6. Nota sobre licencia y redistribucion
+
+7. FAQ
+
+8. Informacion de contacto
+
+9. Historia
+
+
+______________________________________________________________________________
+
+============================================================
+1. Requisitos de sistema mínimos 
+============================================================
+
+	Java6 instalado en el sistema operativo
+
+	<Incluir lo que crean minimo para correrlo>
+
+============================================================
+2. Compilacion de codigo fuente
+============================================================
+
+	a-Requisitos:
+		
+		Tener el apache ant configurado e instalado.
+		Para mas informacion se puede consultar en el siguiente tutorial:
+		
+		http://www.youtube.com/watch?v=OMUEISk-Abk&feature=youtu.be
+
+
+	b-Compilar Codigo:
+		
+		El codigo compilado se obtiene utilizando el comando ant makeJar.
+		Desde el Jar se pueden obtener las versiones compiladas de las librerias
+		No se recomienda utilizar clases completas compiladas ya que dependen de archivos de imagen y sonido		
+
+	
+	c-Diferencias entre compilar y generar JAR
+		
+		Si bien el build acepta el comando ant compilarCodigo se utiliza para una compilacion intermedia para poder
+		ejecutar las pruebas. Se recomienda utilizar el comando makeJar a menos que se sepa que lo que se busca es
+		libre de dependecias.
+
+============================================================
+3. Actualizaciones del codigo
+============================================================
+
+	a-Requisitos:
+
+		Cliente de SVN compatible con la configuracion TortoiseSVN
+		Se puede conseguir la ultima version en: http://tortoisesvn.net/
+
+	b-Actualizacion:
+		
+		Si se posee el TortoiseSVN instalado el proyecto mantiene un vinculo al repositorio e informa sobre cambios en los archivos.
+		Simplemente hacer checkout de los archivos fuera de fecha
+
+	c-Pruebas de funcionamiento:
+		
+		Luego de actualizar, se recomienda correr el ant con el comando ant corrertests. Si no hubo fallos utilizar con normalidad.
+		En el caso de que alguno de los test no corra, se recomienda revertir la version, o contactarse con el equipo de desarrollo
+		sobre como solucionar el inconveniente
+			
+
+============================================================
+4. Ejecucion del Juego 
+============================================================
+
+	El juego se puede ejecutar desde el comando del ant: ant correrPrograma. Este comando genera un Jar y luego lo ejecuta.
+	Una vez ejecutado una vez se puede utilizar directamente el archivo localizado en el directorio release.
+	Es recomendable utilizar este comando si se planea utilizarlo directamente para limpiar los archivos de compilacion
+
+============================================================
+5. Nota sobre compatibilidad con equipos 
+============================================================
+
+	Se experimenta cierta incompatibilidad con sistemas X64, Se recomienda no utilizar hasta que esto no se resuelva
+
+============================================================
+6. Nota sobre licencia y redistribucion
+============================================================
+
+	<Incluir detalles de la licencia>
+
+============================================================
+7. FAQ
+============================================================
+
+	<Incluir preguntas mas frecuentes>
+	
+============================================================
+8. Informacion de contacto
+============================================================
+
+	<Incluir la info si quieren que los contacten>
+
+============================================================
+9. Historia
+============================================================
+
+	Ver 1.0.0.0 12/06/2011:
+		-Creado
+		-Añadida Tabla de contenidos
+		-Añadidos incisos del 1 al 4
+		Modificacion: <<Hige>>

@@ -28,6 +28,7 @@ public class VentanaPrincipal extends Ventana {
 		this.setResizable(false);
 		this.controladorJuego = unControladorJuego;
 		this.controlKeyPressActivo = null;
+		this.controlMouseClickActivo = null;
 		this.inicializar();
 	}
 		
@@ -38,8 +39,6 @@ public class VentanaPrincipal extends Ventana {
 		VistaMenuPrincipal vistaMenuPrincipal = new VistaMenuPrincipal(this, (Imagen) FabricaDeDibujablesDelMenu.nuevaImagenFondoMenuPrincipal());
 		vistaMenuPrincipal.setPosicionable(menuPrincipal);
 		this.controladorJuego.agregarDibujable(vistaMenuPrincipal);	
-		this.controladorJuego.agregarKeyPressObservador(this.controlKeyPressActivo);
-		this.controladorJuego.agregarMouseClickObservador(this.controlMouseClickActivo);
 		this.agregarObjetosDibujables(vistaMenuPrincipal.getObjetosDibujablesPropios());
 	}
 	
@@ -53,7 +52,7 @@ public class VentanaPrincipal extends Ventana {
 	}
 	
 	public void setControlKeyPressActivo(KeyPressedObservador controlKeyPressActivo) {
-		this.controlKeyPressActivo = controlKeyPressActivo;
+		this.controlKeyPressActivo = controlKeyPressActivo;	
 	}
 	
 	public void setMouseClickActivo(MouseClickObservador controlMouseClickActivo) {
@@ -76,5 +75,23 @@ public class VentanaPrincipal extends Ventana {
 		}		
 	}
 	
+	/** Activa al observador del teclado */
+	public void activarKeyPressObservador() {
+		this.controladorJuego.agregarKeyPressObservador(this.controlKeyPressActivo);
+	}
 	
+	/** Desactiva al observador del teclado */
+	public void desactivarKeyPressObservador() {
+		this.controladorJuego.removerKeyPressObservador(this.controlKeyPressActivo);
+	}
+	
+	/** Activa al observador del Mouse */
+	public void activarMouseClickObservador() {
+		this.controladorJuego.agregarMouseClickObservador(this.controlMouseClickActivo);
+	}
+	
+	/** Desactiva al observador del Mouse */
+	public void desactivarMouseClickObservador() {
+		this.controladorJuego.removerMouseClickObservador(this.controlMouseClickActivo);
+	}
 }

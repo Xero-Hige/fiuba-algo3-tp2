@@ -11,8 +11,11 @@ import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 public class VistaMenuPrincipal extends Imagen {
 
+	// Guardamos una referencia a la ventana en la que estamos.
 	private VentanaPrincipal ventanaPrincipal;
+	// En esta guardamos todos los objetos dibujables que contiene el menú.
 	private ArrayList<Dibujable> objetosDibujablesDelMenu;
+	// En esta guardamos solamente los objetos que son items del menú.
 	private ArrayList<VistaMenuItem> itemsDelMenu;
 	
 	public VistaMenuPrincipal(VentanaPrincipal ventanaPrincipal, Imagen imagen) {
@@ -32,7 +35,7 @@ public class VistaMenuPrincipal extends Imagen {
 		VistaItemNuevaPartida.setPosicionable(new MenuNuevaPartida());
 		objetosDibujablesDelMenu.add(VistaItemNuevaPartida);
 		itemsDelMenu.add(VistaItemNuevaPartida);
-
+		VistaItemNuevaPartida.itemOver();
 		
 		// Item para opción "Cargar Partida"
 		VistaMenuItem VistaItemCargarPartida = new VistaMenuItem(
@@ -58,9 +61,10 @@ public class VistaMenuPrincipal extends Imagen {
 		objetosDibujablesDelMenu.add(VistaItemSalir);
 		itemsDelMenu.add(VistaItemSalir);
 		
+		// Activamos al observador del teclado y lo seteamos para que use el controlador
+		// del menú principal.
 		this.ventanaPrincipal.setControlKeyPressActivo(new ControlKeyPressMenuPrincipal(this.itemsDelMenu));
-		this.ventanaPrincipal.setMouseClickActivo(new ControlMouseClickMenuPrincipal());
-//		VistaItemNuevaPartida.itemOver();
+		this.ventanaPrincipal.activarKeyPressObservador();
 	}
 	
 	public ArrayList<Dibujable> getObjetosDibujablesPropios() {

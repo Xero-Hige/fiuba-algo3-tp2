@@ -23,9 +23,6 @@ public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
 		switch(event.getKeyCode()) {
 		
 			case KeyEvent.VK_DOWN:
-				/* LINEA DE DEBUG */
-				System.out.println("Abajo");
-				/* ******************************************** */
 				this.listaDeVistasDeItems.get(this.itemActivo).itemOut();
 				this.itemActivo++;
 				this.mantenerIndiceDentroDelRango();
@@ -33,9 +30,6 @@ public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
 				break;
 				
 			case KeyEvent.VK_UP:
-				/* LINEA DE DEBUG */
-				System.out.println("Arriba");
-				/* ******************************************** */
 				this.listaDeVistasDeItems.get(this.itemActivo).itemOut();
 				this.itemActivo--;
 				this.mantenerIndiceDentroDelRango();
@@ -43,9 +37,6 @@ public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
 				break;
 				
 			case KeyEvent.VK_ENTER:
-				/* LINEA DE DEBUG */
-				System.out.println("Enter");
-				/* ******************************************** */
 				break;
 		}	
 	}
@@ -54,8 +45,8 @@ public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
 	private void mantenerIndiceDentroDelRango() {
 		
 		if (this.itemActivo < 0)
-			this.itemActivo = this.cantTotalDeItems;
-		else if(this.itemActivo > this.cantTotalDeItems)
+			this.itemActivo = this.cantTotalDeItems - 1;
+		else if(this.itemActivo > (this.cantTotalDeItems - 1))
 			this.itemActivo = 0;
 	}
 	

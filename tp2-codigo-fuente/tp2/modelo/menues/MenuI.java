@@ -10,4 +10,5 @@ public interface MenuI {
 	public KeyPressedObservador getControlKeyPressed();
 	public MouseClickController getControlMouseClick();
 	public ArrayList<Dibujable> getObjetosDibujablesPropios();
+	public void entrarEnEscena();
 }

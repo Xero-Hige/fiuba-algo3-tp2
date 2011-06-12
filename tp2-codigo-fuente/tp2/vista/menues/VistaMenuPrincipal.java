@@ -3,7 +3,6 @@ package tp2.vista.menues;
 import java.util.ArrayList;
 
 import tp2.control.menu.ControlKeyPressMenuPrincipal;
-import tp2.control.menu.ControlMouseClickMenuPrincipal;
 import tp2.modelo.menues.*;
 import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.Dibujable;

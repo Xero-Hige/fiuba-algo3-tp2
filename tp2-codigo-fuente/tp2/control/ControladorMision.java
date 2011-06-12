@@ -5,6 +5,7 @@ import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
 public class ControladorMision extends ControladorJuego {
 	
+	@SuppressWarnings("unused")
 	private Mision mision;
 
 	public ControladorMision(boolean activarReproductor, Mision mision) {

@@ -18,6 +18,11 @@ public class MenuSalir implements MenuI, Posicionable {
 	}
 	
 	@Override
+	public void entrarEnEscena() {
+		System.exit(0);
+	}
+	
+	@Override
 	public int getX() {
 		return this.x;
 	}

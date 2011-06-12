@@ -18,6 +18,11 @@ public class MenuCreditos implements MenuI, Posicionable {
 	}
 	
 	@Override
+	public void entrarEnEscena() {
+		// TODO Auto-generated method stub
+	}
+	
+	@Override
 	public int getX() {
 		return this.x;
 	}

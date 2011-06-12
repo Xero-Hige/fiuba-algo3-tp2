@@ -18,6 +18,11 @@ public class MenuNuevaPartida implements MenuI, Posicionable {
 	}
 	
 	@Override
+	public void entrarEnEscena() {
+		// TODO Auto-generated method stub
+	}
+	
+	@Override
 	public int getX() {
 		return this.x;
 	}
@@ -43,5 +48,4 @@ public class MenuNuevaPartida implements MenuI, Posicionable {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

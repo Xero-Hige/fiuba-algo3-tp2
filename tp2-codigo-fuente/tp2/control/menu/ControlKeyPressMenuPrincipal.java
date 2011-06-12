@@ -3,6 +3,7 @@ package tp2.control.menu;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import tp2.modelo.menues.MenuI;
 import tp2.vista.menues.VistaMenuItem;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 
@@ -22,6 +23,7 @@ public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
 		
 		switch(event.getKeyCode()) {
 		
+			// Se presiona flecha hacia abajo.
 			case KeyEvent.VK_DOWN:
 				this.listaDeVistasDeItems.get(this.itemActivo).itemOut();
 				this.itemActivo++;
@@ -29,6 +31,7 @@ public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
 				this.listaDeVistasDeItems.get(this.itemActivo).itemOver();
 				break;
 				
+			// Se presiona flecha hacia arriba.	
 			case KeyEvent.VK_UP:
 				this.listaDeVistasDeItems.get(this.itemActivo).itemOut();
 				this.itemActivo--;
@@ -36,7 +39,10 @@ public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
 				this.listaDeVistasDeItems.get(this.itemActivo).itemOver();
 				break;
 				
+			// Se presiona enter, por lo que se selecciona la opción del item actual.	
 			case KeyEvent.VK_ENTER:
+				MenuI itemMenu = (MenuI) this.listaDeVistasDeItems.get(this.itemActivo).getPosicionable();
+				itemMenu.entrarEnEscena();
 				break;
 		}	
 	}

@@ -26,21 +26,21 @@
 		<delete file="MANIFEST.MF"/>
 	</target>
 	
-	<target name="compilar" depends="init" description="compila la aplicacion" >
+	<target name="compilar" depends="init" description="Compila la aplicacion" >
 		<!-- Compile the java code from ${src} into ${build} -->
 		<javac srcdir="${srcfuente}" classpath="${classpath}" destdir="${build}">
 			<classpath refid="classpath" />
 		</javac>
 	</target>
 
-	<target name="compilarTest" depends="compilar" description="compila los tests" >
+	<target name="compilarTest" depends="compilar" description="Compila los tests" >
 		<javac srcdir="${srctest}" classpath="${classpath}" destdir="${build}">
 			<classpath refid="classpath" />
 		</javac>
 		
 	</target>
 	
-	<target name="corrertests" depends="compilarTest">	
+	<target name="corrertests" depends="compilarTest" description="Corre los Tests">	
 	<junit>
 		<classpath>
 			<pathelement path="${build}" />
@@ -55,20 +55,20 @@
 		</junit>
 	</target>
 	
-	<target name="compilarWork" depends="init" description="compila la aplicacion" >
+	<target name="compilarWork" depends="init" description="Compila la aplicacion" >
 		<!-- Compile the java code from ${src} into ${build} -->		
 		<javac srcdir="${srcfuente}src/" classpath="${build}" destdir="${build}">
 			<classpath refid="classpath" />
 		</javac>
 	</target>
 	
-	<target name="compilarTestWork" depends="compilarWork" description="compila los test" >
+	<target name="compilarTestWork" depends="compilarWork" description="Compila los test" >
 		<javac srcdir="${srctest}src/" classpath="${classpath}" destdir="${build}">
 			<classpath refid="classpath" />
 		</javac>	
 	</target>
 	
-	<target name="corrertestsWork" depends="compilarTestWork">	
+	<target name="corrertestsWork" depends="compilarTestWork" description="Corre la aplicacion">	
 	<junit>
 		<formatter type="brief" usefile="false" />
 			<classpath>	
@@ -83,16 +83,23 @@
 		</junit>
 	</target>
 	
-	<target name="makeJar" depends="compilar">
+	<target name="makeJar" depends="compilar" description="Crea un Jar ejecutable">
 		<manifest file="MANIFEST.MF">
 			<attribute name="Built-By" value="${Roshi}"/>
 			<attribute name="Main-Class" value="tp2.Programa"/>
 		</manifest>
 		<unjar dest="${build}" src="lib/titiritero.jar"/>
-		<jar destfile="release/Algo42.jar" basedir="bin" includes="**/*.class" manifest="MANIFEST.MF"/>
+		<copy todir="${build}">
+			<fileset dir="${srcfuente}">
+				<include name="**/*.png"/>
+				<include name="**/*.wav"/>
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+		<jar destfile="release/Algo42.jar" basedir="bin" includes="**" manifest="MANIFEST.MF"/>
 	</target>
 
-	<target name="correrPrograma" depends="makeJar">
+	<target name="correrPrograma" depends="makeJar" description="Corre el programa desde un Jar">
 		<ant target="clean"/>
 		<java 
 			jar="release/Algo42.jar"

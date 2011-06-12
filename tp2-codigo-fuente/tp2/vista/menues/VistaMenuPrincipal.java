@@ -31,7 +31,7 @@ public class VistaMenuPrincipal extends Imagen {
 		VistaMenuItem VistaItemNuevaPartida = new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemNuevaPartidaOut(),
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemNuevaPartidaOver());
-		VistaItemNuevaPartida.setPosicionable(new MenuNuevaPartida());
+		VistaItemNuevaPartida.setPosicionable(new MenuItemNuevaPartida());
 		objetosDibujablesDelMenu.add(VistaItemNuevaPartida);
 		itemsDelMenu.add(VistaItemNuevaPartida);
 		VistaItemNuevaPartida.itemOver();
@@ -40,7 +40,7 @@ public class VistaMenuPrincipal extends Imagen {
 		VistaMenuItem VistaItemCargarPartida = new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCargarPartidaOut(),
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCargarPartidaOver());
-		VistaItemCargarPartida.setPosicionable(new MenuCargarPartida());
+		VistaItemCargarPartida.setPosicionable(new MenuItemCargarPartida());
 		objetosDibujablesDelMenu.add(VistaItemCargarPartida);
 		itemsDelMenu.add(VistaItemCargarPartida);
 		
@@ -48,7 +48,7 @@ public class VistaMenuPrincipal extends Imagen {
 		VistaMenuItem VistaItemCreditos = new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCreditosOut(),
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCreditosOver());
-		VistaItemCreditos.setPosicionable(new MenuCreditos());
+		VistaItemCreditos.setPosicionable(new MenuItemCreditos());
 		objetosDibujablesDelMenu.add(VistaItemCreditos);
 		itemsDelMenu.add(VistaItemCreditos);
 		
@@ -56,7 +56,7 @@ public class VistaMenuPrincipal extends Imagen {
 		VistaMenuItem VistaItemSalir = new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemSalirOut(),
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemSalirOver());
-		VistaItemSalir.setPosicionable(new MenuSalir());
+		VistaItemSalir.setPosicionable(new MenuItemSalir());
 		objetosDibujablesDelMenu.add(VistaItemSalir);
 		itemsDelMenu.add(VistaItemSalir);
 		
@@ -68,5 +68,9 @@ public class VistaMenuPrincipal extends Imagen {
 	
 	public ArrayList<Dibujable> getObjetosDibujablesPropios() {
 		return this.objetosDibujablesDelMenu;
+	}
+	
+	public void volverAMi() {
+		
 	}
 }

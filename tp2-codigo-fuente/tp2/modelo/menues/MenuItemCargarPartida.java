@@ -7,42 +7,31 @@ import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.vista.MouseClickController;
 
-public class MenuPrincipal implements MenuI, Posicionable  {
+public class MenuItemCargarPartida implements MenuI, Posicionable {
 
-	private int alto;
-	private int ancho;
+	private int x;
+	private int y;
 	
-	public MenuPrincipal(){
-		this.alto = 500;
-		this.ancho = 500;
+	public MenuItemCargarPartida() {
+		this.x = ((500 / 2) - (234 / 2));
+		this.y = 283;
+	}
+
+	@Override
+	public void entrarEnEscena() {
+		// TODO Auto-generated method stub
 	}
 	
 	@Override
 	public int getX() {
-		return 0;
+		return this.x;
 	}
 
 	@Override
 	public int getY() {
-		return 0;
+		return this.y;
 	}
 	
-	public int getAlto() {
-		return alto;
-	}
-
-	public void setAlto(int alto) {
-		this.alto = alto;
-	}
-
-	public int getAncho() {
-		return ancho;
-	}
-
-	public void setAncho(int ancho) {
-		this.ancho = ancho;
-	}
-
 	@Override
 	public KeyPressedObservador getControlKeyPressed() {
 		// TODO Auto-generated method stub
@@ -60,12 +49,4 @@ public class MenuPrincipal implements MenuI, Posicionable  {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public void entrarEnEscena() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-
 }

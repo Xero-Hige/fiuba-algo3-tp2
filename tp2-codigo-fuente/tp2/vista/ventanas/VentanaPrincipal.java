@@ -42,11 +42,6 @@ public class VentanaPrincipal extends Ventana {
 		this.agregarObjetosDibujables(vistaMenuPrincipal.getObjetosDibujablesPropios());
 	}
 	
-	/** */
-	public void cambiarVistaActual() {
-		
-	}
-	
 	public ControladorJuego getControladorJuego() {
 		return this.controladorJuego;
 	}

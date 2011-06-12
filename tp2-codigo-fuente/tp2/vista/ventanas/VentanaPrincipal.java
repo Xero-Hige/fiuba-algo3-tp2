@@ -9,6 +9,7 @@ import tp2.vista.menues.VistaMenuPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
+import ar.uba.fi.algo3.titiritero.MouseClickObservador;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 import ar.uba.fi.algo3.titiritero.vista.Ventana;
 
@@ -18,6 +19,7 @@ public class VentanaPrincipal extends Ventana {
 	private static final long serialVersionUID = 1L;
 	private ControladorJuego controladorJuego;
 	private KeyPressedObservador controlKeyPressActivo;
+	private MouseClickObservador controlMouseClickActivo;
 		
 	public VentanaPrincipal(ControladorJuego unControladorJuego) {
 		
@@ -37,6 +39,7 @@ public class VentanaPrincipal extends Ventana {
 		vistaMenuPrincipal.setPosicionable(menuPrincipal);
 		this.controladorJuego.agregarDibujable(vistaMenuPrincipal);	
 		this.controladorJuego.agregarKeyPressObservador(this.controlKeyPressActivo);
+		this.controladorJuego.agregarMouseClickObservador(this.controlMouseClickActivo);
 		this.agregarObjetosDibujables(vistaMenuPrincipal.getObjetosDibujablesPropios());
 	}
 	
@@ -51,6 +54,10 @@ public class VentanaPrincipal extends Ventana {
 	
 	public void setControlKeyPressActivo(KeyPressedObservador controlKeyPressActivo) {
 		this.controlKeyPressActivo = controlKeyPressActivo;
+	}
+	
+	public void setMouseClickActivo(MouseClickObservador controlMouseClickActivo) {
+		this.controlMouseClickActivo = controlMouseClickActivo;
 	}
 	
 	public void agregarObjetosDibujables(ArrayList<Dibujable> objetosDibujables) {

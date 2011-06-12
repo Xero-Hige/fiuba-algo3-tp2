@@ -25,4 +25,12 @@ public class VistaMenuItem extends Imagen {
 	public void itemOver() {
 		this.setImagenDiferente(this.imagenOver);
 	}
+	
+	public Imagen getImagenOut(){
+		return this.imagenOut;
+	}
+	
+	public Imagen getImagenOver(){
+		return this.imagenOver;
+	}
 }

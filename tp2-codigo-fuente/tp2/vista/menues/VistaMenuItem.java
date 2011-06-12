@@ -10,6 +10,7 @@ public class VistaMenuItem extends Imagen {
 	public VistaMenuItem(Imagen imagenOut, Imagen imagenOver) {
 		this.imagenOut = imagenOut;
 		this.imagenOver = imagenOver;
+		this.itemOut();
 	}
 	
 	public VistaMenuItem(Imagen imagen) {
@@ -17,16 +18,11 @@ public class VistaMenuItem extends Imagen {
 		this.imagenOver = imagen;
 	}
 	
-	public void inicializarModelo () {
-		
+	public void itemOut() {
+		this.setImagenDiferente(this.imagenOut);
 	}
 	
-	public void setItemOver() {
-		
+	public void itemOver() {
+		this.setImagenDiferente(this.imagenOver);
 	}
-	
-	public void setItemOut() {
-		
-	}
-	
 }

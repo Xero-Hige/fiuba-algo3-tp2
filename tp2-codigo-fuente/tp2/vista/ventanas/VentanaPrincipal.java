@@ -1,9 +1,13 @@
 package tp2.vista.ventanas;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import tp2.modelo.menues.MenuPrincipal;
 import tp2.vista.menues.FabricaDeDibujablesDelMenu;
 import tp2.vista.menues.VistaMenuPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
+import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 import ar.uba.fi.algo3.titiritero.vista.Ventana;
@@ -25,33 +29,15 @@ public class VentanaPrincipal extends Ventana {
 		this.inicializar();
 	}
 		
-//		// PRUEBA DE AGREGAR UN OBJETO VIVO AL ESCENARIO
-//		
-//		Escenario escenario = new Escenario(new Rectangle(500, 500));
-//		FabricaDeNaves fabrica = new FabricaDeNaves(escenario, "asdf", null);
-//		List<Nave> naves = new ArrayList<Nave>();
-//		naves.add(fabrica.crearAvionetaEn(new Point(30, 90)));
-//		naves.add(fabrica.crearBombarderoEn(new Point(15, 50)));
-//		naves.add(fabrica.crearExploradorEn(new Point(-15, 45)));
-//		//naves.add(fabrica.crearAlgo42En(new Point(15, 10)));
-//		
-//		List<Circulo> vistas = new ArrayList<Circulo>();
-//		for(Nave nave: naves){
-//			Circulo circulo = new Circulo((int) (nave.getTamanio() * 5));
-//			circulo.setPosicionable(nave);
-//			vistas.add(circulo);
-//			unControladorJuego.agregarDibujable(circulo);
-//			unControladorJuego.agregarObjetoVivo(nave);
-//		}
-	
 	/** Inicializa la ventana principal mostrando el menú principal del juego */
-	public void inicializar() {
+	private void inicializar() {
 		
 		MenuPrincipal menuPrincipal = new MenuPrincipal();
 		VistaMenuPrincipal vistaMenuPrincipal = new VistaMenuPrincipal(this, (Imagen) FabricaDeDibujablesDelMenu.nuevaImagenFondoMenuPrincipal());
 		vistaMenuPrincipal.setPosicionable(menuPrincipal);
 		this.controladorJuego.agregarDibujable(vistaMenuPrincipal);	
 		this.controladorJuego.agregarKeyPressObservador(this.controlKeyPressActivo);
+		this.agregarObjetosDibujables(vistaMenuPrincipal.getObjetosDibujablesPropios());
 	}
 	
 	/** */
@@ -66,4 +52,22 @@ public class VentanaPrincipal extends Ventana {
 	public void setControlKeyPressActivo(KeyPressedObservador controlKeyPressActivo) {
 		this.controlKeyPressActivo = controlKeyPressActivo;
 	}
+	
+	public void agregarObjetosDibujables(ArrayList<Dibujable> objetosDibujables) {
+		
+		Iterator<Dibujable> iterador = objetosDibujables.iterator();
+		while(iterador.hasNext()) {
+			this.controladorJuego.agregarDibujable(iterador.next());
+		}		
+	}
+	
+	public void removerObjetosDibujables(ArrayList<Dibujable> objetosDibujables) {
+		
+		Iterator<Dibujable> iterador = objetosDibujables.iterator();
+		while(iterador.hasNext()) {
+			this.controladorJuego.removerDibujable(iterador.next());
+		}		
+	}
+	
+	
 }

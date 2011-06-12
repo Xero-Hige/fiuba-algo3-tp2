@@ -21,21 +21,18 @@ public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
 				/* LINEA DE DEBUG */
 				System.out.println("Abajo");
 				/* ******************************************** */
-				this.vistaMenuPrincipal.moverSeleccionParaAbajo();
 				break;
 				
 			case KeyEvent.VK_UP:
 				/* LINEA DE DEBUG */
 				System.out.println("Arriba");
 				/* ******************************************** */
-				this.vistaMenuPrincipal.moverSeleccionParaArriba();
 				break;
 				
 			case KeyEvent.VK_ENTER:
 				/* LINEA DE DEBUG */
 				System.out.println("Enter");
 				/* ******************************************** */
-				this.vistaMenuPrincipal.seleccionarItem();
 				break;
 		}	
 	}

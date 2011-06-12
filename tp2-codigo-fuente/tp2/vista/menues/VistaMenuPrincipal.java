@@ -1,66 +1,57 @@
 package tp2.vista.menues;
 
-import java.util.Map;
+import java.util.ArrayList;
 import tp2.control.menu.ControlKeyPressMenuPrincipal;
-import tp2.modelo.menues.MenuI;
-import tp2.modelo.menues.MenuNuevaPartida;
+import tp2.modelo.menues.*;
 import tp2.vista.ventanas.VentanaPrincipal;
+import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 public class VistaMenuPrincipal extends Imagen {
 
 	private VentanaPrincipal ventanaPrincipal;
-	private Map<VistaMenuItem,MenuI> mapDeItemsDelMenu;
-	private VistaMenuItem itemActivo;
+	private ArrayList<Dibujable> objetosDibujablesDelMenu;
 	
 	public VistaMenuPrincipal(VentanaPrincipal ventanaPrincipal, Imagen imagen) {
 		super(imagen);
+		objetosDibujablesDelMenu = new ArrayList<Dibujable>();
 		this.ventanaPrincipal = ventanaPrincipal;
 		this.ventanaPrincipal.setControlKeyPressActivo(new ControlKeyPressMenuPrincipal(this));
-		this.inicializarMenu();
+		this.inicializar();
 	}
 	
-	private void inicializarMenu() {
+	private void inicializar() {
 		
-		VistaMenuItem itemNuevaPartida = new VistaMenuItem(
+		// Item para opción "Nueva Partida"
+		VistaMenuItem VistaItemNuevaPartida = new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemNuevaPartidaOut(),
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemNuevaPartidaOver());
-		itemNuevaPartida.setPosicionable(new MenuNuevaPartida());
-		this.mapDeItemsDelMenu.put(itemNuevaPartida,(MenuI) itemNuevaPartida.getPosicionable());
+		VistaItemNuevaPartida.setPosicionable(new MenuNuevaPartida());
+		objetosDibujablesDelMenu.add(VistaItemNuevaPartida);
 		
-//		this.mapDeItemsDelMenu.put(new VistaMenuItem(
-//				FabricaDeDibujablesDelMenu.nuevaImagenItemCargarPartidaOut(),
-//				FabricaDeDibujablesDelMenu.nuevaImagenItemCargarPartidaOver()),
-//				new MenuCargarPartida());
-//		
-//		this.mapDeItemsDelMenu.put(new VistaMenuItem(
-//				FabricaDeDibujablesDelMenu.nuevaImagenItemCreditosOut(),
-//				FabricaDeDibujablesDelMenu.nuevaImagenItemCreditosOver()),
-//				new MenuCreditos());
-//		
-//		this.mapDeItemsDelMenu.put(new VistaMenuItem(
-//				FabricaDeDibujablesDelMenu.nuevaImagenItemSalirOut(),
-//				FabricaDeDibujablesDelMenu.nuevaImagenItemSalirOver()),
-//				new MenuCreditos());
-//		
+		// Item para opción "Cargar Partida"
+		VistaMenuItem VistaItemCargarPartida = new VistaMenuItem(
+				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCargarPartidaOut(),
+				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCargarPartidaOver());
+		VistaItemCargarPartida.setPosicionable(new MenuCargarPartida());
+		objetosDibujablesDelMenu.add(VistaItemCargarPartida);
 		
-		itemActivo = itemNuevaPartida;
-		this.ventanaPrincipal.getControladorJuego().agregarDibujable(itemNuevaPartida);
+		// Item para opción "Créditos"
+		VistaMenuItem VistaItemCreditos = new VistaMenuItem(
+				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCreditosOut(),
+				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCreditosOver());
+		VistaItemCreditos.setPosicionable(new MenuCreditos());
+		objetosDibujablesDelMenu.add(VistaItemCreditos);
+		
+		// Item para opción "Salir"
+		VistaMenuItem VistaItemSalir = new VistaMenuItem(
+				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemSalirOut(),
+				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemSalirOver());
+		VistaItemSalir.setPosicionable(new MenuSalir());
+		objetosDibujablesDelMenu.add(VistaItemSalir);
 	}
 	
-	public void moverSeleccionParaArriba() {
-		
-	}
-	
-	public void moverSeleccionParaAbajo() {
-		
-	}
-	
-	public void seleccionarItem() {
-		
-	}
-	
-	public void volverAMi() {
-		
+	public ArrayList<Dibujable> getObjetosDibujablesPropios() {
+		return this.objetosDibujablesDelMenu;
 	}
 }

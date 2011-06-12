@@ -1,6 +1,5 @@
 package tp2.vista.menues;
 
-import tp2.vista.modelo.*;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
 

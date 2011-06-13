@@ -3,7 +3,6 @@ package tp2.vista.menues.menuCreditos;
 import java.util.ArrayList;
 
 import tp2.vista.menues.VistaMenuI;
-import tp2.vista.menues.menuPrincipal.VistaMenuItem;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
@@ -15,10 +14,6 @@ public class VistaMenuCreditos extends Imagen implements VistaMenuI {
 	
 	@Override
 	public ArrayList<Dibujable> getObjetosDibujables() {
-		return null;
-	}
-	@Override
-	public ArrayList<VistaMenuItem> getItemsDelMenu() {
 		return null;
 	}
 }

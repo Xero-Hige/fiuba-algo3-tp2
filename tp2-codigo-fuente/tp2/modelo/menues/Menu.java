@@ -1,19 +1,24 @@
 package tp2.modelo.menues;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import tp2.vista.menues.VistaMenuI;
 import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 import ar.uba.fi.algo3.titiritero.MouseClickObservador;
+import ar.uba.fi.algo3.titiritero.Posicionable;
 
-public class Menu {
+public class Menu implements MenuI, Posicionable  {
 
 	private VentanaPrincipal ventanaPrincipal;
 	private MenuI menuPadre;
-	private ArrayList<MenuI> listaMenuesHijos;
+	private Map<String, MenuI> menuesHijos;
 	
 	private VistaMenuI vistaMenu;
+	private ArrayList<MenuItem> listaDeItems;
 	private KeyPressedObservador controlKeyPress;
 	private MouseClickObservador controlMouseClick;
 			
@@ -22,6 +27,18 @@ public class Menu {
 	public Menu(VentanaPrincipal ventanaPrincipal, MenuI menuPadre){
 		this.ventanaPrincipal = ventanaPrincipal;
 		this.menuPadre = menuPadre;
+		this.listaDeItems = new ArrayList<MenuItem>();
+		this.menuesHijos = new HashMap<String, MenuI>();
+	}
+	
+	@Override
+	public int getX() {
+		return 0;
+	}
+
+	@Override
+	public int getY() {
+		return 0;
 	}
 	
 	public VentanaPrincipal getVentanaPrincipal() {
@@ -59,18 +76,58 @@ public class Menu {
 	public MenuI getMenuPadre() {
 		return this.menuPadre;
 	}
+	
+	public void setMenuPadre(MenuI menuPadre) {
+		this.menuPadre = menuPadre;
+	}
 
-	public ArrayList<MenuI> getListaMenuesHijos() {
-		return this.listaMenuesHijos;
+	public Map<String, MenuI> getListaMenuesHijos() {
+		return this.menuesHijos;
+	}
+	
+	public void agregarMenuHijo(String nombreMenu, MenuI menuHijo) {
+		this.menuesHijos.put(nombreMenu, menuHijo);
+	}
+	
+	public void agregarItem(MenuItem unItem) {
+		this.listaDeItems.add(unItem);
+	}
+	
+	public void removerItem(MenuItem unItem) {
+		this.listaDeItems.remove(unItem);
+	}
+	
+	public ArrayList<MenuItem> getListaDeItems() {
+		return listaDeItems;
 	}
 
 	public void mostrar() {
+		
 		this.ventanaPrincipal.agregarObjetoDibujable((Dibujable) this.vistaMenu);
 		this.ventanaPrincipal.agregarObjetosDibujables(this.vistaMenu.getObjetosDibujables());
+		
+		Iterator<MenuItem> i = this.listaDeItems.iterator();
+		MenuItem itemTemp;
+		
+		while (i.hasNext()) {
+			
+			itemTemp = i.next();
+			this.ventanaPrincipal.agregarObjetoDibujable(itemTemp.getVistaMenuItem());
+		}
 	}
 
 	public void ocultar() {
+		
 		this.ventanaPrincipal.removerObjetoDibujable((Dibujable) this.vistaMenu);
 		this.ventanaPrincipal.removerObjetosDibujables(this.vistaMenu.getObjetosDibujables());
+		
+		Iterator<MenuItem> i = this.listaDeItems.iterator();
+		MenuItem itemTemp;
+		
+		while (i.hasNext()) {
+			
+			itemTemp = i.next();
+			this.ventanaPrincipal.removerObjetoDibujable(itemTemp.getVistaMenuItem());
+		}
 	}
 }

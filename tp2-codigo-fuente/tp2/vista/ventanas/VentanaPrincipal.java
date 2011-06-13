@@ -20,7 +20,7 @@ public class VentanaPrincipal extends Ventana {
 		
 	public VentanaPrincipal(ControladorJuego unControladorJuego) {
 		
-		super(500,500, unControladorJuego);
+		super(500, 530, unControladorJuego);
 		this.setTitle("Algo42");
 		this.setResizable(false);
 		this.controladorJuego = unControladorJuego;

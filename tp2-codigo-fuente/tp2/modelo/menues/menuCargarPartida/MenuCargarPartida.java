@@ -1,24 +1,23 @@
 package tp2.modelo.menues.menuCargarPartida;
 
-import ar.uba.fi.algo3.titiritero.Posicionable;
+import tp2.modelo.menues.Menu;
+import tp2.modelo.menues.MenuI;
+import tp2.vista.ventanas.VentanaPrincipal;
 
-public class MenuCargarPartida implements Posicionable {
 
-	private int x;
-	private int y;
-	
-	public MenuCargarPartida() {
-		this.x = ((500 / 2) - (234 / 2));
-		this.y = 283;
+public class MenuCargarPartida extends Menu {
+
+	public MenuCargarPartida(VentanaPrincipal ventanaPrincipal, MenuI menuPadre) {
+		super(ventanaPrincipal, menuPadre);
 	}
 
 	@Override
-	public int getX() {
-		return this.x;
+	public void resetear() {
+		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public int getY() {
-		return this.y;
+	public void activarControl() {
+		// TODO Auto-generated method stub
 	}
 }

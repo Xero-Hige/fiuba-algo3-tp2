@@ -7,13 +7,15 @@ import tp2.vista.ventanas.VentanaPrincipal;
 public abstract class MenuItem implements MenuItemI, Posicionable  {
 
 	private VentanaPrincipal ventanaPrincipal;
-	
+	private MenuI menuDelItem;
 	private VistaMenuItem vistaMenuItem;
 	private int x;
 	private int y;
 	
-	public MenuItem(VentanaPrincipal ventanaPrincipal) {
+	
+	public MenuItem(VentanaPrincipal ventanaPrincipal, MenuI menuDelItem) {
 		this.ventanaPrincipal = ventanaPrincipal;
+		this.menuDelItem = menuDelItem;
 		this.x = 0;
 		this.y = 0;
 	}
@@ -50,6 +52,14 @@ public abstract class MenuItem implements MenuItemI, Posicionable  {
 
 	public void setVistaMenuItem(VistaMenuItem vistaMenuItem) {
 		this.vistaMenuItem = vistaMenuItem;
+	}
+
+	public MenuI getMenuDelItem() {
+		return menuDelItem;
+	}
+
+	public void setMenuDelItem(MenuI menuDelItem) {
+		this.menuDelItem = menuDelItem;
 	}
 		
 	public abstract void seleccionar();

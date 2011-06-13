@@ -10,15 +10,13 @@ import tp2.vista.ventanas.VentanaPrincipal;
 
 
 public class MenuPrincipalItemCreditos extends MenuItem {
-
-	private MenuI menuActual;
 	
-	public MenuPrincipalItemCreditos(VentanaPrincipal ventanaPrincipal, MenuI menuActual) {
-		super(ventanaPrincipal);
+	public MenuPrincipalItemCreditos(VentanaPrincipal ventanaPrincipal, MenuI menuDelItem) {
+		
+		super(ventanaPrincipal, menuDelItem);
 		this.setX((500 / 2) - (234 / 2));
 		this.setY(323);
-		this.menuActual = menuActual;
-		
+
 		this.setVistaMenuItem(new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenuPrincipal.nuevaImagenItemCreditosOut(),
 				(Imagen) FabricaDeDibujablesDelMenuPrincipal.nuevaImagenItemCreditosOver()));
@@ -27,7 +25,7 @@ public class MenuPrincipalItemCreditos extends MenuItem {
 
 	@Override
 	public void seleccionar() {
-		MenuCreditos menuCreditos = new MenuCreditos(this.getVentanaPrincipal(), this.menuActual);
+		MenuCreditos menuCreditos = new MenuCreditos(this.getVentanaPrincipal(), this.getMenuDelItem());
 		menuCreditos.mostrar();
 	}
 }

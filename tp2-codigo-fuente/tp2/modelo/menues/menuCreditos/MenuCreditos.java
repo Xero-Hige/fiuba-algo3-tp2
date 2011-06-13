@@ -19,10 +19,7 @@ public class MenuCreditos extends Menu {
 	}
 
 	@Override
-	public void resetear() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void resetear() {}
 	
 	@Override
 	public void activarControl() {
@@ -31,10 +28,5 @@ public class MenuCreditos extends Menu {
 		// del menú creditos.
 		this.setControlKeyPress(new ControlKeyPressMenuCreditos(this));
 		this.getVentanaPrincipal().setControlKeyPressActivo(this.getControlKeyPress());
-	}
-
-	@Override
-	public void desactivarControl() {
-		// TODO Auto-generated method stub
 	}
 }

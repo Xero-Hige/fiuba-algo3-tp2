@@ -20,10 +20,10 @@ public class MenuPrincipal extends Menu  {
 		this.getVistaMenu().setPosicionable(this);
 		
 		// Creamos los items de las opciones del menu principal
-		this.agregarItem(new MenuPrincipalItemNuevaPartida(this.getVentanaPrincipal()));
-		this.agregarItem(new MenuPrincipalItemCargarPartida(this.getVentanaPrincipal()));
+		this.agregarItem(new MenuPrincipalItemNuevaPartida(this.getVentanaPrincipal(), this));
+		this.agregarItem(new MenuPrincipalItemCargarPartida(this.getVentanaPrincipal(), this));
 		this.agregarItem(new MenuPrincipalItemCreditos(this.getVentanaPrincipal(), this));
-		this.agregarItem(new MenuPrincipalItemSalir(this.getVentanaPrincipal()));
+		this.agregarItem(new MenuPrincipalItemSalir(this.getVentanaPrincipal(), this));
 				
 		// Creamos los los menues hijos del menu principal.
 //		this.agregarMenuHijo("Nueva partida", (MenuI) new MenuNuevaPartida());

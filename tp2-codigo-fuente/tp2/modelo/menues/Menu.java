@@ -11,7 +11,7 @@ import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 import ar.uba.fi.algo3.titiritero.MouseClickObservador;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 
-public class Menu implements MenuI, Posicionable  {
+public abstract class Menu implements MenuI, Posicionable  {
 
 	private VentanaPrincipal ventanaPrincipal;
 	private MenuI menuPadre;
@@ -102,7 +102,7 @@ public class Menu implements MenuI, Posicionable  {
 	}
 
 	public void mostrar() {
-		
+				
 		this.ventanaPrincipal.agregarObjetoDibujable((Dibujable) this.vistaMenu);
 		this.ventanaPrincipal.agregarObjetosDibujables(this.vistaMenu.getObjetosDibujables());
 		
@@ -114,20 +114,29 @@ public class Menu implements MenuI, Posicionable  {
 			itemTemp = i.next();
 			this.ventanaPrincipal.agregarObjetoDibujable(itemTemp.getVistaMenuItem());
 		}
+		
+		this.activarControl();
 	}
 
 	public void ocultar() {
+		
+//		this.desactivarControl();
 		
 		this.ventanaPrincipal.removerObjetoDibujable((Dibujable) this.vistaMenu);
 		this.ventanaPrincipal.removerObjetosDibujables(this.vistaMenu.getObjetosDibujables());
 		
 		Iterator<MenuItem> i = this.listaDeItems.iterator();
-		MenuItem itemTemp;
 		
-		while (i.hasNext()) {
-			
-			itemTemp = i.next();
-			this.ventanaPrincipal.removerObjetoDibujable(itemTemp.getVistaMenuItem());
-		}
+		while (i.hasNext()) 
+			this.ventanaPrincipal.removerObjetoDibujable(i.next().getVistaMenuItem());
+	}
+	
+	@Override
+	public abstract void activarControl();
+	
+	@Override
+	public void desactivarControl() {
+		this.ventanaPrincipal.desactivarKeyPressObservador();
+		this.ventanaPrincipal.desactivarMouseClickObservador();
 	}
 }

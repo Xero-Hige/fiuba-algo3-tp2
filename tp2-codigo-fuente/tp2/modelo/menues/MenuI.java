@@ -16,4 +16,7 @@ public interface MenuI {
 	
 	public void mostrar();
 	public void ocultar();
+	public void resetear();
+	public void activarControl();
+	public void desactivarControl();
 }

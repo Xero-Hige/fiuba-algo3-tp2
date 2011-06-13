@@ -1,24 +1,18 @@
 package tp2.modelo.menues.menuSalir;
 
-import ar.uba.fi.algo3.titiritero.Posicionable;
+import tp2.modelo.menues.Menu;
 
-public class MenuSalir implements Posicionable {
 
-	private int x;
-	private int y;
-	
+public class MenuSalir extends Menu {
+
 	public MenuSalir() {
-		this.x = ((500 / 2) - (234 / 2));
-		this.y = 363;
+		super(null, null);
+		System.exit(0);
 	}
-		
+	
 	@Override
-	public int getX() {
-		return this.x;
-	}
+	public void resetear() {}
 
 	@Override
-	public int getY() {
-		return this.y;
-	}
+	public void activarControl() {}
 }

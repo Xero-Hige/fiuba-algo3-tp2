@@ -40,6 +40,7 @@ public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
 			case KeyEvent.VK_ENTER:
 				this.menuPrincipal.getListaDeItems().get(this.itemActivo).seleccionar();
 				this.menuPrincipal.ocultar();
+				this.menuPrincipal.resetear();
 				break;
 		}	
 	}

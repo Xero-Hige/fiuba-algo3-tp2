@@ -37,7 +37,9 @@ public class VentanaPrincipal extends Ventana {
 	}
 	
 	public void setControlKeyPressActivo(KeyPressedObservador controlKeyPressActivo) {
+		this.desactivarKeyPressObservador();
 		this.controlKeyPressActivo = controlKeyPressActivo;	
+		this.activarKeyPressObservador();
 	}
 	
 	public void setMouseClickActivo(MouseClickObservador controlMouseClickActivo) {

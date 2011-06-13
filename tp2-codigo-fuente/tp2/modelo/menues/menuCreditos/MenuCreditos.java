@@ -7,20 +7,34 @@ import tp2.vista.menues.menuCreditos.VistaMenuCreditos;
 import tp2.vista.ventanas.VentanaPrincipal;
 
 
-public class MenuCreditos extends Menu implements MenuI{
+public class MenuCreditos extends Menu {
 	
-	public MenuCreditos(VentanaPrincipal ventanaPrincipal){
+	public MenuCreditos(VentanaPrincipal ventanaPrincipal, MenuI menuPadre){
 		
-		super(ventanaPrincipal, null);
+		super(ventanaPrincipal, menuPadre);
 
 		// Creamos la vista del menu principal
 		this.setVistaMenu(new VistaMenuCreditos());
 		this.getVistaMenu().setPosicionable(this);
+	}
+
+	@Override
+	public void resetear() {
+		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public void activarControl() {
+
 		// Activamos al observador del teclado y lo seteamos para que use el controlador
-		// del menú principal.
-		this.setControlKeyPress(new ControlKeyPressMenuCreditos());
+		// del menú creditos.
+		this.setControlKeyPress(new ControlKeyPressMenuCreditos(this));
 		this.getVentanaPrincipal().setControlKeyPressActivo(this.getControlKeyPress());
-		this.getVentanaPrincipal().activarKeyPressObservador();
+	}
+
+	@Override
+	public void desactivarControl() {
+		// TODO Auto-generated method stub
 	}
 }

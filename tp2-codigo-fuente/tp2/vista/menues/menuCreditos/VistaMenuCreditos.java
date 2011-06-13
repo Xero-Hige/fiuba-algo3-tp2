@@ -14,6 +14,6 @@ public class VistaMenuCreditos extends Imagen implements VistaMenuI {
 	
 	@Override
 	public ArrayList<Dibujable> getObjetosDibujables() {
-		return null;
+		return new ArrayList<Dibujable>();
 	}
 }

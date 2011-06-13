@@ -1,4 +1,4 @@
-package tp2.vista.menues;
+package tp2.vista.menues.menuPrincipal;
 
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
@@ -7,7 +7,7 @@ public class ImagenItemCreditosOut extends Imagen {
 	public static ImagenItemCreditosOut imagenPrincipal; 
 
 	private ImagenItemCreditosOut() {
-		this.setNombreArchivoImagen("../imagenes/menues/menu-principal-item-out-creditos.png");
+		this.setNombreArchivoImagen("../../imagenes/menues/menu-principal-item-out-creditos.png");
 	}
 
 	private ImagenItemCreditosOut(Imagen imagen) {

@@ -1,9 +1,9 @@
-package tp2.vista.menues;
+package tp2.vista.menues.menuPrincipal;
 
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
 
-public class FabricaDeDibujablesDelMenu {
+public class FabricaDeDibujablesDelMenuPrincipal {
 	
 	private static boolean imagenesCargadas = false;
 	

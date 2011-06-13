@@ -1,4 +1,4 @@
-package tp2.vista.menues;
+package tp2.vista.menues.menuPrincipal;
 
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
@@ -7,7 +7,7 @@ public class ImagenItemSalirOver extends Imagen {
 	public static ImagenItemSalirOver imagenPrincipal; 
 
 	private ImagenItemSalirOver() {
-		this.setNombreArchivoImagen("../imagenes/menues/menu-principal-item-over-salir.png");
+		this.setNombreArchivoImagen("../../imagenes/menues/menu-principal-item-over-salir.png");
 	}
 
 	private ImagenItemSalirOver(Imagen imagen) {

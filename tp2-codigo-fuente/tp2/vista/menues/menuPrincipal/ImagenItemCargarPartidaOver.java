@@ -1,4 +1,4 @@
-package tp2.vista.menues;
+package tp2.vista.menues.menuPrincipal;
 
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
@@ -7,7 +7,7 @@ public class ImagenItemCargarPartidaOver extends Imagen {
 	public static ImagenItemCargarPartidaOver imagenPrincipal; 
 
 	private ImagenItemCargarPartidaOver() {
-		this.setNombreArchivoImagen("../imagenes/menues/menu-principal-item-over-cargar-partida.png");
+		this.setNombreArchivoImagen("../../imagenes/menues/menu-principal-item-over-cargar-partida.png");
 	}
 
 	private ImagenItemCargarPartidaOver(Imagen imagen) {

@@ -1,4 +1,4 @@
-package tp2.vista.menues;
+package tp2.vista.menues.menuPrincipal;
 
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
@@ -7,7 +7,7 @@ public class ImagenFondoMenuPrincipal extends Imagen {
 	public static ImagenFondoMenuPrincipal imagenPrincipal; 
 
 	private ImagenFondoMenuPrincipal() {
-		this.setNombreArchivoImagen("../imagenes/menues/menu-principal-fondo.jpg");
+		this.setNombreArchivoImagen("../../imagenes/menues/menu-principal-fondo.jpg");
 	}
 
 	private ImagenFondoMenuPrincipal(Imagen imagen) {

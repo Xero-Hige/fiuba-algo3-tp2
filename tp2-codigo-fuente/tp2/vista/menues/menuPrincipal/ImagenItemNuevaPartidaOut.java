@@ -1,4 +1,4 @@
-package tp2.vista.menues;
+package tp2.vista.menues.menuPrincipal;
 
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
@@ -7,7 +7,7 @@ public class ImagenItemNuevaPartidaOut extends Imagen {
 	public static ImagenItemNuevaPartidaOut imagenPrincipal; 
 
 	private ImagenItemNuevaPartidaOut() {
-		this.setNombreArchivoImagen("../imagenes/menues/menu-principal-item-out-nueva-partida.png");
+		this.setNombreArchivoImagen("../../imagenes/menues/menu-principal-item-out-nueva-partida.png");
 	}
 
 	private ImagenItemNuevaPartidaOut(Imagen imagen) {

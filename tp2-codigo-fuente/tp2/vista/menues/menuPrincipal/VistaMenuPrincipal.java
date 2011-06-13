@@ -16,8 +16,10 @@ public class VistaMenuPrincipal extends Imagen implements VistaMenuI {
 	// En esta guardamos solamente los objetos que son items del menú.
 	private ArrayList<VistaMenuItem> itemsDelMenu;
 	
-	public VistaMenuPrincipal(VentanaPrincipal ventanaPrincipal, Imagen imagen) {
-		super(imagen);
+	public VistaMenuPrincipal(VentanaPrincipal ventanaPrincipal) {
+		
+		super((Imagen) FabricaDeDibujablesDelMenu.nuevaImagenFondoMenuPrincipal());
+		
 		objetosDibujablesDelMenu = new ArrayList<Dibujable>();
 		this.itemsDelMenu = new ArrayList<VistaMenuItem>();
 		this.inicializar();
@@ -65,9 +67,5 @@ public class VistaMenuPrincipal extends Imagen implements VistaMenuI {
 
 	public ArrayList<Dibujable> getObjetosDibujables() {
 		return this.objetosDibujablesDelMenu;
-	}
-	
-	public void volverAMi() {
-		
 	}
 }

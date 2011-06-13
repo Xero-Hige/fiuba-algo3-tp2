@@ -27,6 +27,7 @@ public class VentanaPrincipal extends Ventana {
 		this.controlKeyPressActivo = null;
 		this.controlMouseClickActivo = null;
 		
+		// Creación del menu principal a mostrar en el inicio.
 		MenuPrincipal menuPrincipal = new MenuPrincipal(this);
 		menuPrincipal.mostrar();
 	}

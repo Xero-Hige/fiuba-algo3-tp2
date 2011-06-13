@@ -3,7 +3,6 @@ package tp2.modelo.menues.menuPrincipal;
 import java.util.ArrayList;
 import tp2.control.menu.menuPrincipal.ControlKeyPressMenuPrincipal;
 import tp2.modelo.menues.MenuI;
-import tp2.vista.menues.FabricaDeDibujablesDelMenu;
 import tp2.vista.menues.VistaMenuI;
 import tp2.vista.menues.menuPrincipal.VistaMenuPrincipal;
 import tp2.vista.ventanas.VentanaPrincipal;
@@ -11,7 +10,6 @@ import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 import ar.uba.fi.algo3.titiritero.MouseClickObservador;
 import ar.uba.fi.algo3.titiritero.Posicionable;
-import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 public class MenuPrincipal implements MenuI, Posicionable  {
 
@@ -33,7 +31,7 @@ public class MenuPrincipal implements MenuI, Posicionable  {
 		this.ancho = 500;
 		
 		// Creamos la vista del menu principal
-		this.vistaMenu = new VistaMenuPrincipal(this.ventanaPrincipal, (Imagen) FabricaDeDibujablesDelMenu.nuevaImagenFondoMenuPrincipal());
+		this.vistaMenu = new VistaMenuPrincipal(this.ventanaPrincipal);
 		this.vistaMenu.setPosicionable(this);
 		
 		// Activamos al observador del teclado y lo seteamos para que use el controlador

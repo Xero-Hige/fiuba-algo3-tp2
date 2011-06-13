@@ -1,17 +1,16 @@
-package tp2.vista.menues;
+package tp2.vista.menues.menuPrincipal;
 
 import java.util.ArrayList;
 
-import tp2.control.menu.ControlKeyPressMenuPrincipal;
-import tp2.modelo.menues.*;
+import tp2.modelo.menues.menuPrincipal.*;
+import tp2.vista.menues.FabricaDeDibujablesDelMenu;
+import tp2.vista.menues.VistaMenuI;
 import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
-public class VistaMenuPrincipal extends Imagen {
+public class VistaMenuPrincipal extends Imagen implements VistaMenuI {
 
-	// Guardamos una referencia a la ventana en la que estamos.
-	private VentanaPrincipal ventanaPrincipal;
 	// En esta guardamos todos los objetos dibujables que contiene el menú.
 	private ArrayList<Dibujable> objetosDibujablesDelMenu;
 	// En esta guardamos solamente los objetos que son items del menú.
@@ -21,7 +20,6 @@ public class VistaMenuPrincipal extends Imagen {
 		super(imagen);
 		objetosDibujablesDelMenu = new ArrayList<Dibujable>();
 		this.itemsDelMenu = new ArrayList<VistaMenuItem>();
-		this.ventanaPrincipal = ventanaPrincipal;
 		this.inicializar();
 	}
 	
@@ -31,7 +29,7 @@ public class VistaMenuPrincipal extends Imagen {
 		VistaMenuItem VistaItemNuevaPartida = new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemNuevaPartidaOut(),
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemNuevaPartidaOver());
-		VistaItemNuevaPartida.setPosicionable(new MenuItemNuevaPartida());
+		VistaItemNuevaPartida.setPosicionable(new MenuPrincipalItemNuevaPartida());
 		objetosDibujablesDelMenu.add(VistaItemNuevaPartida);
 		itemsDelMenu.add(VistaItemNuevaPartida);
 		VistaItemNuevaPartida.itemOver();
@@ -40,7 +38,7 @@ public class VistaMenuPrincipal extends Imagen {
 		VistaMenuItem VistaItemCargarPartida = new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCargarPartidaOut(),
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCargarPartidaOver());
-		VistaItemCargarPartida.setPosicionable(new MenuItemCargarPartida());
+		VistaItemCargarPartida.setPosicionable(new MenuPrincipalItemCargarPartida());
 		objetosDibujablesDelMenu.add(VistaItemCargarPartida);
 		itemsDelMenu.add(VistaItemCargarPartida);
 		
@@ -48,7 +46,7 @@ public class VistaMenuPrincipal extends Imagen {
 		VistaMenuItem VistaItemCreditos = new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCreditosOut(),
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemCreditosOver());
-		VistaItemCreditos.setPosicionable(new MenuItemCreditos());
+		VistaItemCreditos.setPosicionable(new MenuPrincipalItemCreditos());
 		objetosDibujablesDelMenu.add(VistaItemCreditos);
 		itemsDelMenu.add(VistaItemCreditos);
 		
@@ -56,17 +54,16 @@ public class VistaMenuPrincipal extends Imagen {
 		VistaMenuItem VistaItemSalir = new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemSalirOut(),
 				(Imagen) FabricaDeDibujablesDelMenu.nuevaImagenItemSalirOver());
-		VistaItemSalir.setPosicionable(new MenuItemSalir());
+		VistaItemSalir.setPosicionable(new MenuPrincipalItemSalir());
 		objetosDibujablesDelMenu.add(VistaItemSalir);
-		itemsDelMenu.add(VistaItemSalir);
-		
-		// Activamos al observador del teclado y lo seteamos para que use el controlador
-		// del menú principal.
-		this.ventanaPrincipal.setControlKeyPressActivo(new ControlKeyPressMenuPrincipal(this.itemsDelMenu));
-		this.ventanaPrincipal.activarKeyPressObservador();
+		itemsDelMenu.add(VistaItemSalir);		
 	}
 	
-	public ArrayList<Dibujable> getObjetosDibujablesPropios() {
+	public ArrayList<VistaMenuItem> getItemsDelMenu() {
+		return itemsDelMenu;
+	}
+
+	public ArrayList<Dibujable> getObjetosDibujables() {
 		return this.objetosDibujablesDelMenu;
 	}
 	

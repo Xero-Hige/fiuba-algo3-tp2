@@ -1,10 +1,9 @@
-package tp2.control.menu;
+package tp2.control.menu.menuPrincipal;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import tp2.modelo.menues.MenuI;
-import tp2.vista.menues.VistaMenuItem;
+import tp2.vista.menues.menuPrincipal.VistaMenuItem;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 
 public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
@@ -41,8 +40,8 @@ public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
 				
 			// Se presiona enter, por lo que se selecciona la opción del item actual.	
 			case KeyEvent.VK_ENTER:
-				MenuI itemMenu = (MenuI) this.listaDeVistasDeItems.get(this.itemActivo).getPosicionable();
-				itemMenu.entrarEnEscena();
+//				MenuI itemMenu = (MenuI) this.listaDeVistasDeItems.get(this.itemActivo).getPosicionable();
+//				itemMenu.entrarEnEscena();
 				break;
 		}	
 	}

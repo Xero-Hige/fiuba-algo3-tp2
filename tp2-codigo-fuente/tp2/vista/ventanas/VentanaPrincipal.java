@@ -3,14 +3,11 @@ package tp2.vista.ventanas;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import tp2.modelo.menues.MenuPrincipal;
-import tp2.vista.menues.FabricaDeDibujablesDelMenu;
-import tp2.vista.menues.VistaMenuPrincipal;
+import tp2.modelo.menues.menuPrincipal.MenuPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 import ar.uba.fi.algo3.titiritero.MouseClickObservador;
-import ar.uba.fi.algo3.titiritero.vista.Imagen;
 import ar.uba.fi.algo3.titiritero.vista.Ventana;
 
 
@@ -29,19 +26,11 @@ public class VentanaPrincipal extends Ventana {
 		this.controladorJuego = unControladorJuego;
 		this.controlKeyPressActivo = null;
 		this.controlMouseClickActivo = null;
-		this.inicializar();
+		
+		MenuPrincipal menuPrincipal = new MenuPrincipal(this);
+		menuPrincipal.mostrar();
 	}
 		
-	/** Inicializa la ventana principal mostrando el menú principal del juego */
-	private void inicializar() {
-		
-		MenuPrincipal menuPrincipal = new MenuPrincipal();
-		VistaMenuPrincipal vistaMenuPrincipal = new VistaMenuPrincipal(this, (Imagen) FabricaDeDibujablesDelMenu.nuevaImagenFondoMenuPrincipal());
-		vistaMenuPrincipal.setPosicionable(menuPrincipal);
-		this.controladorJuego.agregarDibujable(vistaMenuPrincipal);	
-		this.agregarObjetosDibujables(vistaMenuPrincipal.getObjetosDibujablesPropios());
-	}
-	
 	public ControladorJuego getControladorJuego() {
 		return this.controladorJuego;
 	}
@@ -52,6 +41,14 @@ public class VentanaPrincipal extends Ventana {
 	
 	public void setMouseClickActivo(MouseClickObservador controlMouseClickActivo) {
 		this.controlMouseClickActivo = controlMouseClickActivo;
+	}
+	
+	public void agregarObjetoDibujable(Dibujable objetoDibujable) {
+			this.controladorJuego.agregarDibujable(objetoDibujable);	
+	}
+	
+	public void removerObjetoDibujable(Dibujable objetoDibujable) {
+			this.controladorJuego.removerDibujable(objetoDibujable);
 	}
 	
 	public void agregarObjetosDibujables(ArrayList<Dibujable> objetosDibujables) {

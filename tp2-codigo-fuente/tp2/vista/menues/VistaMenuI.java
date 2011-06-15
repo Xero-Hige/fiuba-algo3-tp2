@@ -10,5 +10,6 @@ public interface VistaMenuI {
 
 	public void setPosicionable(Posicionable unPosicionable);
 	public ArrayList<Dibujable> getObjetosDibujables();
+	public void agregarObjetoDibujable(Dibujable unObjetoDibujable);
 	
 }

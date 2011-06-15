@@ -1,4 +1,4 @@
-package tp2.vista.modelo;
+package tp2.vista.modelo.extras;
 
 import ar.uba.fi.algo3.titiritero.vista.ImagenAnimada;
 
@@ -8,7 +8,7 @@ public class ImagenExplosion extends ImagenAnimada {
 
 	private ImagenExplosion() {
 		super(false);
-		this.setImagenes("../imagenes/modelo/explosion/explosion", "png", 17);
+		this.setImagenes("../../imagenes/modelo/explosion/explosion", "png", 17);
 	}
 
 	private ImagenExplosion(ImagenAnimada imagen) {
@@ -25,5 +25,4 @@ public class ImagenExplosion extends ImagenAnimada {
 		}
 		return new ImagenExplosion(imagenPrincipal);
 	}
-
 }

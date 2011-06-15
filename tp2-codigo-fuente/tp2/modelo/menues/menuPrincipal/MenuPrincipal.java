@@ -2,7 +2,7 @@ package tp2.modelo.menues.menuPrincipal;
 
 import java.util.Iterator;
 
-import tp2.control.menu.menuPrincipal.ControlKeyPressMenuPrincipal;
+import tp2.control.menues.menuPrincipal.ControlKeyPressMenuPrincipal;
 import tp2.modelo.menues.Menu;
 import tp2.modelo.menues.MenuItem;
 import tp2.vista.menues.menuPrincipal.VistaMenuPrincipal;

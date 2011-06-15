@@ -20,66 +20,55 @@ public class FabricaDeDibujablesDelMenuPrincipal {
 		imagenesCargadas = true;
 	}
 	
-	public static Dibujable nuevaImagenFondoMenuPrincipal() {
+	public static void comprobarCargaDeImagenes() {
+		
 		if(!imagenesCargadas){
 			cargarImagenes();
 		}
+	}
+	
+	public static Dibujable nuevaImagenFondoMenuPrincipal() {
+		comprobarCargaDeImagenes();
 		return ImagenFondoMenuPrincipal.nuevaImagen();
 	}
 	
 	public static Dibujable nuevaImagenItemNuevaPartidaOut() {
-		if(!imagenesCargadas){
-			cargarImagenes();
-		}
+		comprobarCargaDeImagenes();
 		return ImagenItemNuevaPartidaOut.nuevaImagen();
 	}
 	
 	public static Dibujable nuevaImagenItemNuevaPartidaOver() {
-		if(!imagenesCargadas){
-			cargarImagenes();
-		}
+		comprobarCargaDeImagenes();
 		return ImagenItemNuevaPartidaOver.nuevaImagen();
 	}
 	
 	public static Dibujable nuevaImagenItemCargarPartidaOut() {
-		if(!imagenesCargadas){
-			cargarImagenes();
-		}
+		comprobarCargaDeImagenes();
 		return ImagenItemCargarPartidaOut.nuevaImagen();
 	}
 	
 	public static Dibujable nuevaImagenItemCargarPartidaOver() {
-		if(!imagenesCargadas){
-			cargarImagenes();
-		}
+		comprobarCargaDeImagenes();
 		return ImagenItemCargarPartidaOver.nuevaImagen();
 	}
 	
 	public static Dibujable nuevaImagenItemCreditosOut() {
-		if(!imagenesCargadas){
-			cargarImagenes();
-		}
+		comprobarCargaDeImagenes();
 		return ImagenItemCreditosOut.nuevaImagen();
 	}
 	
 	public static Dibujable nuevaImagenItemCreditosOver() {
-		if(!imagenesCargadas){
-			cargarImagenes();
-		}
+		comprobarCargaDeImagenes();
 		return ImagenItemCreditosOver.nuevaImagen();
 	}
 	
 	public static Dibujable nuevaImagenItemSalirOut() {
-		if(!imagenesCargadas){
-			cargarImagenes();
-		}
+		comprobarCargaDeImagenes();
 		return ImagenItemSalirOut.nuevaImagen();
 	}
 	
 	public static Dibujable nuevaImagenItemSalirOver() {
-		if(!imagenesCargadas){
-			cargarImagenes();
-		}
+		comprobarCargaDeImagenes();
 		return ImagenItemSalirOver.nuevaImagen();
 	}
 }

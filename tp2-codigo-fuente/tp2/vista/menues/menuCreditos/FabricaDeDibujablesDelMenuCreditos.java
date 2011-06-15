@@ -11,10 +11,15 @@ public class FabricaDeDibujablesDelMenuCreditos {
 		imagenesCargadas = true;
 	}
 	
-	public static Dibujable nuevaImagenFondoMenuCreditos() {
+	public static void comprobarCargaDeImagenes() {
+		
 		if(!imagenesCargadas){
 			cargarImagenes();
 		}
+	}
+	
+	public static Dibujable nuevaImagenFondoMenuCreditos() {
+		comprobarCargaDeImagenes();
 		return ImagenFondoMenuCreditos.nuevaImagen();
 	}
 }

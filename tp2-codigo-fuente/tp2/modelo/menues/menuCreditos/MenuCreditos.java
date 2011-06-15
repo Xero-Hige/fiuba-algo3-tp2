@@ -1,6 +1,6 @@
 package tp2.modelo.menues.menuCreditos;
 
-import tp2.control.menu.menuCreditos.ControlKeyPressMenuCreditos;
+import tp2.control.menues.menuCreditos.ControlKeyPressMenuCreditos;
 import tp2.modelo.menues.Menu;
 import tp2.modelo.menues.MenuI;
 import tp2.vista.menues.menuCreditos.VistaMenuCreditos;

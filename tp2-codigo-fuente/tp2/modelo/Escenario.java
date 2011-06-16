@@ -21,6 +21,9 @@ public class Escenario {
 	private HashMap<ObjetoEspacial, Integer> objetos;
 	// La puntuación lograda en dicho escenario.
 	private int puntuacion;
+	
+	private HashMap<ObjetoEspacial, Integer> objetosCreados;
+	private HashMap<ObjetoEspacial, Integer> objetosMuertos;
 
 	// Constructor
 	// Crea un nuevo escenario cuya área de combate está definida por el

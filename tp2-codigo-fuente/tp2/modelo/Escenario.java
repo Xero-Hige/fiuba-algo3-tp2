@@ -18,12 +18,12 @@ public class Escenario {
 	private int proximoId;
 	// Es un diccionario, que tiene como clave a los objetos y como valor el id
 	// del mismo.
-	private HashMap<ObjetoEspacial, Integer> objetos;
+	private Map<ObjetoEspacial, Integer> objetos;
 	// La puntuación lograda en dicho escenario.
 	private int puntuacion;
-	
-	private HashMap<ObjetoEspacial, Integer> objetosCreados;
-	private HashMap<ObjetoEspacial, Integer> objetosMuertos;
+
+	private Collection<ObjetoEspacial> objetosCreados;
+	private Collection<ObjetoEspacial> objetosMuertos;
 
 	// Constructor
 	// Crea un nuevo escenario cuya área de combate está definida por el
@@ -33,6 +33,8 @@ public class Escenario {
 		this.proximoId = 1;
 		this.puntuacion = 0;
 		this.areaDeCombate = areaDeCombate;
+		this.objetosCreados = new HashSet<ObjetoEspacial>();
+		this.objetosMuertos = new HashSet<ObjetoEspacial>();
 	}
 
 	// Agrega un objeto al escenario, el cual ya tiene asignado dicho escenario.
@@ -46,10 +48,11 @@ public class Escenario {
 			throw new ObjetoDesconocido(
 					"El objeto no tiene asignado este escenario.");
 		}
-		if(objetos.containsKey(unObjetoEspacial)){
+		if (objetos.containsKey(unObjetoEspacial)) {
 			return;
 		}
 		objetos.put(unObjetoEspacial, proximoId);
+		objetosCreados.add(unObjetoEspacial);
 		proximoId++;
 	}
 
@@ -58,6 +61,7 @@ public class Escenario {
 	public void borrarObjeto(ObjetoEspacial unObjetoEspacial) {
 		if (objetos.containsKey(unObjetoEspacial)) {
 			objetos.remove(unObjetoEspacial);
+			objetosMuertos.add(unObjetoEspacial);
 		} else {
 			throw new ObjetoDesconocido(
 					"El objeto no tiene asignado este escenario.");
@@ -79,7 +83,8 @@ public class Escenario {
 	// que algún objeto no tenga pueda actuar y tire una excepción, se levantará
 	// la misma.
 	public void avanzarTiempoEn(double unTiempo) {
-		Set<ObjetoEspacial> objetos = new HashSet<ObjetoEspacial>(this.objetos.keySet());
+		Set<ObjetoEspacial> objetos = new HashSet<ObjetoEspacial>(
+				this.objetos.keySet());
 		for (ObjetoEspacial objeto : objetos) {
 			objeto.actuarDurante(unTiempo);
 		}
@@ -123,6 +128,22 @@ public class Escenario {
 			}
 		}
 		return objetosEnColision;
+	}
+
+	// Devuelve los objetos agregados al escenario después de la última consulta
+	// a este método.
+	public Collection<ObjetoEspacial> getObjetosCreados() {
+		Collection<ObjetoEspacial> resultado = objetosCreados;
+		objetosCreados = new HashSet<ObjetoEspacial>();
+		return resultado;
+	}
+
+	// Devuelve los objetos borrados del escenario después de la última consulta
+	// a este método.
+	public Collection<ObjetoEspacial> getObjetosMuertos() {
+		Collection<ObjetoEspacial> resultado = objetosMuertos;
+		objetosMuertos = new HashSet<ObjetoEspacial>();
+		return resultado;
 	}
 
 }

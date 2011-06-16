@@ -62,6 +62,7 @@ public class NaveMilitar extends Nave {
 		unArma.setEquipo(this.getEquipo());
 		unArma.setEscenario(this.getEscenario());
 		this.armas.add(unArma);
+		unArma.setPosicion(this.getPosicion());
 		
 	}
 	

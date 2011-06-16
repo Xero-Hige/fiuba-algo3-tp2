@@ -1,7 +1,7 @@
 package tp2.modelo;
 
-import ar.uba.fi.algo3.titiritero.ObjetoVivo;
-import ar.uba.fi.algo3.titiritero.Posicionable;
+import ar.uba.fi.algo3.titiritero.*;
+import ar.uba.fi.algo3.titiritero.vista.Circulo;
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
 
@@ -13,6 +13,7 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	private boolean destruido;
 	private ChoqueDeObjetoEspacial comportamientoAlChocar;
 	private String identificacion;
+	private Dibujable vista;
 
 	// Constructor
 	// Inicializa el objeto con la posición, tamaño y escenario recibidos.
@@ -27,6 +28,7 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 		if (this.escenario != null){
 			this.escenario.agregarObjeto(this);
 		}
+		this.generarVista();
 	}
 
 	// Devuelve true si el objeto recibido está superpuesto con el receptor
@@ -57,7 +59,6 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	// el efecto del mismo según cómo esté definido su comportamiento ante el
 	// mismo.
 	public void chocarCon(ObjetoEspacial unObjetoEspacial) {
-
 		this.responderChoqueDe(unObjetoEspacial);
 		unObjetoEspacial.responderChoqueDe(this);
 	}
@@ -140,12 +141,12 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	
 	public int getX() {
 		// Falta hacer clase de proyección
-		return (int) (this.posicion.getX() * (500 / 50));
+		return (int) ((this.posicion.getX() - this.tamanio) * (500 / 50));
 	}
 
 	public int getY() {
 		// Falta hacer clase de proyección
-		return 500 - (int) (this.posicion.getY() * (500 / 50));
+		return 500 - (int) ((this.posicion.getY() + this.tamanio) * (500 / 50));
 	}
 
 	public double getTamanio() {
@@ -168,6 +169,7 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	// identificación, son del mismo tipo.
 	public void setIdentificacion(String nuevaIdentificacion) {
 		this.identificacion = nuevaIdentificacion;
+		this.generarVista();
 	}
 
 	// Cambia el escenario en donde se encuentra el objeto y agrega al mismo
@@ -184,5 +186,14 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	protected void setComportamiento(
 			ChoqueDeObjetoEspacial comportamientoAlChocar) {
 		this.comportamientoAlChocar = comportamientoAlChocar;
+	}
+
+	public Dibujable getVista() {
+		return vista;
+	}
+	
+	protected void generarVista(){
+		this.vista = new Circulo((int)(this.tamanio * 10 * 2));
+		vista.setPosicionable(this);
 	}
 }

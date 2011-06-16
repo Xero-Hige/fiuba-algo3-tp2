@@ -8,7 +8,7 @@ public class ImagenBombardero extends Imagen {
 	public static ImagenBombardero imagenPrincipal; 
 
 	private ImagenBombardero() {
-		this.setNombreArchivoImagen("../../imagenes/modelo/aeronaves/bombardero.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/modelo/aeronaves/bombardero.png");
 	}
 
 	private ImagenBombardero(Imagen imagen) {

@@ -8,7 +8,7 @@ public class ImagenAlgo42 extends Imagen {
 	public static ImagenAlgo42 imagenPrincipal; 
 
 	private ImagenAlgo42() {
-		this.setNombreArchivoImagen("../../imagenes/modelo/aeronaves/algo42.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/modelo/aeronaves/algo42.png");
 	}
 
 	private ImagenAlgo42(Imagen imagen) {

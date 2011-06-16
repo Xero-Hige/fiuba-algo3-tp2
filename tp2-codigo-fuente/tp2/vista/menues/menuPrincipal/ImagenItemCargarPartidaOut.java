@@ -7,7 +7,7 @@ public class ImagenItemCargarPartidaOut extends Imagen {
 	public static ImagenItemCargarPartidaOut imagenPrincipal; 
 
 	private ImagenItemCargarPartidaOut() {
-		this.setNombreArchivoImagen("../../imagenes/menues/menu-principal-item-out-cargar-partida.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/menues/menu-principal-item-out-cargar-partida.png");
 	}
 
 	private ImagenItemCargarPartidaOut(Imagen imagen) {

@@ -7,7 +7,7 @@ public class ImagenItemSalirOut extends Imagen {
 	public static ImagenItemSalirOut imagenPrincipal; 
 
 	private ImagenItemSalirOut() {
-		this.setNombreArchivoImagen("../../imagenes/menues/menu-principal-item-out-salir.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/menues/menu-principal-item-out-salir.png");
 	}
 
 	private ImagenItemSalirOut(Imagen imagen) {

@@ -8,7 +8,7 @@ public class ImagenCaza extends Imagen {
 	public static ImagenCaza imagenPrincipal; 
 
 	private ImagenCaza() {
-		this.setNombreArchivoImagen("../../imagenes/modelo/aeronaves/Caza.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/modelo/aeronaves/Caza.png");
 	}
 
 	private ImagenCaza(Imagen imagen) {

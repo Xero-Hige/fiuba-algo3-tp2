@@ -8,7 +8,7 @@ public class ImagenCivil extends Imagen {
 	public static ImagenCivil imagenPrincipal; 
 
 	private ImagenCivil() {
-		this.setNombreArchivoImagen("../../imagenes/modelo/aeronaves/civil.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/modelo/aeronaves/civil.png");
 	}
 
 	private ImagenCivil(Imagen imagen) {

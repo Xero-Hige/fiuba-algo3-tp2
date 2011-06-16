@@ -7,7 +7,7 @@ public class ImagenFondoMenuCreditos extends Imagen {
 	public static ImagenFondoMenuCreditos imagenPrincipal; 
 
 	private ImagenFondoMenuCreditos() {
-		this.setNombreArchivoImagen("../../imagenes/menues/creditos-fondo.jpg");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/menues/creditos-fondo.jpg");
 	}
 
 	private ImagenFondoMenuCreditos(Imagen imagen) {

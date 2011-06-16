@@ -8,7 +8,7 @@ public class ImagenHelicoptero extends Imagen {
 	public static ImagenHelicoptero imagenPrincipal; 
 
 	private ImagenHelicoptero() {
-		this.setNombreArchivoImagen("../../imagenes/modelo/aeronaves/helicoptero.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/modelo/aeronaves/helicoptero.png");
 	}
 
 	private ImagenHelicoptero(Imagen imagen) {

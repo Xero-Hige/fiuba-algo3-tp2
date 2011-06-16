@@ -8,7 +8,7 @@ public class ImagenFondoGuardandoPartida extends Imagen {
 	public static ImagenFondoGuardandoPartida imagenPrincipal; 
 
 	private ImagenFondoGuardandoPartida() {
-		this.setNombreArchivoImagen("../../imagenes/extras/guardando-partida-fondo.jpg");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/extras/guardando-partida-fondo.jpg");
 	}
 
 	private ImagenFondoGuardandoPartida(Imagen imagen) {

@@ -8,7 +8,7 @@ public class ImagenJuegoPausado extends Imagen {
 	public static ImagenJuegoPausado imagenPrincipal; 
 
 	private ImagenJuegoPausado() {
-		this.setNombreArchivoImagen("../../imagenes/extras/juego-pausado.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/extras/juego-pausado.png");
 	}
 
 	private ImagenJuegoPausado(Imagen imagen) {

@@ -7,7 +7,7 @@ public class ImagenFondoMenuPrincipal extends Imagen {
 	public static ImagenFondoMenuPrincipal imagenPrincipal; 
 
 	private ImagenFondoMenuPrincipal() {
-		this.setNombreArchivoImagen("../../imagenes/menues/menu-principal-fondo.jpg");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/menues/menu-principal-fondo.jpg");
 	}
 
 	private ImagenFondoMenuPrincipal(Imagen imagen) {

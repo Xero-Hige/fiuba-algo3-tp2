@@ -7,7 +7,7 @@ public class ImagenItemCreditosOut extends Imagen {
 	public static ImagenItemCreditosOut imagenPrincipal; 
 
 	private ImagenItemCreditosOut() {
-		this.setNombreArchivoImagen("../../imagenes/menues/menu-principal-item-out-creditos.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/menues/menu-principal-item-out-creditos.png");
 	}
 
 	private ImagenItemCreditosOut(Imagen imagen) {

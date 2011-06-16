@@ -7,7 +7,7 @@ public class ImagenItemNuevaPartidaOver extends Imagen {
 	public static ImagenItemNuevaPartidaOver imagenPrincipal; 
 
 	private ImagenItemNuevaPartidaOver() {
-		this.setNombreArchivoImagen("../../imagenes/menues/menu-principal-item-over-nueva-partida.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/menues/menu-principal-item-over-nueva-partida.png");
 	}
 
 	private ImagenItemNuevaPartidaOver(Imagen imagen) {

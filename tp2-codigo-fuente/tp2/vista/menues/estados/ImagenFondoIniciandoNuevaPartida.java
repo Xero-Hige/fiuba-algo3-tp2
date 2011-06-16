@@ -8,7 +8,7 @@ public class ImagenFondoIniciandoNuevaPartida extends Imagen {
 	public static ImagenFondoIniciandoNuevaPartida imagenPrincipal; 
 
 	private ImagenFondoIniciandoNuevaPartida() {
-		this.setNombreArchivoImagen("../../imagenes/extras/iniciando-nueva-partida-fondo.jpg");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/extras/iniciando-nueva-partida-fondo.jpg");
 	}
 
 	private ImagenFondoIniciandoNuevaPartida(Imagen imagen) {

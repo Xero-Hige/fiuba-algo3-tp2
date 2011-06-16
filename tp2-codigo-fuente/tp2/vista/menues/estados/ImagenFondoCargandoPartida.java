@@ -8,7 +8,7 @@ public class ImagenFondoCargandoPartida extends Imagen {
 	public static ImagenFondoCargandoPartida imagenPrincipal; 
 
 	private ImagenFondoCargandoPartida() {
-		this.setNombreArchivoImagen("../../imagenes/extras/cargando-partida-fondo.jpg");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/extras/cargando-partida-fondo.jpg");
 	}
 
 	private ImagenFondoCargandoPartida(Imagen imagen) {

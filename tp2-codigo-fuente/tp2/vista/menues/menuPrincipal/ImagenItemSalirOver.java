@@ -7,7 +7,7 @@ public class ImagenItemSalirOver extends Imagen {
 	public static ImagenItemSalirOver imagenPrincipal; 
 
 	private ImagenItemSalirOver() {
-		this.setNombreArchivoImagen("../../imagenes/menues/menu-principal-item-over-salir.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/menues/menu-principal-item-over-salir.png");
 	}
 
 	private ImagenItemSalirOver(Imagen imagen) {

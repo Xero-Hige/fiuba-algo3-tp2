@@ -8,7 +8,7 @@ public class ImagenExplorador extends Imagen {
 	public static ImagenExplorador imagenPrincipal; 
 
 	private ImagenExplorador() {
-		this.setNombreArchivoImagen("../../imagenes/modelo/aeronaves/explorador.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/modelo/aeronaves/explorador.png");
 	}
 
 	private ImagenExplorador(Imagen imagen) {

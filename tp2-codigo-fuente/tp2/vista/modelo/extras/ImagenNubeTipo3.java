@@ -8,7 +8,7 @@ public class ImagenNubeTipo3 extends Imagen {
 	public static ImagenNubeTipo3 imagenPrincipal; 
 
 	private ImagenNubeTipo3() {
-		this.setNombreArchivoImagen("../../imagenes/modelo/nubes/nube3.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/modelo/nubes/nube3.png");
 	}
 
 	private ImagenNubeTipo3(Imagen imagen) {

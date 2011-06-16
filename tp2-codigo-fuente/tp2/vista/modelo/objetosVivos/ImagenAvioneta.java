@@ -8,7 +8,7 @@ public class ImagenAvioneta extends Imagen {
 	public static ImagenAvioneta imagenPrincipal; 
 
 	private ImagenAvioneta() {
-		this.setNombreArchivoImagen("../../imagenes/modelo/aeronaves/avioneta.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/modelo/aeronaves/avioneta.png");
 	}
 
 	private ImagenAvioneta(Imagen imagen) {

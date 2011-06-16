@@ -146,4 +146,8 @@ public class Escenario {
 		return resultado;
 	}
 
+	public Rectangle getAreaDeCombate() {
+		return areaDeCombate;
+	}
+
 }

@@ -8,7 +8,7 @@ public class ImagenAgua extends ImagenAnimada {
 
 	private ImagenAgua() {
 		super(true);
-		this.setImagenes("tp2/vista/imagenes/modelo/agua/agua", "png", 90);
+		this.setImagenes("/tp2/vista/imagenes/modelo/agua/agua", "jpg", 90);
 	}
 
 	private ImagenAgua(ImagenAnimada imagen) {

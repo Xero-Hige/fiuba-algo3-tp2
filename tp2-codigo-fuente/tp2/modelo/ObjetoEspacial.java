@@ -1,11 +1,13 @@
 package tp2.modelo;
 
 import ar.uba.fi.algo3.titiritero.*;
+import ar.uba.fi.algo3.titiritero.vista.Circulo;
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
 import tp2.vista.modelo.objetosVivos.ParserObjetoIdAVista;
+import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 
-public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
+public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo {
 
 	private Point posicion;
 	private double tamanio;
@@ -25,7 +27,7 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 		this.escenario = escenario;
 		this.destruido = false;
 		this.comportamientoAlChocar = new ChoqueDeObjetoEspacial(this);
-		if (this.escenario != null){
+		if (this.escenario != null) {
 			this.escenario.agregarObjeto(this);
 		}
 		this.generarVista();
@@ -49,11 +51,11 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	// si alguno está destruido, debería desaparecer de su escenario y no
 	// realizar nada más.
 	public abstract void actuarDurante(double unTiempo);
-	
+
 	@Override
 	public void vivir() {
 		this.actuarDurante(0.02);
-	}	
+	}
 
 	// Hace chocar al objeto recibido con el receptor del mensaje. Ambos sufren
 	// el efecto del mismo según cómo esté definido su comportamiento ante el
@@ -65,7 +67,7 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 
 	// Este método tiene carácter de 'protegido de clase' (sólo deben llamarlo
 	// objetos de esta dentro de esta jerarquía). El objeto que recibe el
-	// mensaje responde el choque y le hace sufrir al objeto recibido sus efectos, 
+	// mensaje responde el choque y le hace sufrir al objeto recibido sus efectos,
 	// de acuerdo al comportamiento frente al choque que este último tenga.
 	// El receptor le pide al objeto recibido que le diga cómo tiene que ser
 	// afectado al chocar con los demás objetos existentes. Luego es el receptor
@@ -102,7 +104,8 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	// Hace que el objeto receptor del mensaje sea afectado por el objeto
 	// espacial recibido.
 	public void sufrirChoqueDeObjetoEspacial(ObjetoEspacial unObjetoEspacial) {
-		this.comportamientoAlChocar.sufrirChoqueDeObjetoEspacial(unObjetoEspacial);
+		this.comportamientoAlChocar
+				.sufrirChoqueDeObjetoEspacial(unObjetoEspacial);
 	}
 
 	// Hace que el objeto receptor del mensaje sea afectado por el proyectil
@@ -116,7 +119,8 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	public void desaparecerDelEscenario() {
 
 		if (this.escenario == null) {
-			throw new ComposicionIncompleta("El objeto no está en ningún escenario.");
+			throw new ComposicionIncompleta(
+					"El objeto no está en ningún escenario.");
 		}
 
 		this.escenario.borrarObjeto(this);
@@ -138,15 +142,24 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	public void setPosicion(Point posicion) {
 		this.posicion = posicion;
 	}
-	
+
+	private void asignarEspacioALaProyeccion() {
+		if (this.escenario != null) {
+			ProyeccionSobreSuperficieDeDibujo
+					.setEspacioDelModelo(this.escenario.getAreaDeCombate());
+		}
+	}
+
 	public int getX() {
-		// Falta hacer clase de proyección
-		return (int) ((this.posicion.getX() - this.tamanio) * (500 / 50));
+		asignarEspacioALaProyeccion();
+		return (int) ProyeccionSobreSuperficieDeDibujo.proyectarPunto(
+				this.posicion, this.tamanio).getX();
 	}
 
 	public int getY() {
-		// Falta hacer clase de proyección
-		return 500 - (int) ((this.posicion.getY() + this.tamanio) * (500 / 50));
+		asignarEspacioALaProyeccion();
+		return (int) ProyeccionSobreSuperficieDeDibujo.proyectarPunto(
+				this.posicion, this.tamanio).getY();
 	}
 
 	public double getTamanio() {
@@ -164,8 +177,9 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	public String getIdentificacion() {
 		return this.identificacion;
 	}
-	
-	// Asigna una identificación comparable al objeto. Si dos objetos tienen la misma 
+
+	// Asigna una identificación comparable al objeto. Si dos objetos tienen la
+	// misma
 	// identificación, son del mismo tipo.
 	public void setIdentificacion(String nuevaIdentificacion) {
 		this.identificacion = nuevaIdentificacion;
@@ -191,9 +205,15 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	public Dibujable getVista() {
 		return vista;
 	}
-	
-	protected void generarVista(){
+
+	protected void generarVista() {
+		this.asignarEspacioALaProyeccion();
 		this.vista = ParserObjetoIdAVista.getVista(this);
+		if (vista == null) {
+			this.vista = new Circulo(
+					(int) (this.tamanio * 2 * ProyeccionSobreSuperficieDeDibujo
+							.getEscalaX()));
+		}
 		vista.setPosicionable(this);
 	}
 }

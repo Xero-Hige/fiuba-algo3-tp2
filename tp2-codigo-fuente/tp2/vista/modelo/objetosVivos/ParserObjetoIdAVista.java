@@ -18,8 +18,8 @@ public class ParserObjetoIdAVista {
 		
 		// Aeronaves
 		
-//		if (id == "Algo42")
-//			return new VistaAlgo42();
+		if (id == "Algo42")
+			return new VistaAlgo42();
 //		
 //		else if (id == "Avioneta") 
 //			return new VistaAvioneta();
@@ -60,9 +60,8 @@ public class ParserObjetoIdAVista {
 //		else if (id == "BonusArmaTorpedoAdaptable") 
 //			return null;
 		
-		// Si no se reconoce el id se devuelve por defecto un Circulo de tamaño
-		// adecuado.
-		return new Circulo((int)(objeto.getTamanio() * 2 * 10));
+		// Si no se reconoce el id se devuelve null.
+		return null;
 	}
 	
 }

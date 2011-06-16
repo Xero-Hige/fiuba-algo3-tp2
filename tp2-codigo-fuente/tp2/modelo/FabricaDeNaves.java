@@ -28,6 +28,7 @@ public class FabricaDeNaves {
 	public NaveMilitarControlada crearAlgo42En(Point unaPosicion){
 		
 		NaveMilitarControlada algo42 = new NaveMilitarControlada(unaPosicion,7,escenarioActual,25,500);
+		algo42.setIdentificacion("Algo42");
 		algo42.setEquipo(equipoDeLaNave);
 		Arma canionLaser = fabricaDeArmas.crearCanionLaser();
 		canionLaser.setDireccionDeDisparo(new Point(0, 1));
@@ -43,6 +44,7 @@ public class FabricaDeNaves {
 	public NaveCivil crearAvionCivilEn(Point unaPosicion){
 		
 		NaveCivil avionCivil = new NaveCivil(unaPosicion,5,escenarioActual,5,1);
+		avionCivil.setIdentificacion("AvionCivil");
 		avionCivil.setEquipo(equipoDeLaNave);
 		avionCivil.setVuelo(new VueloEnLineaRecta(avionCivil,new Point(0,-1)));
 		avionCivil.setPenalizacion(300);
@@ -58,6 +60,7 @@ public class FabricaDeNaves {
 		
 		NaveEnemiga avioneta = new NaveEnemiga(unaPosicion,3,escenarioActual,15,10);
 		avioneta.setEquipo(equipoDeLaNave);
+		avioneta.setIdentificacion("Avioneta");
 		avioneta.agregarArma(fabricaDeArmas.crearCanionLaser());
 		avioneta.setVuelo(new VueloDeIdaYVuelta(avioneta,new Point(0,-80)));
 		avioneta.setPuntuacion(20);
@@ -73,6 +76,7 @@ public class FabricaDeNaves {
 	public NaveEnemiga crearBombarderoEn(Point unaPosicion){
 
 		NaveEnemiga bombardero = new NaveEnemiga(unaPosicion,7,escenarioActual,7,100);
+		bombardero.setIdentificacion("Bombardero");
 		bombardero.setEquipo(equipoDeLaNave);
 		bombardero.agregarArma(fabricaDeArmas.crearCanionLaser());
 		bombardero.agregarArma(fabricaDeArmas.crearLanzaCohetes());
@@ -94,6 +98,7 @@ public class FabricaDeNaves {
 	public NaveEnemiga crearExploradorEn(Point unaPosicion){
 		
 		NaveEnemiga explorador = new NaveEnemiga(unaPosicion,5,escenarioActual,12,1);
+		explorador.setIdentificacion("Explorador");
 		explorador.setEquipo(equipoDeLaNave);
 		VueloCompuesto vuelo = new VueloCompuesto(explorador);
 		vuelo.agregarVuelo(new VueloEnLineaRecta(explorador,new Point(1,0)),40);
@@ -118,6 +123,7 @@ public class FabricaDeNaves {
 			//Calculamos la posición para formar una V
 			Point posicion = unaPosicion.sumarCon((new Point(0,10).multiplicar(i%2)).sumarCon(new Point(10,0).multiplicar(i - 2)));
 			NaveEnemiga caza = new NaveEnemiga(posicion,6,escenarioActual,10,30);
+			caza.setIdentificacion("Caza");
 			caza.setEquipo(equipoDeLaNave);
 			caza.agregarArma(fabricaDeArmas.crearLanzaTorpedos());
 			caza.setVuelo(new VueloEnLineaRecta(caza,new Point(0,-1)));
@@ -137,6 +143,7 @@ public class FabricaDeNaves {
 	public NaveGuia crearGuiaEnemigoEn(Point unaPosicion){
 		
 		NaveGuia guiaEnemigo = new  NaveGuia(unaPosicion,15,escenarioActual,5,1000);
+		guiaEnemigo.setIdentificacion("GuiaEnemigo");
 		guiaEnemigo.setEquipo(equipoDeLaNave);
 		VueloCompuesto vuelo = new VueloCompuesto(guiaEnemigo);
 		vuelo.agregarVuelo(new VueloEnLineaRecta(guiaEnemigo,new Point(1,0)),50);
@@ -156,6 +163,7 @@ public class FabricaDeNaves {
 	public NaveCivil crearHelicopteroFederalEn(Point unaPosicion){
 		
 		NaveCivil helicopteroFederal = new NaveCivil(unaPosicion,5,escenarioActual,5,1);
+		helicopteroFederal.setIdentificacion("HelicopteroFederal");
 		helicopteroFederal.setEquipo(equipoDeLaNave);
 		VueloCompuesto vuelo = new VueloCompuesto(helicopteroFederal);
 		vuelo.agregarVuelo(new VueloEnLineaRecta(helicopteroFederal,new Point(0,-1)),30);

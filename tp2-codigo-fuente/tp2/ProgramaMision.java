@@ -17,6 +17,7 @@ public class ProgramaMision {
 		controlador.setSuperficieDeDibujo(ventana);
 		ventana.setVisible(true);
 		
+		// Al llegar al menú de misión, dicho menú se encargará de crear la misión (de acuerdo al nivel de la partida que estará en su menú padre de partida), lo cual va a generar las naves como hacemos en este programa de prueba.
 		FabricaDeNaves fabrica = new FabricaDeNaves(controlador.getEscenario(), "equipo1", null);
 		
 		NaveMilitarControlada algo42 = fabrica.crearAlgo42En(new Point(25, 10));

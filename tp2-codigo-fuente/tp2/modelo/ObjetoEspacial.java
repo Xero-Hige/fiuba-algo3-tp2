@@ -1,9 +1,9 @@
 package tp2.modelo;
 
 import ar.uba.fi.algo3.titiritero.*;
-import ar.uba.fi.algo3.titiritero.vista.Circulo;
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.vista.modelo.objetosVivos.ParserObjetoIdAVista;
 
 public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 
@@ -193,7 +193,7 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo  {
 	}
 	
 	protected void generarVista(){
-		this.vista = new Circulo((int)(this.tamanio * 10 * 2));
+		this.vista = ParserObjetoIdAVista.getVista(this);
 		vista.setPosicionable(this);
 	}
 }

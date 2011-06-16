@@ -9,6 +9,8 @@ public class MenuMision extends Menu {
 
 	public MenuMision(VentanaPrincipal ventanaPrincipal, MenuI menuPadre) {
 		super(ventanaPrincipal, menuPadre);
+		
+		
 	}
 
 	@Override
@@ -21,5 +23,4 @@ public class MenuMision extends Menu {
 		this.setControlKeyPress(new ControlKeyPressMenuMision(this));
 		this.getVentanaPrincipal().setControlKeyPressActivo(this.getControlKeyPress());
 	}
-
 }

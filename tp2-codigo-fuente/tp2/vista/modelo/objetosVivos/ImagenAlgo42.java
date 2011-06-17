@@ -1,7 +1,5 @@
 package tp2.vista.modelo.objetosVivos;
 
-import java.awt.image.BufferedImage;
-
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 

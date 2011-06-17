@@ -153,13 +153,13 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo {
 	public int getX() {
 		asignarEspacioALaProyeccion();
 		return (int) ProyeccionSobreSuperficieDeDibujo.proyectarPunto(
-				this.posicion, this.tamanio).getX();
+				this.posicion).getX();
 	}
 
 	public int getY() {
 		asignarEspacioALaProyeccion();
 		return (int) ProyeccionSobreSuperficieDeDibujo.proyectarPunto(
-				this.posicion, this.tamanio).getY();
+				this.posicion).getY();
 	}
 
 	public double getTamanio() {

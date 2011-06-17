@@ -18,7 +18,7 @@ public class ProyeccionSobreSuperficieDeDibujo {
 		ProyeccionSobreSuperficieDeDibujo.espacioDelModelo = espacioDelModelo;
 	}
 
-	public static Point proyectarPunto(Point punto, double radioDelObjeto){
+	public static Point proyectarPunto(Point punto){
 		if(superficieDeDibujo == null){
 			throw new ObjetoDesconocido("Debe definirse la superficie de dibujo.");
 		}

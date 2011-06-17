@@ -7,9 +7,6 @@ import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 public class ImagenAlgo42 extends Imagen {
 	
-	BufferedImage image = null;
-	
-	
 	public static ImagenAlgo42 imagenPrincipal; 
 
 	private ImagenAlgo42() {

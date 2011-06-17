@@ -13,7 +13,7 @@ public class FabricaDeDibujablesDelModelo {
 	private static void cargarImagenes() {
 		
 		// Imagenes extras
-//		ImagenAgua.nuevaImagen();
+		ImagenAgua.nuevaImagen();
 		ImagenExplosion.nuevaImagen();
 		ImagenNubeTipo1.nuevaImagen();
 		ImagenNubeTipo2.nuevaImagen();

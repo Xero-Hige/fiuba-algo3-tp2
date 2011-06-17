@@ -25,16 +25,20 @@ public class ProyeccionSobreSuperficieDeDibujo {
 		if(espacioDelModelo == null){
 			throw new ObjetoDesconocido("Debe definirse el rectangulo.");
 		}
-		double x = (punto.getX() - radioDelObjeto) * superficieDeDibujo.getWidth() / espacioDelModelo.getWidth();
-		double y = superficieDeDibujo.getHeight() - (punto.getY() + radioDelObjeto) * superficieDeDibujo.getHeight() / espacioDelModelo.getHeight();
+		double x = punto.getX() * getEscalaX();
+		double y = superficieDeDibujo.getHeight() - punto.getY() * getEscalaY();
 		return new Point(x, y);
 	}
 	
 	public static double getEscalaX(){
+		if(superficieDeDibujo == null)
+			return 1;
 		return superficieDeDibujo.getWidth() / espacioDelModelo.getWidth();
 	}
 	
 	public static double getEscalaY(){
+		if(superficieDeDibujo == null)
+			return 1;
 		return superficieDeDibujo.getHeight() / espacioDelModelo.getHeight();
 	}
 	

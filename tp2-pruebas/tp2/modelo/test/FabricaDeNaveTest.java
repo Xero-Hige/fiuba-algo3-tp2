@@ -94,9 +94,9 @@ public class FabricaDeNaveTest {
 		NaveEnemiga caza2 = cazas.get(1);
 		NaveEnemiga caza3 = cazas.get(2);
 
-		Assert.assertTrue(caza1.getPosicion().distance(new Point(30,50)) <= 1E-10);
-		Assert.assertTrue(caza2.getPosicion().distance(new Point(40,60)) <= 1E-10);
-		Assert.assertTrue(caza3.getPosicion().distance(new Point(50,50)) <= 1E-10);
+		Assert.assertTrue(caza1.getPosicion().distance(new Point(40,60)) <= 1E-10);
+		Assert.assertTrue(caza2.getPosicion().distance(new Point(50,50)) <= 1E-10);
+		Assert.assertTrue(caza3.getPosicion().distance(new Point(60,60)) <= 1E-10);
 		
 		//Pedimos que la energía sea 30
 		Assert.assertTrue (caza1.getEnergia() == 30);

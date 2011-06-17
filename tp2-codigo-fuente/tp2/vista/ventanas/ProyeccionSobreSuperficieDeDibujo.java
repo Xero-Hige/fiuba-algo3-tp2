@@ -31,13 +31,13 @@ public class ProyeccionSobreSuperficieDeDibujo {
 	}
 	
 	public static double getEscalaX(){
-		if(superficieDeDibujo == null)
+		if((superficieDeDibujo == null) || (espacioDelModelo == null))
 			return 1;
 		return superficieDeDibujo.getWidth() / espacioDelModelo.getWidth();
 	}
 	
 	public static double getEscalaY(){
-		if(superficieDeDibujo == null)
+		if((superficieDeDibujo == null) || (espacioDelModelo == null))
 			return 1;
 		return superficieDeDibujo.getHeight() / espacioDelModelo.getHeight();
 	}

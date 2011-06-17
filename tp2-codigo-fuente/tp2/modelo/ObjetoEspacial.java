@@ -191,6 +191,7 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo {
 	public void setEscenario(Escenario nuevoEscenario) {
 		this.escenario = nuevoEscenario;
 		this.escenario.agregarObjeto(this);
+		this.generarVista();
 	}
 
 	public ChoqueDeObjetoEspacial getComportamiento() {
@@ -211,7 +212,7 @@ public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo {
 		this.vista = ParserObjetoIdAVista.getVista(this);
 		if (vista == null) {
 			this.vista = new Circulo(
-					(int) (this.tamanio * 2 * ProyeccionSobreSuperficieDeDibujo
+					(int) (this.tamanio * ProyeccionSobreSuperficieDeDibujo
 							.getEscalaX()));
 		}
 		vista.setPosicionable(this);

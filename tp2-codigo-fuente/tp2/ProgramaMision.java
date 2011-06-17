@@ -67,7 +67,7 @@ public class ProgramaMision {
 		controlador.agregarObjetoVivo(nube2);
 		
 		
-		controlador.setIntervaloSimulacion(10);
+		controlador.setIntervaloSimulacion(20);
 		controlador.comenzarJuego();
 	}
 

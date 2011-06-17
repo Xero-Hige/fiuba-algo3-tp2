@@ -20,24 +20,24 @@ public class ParserObjetoIdAVista {
 		
 		if (id == "Algo42")
 			return new VistaAlgo42();
-//		
-//		else if (id == "Avioneta") 
-//			return new VistaAvioneta();
-//		
-//		else if (id == "Bombardero") 
-//			return new VistaBombardero();
-//			
-//		else if (id == "Caza") 
-//			return new VistaCaza();
-//			
-//		else if (id == "AvionCivil") 
-//			return new VistaCivil();
-//				
-//		else if (id == "Explorador") 
-//			return new VistaExplorador();
-//				
-//		else if (id == "HelicopteroFederal") 
-//			return new VistaHelicoptero();
+		
+		else if (id == "Avioneta") 
+			return new VistaAvioneta();
+		
+		else if (id == "Bombardero") 
+			return new VistaBombardero();
+			
+		else if (id == "Caza") 
+			return new VistaCaza();
+			
+		else if (id == "AvionCivil") 
+			return new VistaCivil();
+				
+		else if (id == "Explorador") 
+			return new VistaExplorador();
+				
+		else if (id == "HelicopteroFederal") 
+			return new VistaHelicoptero();
 		
 		
 		// Bonus extras

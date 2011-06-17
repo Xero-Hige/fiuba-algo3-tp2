@@ -121,7 +121,7 @@ public class FabricaDeNaves {
 		ArrayList<NaveEnemiga> cazas = new ArrayList<NaveEnemiga>();
 		for(int i=0 ; i < 3 ; i++){
 			//Calculamos la posición para formar una V
-			Point posicion = unaPosicion.sumarCon((new Point(0,10).multiplicar(i%2)).sumarCon(new Point(10,0).multiplicar(i - 2)));
+			Point posicion = unaPosicion.sumarCon((new Point(0,10).multiplicar(-i%2)).sumarCon(new Point(10,0).multiplicar(i - 2)));
 			NaveEnemiga caza = new NaveEnemiga(posicion,6,escenarioActual,10,30);
 			caza.setIdentificacion("Caza");
 			caza.setEquipo(equipoDeLaNave);

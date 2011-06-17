@@ -1,6 +1,7 @@
 package tp2.modelo;
 
 import tp2.auxiliares.Point;
+import tp2.modelo.especificaciones.ValoresDeArmas;
 
 // La fábrica de armas puede crear las armas particulares del juego.
 public class FabricaDeArmas {
@@ -17,8 +18,8 @@ public class FabricaDeArmas {
 	// de disparo 5. Devuelve el cañón, apuntando por defecto hacia abajo y 
 	// posicionado en el origen.
 	public Arma crearCanionLaser() {
-		Arma canionLaser = new Arma(new Point(0,0),escenarioActual,100,5,new Point(0,-1),"CanionLaser");
-		Proyectil laser = new Proyectil(new Point(0,0),0.5,0,10);
+		Arma canionLaser = new Arma(new Point(0,0), escenarioActual, ValoresDeArmas.canionLaserVelocidad, ValoresDeArmas.canionLaserFrecuencia, new Point(0,-1), "CanionLaser");
+		Proyectil laser = new Proyectil(new Point(0,0), ValoresDeArmas.canionLaserProyectilTamanio, ValoresDeArmas.canionLaserProyectilVelocidad, ValoresDeArmas.canionLaserProyectilDanio);
 		canionLaser.setModeloDeProyectil(laser);
 		return canionLaser;
 	}
@@ -28,9 +29,9 @@ public class FabricaDeArmas {
 	// proyectil 50. Devuelve el lanzacohetes, apuntando por defecto hacia 
 	// abajo y posicionada en el origen.
 	public ArmaLimitada crearLanzaCohetes() {
-		ArmaLimitada lanzacohetes = new ArmaLimitada(new Point(0,0),escenarioActual,50,2,new Point(0,-1),"LanzaCohetes");
-		lanzacohetes.cargarCon(10);
-		Proyectil cohete = new Proyectil(new Point(0,0),0.5,0,50);
+		ArmaLimitada lanzacohetes = new ArmaLimitada(new Point(0,0), escenarioActual, ValoresDeArmas.lanzaCohetesVelocidad, ValoresDeArmas.lanzaCohetesFrecuencia, new Point(0,-1), "LanzaCohetes");
+		lanzacohetes.cargarCon(ValoresDeArmas.lanzaCohetesCantidadProyectiles);
+		Proyectil cohete = new Proyectil(new Point(0,0), ValoresDeArmas.lanzaCohetesProyectilTamanio, ValoresDeArmas.lanzaCohetesProyectilVelocidad, ValoresDeArmas.lanzaCohetesProyectilDanio);
 		lanzacohetes.setModeloDeProyectil(cohete);
 		return lanzacohetes;
 	}
@@ -42,9 +43,9 @@ public class FabricaDeArmas {
 	// el mismo persiga a una nave de esa flota. Devuelve el lanzatorpedos, 
 	// apuntando por defecto hacia abajo.
 	public ArmaDirigida crearLanzaTorpedos() {
-		ArmaDirigida lanzatorpedos = new ArmaDirigida(new Point(0,0),escenarioActual,20,0.5,new Point(0,-1),"LanzaTorpedos");
-		lanzatorpedos.cargarCon(5);
-		Proyectil torpedo =new Proyectil(new Point(0,0),0.1,0,150);
+		ArmaDirigida lanzatorpedos = new ArmaDirigida(new Point(0,0), escenarioActual, ValoresDeArmas.lanzaTorpedosVelocidad, ValoresDeArmas.lanzaTorpedosFrecuencia, new Point(0,-1), "LanzaTorpedos");
+		lanzatorpedos.cargarCon(ValoresDeArmas.lanzaTorpedosCantidadProyectiles);
+		Proyectil torpedo = new Proyectil(new Point(0,0), ValoresDeArmas.lanzaTorpedosProyectilTamanio, ValoresDeArmas.lanzaTorpedosProyectilVelocidad, ValoresDeArmas.lanzaTorpedosProyectilDanio);
 		lanzatorpedos.setModeloDeProyectil(torpedo);
 		return lanzatorpedos;
 	}

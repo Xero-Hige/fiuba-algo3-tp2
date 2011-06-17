@@ -14,8 +14,7 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 	// Constructor
 	// Inicializa el proyectil sin un vuelo asignado, con la posición, tamaño,
 	// velocidad y daño recibidos.
-	public Proyectil(Point posicion, double tamanio, double velocidad,
-			double danio) {
+	public Proyectil(Point posicion, double tamanio, double velocidad, double danio) {
 		super(posicion, tamanio, null, velocidad);
 		this.danio = danio;
 		this.setComportamiento(new ChoqueDeProyectil(this));

@@ -3,6 +3,7 @@ package tp2.modelo;
 import java.util.*;
 
 import tp2.auxiliares.Point;
+import tp2.modelo.especificaciones.ValoresDeNaves;
 
 // La fábrica de armas puede crear las naves particulares del juego.
 public class FabricaDeNaves {
@@ -27,7 +28,7 @@ public class FabricaDeNaves {
 	// controlarse y puede adquirir bonos de otras naves.
 	public NaveMilitarControlada crearAlgo42En(Point unaPosicion){
 		
-		NaveMilitarControlada algo42 = new NaveMilitarControlada(unaPosicion,7,escenarioActual,25,500);
+		NaveMilitarControlada algo42 = new NaveMilitarControlada(unaPosicion,ValoresDeNaves.algo42Tamanio,escenarioActual,ValoresDeNaves.algo42Velocidad,ValoresDeNaves.algo42Energia);
 		algo42.setIdentificacion("Algo42");
 		algo42.setEquipo(equipoDeLaNave);
 		Arma canionLaser = fabricaDeArmas.crearCanionLaser();
@@ -43,11 +44,11 @@ public class FabricaDeNaves {
 	// penalización por destrucción es de 300.
 	public NaveCivil crearAvionCivilEn(Point unaPosicion){
 		
-		NaveCivil avionCivil = new NaveCivil(unaPosicion,5,escenarioActual,5,1);
+		NaveCivil avionCivil = new NaveCivil(unaPosicion,ValoresDeNaves.avionCivilTamanio,escenarioActual,ValoresDeNaves.avionCivilVelocidad,ValoresDeNaves.avionCivilEnergia);
 		avionCivil.setIdentificacion("AvionCivil");
 		avionCivil.setEquipo(equipoDeLaNave);
 		avionCivil.setVuelo(new VueloEnLineaRecta(avionCivil,new Point(0,-1)));
-		avionCivil.setPenalizacion(300);
+		avionCivil.setPenalizacion(ValoresDeNaves.avionCivilPenalizacion);
 		
 		return avionCivil;
 	}
@@ -58,12 +59,12 @@ public class FabricaDeNaves {
 	// abajo, y luego de vuelta hacia arriba. Su puntuación por destrucción es de 20.
 	public NaveEnemiga crearAvionetaEn(Point unaPosicion){
 		
-		NaveEnemiga avioneta = new NaveEnemiga(unaPosicion,3,escenarioActual,15,10);
+		NaveEnemiga avioneta = new NaveEnemiga(unaPosicion,ValoresDeNaves.avionetaTamanio,escenarioActual,ValoresDeNaves.avionetaVelocidad,ValoresDeNaves.avionetaEnergia);
 		avioneta.setEquipo(equipoDeLaNave);
 		avioneta.setIdentificacion("Avioneta");
 		avioneta.agregarArma(fabricaDeArmas.crearCanionLaser());
 		avioneta.setVuelo(new VueloDeIdaYVuelta(avioneta,new Point(0,-80)));
-		avioneta.setPuntuacion(20);
+		avioneta.setPuntuacion(ValoresDeNaves.avionetaPuntuacion);
 		
 		return avioneta;
 	}
@@ -75,7 +76,7 @@ public class FabricaDeNaves {
 	// es de 30.
 	public NaveEnemiga crearBombarderoEn(Point unaPosicion){
 
-		NaveEnemiga bombardero = new NaveEnemiga(unaPosicion,7,escenarioActual,7,100);
+		NaveEnemiga bombardero = new NaveEnemiga(unaPosicion,ValoresDeNaves.bombarderoTamanio,escenarioActual,ValoresDeNaves.bombarderoVelocidad,ValoresDeNaves.bombarderoEnergia);
 		bombardero.setIdentificacion("Bombardero");
 		bombardero.setEquipo(equipoDeLaNave);
 		bombardero.agregarArma(fabricaDeArmas.crearCanionLaser());
@@ -83,9 +84,9 @@ public class FabricaDeNaves {
 		ArmaDirigida lanzaTorpedos = fabricaDeArmas.crearLanzaTorpedos();
 		lanzaTorpedos.setFlotaObjetivo(flotaEnemiga);
 		bombardero.agregarArma(lanzaTorpedos);
-		bombardero.setVuelo(new VueloEnZigZag(bombardero,10,new Point(0,-1)));
-		bombardero.setPuntuacion(30);
-		bombardero.setBono(new BonoDeArmas(5));
+		bombardero.setVuelo(new VueloEnZigZag(bombardero, ValoresDeNaves.bombarderoVueloAmplitud ,new Point(0,-1)));
+		bombardero.setPuntuacion(ValoresDeNaves.bombarderoPuntuacion);
+		bombardero.setBono(new BonoDeArmas(ValoresDeNaves.bombarderoBonoDeArmasTamanio));
 		
 		return bombardero;
 	}
@@ -97,16 +98,16 @@ public class FabricaDeNaves {
 	// hacia la derecha. Su puntuación por destrucción es de 50.
 	public NaveEnemiga crearExploradorEn(Point unaPosicion){
 		
-		NaveEnemiga explorador = new NaveEnemiga(unaPosicion,5,escenarioActual,12,1);
+		NaveEnemiga explorador = new NaveEnemiga(unaPosicion,ValoresDeNaves.exploradorTamanio,escenarioActual,ValoresDeNaves.exploradorVelocidad,ValoresDeNaves.exploradorEnergia);
 		explorador.setIdentificacion("Explorador");
 		explorador.setEquipo(equipoDeLaNave);
 		VueloCompuesto vuelo = new VueloCompuesto(explorador);
-		vuelo.agregarVuelo(new VueloEnLineaRecta(explorador,new Point(1,0)),40);
+		vuelo.agregarVuelo(new VueloEnLineaRecta(explorador,new Point(1,0)), ValoresDeNaves.exploradorVueloLongitudTrayectoria);
 		VueloEnCirculos _vuelo = new VueloEnCirculos(explorador,new Point(0,-20),false);
 		vuelo.agregarVuelo(_vuelo,2 * (_vuelo.trayectoriaPorPeriodo()));
-		vuelo.agregarVuelo(new VueloEnLineaRecta(explorador,new Point(1,0)),40);
+		vuelo.agregarVuelo(new VueloEnLineaRecta(explorador,new Point(1,0)), ValoresDeNaves.exploradorVueloLongitudTrayectoria);
 		explorador.setVuelo(vuelo);
-		explorador.setPuntuacion(50);
+		explorador.setPuntuacion(ValoresDeNaves.exploradorPuntuacion);
 		
 		return explorador;
 	}
@@ -119,16 +120,16 @@ public class FabricaDeNaves {
 	public List<NaveEnemiga> crearGrupoCazaEn(Point unaPosicion){
 		
 		ArrayList<NaveEnemiga> cazas = new ArrayList<NaveEnemiga>();
-		for(int i = 1 ; i <= 3 ; i++){
+		for(int i = 1 ; i <= ValoresDeNaves.cazaUnidadesPorFormacion ; i++){
 			//Calculamos la posición para formar una V
 			Point posicion = unaPosicion.sumarCon((new Point(0,10).multiplicar(i%2)).sumarCon(new Point(10,0).multiplicar(i - 2)));
-			NaveEnemiga caza = new NaveEnemiga(posicion,6,escenarioActual,10,30);
+			NaveEnemiga caza = new NaveEnemiga(posicion,ValoresDeNaves.cazaTamanio,escenarioActual,ValoresDeNaves.cazaVelocidad,ValoresDeNaves.cazaEnergia);
 			caza.setIdentificacion("Caza");
 			caza.setEquipo(equipoDeLaNave);
 			caza.agregarArma(fabricaDeArmas.crearLanzaTorpedos());
 			caza.setVuelo(new VueloEnLineaRecta(caza,new Point(0,-1)));
-			caza.setPuntuacion(30);
-			caza.setBono(new BonoDeEnergia(5));
+			caza.setPuntuacion(ValoresDeNaves.cazaPuntuacion);
+			caza.setBono(new BonoDeEnergia(ValoresDeNaves.cazaBonoDeEnergiaTamanio));
 			cazas.add(caza);
 		}
 		
@@ -142,14 +143,14 @@ public class FabricaDeNaves {
 	// antihorario.
 	public NaveGuia crearGuiaEnemigoEn(Point unaPosicion){
 		
-		NaveGuia guiaEnemigo = new  NaveGuia(unaPosicion,15,escenarioActual,5,1000);
+		NaveGuia guiaEnemigo = new  NaveGuia(unaPosicion,ValoresDeNaves.guiaEnemigoTamanio,escenarioActual,ValoresDeNaves.guiaEnemigoVelocidad,ValoresDeNaves.guiaEnemigoEnergia);
 		guiaEnemigo.setIdentificacion("GuiaEnemigo");
 		guiaEnemigo.setEquipo(equipoDeLaNave);
 		VueloCompuesto vuelo = new VueloCompuesto(guiaEnemigo);
-		vuelo.agregarVuelo(new VueloEnLineaRecta(guiaEnemigo,new Point(1,0)),50);
+		vuelo.agregarVuelo(new VueloEnLineaRecta(guiaEnemigo,new Point(1,0)),ValoresDeNaves.guiaEnemigoVueloLineaRectaLongitudTrayectoria);
 		VueloEnCirculos _vuelo = new VueloEnCirculos(guiaEnemigo,new Point(5,0),true);
-		vuelo.agregarVuelo(_vuelo,1);
-		vuelo.agregarVuelo(new VueloEnLineaRecta(guiaEnemigo,new Point(1,0)),40);
+		vuelo.agregarVuelo(_vuelo,ValoresDeNaves.guiaEnemigoVueloCirculosLongitudTrayectoria);
+		vuelo.agregarVuelo(new VueloEnLineaRecta(guiaEnemigo,new Point(1,0)),ValoresDeNaves.guiaEnemigoVueloLineaRectaLongitudTrayectoria);
 		guiaEnemigo.setVuelo(vuelo);
 		
 		return guiaEnemigo;
@@ -162,16 +163,16 @@ public class FabricaDeNaves {
 	// Su penalización por destrucción es de 200.
 	public NaveCivil crearHelicopteroFederalEn(Point unaPosicion){
 		
-		NaveCivil helicopteroFederal = new NaveCivil(unaPosicion,5,escenarioActual,5,1);
+		NaveCivil helicopteroFederal = new NaveCivil(unaPosicion,ValoresDeNaves.helicopteroFederalTamanio,escenarioActual,ValoresDeNaves.helicopteroFederalVelocidad,ValoresDeNaves.helicopteroFederalEnergia);
 		helicopteroFederal.setIdentificacion("HelicopteroFederal");
 		helicopteroFederal.setEquipo(equipoDeLaNave);
 		VueloCompuesto vuelo = new VueloCompuesto(helicopteroFederal);
-		vuelo.agregarVuelo(new VueloEnLineaRecta(helicopteroFederal,new Point(0,-1)),30);
+		vuelo.agregarVuelo(new VueloEnLineaRecta(helicopteroFederal,new Point(0,-1)),ValoresDeNaves.helicopteroFederalVueloLongitudTrayectoria);
 		VueloEnCirculos _vuelo = new VueloEnCirculos(helicopteroFederal,new Point(10,0),true);
 		vuelo.agregarVuelo(_vuelo,2 * (_vuelo.trayectoriaPorPeriodo()));
-		vuelo.agregarVuelo(new VueloEnLineaRecta(helicopteroFederal,new Point(0,-1)),30);
+		vuelo.agregarVuelo(new VueloEnLineaRecta(helicopteroFederal,new Point(0,-1)),ValoresDeNaves.helicopteroFederalVueloLongitudTrayectoria);
 		helicopteroFederal.setVuelo(vuelo);
-		helicopteroFederal.setPenalizacion(200);
+		helicopteroFederal.setPenalizacion(ValoresDeNaves.helicopteroFederalPenalizacion);
 		
 		return helicopteroFederal;
 	}

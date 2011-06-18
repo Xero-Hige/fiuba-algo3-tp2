@@ -173,8 +173,8 @@ public class Escenario implements IGuardable  {
 	public IGuardable cargar(Map<String, Node> atributos) {
 		
 		objetos = (Map<ObjetoEspacial, Integer>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetos"));
-		this.proximoId = (int) ReconstructorDesdeXml.generarObjeto(atributos.get("proximoId"));
-		this.puntuacion = (int) ReconstructorDesdeXml.generarObjeto(atributos.get("puntuacion"));
+		this.proximoId = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("proximoId"));
+		this.puntuacion = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("puntuacion"));
 		this.areaDeCombate = (Rectangle) ReconstructorDesdeXml.generarObjeto(atributos.get("areaDeCombate"));
 		this.objetosCreados = (Collection<ObjetoEspacial>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetosCreados"));
 		this.objetosMuertos = (Collection<ObjetoEspacial>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetosMuertos"));

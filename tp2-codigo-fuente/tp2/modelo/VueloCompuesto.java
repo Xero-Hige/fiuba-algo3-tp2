@@ -118,9 +118,9 @@ public class VueloCompuesto extends Vuelo {
 	public IGuardable cargar(Map<String, Node> atributos) {
 		
 		this.objetoVolador = (ObjetoVolador) ReconstructorDesdeXml.generarObjeto(atributos.get("objetoVolador"));
-		this.iniciado = (boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("iniciado"));
+		this.iniciado = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("iniciado"));
 		this.origen = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("origen"));
-		this.trayectoriaDeVuelo = (int) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriaDeVuelo"));
+		this.trayectoriaDeVuelo = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriaDeVuelo"));
 		this.vuelos = (LinkedList<Vuelo>) ReconstructorDesdeXml.generarObjeto(atributos.get("vuelos"));
 		this.trayectoriasDeVuelo = (LinkedList<Double>) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriasDeVuelo"));
 		this.vueloActual = (Vuelo) ReconstructorDesdeXml.generarObjeto(atributos.get("vueloActual"));

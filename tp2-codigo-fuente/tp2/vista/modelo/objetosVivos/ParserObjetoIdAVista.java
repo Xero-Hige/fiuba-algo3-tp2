@@ -1,8 +1,7 @@
 package tp2.vista.modelo.objetosVivos;
 
-import tp2.modelo.ObjetoEspacial;
+import tp2.modelo.Visible;
 import ar.uba.fi.algo3.titiritero.Dibujable;
-import ar.uba.fi.algo3.titiritero.vista.Circulo;
 
 /**
  * Clase que traduce un id a una vista, devolviendo dependiendo del
@@ -12,9 +11,9 @@ import ar.uba.fi.algo3.titiritero.vista.Circulo;
 public class ParserObjetoIdAVista {
 
 	
-	public static Dibujable getVista(ObjetoEspacial objeto) {
+	public static Dibujable getVista(Visible nuevoObjeto) {
 		
-		String id = objeto.getIdentificacion();
+		String id = nuevoObjeto.getIdentificacion();
 		
 		// Aeronaves
 		

@@ -7,7 +7,7 @@ import tp2.modelo.excepciones.*;
 import tp2.vista.modelo.objetosVivos.ParserObjetoIdAVista;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 
-public abstract class ObjetoEspacial implements Posicionable, ObjetoVivo {
+public abstract class ObjetoEspacial implements Visible, ObjetoVivo{
 
 	private Point posicion;
 	private double tamanio;

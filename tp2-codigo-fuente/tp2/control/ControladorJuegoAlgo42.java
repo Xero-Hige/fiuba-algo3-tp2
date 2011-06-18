@@ -23,6 +23,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
 		this.escenario = new Escenario(new Rectangle(100, 100));
+		ProyeccionSobreSuperficieDeDibujo.setEspacioDelModelo(this.escenario.getAreaDeCombate());
 	}
 
 	@Override
@@ -33,13 +34,13 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			Collection<ObjetoEspacial> objetosMuertos = this.escenario.getObjetosMuertos();
 			for(ObjetoEspacial objetoCreado: objetosCreados){
 				this.agregarObjetoVivo(objetoCreado);
-				this.agregarNuevaVista(objetoCreado);
 				// Creamos círculo para observar la forma del modelo (en esta prueba)
 				Dibujable circulo = new Circulo((int)(objetoCreado.getTamanio() * ProyeccionSobreSuperficieDeDibujo.getEscalaX()));
 				circulo.setPosicionable(objetoCreado);
 				this.agregarDibujable(circulo);
 				auxiliar.put(objetoCreado, circulo);
 				// Fin Creamos círculo para observar la forma del modelo (en esta prueba)
+				this.agregarNuevaVista(objetoCreado);
 			}
 			for(ObjetoEspacial objetoMuerto: objetosMuertos){
 				this.removerObjetoVivo(objetoMuerto);

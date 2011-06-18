@@ -1,10 +1,8 @@
 package tp2.modelo;
 
 import ar.uba.fi.algo3.titiritero.*;
-import ar.uba.fi.algo3.titiritero.vista.Circulo;
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
-import tp2.vista.modelo.objetosVivos.ParserObjetoIdAVista;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 
 public abstract class ObjetoEspacial implements Visible, ObjetoVivo{
@@ -15,7 +13,6 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo{
 	private boolean destruido;
 	private ChoqueDeObjetoEspacial comportamientoAlChocar;
 	private String identificacion;
-	private Dibujable vista;
 
 	// Constructor
 	// Inicializa el objeto con la posición, tamaño y escenario recibidos.
@@ -30,7 +27,6 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo{
 		if (this.escenario != null) {
 			this.escenario.agregarObjeto(this);
 		}
-		this.generarVista();
 	}
 
 	// Devuelve true si el objeto recibido está superpuesto con el receptor
@@ -183,7 +179,6 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo{
 	// identificación, son del mismo tipo.
 	public void setIdentificacion(String nuevaIdentificacion) {
 		this.identificacion = nuevaIdentificacion;
-		this.generarVista();
 	}
 
 	// Cambia el escenario en donde se encuentra el objeto y agrega al mismo
@@ -191,7 +186,6 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo{
 	public void setEscenario(Escenario nuevoEscenario) {
 		this.escenario = nuevoEscenario;
 		this.escenario.agregarObjeto(this);
-		this.generarVista();
 	}
 
 	public ChoqueDeObjetoEspacial getComportamiento() {
@@ -202,19 +196,5 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo{
 			ChoqueDeObjetoEspacial comportamientoAlChocar) {
 		this.comportamientoAlChocar = comportamientoAlChocar;
 	}
-
-	public Dibujable getVista() {
-		return vista;
-	}
-
-	protected void generarVista() {
-		this.asignarEspacioALaProyeccion();
-		this.vista = ParserObjetoIdAVista.getVista(this);
-		if (vista == null) {
-			this.vista = new Circulo(
-					(int) (this.tamanio * ProyeccionSobreSuperficieDeDibujo
-							.getEscalaX()));
-		}
-		vista.setPosicionable(this);
-	}
+	
 }

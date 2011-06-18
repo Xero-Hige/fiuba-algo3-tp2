@@ -38,7 +38,6 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 		}
 
 		clone.setComportamiento(new ChoqueDeProyectil(clone));
-		clone.generarVista();
 
 		return clone;
 	}

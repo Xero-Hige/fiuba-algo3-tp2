@@ -6,6 +6,7 @@ import java.util.List;
 import tp2.auxiliares.Point;
 import tp2.control.ControladorJuegoAlgo42;
 import tp2.modelo.*;
+import tp2.modelo.especificaciones.ReferenciasDeTiempo;
 import tp2.modelo.extras.Agua;
 import tp2.modelo.extras.Nube;
 import tp2.vista.modelo.extras.VistaAgua;
@@ -67,7 +68,7 @@ public class ProgramaMision {
 		controlador.agregarObjetoVivo(nube2);
 		
 		
-		controlador.setIntervaloSimulacion(20);
+		controlador.setIntervaloSimulacion(ReferenciasDeTiempo.intervaloDeSimulacion);
 		controlador.comenzarJuego();
 	}
 

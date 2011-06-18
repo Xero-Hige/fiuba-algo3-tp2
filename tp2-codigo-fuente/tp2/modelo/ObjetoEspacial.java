@@ -2,6 +2,7 @@ package tp2.modelo;
 
 import ar.uba.fi.algo3.titiritero.*;
 import tp2.auxiliares.Point;
+import tp2.modelo.especificaciones.ReferenciasDeTiempo;
 import tp2.modelo.excepciones.*;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 
@@ -50,7 +51,7 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo{
 
 	@Override
 	public void vivir() {
-		this.actuarDurante(0.02);
+		this.actuarDurante(ReferenciasDeTiempo.tiempoDeActuacion);
 	}
 
 	// Hace chocar al objeto recibido con el receptor del mensaje. Ambos sufren

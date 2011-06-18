@@ -1,7 +1,13 @@
 package tp2.modelo;
 
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.VueloNoIniciado;
+import tp2.persistencia.IGuardable;
 
 public class VueloEnLineaRecta extends Vuelo {
 
@@ -35,6 +41,18 @@ public class VueloEnLineaRecta extends Vuelo {
 		velocidad = this.getObjetoVolador().getVelocidad();
 		this.aumentarTrayectoriaEn(unTiempo * velocidad);
 		return (this.getDireccion().multiplicar(unTiempo * velocidad));
+	}
+
+	@Override
+	public Element guardar(Element contenedor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

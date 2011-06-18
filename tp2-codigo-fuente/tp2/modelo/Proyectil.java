@@ -2,8 +2,12 @@ package tp2.modelo;
 
 import java.util.*;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.IGuardable;
 
 // Un proyectil es capaz de dañar naves no aliadas al impactar con ellas en el escenario.
 public class Proyectil extends ObjetoVolador implements Cloneable {
@@ -88,6 +92,18 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 			throw new ValorInvalido("No se puede asignar un daño negativo.");
 
 		this.danio = nuevoDanio;
+	}
+
+	@Override
+	public Element guardar(Element contenedor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

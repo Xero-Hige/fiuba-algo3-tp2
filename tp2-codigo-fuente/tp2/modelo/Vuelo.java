@@ -1,15 +1,22 @@
 package tp2.modelo;
 
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.VueloIniciado;
+import tp2.persistencia.GeneradorXml;
 import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 public abstract class Vuelo implements IGuardable{
 
-	protected ObjetoVolador objetoVolador;
-	protected boolean iniciado;
-	protected Point origen;
-	protected double trayectoriaDeVuelo;
+	private ObjetoVolador objetoVolador;
+	private boolean iniciado;
+	private Point origen;
+	private double trayectoriaDeVuelo;
 
 	// Inicializa un vuelo del objeto volador recibido.
 	public Vuelo(ObjetoVolador objetoVolador) {
@@ -60,5 +67,23 @@ public abstract class Vuelo implements IGuardable{
 	// ser mayor a cero, recibido.
 	protected void aumentarTrayectoriaEn(double unaLongitud){
 		this.trayectoriaDeVuelo = this.trayectoriaDeVuelo + unaLongitud;
+	}
+
+	@Override
+	public Element guardar(Element contenedor) {
+		contenedor.appendChild(GeneradorXml.generarElementoDe(objetoVolador, "objetoVolador"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(iniciado, "iniciado"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(origen, "origen"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(trayectoriaDeVuelo, "trayectoriaDeVuelo"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		this.objetoVolador = (ObjetoVolador) ReconstructorDesdeXml.generarObjeto(atributos.get("objetoVolador"));
+		this.iniciado = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("iniciado"));
+		this.origen = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("origen"));
+		this.trayectoriaDeVuelo = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriaDeVuelo"));
+		return this;
 	}
 }

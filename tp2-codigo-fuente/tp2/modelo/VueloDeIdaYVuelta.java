@@ -1,13 +1,21 @@
 package tp2.modelo;
 
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.ValorInvalido;
 import tp2.modelo.excepciones.VueloIniciado;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
-// Es un tipo particular de vuelo compuesto, en el cual el objeto volador vuela
-// en línea recta hacia un destino relativo a la posición inicial, y luego 
-// vuelve en sentido opuesto.
-public class VueloDeIdaYVuelta extends VueloCompuesto {
+/** Es un tipo particular de vuelo compuesto, en el cual el objeto volador vuela
+* en línea recta hacia un destino relativo a la posición inicial, y luego 
+* vuelve en sentido opuesto.*/
+public class VueloDeIdaYVuelta extends VueloCompuesto{
 
 	// Hacia dónde vuela (relativamente) el objeto.
 	private Point destino;
@@ -57,4 +65,20 @@ public class VueloDeIdaYVuelta extends VueloCompuesto {
 	public void agregarVuelo(Vuelo vuelo, double longitudTrayectoria) {
 		throw new UnsupportedOperationException("No se pueden agregar vuelos.");
 	}
+	
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(destino, "destino"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.destino = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("destino"));
+		return this;
+	}	
 }

@@ -1,9 +1,17 @@
 package tp2.modelo;
 
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.ValorInvalido;
 import tp2.modelo.excepciones.VueloIniciado;
 import tp2.modelo.excepciones.VueloNoIniciado;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 public class VueloEnCirculos extends Vuelo {
 
@@ -60,6 +68,24 @@ public class VueloEnCirculos extends Vuelo {
 	
 	public double trayectoriaPorPeriodo(){
 		return 2 * Math.PI * this.radio;
+	}
+
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(radio, "radio"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(sentido, "sentido"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.radio = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("radio"));
+		this.sentido = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("sentido"));		
+		return this;
 	}
 
 }

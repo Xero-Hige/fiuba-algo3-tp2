@@ -1,7 +1,5 @@
 package tp2.modelo;
 
-import java.awt.Rectangle;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -101,12 +99,9 @@ public class VueloCompuesto extends Vuelo {
 	}
 	
 	@Override
-	public Element guardar(Element contenedor) {		
-			
-		contenedor.appendChild(GeneradorXml.generarElementoDe(objetoVolador, "objetoVolador"));
-		contenedor.appendChild(GeneradorXml.generarElementoDe(iniciado, "iniciado"));
-		contenedor.appendChild(GeneradorXml.generarElementoDe(origen, "origen"));
-		contenedor.appendChild(GeneradorXml.generarElementoDe(trayectoriaDeVuelo, "trayectoriaDeVuelo"));
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
 		contenedor.appendChild(GeneradorXml.generarElementoDe(vuelos, "vuelos"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(trayectoriasDeVuelo, "trayectoriasDeVuelo"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(vueloActual, "vueloActual"));
@@ -117,10 +112,7 @@ public class VueloCompuesto extends Vuelo {
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 		
-		this.objetoVolador = (ObjetoVolador) ReconstructorDesdeXml.generarObjeto(atributos.get("objetoVolador"));
-		this.iniciado = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("iniciado"));
-		this.origen = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("origen"));
-		this.trayectoriaDeVuelo = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriaDeVuelo"));
+		super.cargar(atributos);
 		this.vuelos = (LinkedList<Vuelo>) ReconstructorDesdeXml.generarObjeto(atributos.get("vuelos"));
 		this.trayectoriasDeVuelo = (LinkedList<Double>) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriasDeVuelo"));
 		this.vueloActual = (Vuelo) ReconstructorDesdeXml.generarObjeto(atributos.get("vueloActual"));

@@ -1,6 +1,14 @@
 package tp2.modelo;
 
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 // Es un vuelo que puede cambiar la dirección cuando se desee.
 public class VueloDireccionable extends Vuelo {
@@ -36,6 +44,22 @@ public class VueloDireccionable extends Vuelo {
 		if(this.direccion.radio() > 0) {
 			this.direccion = this.direccion.normalizar();
 		}
+	}
+
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(direccion, "direccion"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.direccion = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("direccion"));
+		return this;
 	}
 	
 }

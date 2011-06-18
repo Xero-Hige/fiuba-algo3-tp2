@@ -2,8 +2,13 @@ package tp2.modelo;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 import tp2.modelo.excepciones.BonoUtilizado;
+import tp2.persistencia.IGuardable;
 
 // Es un bono que da la energía máxima de la nave dueña a aquella que lo use.
 public class BonoDeArmas extends Bono {
@@ -28,6 +33,18 @@ public class BonoDeArmas extends Bono {
 			unaNave.agregarArma(arma);
 		}
 		this.destruir();
+	}
+
+	@Override
+	public Element guardar(Element contenedor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 
 }

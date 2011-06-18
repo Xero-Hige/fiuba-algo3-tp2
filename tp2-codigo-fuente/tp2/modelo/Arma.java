@@ -1,7 +1,13 @@
 package tp2.modelo;
 
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.IGuardable;
 
 // Define un arma, la cual puede disparar proyectiles en el escenario en donde esté.
 public class Arma extends Movil {
@@ -165,5 +171,17 @@ public class Arma extends Movil {
 	
 	public Number getCarga() {
 		return Float.POSITIVE_INFINITY;
+	}
+
+	@Override
+	public Element guardar(Element contenedor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 }

@@ -37,4 +37,9 @@ public class Agua implements Visible {
 	public double getTamanio() {
 		return this.escenario.getAreaDeCombate().getWidth();
 	}
+
+	@Override
+	public Point getPosicion() {
+		return this.posicion;
+	}
 }

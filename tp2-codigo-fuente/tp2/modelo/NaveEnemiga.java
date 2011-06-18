@@ -10,7 +10,7 @@ import tp2.modelo.excepciones.*;
 public class NaveEnemiga extends NaveMilitar {
 
 	// La puntuación por destrucción de la nave.
-	private double puntuacion;
+	private int puntuacion;
 	// El bono que brinda al ser destruída (si tiene).
 	private Bono bono;
 	
@@ -65,13 +65,13 @@ public class NaveEnemiga extends NaveMilitar {
 	}
 	
 	// Devuelve la puntuación por destrucción de esta nave.
-	public double getPuntuacion() {
+	public int getPuntuacion() {
 		return this.puntuacion;
 	}
 	
 	// Recibe la penalización por destruir la nave, que debe ser mayor o igual a 
 	// cero (sino se levanta una excepción).
-	public void setPuntuacion(double unaPuntuacion) {
+	public void setPuntuacion(int unaPuntuacion) {
 		if (unaPuntuacion < 0){
 			throw new ValorInvalido ("La puntuación no puede ser negativa");
 		}

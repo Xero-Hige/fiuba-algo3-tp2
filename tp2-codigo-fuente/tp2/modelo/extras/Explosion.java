@@ -1,34 +1,53 @@
 package tp2.modelo.extras;
 
+import tp2.auxiliares.Point;
+import tp2.modelo.Visible;
+import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
-import ar.uba.fi.algo3.titiritero.Posicionable;
 
-public class Explosion  implements Posicionable, ObjetoVivo {
-
-	private int x;
-	private int y;
-	private int velocidad;
+public class Explosion implements Visible, ObjetoVivo {
 	
-	public Explosion (int x, int y, int velocidad) {
+	private Point posicion;
+	private double velocidad;
+	private double tamanio;
+
+	public Explosion (Visible objeto, double velocidad, double tamanio) {
 		
-		this.x = x;
-		this.y = y;
+		this.posicion = objeto.getPosicion();
 		this.velocidad = velocidad;
+		this.tamanio = tamanio;
 	}
 	
 	@Override
 	public int getX() {
-		return this.x;
+		return (int) ProyeccionSobreSuperficieDeDibujo.proyectarPunto(
+				this.posicion).getX();
 	}
 
 	@Override
 	public int getY() {
-		return this.y;
+		return (int) ProyeccionSobreSuperficieDeDibujo.proyectarPunto(
+				this.posicion).getY();
 	}
 
 	@Override
 	public void vivir() {
-		this.y = this.y + this.velocidad;
+		this.posicion = this.posicion.sumarCon(new Point(0, -velocidad * 0.02));
+	}
+
+	@Override
+	public String getIdentificacion() {
+		return "Explosion";
+	}
+
+	@Override
+	public double getTamanio() {
+		return this.tamanio;
+	}
+
+	@Override
+	public Point getPosicion() {
+		return this.posicion;
 	}
 
 }

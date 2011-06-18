@@ -8,7 +8,9 @@ import java.util.Map;
 import tp2.modelo.Escenario;
 import tp2.modelo.Visible;
 import tp2.modelo.ObjetoEspacial;
-import tp2.vista.modelo.objetosVivos.ParserObjetoIdAVista;
+import tp2.modelo.extras.Explosion;
+import tp2.modelo.extras.ObjetosExplosivos;
+import tp2.vista.modelo.ParserObjetoIdAVista;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
@@ -70,6 +72,11 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private void removerVista(Visible objeto){
 		this.removerDibujable(this.vistas.get(objeto));
 		this.vistas.remove(objeto);
+		if(ObjetosExplosivos.esExplosivo(objeto)){
+			Explosion explosion = new Explosion(objeto, 10, objeto.getTamanio());
+			this.agregarObjetoVivo(explosion);
+			this.agregarNuevaVista(explosion);
+		}
 	}
 
 	public Escenario getEscenario() {

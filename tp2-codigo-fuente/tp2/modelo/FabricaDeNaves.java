@@ -3,6 +3,7 @@ package tp2.modelo;
 import java.util.*;
 
 import tp2.auxiliares.Point;
+import tp2.modelo.especificaciones.ValoresDeBonos;
 import tp2.modelo.especificaciones.ValoresDeNaves;
 
 // La fábrica de armas puede crear las naves particulares del juego.
@@ -86,7 +87,7 @@ public class FabricaDeNaves {
 		bombardero.agregarArma(lanzaTorpedos);
 		bombardero.setVuelo(new VueloEnZigZag(bombardero, ValoresDeNaves.bombarderoVueloAmplitud ,new Point(0,-1)));
 		bombardero.setPuntuacion(ValoresDeNaves.bombarderoPuntuacion);
-		bombardero.setBono(new BonoDeArmas(ValoresDeNaves.bombarderoBonoDeArmasTamanio));
+		bombardero.setBono(new BonoDeArmas(ValoresDeBonos.bonoDeArmasTamanio));
 		
 		return bombardero;
 	}
@@ -129,7 +130,7 @@ public class FabricaDeNaves {
 			caza.agregarArma(fabricaDeArmas.crearLanzaTorpedos());
 			caza.setVuelo(new VueloEnLineaRecta(caza,new Point(0,-1)));
 			caza.setPuntuacion(ValoresDeNaves.cazaPuntuacion);
-			caza.setBono(new BonoDeEnergia(ValoresDeNaves.cazaBonoDeEnergiaTamanio));
+			caza.setBono(new BonoDeEnergia(ValoresDeBonos.bonoDeEnergiaTamanio));
 			cazas.add(caza);
 		}
 		

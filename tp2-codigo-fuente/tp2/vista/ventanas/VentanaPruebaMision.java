@@ -16,7 +16,7 @@ public class VentanaPruebaMision extends Ventana {
 	private static int altoVentana = DimensionesDeVentana.alto;
 
 	public VentanaPruebaMision(ControladorJuego unControladorJuego) {
-		super(anchoVentana, altoVentana + 30, unControladorJuego);
+		super(anchoVentana, altoVentana + DimensionesDeVentana.altoBarraDeVentana, unControladorJuego);
 		ProyeccionSobreSuperficieDeDibujo.setSuperficieDeDibujo(anchoVentana, altoVentana);
 		this.setTitle("Algo42");
 		this.setResizable(false);

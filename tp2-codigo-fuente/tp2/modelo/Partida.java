@@ -71,8 +71,8 @@ public class Partida implements IGuardable {
 	public IGuardable cargar(Map<String, Node> atributos) {
 		this.jugador = (Jugador) ReconstructorDesdeXml.generarObjeto(atributos.get("jugador"));
 		this.misonActual = (Mision) ReconstructorDesdeXml.generarObjeto(atributos.get("misonActual"));
-		this.cantidadNiveles =(int) ReconstructorDesdeXml.generarObjeto(atributos.get("cantidadNiveles"));
-		this.nivelActual = (int) ReconstructorDesdeXml.generarObjeto(atributos.get("nivelActual"));
+		this.cantidadNiveles =(Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("cantidadNiveles"));
+		this.nivelActual = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("nivelActual"));
 		this.enCurso = false;
 		return this;
 	}	

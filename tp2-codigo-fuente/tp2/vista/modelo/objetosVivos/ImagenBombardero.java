@@ -1,14 +1,19 @@
 package tp2.vista.modelo.objetosVivos;
 
+import tp2.modelo.especificaciones.ValoresDeNaves;
+import tp2.vista.modelo.ArchivosDeImagenes;
+import tp2.vista.modelo.FactoresDeImagenes;
+import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 
 public class ImagenBombardero extends Imagen {
 	
-	public static ImagenBombardero imagenPrincipal; 
+	private static ImagenBombardero imagenPrincipal;
+	private static ImagenEscalable imagenEscalable;
 
 	private ImagenBombardero() {
-		this.setNombreArchivoImagen("/tp2/vista/imagenes/modelo/aeronaves/bombardero.png");
+		this.setNombreArchivoImagen(ArchivosDeImagenes.IMAGEN_BOMBARDERO);
 	}
 
 	private ImagenBombardero(Imagen imagen) {
@@ -17,13 +22,15 @@ public class ImagenBombardero extends Imagen {
 	
 	private static void crearImagenBombardero(){
 		imagenPrincipal = new ImagenBombardero();
+		imagenEscalable = new ImagenEscalable(imagenPrincipal);
 	}
 	
 	public static ImagenBombardero nuevaImagen(){
 		if(imagenPrincipal == null){
 			crearImagenBombardero();
 		}
-		return new ImagenBombardero(imagenPrincipal);
+		int tamanioImagen = (int) (FactoresDeImagenes.FACTOR_BOMBARDERO * 2 * ValoresDeNaves.bombarderoTamanio * ProyeccionSobreSuperficieDeDibujo.getEscalaX());
+		return new ImagenBombardero(imagenEscalable.getImagenEscalada(tamanioImagen));
 	}
 
 }

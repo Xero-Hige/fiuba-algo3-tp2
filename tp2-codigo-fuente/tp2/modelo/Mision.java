@@ -2,9 +2,16 @@ package tp2.modelo;
 
 import java.util.*;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
+
 // Cada misión tendrá configurado las preferencias del nivel (aeronaves en sus
 // respectivas flotas, el jugador, el escenario en donde interactuan). 	r
-public class Mision {
+public class Mision implements IGuardable{
 
 	private Escenario escenario;
 	private FabricaDeNaves fabricaJugador, fabricaEnemiga;
@@ -74,5 +81,23 @@ public class Mision {
 	
 	public void setJugador(Jugador nuevoJugador) {
 		this.jugador = nuevoJugador;
+	}
+	
+	@Override
+	public Element guardar(Element contenedor) {		
+		contenedor.appendChild(GeneradorXml.generarElementoDe(escenario, "escenario"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(escenario, "flotaEnemiga"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(flotaAliada, "flotaAliada"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(jugador, "jugador"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		this.jugador = (Jugador) ReconstructorDesdeXml.generarObjeto(atributos.get("jugador"));
+		this.flotaEnemiga = (Flota) ReconstructorDesdeXml.generarObjeto(atributos.get("flotaEnemiga"));
+		this.flotaAliada =(Flota) ReconstructorDesdeXml.generarObjeto(atributos.get("flotaAliada"));
+		this.escenario = (Escenario) ReconstructorDesdeXml.generarObjeto(atributos.get("escenario"));
+		return this;
 	}
 }

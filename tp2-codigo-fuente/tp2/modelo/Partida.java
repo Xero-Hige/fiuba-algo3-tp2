@@ -2,10 +2,17 @@ package tp2.modelo;
 
 import java.util.*;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
+
 // Es la que permite generar un conjunto de misiones para ser jugadas.
 // Al iniciarse una partida se van cargando misiones a medida que se superan estas
 // y en caso de que el jugador pierda, la partida finaliza.
-public class Partida {
+public class Partida implements IGuardable {
 
 	Jugador jugador;
 	Mision misonActual;
@@ -40,11 +47,6 @@ public class Partida {
 		return false;
 	}
 	
-	// Carga una partida ya existente a partir de un hash de datos.
-	public void cargar(Map<Flota, Nave> datos) {
-		
-	}
-	
 	// Genera una partida nueva.
 	public void generarNueva() {
 		
@@ -55,5 +57,23 @@ public class Partida {
 	public Boolean estaGanada() {
 		return false;
 	}
-	
+
+	@Override
+	public Element guardar(Element contenedor) {		
+		contenedor.appendChild(GeneradorXml.generarElementoDe(jugador, "jugador"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(misonActual, "misionActual"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(cantidadNiveles, "cantidadNiveles"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(nivelActual, "nivelActual"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		this.jugador = (Jugador) ReconstructorDesdeXml.generarObjeto(atributos.get("jugador"));
+		this.misonActual = (Mision) ReconstructorDesdeXml.generarObjeto(atributos.get("misonActual"));
+		this.cantidadNiveles =(int) ReconstructorDesdeXml.generarObjeto(atributos.get("cantidadNiveles"));
+		this.nivelActual = (int) ReconstructorDesdeXml.generarObjeto(atributos.get("nivelActual"));
+		this.enCurso = false;
+		return this;
+	}	
 }

@@ -13,7 +13,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
-		this.escenario = new Escenario(new Rectangle(100, 100));
+		this.escenario = new Escenario(new Rectangle(200, 200));
 	}
 
 	@Override

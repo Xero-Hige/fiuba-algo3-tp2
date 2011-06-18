@@ -1,6 +1,7 @@
 package tp2.modelo.menues.menuPrincipal;
 
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
+import tp2.modelo.especificaciones.DimensionesDeVentana;
 import tp2.modelo.menues.MenuI;
 import tp2.modelo.menues.MenuItem;
 import tp2.modelo.menues.menuCreditos.MenuCreditos;
@@ -14,8 +15,10 @@ public class MenuPrincipalItemCreditos extends MenuItem {
 	public MenuPrincipalItemCreditos(VentanaPrincipal ventanaPrincipal, MenuI menuDelItem) {
 		
 		super(ventanaPrincipal, menuDelItem);
-		this.setX((500 / 2) - (234 / 2));
-		this.setY(323);
+		
+		// Establecemos el item sobre la pantalla con sus respectivas coordenadas de alineación.
+		this.setX(DimensionesDeVentana.centroX);
+		this.setY(330);
 
 		this.setVistaMenuItem(new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenuPrincipal.nuevaImagenItemCreditosOut(),

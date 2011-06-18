@@ -3,6 +3,7 @@ package tp2.vista.ventanas;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import tp2.modelo.especificaciones.DimensionesDeVentana;
 import tp2.modelo.menues.menuPrincipal.MenuPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
@@ -20,7 +21,7 @@ public class VentanaPrincipal extends Ventana {
 		
 	public VentanaPrincipal(ControladorJuego unControladorJuego) {
 		
-		super(500, 530, unControladorJuego);
+		super(DimensionesDeVentana.ancho, DimensionesDeVentana.alto, unControladorJuego);
 		this.setTitle("Algo42");
 		this.setResizable(false);
 		this.controladorJuego = unControladorJuego;

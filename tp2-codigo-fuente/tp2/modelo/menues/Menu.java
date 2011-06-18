@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import tp2.modelo.especificaciones.DimensionesDeVentana;
 import tp2.vista.menues.VistaMenuI;
 import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.Dibujable;
@@ -33,12 +35,12 @@ public abstract class Menu implements MenuI, Posicionable  {
 	
 	@Override
 	public int getX() {
-		return 0;
+		return DimensionesDeVentana.centroX;
 	}
 
 	@Override
 	public int getY() {
-		return 0;
+		return DimensionesDeVentana.centroY;
 	}
 	
 	public VentanaPrincipal getVentanaPrincipal() {

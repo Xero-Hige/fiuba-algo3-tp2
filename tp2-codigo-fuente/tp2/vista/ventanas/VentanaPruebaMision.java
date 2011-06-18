@@ -1,5 +1,6 @@
 package tp2.vista.ventanas;
 
+import tp2.modelo.especificaciones.DimensionesDeVentana;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.vista.Ventana;
 
@@ -11,8 +12,8 @@ public class VentanaPruebaMision extends Ventana {
 	private Object controlKeyPressActivo;
 	private Object controlMouseClickActivo;
 	
-	private static int anchoVentana = 500;
-	private static int altoVentana = 500;
+	private static int anchoVentana = DimensionesDeVentana.ancho;
+	private static int altoVentana = DimensionesDeVentana.alto;
 
 	public VentanaPruebaMision(ControladorJuego unControladorJuego) {
 		super(anchoVentana, altoVentana + 30, unControladorJuego);

@@ -31,11 +31,11 @@ public class ProgramaMision {
 		// Al llegar al menú de misión, dicho menú se encargará de crear la misión (de acuerdo al nivel de la partida que estará en su menú padre de partida), lo cual va a generar las naves como hacemos en este programa de prueba.
 		FabricaDeNaves fabrica = new FabricaDeNaves(controlador.getEscenario(), "equipo1", null);
 		
-		NaveMilitarControlada algo42 = fabrica.crearAlgo42En(new Point(45, 10));
+		NaveMilitarControlada algo42 = fabrica.crearAlgo42En(new Point(90, 7));
 		
 		fabrica.setEquipoDeLaNave("equipo2");
 		
-//		Nave explorador = fabrica.crearExploradorEn(new Point(-30, 45));
+		Nave explorador = fabrica.crearExploradorEn(new Point(-10, 65));
 //		Nave explorador2 = fabrica.crearExploradorEn(new Point(-40, 15));
 //		Nave avioneta = fabrica.crearBombarderoEn(new Point(10, 50));
 		List<NaveEnemiga> grupoCaza = fabrica.crearGrupoCazaEn(new Point(30,50));
@@ -43,7 +43,7 @@ public class ProgramaMision {
 		algo42.iniciarFuego();
 		
 		controlador.getEscenario().agregarObjeto(algo42);
-//		controlador.getEscenario().agregarObjeto(explorador);
+		controlador.getEscenario().agregarObjeto(explorador);
 //		controlador.getEscenario().agregarObjeto(explorador2);
 //		controlador.getEscenario().agregarObjeto(avioneta);
 		

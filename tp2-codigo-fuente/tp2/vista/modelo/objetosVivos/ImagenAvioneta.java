@@ -1,14 +1,19 @@
 package tp2.vista.modelo.objetosVivos;
 
+import tp2.modelo.especificaciones.ValoresDeNaves;
+import tp2.vista.modelo.ArchivosDeImagenes;
+import tp2.vista.modelo.FactoresDeImagenes;
+import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 
 public class ImagenAvioneta extends Imagen {
 	
-	public static ImagenAvioneta imagenPrincipal; 
+	private static ImagenAvioneta imagenPrincipal;
+	private static ImagenEscalable imagenEscalable;
 
 	private ImagenAvioneta() {
-		this.setNombreArchivoImagen("/tp2/vista/imagenes/modelo/aeronaves/avioneta.png");
+		this.setNombreArchivoImagen(ArchivosDeImagenes.IMAGEN_AVIONETA);
 	}
 
 	private ImagenAvioneta(Imagen imagen) {
@@ -17,13 +22,15 @@ public class ImagenAvioneta extends Imagen {
 	
 	private static void crearImagenAvioneta(){
 		imagenPrincipal = new ImagenAvioneta();
+		imagenEscalable = new ImagenEscalable(imagenPrincipal);
 	}
 	
 	public static ImagenAvioneta nuevaImagen(){
 		if(imagenPrincipal == null){
 			crearImagenAvioneta();
 		}
-		return new ImagenAvioneta(imagenPrincipal);
+		int tamanioImagen = (int) (FactoresDeImagenes.FACTOR_AVIONETA * 2 * ValoresDeNaves.avionetaTamanio * ProyeccionSobreSuperficieDeDibujo.getEscalaX());
+		return new ImagenAvioneta(imagenEscalable.getImagenEscalada(tamanioImagen));
 	}
 
 }

@@ -67,7 +67,6 @@ public class ProgramaMision {
 		controlador.agregarDibujable(vistaNube2);
 		controlador.agregarObjetoVivo(nube2);
 		
-		
 		controlador.setIntervaloSimulacion(ReferenciasDeTiempo.intervaloDeSimulacion);
 		controlador.comenzarJuego();
 	}

@@ -4,9 +4,10 @@ import ar.uba.fi.algo3.titiritero.*;
 import tp2.auxiliares.Point;
 import tp2.modelo.especificaciones.ReferenciasDeTiempo;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.IGuardable;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 
-public abstract class ObjetoEspacial implements Visible, ObjetoVivo{
+public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
 
 	private Point posicion;
 	private double tamanio;

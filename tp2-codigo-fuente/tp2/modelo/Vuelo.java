@@ -2,13 +2,14 @@ package tp2.modelo;
 
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.VueloIniciado;
+import tp2.persistencia.IGuardable;
 
-public abstract class Vuelo {
+public abstract class Vuelo implements IGuardable{
 
-	private ObjetoVolador objetoVolador;
-	private boolean iniciado;
-	private Point origen;
-	private double trayectoriaDeVuelo;
+	protected ObjetoVolador objetoVolador;
+	protected boolean iniciado;
+	protected Point origen;
+	protected double trayectoriaDeVuelo;
 
 	// Inicializa un vuelo del objeto volador recibido.
 	public Vuelo(ObjetoVolador objetoVolador) {
@@ -60,5 +61,4 @@ public abstract class Vuelo {
 	protected void aumentarTrayectoriaEn(double unaLongitud){
 		this.trayectoriaDeVuelo = this.trayectoriaDeVuelo + unaLongitud;
 	}
-
 }

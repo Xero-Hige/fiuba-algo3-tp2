@@ -1,12 +1,21 @@
 package tp2.modelo;
 
+import java.awt.Rectangle;
+import java.util.Collection;
 import java.util.LinkedList;
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.ComposicionIncompleta;
 import tp2.modelo.excepciones.ObjetoDesconocido;
 import tp2.modelo.excepciones.ValorInvalido;
 import tp2.modelo.excepciones.VueloNoIniciado;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 public class VueloCompuesto extends Vuelo {
 
@@ -90,5 +99,34 @@ public class VueloCompuesto extends Vuelo {
 			this.trayectoriasDeVuelo.offer(longitudTrayectoria);
 		}
 	}
+	
+	@Override
+	public Element guardar(Element contenedor) {		
+			
+		contenedor.appendChild(GeneradorXml.generarElementoDe(objetoVolador, "objetoVolador"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(iniciado, "iniciado"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(origen, "origen"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(trayectoriaDeVuelo, "trayectoriaDeVuelo"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(vuelos, "vuelos"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(trayectoriasDeVuelo, "trayectoriasDeVuelo"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(vueloActual, "vueloActual"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(trayectoriaDeVueloActual, "trayectoriaDeVueloActual"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		this.objetoVolador = (ObjetoVolador) ReconstructorDesdeXml.generarObjeto(atributos.get("objetoVolador"));
+		this.iniciado = (boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("iniciado"));
+		this.origen = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("origen"));
+		this.trayectoriaDeVuelo = (int) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriaDeVuelo"));
+		this.vuelos = (LinkedList<Vuelo>) ReconstructorDesdeXml.generarObjeto(atributos.get("vuelos"));
+		this.trayectoriasDeVuelo = (LinkedList<Double>) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriasDeVuelo"));
+		this.vueloActual = (Vuelo) ReconstructorDesdeXml.generarObjeto(atributos.get("vueloActual"));
+		this.trayectoriaDeVueloActual = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriaDeVueloActual"));
+		
+		return this;
+	}	
 
 }

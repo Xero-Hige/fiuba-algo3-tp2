@@ -3,13 +3,20 @@ package tp2.modelo;
 import java.awt.Rectangle;
 import java.util.*;
 
-import tp2.modelo.excepciones.ObjetoDesconocido;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
-// El escenario es el lugar en donde viven todos los objetos espaciales que 
-// pueden actuar e interactuar entre sí. Un objeto de esta clase puede simular 
-// la vida de dichos objetos a lo largo del tiempo, y ellos a la vez pueden 
-// comunicarse con él.
-public class Escenario {
+import tp2.modelo.excepciones.ObjetoDesconocido;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
+
+/** El escenario es el lugar en donde viven todos los objetos espaciales que 
+* pueden actuar e interactuar entre sí. Un objeto de esta clase puede simular 
+* la vida de dichos objetos a lo largo del tiempo, y ellos a la vez pueden 
+* comunicarse con él.*/
+
+public class Escenario implements IGuardable  {
 
 	// Es el área rectangular asignada de combate.
 	private Rectangle areaDeCombate;
@@ -28,7 +35,7 @@ public class Escenario {
 	// Constructor
 	// Crea un nuevo escenario cuya área de combate está definida por el
 	// rectángulo recibido.
-	public Escenario(Rectangle areaDeCombate) {
+	public Escenario(Rectangle areaDeCombate){
 		objetos = new HashMap<ObjetoEspacial, Integer>();
 		this.proximoId = 1;
 		this.puntuacion = 0;
@@ -150,4 +157,28 @@ public class Escenario {
 		return areaDeCombate;
 	}
 
+	@Override
+	public Element guardar(Element contenedor) {		
+	
+		contenedor.appendChild(GeneradorXml.generarElementoDe(objetos, "objetos"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(proximoId, "proximoId"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(puntuacion, "puntuacion"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(areaDeCombate, "areaDeCombate"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(objetosCreados, "objetosCreados"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(objetosMuertos, "objetosMuertos"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		objetos = (Map<ObjetoEspacial, Integer>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetos"));
+		this.proximoId = (int) ReconstructorDesdeXml.generarObjeto(atributos.get("proximoId"));
+		this.puntuacion = (int) ReconstructorDesdeXml.generarObjeto(atributos.get("puntuacion"));
+		this.areaDeCombate = (Rectangle) ReconstructorDesdeXml.generarObjeto(atributos.get("areaDeCombate"));
+		this.objetosCreados = (Collection<ObjetoEspacial>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetosCreados"));
+		this.objetosMuertos = (Collection<ObjetoEspacial>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetosMuertos"));
+		
+		return this;
+	}	
 }

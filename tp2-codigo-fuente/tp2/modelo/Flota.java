@@ -2,12 +2,18 @@ package tp2.modelo;
 
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 import java.util.*;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 // Una flota es un grupo de naves militares. La misma puede dar órdenes a todos 
 // sus miembros cuando sea necesario.
-public class Flota {
+public class Flota implements IGuardable{
 
 	private NaveMilitar naveGuia;
 	private List<NaveMilitar> navesMilitares;
@@ -59,5 +65,21 @@ public class Flota {
 	public List<NaveMilitar> getNaves(){
 		return this.navesMilitares;
 	}
+
+	@Override
+	public Element guardar(Element contenedor) {		
+			
+		contenedor.appendChild(GeneradorXml.generarElementoDe(naveGuia, "naveGuia"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(navesMilitares, "navesMilitares"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		this.naveGuia = (NaveMilitar) ReconstructorDesdeXml.generarObjeto(atributos.get("naveGuia"));
+		this.navesMilitares = (List<NaveMilitar>) ReconstructorDesdeXml.generarObjeto(atributos.get("navesMilitares"));
+		return this;
+	}	
 	
 }

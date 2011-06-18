@@ -25,7 +25,7 @@ public class ProgramaMision {
 		controlador.setSuperficieDeDibujo(ventana);
 		ventana.setVisible(true);
 		
-		VistaAgua vistaAgua = new VistaAgua(new Agua());
+		VistaAgua vistaAgua = new VistaAgua(new Agua(controlador.getEscenario()));
 		controlador.agregarDibujable(vistaAgua);
 				
 		// Al llegar al menú de misión, dicho menú se encargará de crear la misión (de acuerdo al nivel de la partida que estará en su menú padre de partida), lo cual va a generar las naves como hacemos en este programa de prueba.
@@ -67,7 +67,7 @@ public class ProgramaMision {
 		controlador.agregarObjetoVivo(nube2);
 		
 		
-		controlador.setIntervaloSimulacion(10);
+		controlador.setIntervaloSimulacion(20);
 		controlador.comenzarJuego();
 	}
 

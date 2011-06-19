@@ -59,9 +59,7 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
 	public abstract void actuarDurante(double unTiempo);
 
 	@Override
-	public void vivir() {
-		this.actuarDurante(ReferenciasDeTiempo.tiempoDeActuacion);
-	}
+	public void vivir() {}
 
 	// Hace chocar al objeto recibido con el receptor del mensaje. Ambos sufren
 	// el efecto del mismo según cómo esté definido su comportamiento ante el

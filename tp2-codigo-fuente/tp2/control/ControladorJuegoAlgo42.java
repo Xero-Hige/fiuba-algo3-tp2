@@ -58,6 +58,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 				// Fin Creamos círculo para observar la forma del modelo (en esta prueba)
 				this.removerVista(objetoMuerto);
 			}
+			this.escenario.avanzarTiempoEn(this.getIntervaloSimulacion() / 1000.0);
 			super.comenzarJuego(1);
 		} while (this.estaEnEjecucion());
 	}

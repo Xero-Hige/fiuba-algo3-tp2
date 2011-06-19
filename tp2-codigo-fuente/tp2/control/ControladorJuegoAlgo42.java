@@ -13,7 +13,6 @@ import tp2.modelo.extras.ObjetosExplosivos;
 import tp2.vista.modelo.ParserObjetoIdAVista;
 import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
-import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujoStatic;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
@@ -69,8 +68,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		// Borrar después:
 		if (vista == null) {
 			vista = new Circulo(
-					(int) (objeto.getTamanio() * ProyeccionSobreSuperficieDeDibujoStatic
-							.getEscalaX()));
+					(int) (objeto.getTamanio() * proyeccion.getEscalaX()));
 		}
 		// Fin borrar después.
 		vista.setPosicionable(objeto);

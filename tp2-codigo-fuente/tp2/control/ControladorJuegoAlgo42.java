@@ -29,6 +29,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private Map<Visible, Dibujable> vistas = new HashMap<Visible, Dibujable>();
 	private ProyeccionSobreSuperficieDeDibujo proyeccion;
 	private Mision mision;
+	private HashMap<Visible, Dibujable> auxiliar; // BORRAR después
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
@@ -37,38 +38,42 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	@Override
 	public void setSuperficieDeDibujo(SuperficieDeDibujo superficieDeDibujo) {
 		super.setSuperficieDeDibujo(superficieDeDibujo);
-		this.proyeccion = new ProyeccionSobreSuperficieDeDibujo(this.escenario.getAreaDeCombate(), new Rectangle(DimensionesDeVentana.ancho, DimensionesDeVentana.alto));
 	}
 
 	@Override
 	public void comenzarJuego() {
-		this.construirVistasDeFondo();
-		Map<Visible, Dibujable> auxiliar = new HashMap<Visible, Dibujable>();
+		this.auxiliar = new HashMap<Visible, Dibujable>();
 		do {
-			Collection<ObjetoEspacial> objetosCreados = this.escenario.getObjetosCreados();
-			Collection<ObjetoEspacial> objetosMuertos = this.escenario.getObjetosMuertos();
-			for(ObjetoEspacial objetoCreado: objetosCreados){
-				this.agregarObjetoVivo(objetoCreado);
-				// Creamos círculo para observar la forma del modelo (en esta prueba)
-				Dibujable circulo = new Circulo((int)(objetoCreado.getTamanio() * proyeccion.getEscalaX()));
-				circulo.setPosicionable(objetoCreado);
-				this.agregarDibujable(circulo);
-				auxiliar.put(objetoCreado, circulo);
-				// Fin Creamos círculo para observar la forma del modelo (en esta prueba)
-				this.agregarNuevaVista(objetoCreado);
+			if(this.mision != null){
+				this.simularJuego();
 			}
-			for(ObjetoEspacial objetoMuerto: objetosMuertos){
-				this.removerObjetoVivo(objetoMuerto);
-				// Creamos círculo para observar la forma del modelo (en esta prueba)
-				this.removerDibujable(auxiliar.get(objetoMuerto));
-				// Fin Creamos círculo para observar la forma del modelo (en esta prueba)
-				this.removerVista(objetoMuerto);
-			}
-			this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
 			super.comenzarJuego(1);
 		} while (this.estaEnEjecucion());
 	}
 	
+	private void simularJuego() {
+		Collection<ObjetoEspacial> objetosCreados = this.escenario.getObjetosCreados();
+		Collection<ObjetoEspacial> objetosMuertos = this.escenario.getObjetosMuertos();
+		for(ObjetoEspacial objetoCreado: objetosCreados){
+			this.agregarObjetoVivo(objetoCreado);
+			// Creamos círculo para observar la forma del modelo (borrar después)
+			Dibujable circulo = new Circulo((int)(objetoCreado.getTamanio() * proyeccion.getEscalaX()));
+			circulo.setPosicionable(objetoCreado);
+			this.agregarDibujable(circulo);
+			auxiliar.put(objetoCreado, circulo);
+			// Fin Creamos círculo para observar la forma del modelo (borrar después)
+			this.agregarNuevaVista(objetoCreado);
+		}
+		for(ObjetoEspacial objetoMuerto: objetosMuertos){
+			this.removerObjetoVivo(objetoMuerto);
+			// Creamos círculo para observar la forma del modelo (borrar después)
+			this.removerDibujable(auxiliar.get(objetoMuerto));
+			// Fin Creamos círculo para observar la forma del modelo (borrar después)
+			this.removerVista(objetoMuerto);
+		}
+		this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
+	}
+
 	private void construirVistasDeFondo() {
 		Agua agua = new Agua(this.escenario);
 		this.agregarNuevaVista(agua);
@@ -117,6 +122,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	public void setMision(Mision mision) {
 		this.mision = mision;
 		this.escenario = mision.getEscenario();
+		this.proyeccion = new ProyeccionSobreSuperficieDeDibujo(this.escenario.getAreaDeCombate(), new Rectangle(DimensionesDeVentana.ancho, DimensionesDeVentana.alto));
+		this.construirVistasDeFondo();
 	}
 
 }

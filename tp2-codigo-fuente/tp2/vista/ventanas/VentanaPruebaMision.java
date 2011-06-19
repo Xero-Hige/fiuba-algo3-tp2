@@ -15,7 +15,6 @@ public class VentanaPruebaMision extends Ventana {
 
 	public VentanaPruebaMision(ControladorJuego unControladorJuego) {
 		super(anchoVentana, altoVentana + DimensionesDeVentana.altoBarraDeVentana, unControladorJuego);
-		ProyeccionSobreSuperficieDeDibujoStatic.setSuperficieDeDibujo(anchoVentana, altoVentana);
 		this.setTitle("Algo42");
 		this.setResizable(false);
 		this.controladorJuego = unControladorJuego;

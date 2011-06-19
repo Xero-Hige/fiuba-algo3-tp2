@@ -38,10 +38,11 @@ public class ProgramaMision {
 		
 		Nave explorador = fabrica.crearExploradorEn(new Point(-10, 65));
 		Nave explorador2 = fabrica.crearExploradorEn(new Point(-40, 15));
-		Nave bombardero = fabrica.crearBombarderoEn(new Point(40, 90));
+		NaveMilitar bombardero = fabrica.crearBombarderoEn(new Point(40, 90));
 		List<NaveEnemiga> grupoCaza = fabrica.crearGrupoCazaEn(new Point(30,50));
 		
 		algo42.iniciarFuego();
+		bombardero.iniciarFuego();
 		
 		controlador.getEscenario().agregarObjeto(algo42);
 		controlador.getEscenario().agregarObjeto(explorador);

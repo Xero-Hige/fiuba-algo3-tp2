@@ -95,8 +95,7 @@ public class Arma extends Movil {
 	// tiempo que haya transcurrido. Si el arma no pertenece a ninguna nave, entonces 
 	// se queda quieta.
 	public void moverDurante(double unTiempo) {
-		
-		if (!(this.naveDuenia == null))
+		if (this.naveDuenia != null)
 			this.setPosicion(this.naveDuenia.getPosicion());
 	}
 	

@@ -8,7 +8,6 @@ import ar.uba.fi.algo3.titiritero.vista.Imagen;
 public class ImagenEscalable extends Imagen {
 	
 	private Imagen imagenEscalada;
-	private double escalaActual;
 	private double tamanioActual;
 
 	public ImagenEscalable(Imagen imagen) {

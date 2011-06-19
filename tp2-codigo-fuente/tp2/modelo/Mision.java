@@ -43,7 +43,7 @@ public class Mision implements IGuardable {
 				.getCenterX(), ValoresDeNaves.algo42Tamanio * 2);
 		NaveMilitarControlada naveDelJugador = this.fabricaJugador
 				.crearAlgo42En(posicion);
-		return null;
+		return naveDelJugador;
 	}
 
 	private Flota nuevaFlotaEnemiga() {
@@ -66,7 +66,7 @@ public class Mision implements IGuardable {
 	// puntos, se avanza al siguiente nivel. Si se destruyó al guía enemigo, se
 	// inicia una nueva ronda, mientras las naves de la flota anterior viajan
 	// abandonando elescenario.
-	public void simularDurante(Integer unTiempo) {
+	public void simularDurante(double unTiempo) {
 		this.tiempoActual += unTiempo;
 		Double proximoTiempoDeSpawn = this.tiemposDeSpawn.peek();
 		while((proximoTiempoDeSpawn != null) && (this.tiempoActual >= proximoTiempoDeSpawn)){
@@ -78,6 +78,10 @@ public class Mision implements IGuardable {
 			proximoTiempoDeSpawn = this.tiemposDeSpawn.peek();
 		}
 		this.escenario.avanzarTiempoEn(unTiempo);
+	}
+
+	public Escenario getEscenario() {
+		return escenario;
 	}
 
 	public Jugador getJugador() {

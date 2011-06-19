@@ -6,11 +6,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import tp2.modelo.Escenario;
+import tp2.modelo.Mision;
 import tp2.modelo.Visible;
 import tp2.modelo.ObjetoEspacial;
+import tp2.modelo.extras.Agua;
 import tp2.modelo.extras.Explosion;
+import tp2.modelo.extras.Nube;
 import tp2.modelo.extras.ObjetosExplosivos;
 import tp2.vista.modelo.ParserObjetoIdAVista;
+import tp2.vista.modelo.extras.VistaNubeTipo1;
+import tp2.vista.modelo.extras.VistaNubeTipo2;
 import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
@@ -23,10 +28,10 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private Escenario escenario;
 	private Map<Visible, Dibujable> vistas = new HashMap<Visible, Dibujable>();
 	private ProyeccionSobreSuperficieDeDibujo proyeccion;
+	private Mision mision;
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
-		this.escenario = new Escenario(new Rectangle(140, 140));
 	}
 
 	@Override
@@ -37,6 +42,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 
 	@Override
 	public void comenzarJuego() {
+		this.construirVistasDeFondo();
 		Map<Visible, Dibujable> auxiliar = new HashMap<Visible, Dibujable>();
 		do {
 			Collection<ObjetoEspacial> objetosCreados = this.escenario.getObjetosCreados();
@@ -58,11 +64,28 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 				// Fin Creamos círculo para observar la forma del modelo (en esta prueba)
 				this.removerVista(objetoMuerto);
 			}
-			this.escenario.avanzarTiempoEn(this.getIntervaloSimulacion() / 1000.0);
+			this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
 			super.comenzarJuego(1);
 		} while (this.estaEnEjecucion());
 	}
 	
+	private void construirVistasDeFondo() {
+		Agua agua = new Agua(this.escenario);
+		this.agregarNuevaVista(agua);
+		
+		VistaNubeTipo1 vistaNube1 = new VistaNubeTipo1();
+		Nube nube1 = new Nube(-10, -100, 600, 5);
+		vistaNube1.setPosicionable(nube1);
+		this.agregarDibujable(vistaNube1);
+		this.agregarObjetoVivo(nube1);
+		
+		VistaNubeTipo2 vistaNube2 = new VistaNubeTipo2();
+		Nube nube2 = new Nube(300, -300, 700, 6);
+		vistaNube2.setPosicionable(nube2);
+		this.agregarDibujable(vistaNube2);
+		this.agregarObjetoVivo(nube2);
+	}
+
 	public void agregarNuevaVista(Visible objeto){
 		objeto.setProyeccion(proyeccion);
 		Dibujable vista = ParserObjetoIdAVista.getVista(objeto, proyeccion);
@@ -87,8 +110,13 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		}
 	}
 
-	public Escenario getEscenario() {
-		return escenario;
+	public Mision getMision() {
+		return mision;
+	}
+
+	public void setMision(Mision mision) {
+		this.mision = mision;
+		this.escenario = mision.getEscenario();
 	}
 
 }

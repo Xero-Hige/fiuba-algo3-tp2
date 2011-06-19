@@ -1,5 +1,8 @@
 package tp2;
 
+import java.io.IOException;
+import java.util.HashMap;
+
 import tp2.control.ControladorJuegoAlgo42;
 import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
@@ -9,12 +12,22 @@ public class Programa {
 
 	public static void main(String[] args) {
 		
-		ControladorJuego controlador = new ControladorJuegoAlgo42(false);
-		Ventana ventana = new VentanaPrincipal(controlador);
-		controlador.setSuperficieDeDibujo(ventana);
-		ventana.setVisible(true);
+//		ControladorJuego controlador = new ControladorJuegoAlgo42(false);
+//		Ventana ventana = new VentanaPrincipal(controlador);
+//		controlador.setSuperficieDeDibujo(ventana);
+//		ventana.setVisible(true);
+//		
+//		controlador.setIntervaloSimulacion(20);
+//		controlador.comenzarJuego();
 		
-		controlador.setIntervaloSimulacion(20);
-		controlador.comenzarJuego();
+		HashMap<String, String> a = null;
+		
+		try {
+			a = BuscadorDeArchivos.getArchivos("/Fakultad", "st");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(a.toString());
 	}
 }

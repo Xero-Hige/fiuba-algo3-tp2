@@ -1,33 +1,42 @@
 package tp2;
 import java.io.File;
-import java.util.Collection;
-import java.util.Iterator;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.util.HashMap;
 
-/**Finds files within a root directory and optionally its
-*subdirectories which match an array of extensions. When the
-*extensions is null all files will be returned.
-
-*This method will returns matched file as java.io.File */
+/**
+ * Objeto para buscar archivos con una determinada extension
+ *  */
 
 public class BuscadorDeArchivos{
 	
-	public static void main(String[] args) {
-		File root = new File("/home/foobar/Personal/Examples");
+	public static HashMap<String, String> getArchivos(final String nombreDirectorio,final String extension) throws IOException{
 		
-		try {
-			String[] extensions = {"xml", "java", "dat"};
-			boolean recursive = true;
-
-
-
-
-Collection files = FileUtils.listFiles(root, extensions, recursive);
-for (Iterator iterator = files.iterator(); iterator.hasNext();) {
-File file = (File) iterator.next();
-System.out.println("File = " + file.getAbsolutePath());
-}
-} catch (Exception e) {
-e.printStackTrace();
-}
-}
+		// Creo un filtro para los archivos
+		final FilenameFilter filtro = new FilenameFilter(){
+			//Redefino el metodo accept de el filtro
+			public boolean accept(File directorio, String nombre) {
+				return nombre.endsWith("."+extension);
+			}
+		};
+		
+		HashMap<String,String> diccionario = new HashMap<String,String>();
+	
+		File directorio = new File(nombreDirectorio);
+		
+		String[] directorios = directorio.list(filtro);
+		
+		if (directorios == null) {
+			//Si el directorio no existe, el parametro no es un directorio o no hay archivos
+			throw new IOException("No hay archivos con esa extension");
+		}
+		
+		for (int i=0; i<directorios.length; i++) {
+	        //Obtengo el nombre de los archivos 
+	        String nombreArchivo = directorios[i];
+	        diccionario.put(nombreArchivo, nombreDirectorio+"/"+nombreArchivo);
+	    }
+		
+		return diccionario;
+	};
 }

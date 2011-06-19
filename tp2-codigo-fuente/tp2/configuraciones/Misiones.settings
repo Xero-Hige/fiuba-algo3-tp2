@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Misiones>
+  <Mision001>
+    <Flota tiempo="0001">
+      <Bombardero guia="Yes">
+        <Posicion>
+          <X>67</X>
+          <Y>143</Y>
+        </Posicion>
+      </Bombardero>
+      <Caza>
+        <Posicion>
+          <X>100</X>
+          <Y>200</Y>
+        </Posicion>>
+      </Caza>
+      <Avioneta>
+        <X>150</X>
+        <Y>340</Y>
+      </Avioneta>
+    </Flota>
+    <Flota tiempo="0025">
+      <Bombardero guia="Yes">
+        <Posicion>
+          <X>67</X>
+          <Y>143</Y>
+        </Posicion>
+      </Bombardero>
+      <Caza>
+        <Posicion>
+          <X>100</X>
+          <Y>200</Y>
+        </Posicion>>
+      </Caza>
+      <Avioneta>
+        <X>150</X>
+        <Y>340</Y>
+      </Avioneta>
+    </Flota>
+  </Mision001>
+  <Mision002>
+    <Flota tiempo="0011">
+      <Bombardero guia="Yes">
+        <Posicion>
+          <X>67</X>
+          <Y>143</Y>
+        </Posicion>
+      </Bombardero>
+      <Caza>
+        <Posicion>
+          <X>100</X>
+          <Y>200</Y>
+        </Posicion>>
+      </Caza>
+      <Avioneta>
+        <X>150</X>
+        <Y>340</Y>
+      </Avioneta>
+    </Flota>
+    <Flota tiempo="0003">
+      <Bombardero guia="Yes">
+        <Posicion>
+          <X>67</X>
+          <Y>143</Y>
+        </Posicion>
+      </Bombardero>
+      <Caza>
+        <Posicion>
+          <X>100</X>
+          <Y>200</Y>
+        </Posicion>>
+      </Caza>
+      <Avioneta>
+        <X>150</X>
+        <Y>340</Y>
+      </Avioneta>
+    </Flota>
+  </Mision002>
+</Misiones>

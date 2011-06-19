@@ -96,14 +96,10 @@ public class Mision implements IGuardable {
 
 	@Override
 	public Element guardar(Element contenedor) {
-		contenedor.appendChild(GeneradorXml.generarElementoDe(escenario,
-				"escenario"));
-		contenedor.appendChild(GeneradorXml.generarElementoDe(escenario,
-				"flotaEnemiga"));
-		contenedor.appendChild(GeneradorXml.generarElementoDe(flotaAliada,
-				"flotaAliada"));
-		contenedor.appendChild(GeneradorXml.generarElementoDe(jugador,
-				"jugador"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(escenario,"escenario"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(escenario,"flotaEnemiga"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(flotaAliada,"flotaAliada"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(jugador,"jugador"));
 		return contenedor;
 	}
 

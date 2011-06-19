@@ -10,6 +10,8 @@ import java.util.HashMap;
 
 public class BuscadorDeArchivos{
 	
+	/**
+	 * Busca todos los archivos en el directorio seleccionado con la extension declarada*/
 	public static HashMap<String, String> getArchivos(final String nombreDirectorio,final String extension) throws IOException{
 		
 		// Creo un filtro para los archivos

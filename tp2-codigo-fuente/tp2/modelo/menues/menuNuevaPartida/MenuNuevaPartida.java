@@ -28,25 +28,6 @@ public class MenuNuevaPartida extends Menu {
 		
 		this.setVistaMenu(vistaIniciandoPartida);
 		this.getVistaMenu().setPosicionable(this);
-		
-		this.iniciarNuevaPartida();
-	}
-
-	public void iniciarNuevaPartida() {
-			
-		Escenario escenario = new Escenario(new Rectangle(140, 140));
-		Mision mision = new Mision(escenario);
-		
-		Map<Double, Collection<ParCadenaPosicion>> datos = new HashMap<Double, Collection<ParCadenaPosicion>>();
-		ParCadenaPosicion par = new ParCadenaPosicion("asdf Falta hacer parser", new Point(40, 100));
-		for(int i = 0; i < 30; i++){
-			Collection<ParCadenaPosicion> lista = new ArrayList<ParCadenaPosicion>();
-			lista.add(par);
-			datos.put((double)i, lista);
-		}
-		mision.generar(datos);
-		this.getVentanaPrincipal().getControladorJuego().setMision(mision);
-		
 	}
 	
 	@Override
@@ -64,7 +45,34 @@ public class MenuNuevaPartida extends Menu {
 	
 	@Override
 	public void mostrar() {
+		
+		// Mostramos pantalla de cargando nueva partida
 		this.getVentanaPrincipal().agregarObjetoDibujable((Dibujable) this.getVistaMenu());
 		this.getVentanaPrincipal().agregarObjetosDibujables(this.getVistaMenu().getObjetosDibujables());
+		
+		// Cargamos la nueva partida
+		this.iniciarNuevaPartida();
+		
+		// Removemos la pantalla de cargando nueva partida
+		this.getVentanaPrincipal().removerObjetoDibujable((Dibujable) this.getVistaMenu());
+		this.getVentanaPrincipal().removerObjetosDibujables(this.getVistaMenu().getObjetosDibujables());
+	}
+	
+	public void iniciarNuevaPartida() {
+		
+		Escenario escenario = new Escenario(new Rectangle(140, 140));
+		Mision mision = new Mision(escenario);
+		
+		Map<Double, Collection<ParCadenaPosicion>> datos = new HashMap<Double, Collection<ParCadenaPosicion>>();
+		ParCadenaPosicion par = new ParCadenaPosicion("asdf Falta hacer parser", new Point(40, 100));
+		
+		for(int i = 0; i < 30; i++){
+			Collection<ParCadenaPosicion> lista = new ArrayList<ParCadenaPosicion>();
+			lista.add(par);
+			datos.put((double)i, lista);
+		}
+		
+		mision.generar(datos);
+		this.getVentanaPrincipal().getControladorJuego().setMision(mision);
 	}
 }

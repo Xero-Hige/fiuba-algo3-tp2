@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.HashMap;
 
 import tp2.control.ControladorJuegoAlgo42;
+import tp2.modelo.especificaciones.ReferenciasDeTiempo;
 import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.vista.Ventana;
@@ -18,7 +19,7 @@ public class Programa {
 		controlador.setSuperficieDeDibujo(ventana);
 		ventana.setVisible(true);
 		
-		controlador.setIntervaloSimulacion(20);
+		controlador.setIntervaloSimulacion(ReferenciasDeTiempo.intervaloDeSimulacion);
 		controlador.comenzarJuego();
 		
 //		HashMap<String, String> a = null;

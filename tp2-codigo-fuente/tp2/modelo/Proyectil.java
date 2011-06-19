@@ -8,7 +8,9 @@ import org.w3c.dom.Node;
 
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.GeneradorXml;
 import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 // Un proyectil es capaz de dañar naves no aliadas al impactar con ellas en el escenario.
 public class Proyectil extends ObjetoVolador implements Cloneable {
@@ -97,14 +99,18 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 
 	@Override
 	public Element guardar(Element contenedor) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(danio, "danio"));
+		return contenedor;
 	}
 
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		super.cargar(atributos);
+		this.danio = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("danio"));
+		return this;
 	}
 
 }

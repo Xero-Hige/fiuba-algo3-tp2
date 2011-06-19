@@ -3,7 +3,6 @@ package tp2.vista.modelo.objetosVivos;
 import tp2.modelo.especificaciones.ValoresDeNaves;
 import tp2.vista.modelo.ArchivosDeImagenes;
 import tp2.vista.modelo.FactoresDeImagenes;
-import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 
@@ -25,11 +24,11 @@ public class ImagenAlgo42 extends Imagen {
 		imagenEscalable = new ImagenEscalable(imagenPrincipal);
 	}
 	
-	public static ImagenAlgo42 nuevaImagen(){
+	public static ImagenAlgo42 nuevaImagen(double escala){
 		if(imagenPrincipal == null){
 			crearImagenAlgo42();
 		}
-		int tamanioImagen = (int) (FactoresDeImagenes.FACTOR_ALGO42 * 2 * ValoresDeNaves.algo42Tamanio * ProyeccionSobreSuperficieDeDibujo.getEscalaX());
+		int tamanioImagen = (int) (FactoresDeImagenes.FACTOR_ALGO42 * 2 * ValoresDeNaves.algo42Tamanio * escala);
 		return new ImagenAlgo42(imagenEscalable.getImagenEscalada(tamanioImagen));
 	}
 

@@ -2,7 +2,7 @@ package tp2.modelo.extras;
 
 import tp2.auxiliares.Point;
 import tp2.modelo.Visible;
-import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
+import tp2.vista.ventanas.Proyeccion;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 public class Explosion implements Visible, ObjetoVivo {
@@ -10,6 +10,7 @@ public class Explosion implements Visible, ObjetoVivo {
 	private Point posicion;
 	private double velocidad;
 	private double tamanio;
+	private Proyeccion proyeccion;
 
 	public Explosion (Visible objeto, double velocidad, double tamanio) {
 		
@@ -20,14 +21,17 @@ public class Explosion implements Visible, ObjetoVivo {
 	
 	@Override
 	public int getX() {
-		return (int) ProyeccionSobreSuperficieDeDibujo.proyectarPunto(
-				this.posicion).getX();
+		return (int) this.proyeccion.proyectarPunto(this.posicion).getX();
 	}
 
 	@Override
 	public int getY() {
-		return (int) ProyeccionSobreSuperficieDeDibujo.proyectarPunto(
-				this.posicion).getY();
+		return (int) this.proyeccion.proyectarPunto(this.posicion).getY();
+	}
+	
+	@Override
+	public void setProyeccion(Proyeccion proyeccion) {
+		this.proyeccion = proyeccion;
 	}
 
 	@Override

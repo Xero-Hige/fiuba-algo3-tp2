@@ -3,7 +3,6 @@ package tp2.vista.modelo.objetosVivos;
 import tp2.modelo.especificaciones.ValoresDeNaves;
 import tp2.vista.modelo.ArchivosDeImagenes;
 import tp2.vista.modelo.FactoresDeImagenes;
-import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 
@@ -25,11 +24,11 @@ public class ImagenBombardero extends Imagen {
 		imagenEscalable = new ImagenEscalable(imagenPrincipal);
 	}
 	
-	public static ImagenBombardero nuevaImagen(){
+	public static ImagenBombardero nuevaImagen(double escala){
 		if(imagenPrincipal == null){
 			crearImagenBombardero();
 		}
-		int tamanioImagen = (int) (FactoresDeImagenes.FACTOR_BOMBARDERO * 2 * ValoresDeNaves.bombarderoTamanio * ProyeccionSobreSuperficieDeDibujo.getEscalaX());
+		int tamanioImagen = (int) (FactoresDeImagenes.FACTOR_BOMBARDERO * 2 * ValoresDeNaves.bombarderoTamanio * escala);
 		return new ImagenBombardero(imagenEscalable.getImagenEscalada(tamanioImagen));
 	}
 

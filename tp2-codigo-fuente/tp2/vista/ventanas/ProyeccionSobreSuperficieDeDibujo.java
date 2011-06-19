@@ -5,20 +5,25 @@ import java.awt.Rectangle;
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.ObjetoDesconocido;
 
-public class ProyeccionSobreSuperficieDeDibujo {
+public class ProyeccionSobreSuperficieDeDibujo implements Proyeccion {
 
-	private static Rectangle superficieDeDibujo;
-	private static Rectangle espacioDelModelo;
+	private Rectangle superficieDeDibujo;
+	private Rectangle espacioDelModelo;
 	
-	public static void setSuperficieDeDibujo(int ancho, int alto) {
-		ProyeccionSobreSuperficieDeDibujo.superficieDeDibujo = new Rectangle(ancho, alto);
+	public ProyeccionSobreSuperficieDeDibujo(Rectangle espacioDelModelo, Rectangle superficieDeDibujo){
+		this.superficieDeDibujo = superficieDeDibujo;
+		this.espacioDelModelo = espacioDelModelo;
+	}
+	
+	public void setSuperficieDeDibujo(int ancho, int alto) {
+		this.superficieDeDibujo = new Rectangle(ancho, alto);
 	}
 
-	public static void setEspacioDelModelo(Rectangle espacioDelModelo) {
-		ProyeccionSobreSuperficieDeDibujo.espacioDelModelo = espacioDelModelo;
+	public void setEspacioDelModelo(Rectangle espacioDelModelo) {
+		this.espacioDelModelo = espacioDelModelo;
 	}
 
-	public static Point proyectarPunto(Point punto){
+	public Point proyectarPunto(Point punto){
 		if(superficieDeDibujo == null){
 			throw new ObjetoDesconocido("Debe definirse la superficie de dibujo.");
 		}
@@ -30,13 +35,13 @@ public class ProyeccionSobreSuperficieDeDibujo {
 		return new Point(x, y);
 	}
 	
-	public static double getEscalaX(){
+	public double getEscalaX(){
 		if((superficieDeDibujo == null) || (espacioDelModelo == null))
 			return 1;
 		return superficieDeDibujo.getWidth() / espacioDelModelo.getWidth();
 	}
 	
-	public static double getEscalaY(){
+	public double getEscalaY(){
 		if((superficieDeDibujo == null) || (espacioDelModelo == null))
 			return 1;
 		return superficieDeDibujo.getHeight() / espacioDelModelo.getHeight();

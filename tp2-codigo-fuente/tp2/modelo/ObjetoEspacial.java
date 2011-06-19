@@ -11,7 +11,7 @@ import tp2.modelo.excepciones.ComposicionIncompleta;
 import tp2.persistencia.GeneradorXml;
 import tp2.persistencia.IGuardable;
 import tp2.persistencia.ReconstructorDesdeXml;
-import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
+import tp2.vista.ventanas.Proyeccion;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
@@ -22,6 +22,7 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
 	private boolean destruido;
 	private ChoqueDeObjetoEspacial comportamientoAlChocar;
 	private String identificacion;
+	private Proyeccion proyeccion;
 
 	// Constructor
 	// Inicializa el objeto con la posición, tamaño y escenario recibidos.
@@ -148,23 +149,19 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
 		this.posicion = posicion;
 	}
 
-	private void asignarEspacioALaProyeccion() {
-		if (this.escenario != null) {
-			ProyeccionSobreSuperficieDeDibujo
-					.setEspacioDelModelo(this.escenario.getAreaDeCombate());
-		}
-	}
-
+	@Override
 	public int getX() {
-		asignarEspacioALaProyeccion();
-		return (int) ProyeccionSobreSuperficieDeDibujo.proyectarPunto(
-				this.posicion).getX();
+		return (int) this.proyeccion.proyectarPunto(this.posicion).getX();
 	}
 
+	@Override
 	public int getY() {
-		asignarEspacioALaProyeccion();
-		return (int) ProyeccionSobreSuperficieDeDibujo.proyectarPunto(
-				this.posicion).getY();
+		return (int) this.proyeccion.proyectarPunto(this.posicion).getY();
+	}
+	
+	@Override
+	public void setProyeccion(Proyeccion proyeccion) {
+		this.proyeccion = proyeccion;
 	}
 
 	public double getTamanio() {

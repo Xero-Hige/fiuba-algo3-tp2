@@ -3,7 +3,6 @@ package tp2.vista.modelo.objetosVivos;
 import tp2.modelo.especificaciones.ValoresDeNaves;
 import tp2.vista.modelo.ArchivosDeImagenes;
 import tp2.vista.modelo.FactoresDeImagenes;
-import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 
@@ -25,11 +24,11 @@ public class ImagenHelicoptero extends Imagen {
 		imagenEscalable = new ImagenEscalable(imagenPrincipal);
 	}
 	
-	public static ImagenHelicoptero nuevaImagen(){
+	public static ImagenHelicoptero nuevaImagen(double escala){
 		if(imagenPrincipal == null){
 			crearImagenHelicoptero();
 		}
-		int tamanioImagen = (int) (FactoresDeImagenes.FACTOR_HELICOPTERO_FEDERAL * 2 * ValoresDeNaves.helicopteroFederalTamanio * ProyeccionSobreSuperficieDeDibujo.getEscalaX());
+		int tamanioImagen = (int) (FactoresDeImagenes.FACTOR_HELICOPTERO_FEDERAL * 2 * ValoresDeNaves.helicopteroFederalTamanio * escala);
 		return new ImagenHelicoptero(imagenEscalable.getImagenEscalada(tamanioImagen));
 	}
 }

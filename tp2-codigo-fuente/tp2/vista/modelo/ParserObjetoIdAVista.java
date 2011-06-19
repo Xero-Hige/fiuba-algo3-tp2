@@ -1,6 +1,7 @@
 package tp2.vista.modelo;
 
 import tp2.modelo.Visible;
+import tp2.vista.modelo.extras.VistaAgua;
 import tp2.vista.modelo.extras.VistaExplosion;
 import tp2.vista.modelo.objetosVivos.VistaAlgo42;
 import tp2.vista.modelo.objetosVivos.VistaAvioneta;
@@ -9,6 +10,7 @@ import tp2.vista.modelo.objetosVivos.VistaCaza;
 import tp2.vista.modelo.objetosVivos.VistaCivil;
 import tp2.vista.modelo.objetosVivos.VistaExplorador;
 import tp2.vista.modelo.objetosVivos.VistaHelicoptero;
+import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
 /**
@@ -19,32 +21,32 @@ import ar.uba.fi.algo3.titiritero.Dibujable;
 public class ParserObjetoIdAVista {
 
 	
-	public static Dibujable getVista(Visible nuevoObjeto) {
+	public static Dibujable getVista(Visible nuevoObjeto, ProyeccionSobreSuperficieDeDibujo proyeccion) {
 		
 		String id = nuevoObjeto.getIdentificacion();
 		
 		// Aeronaves
 		
 		if (id == "Algo42")
-			return new VistaAlgo42();
+			return new VistaAlgo42(proyeccion);
 		
 		else if (id == "Avioneta") 
-			return new VistaAvioneta();
+			return new VistaAvioneta(proyeccion);
 		
 		else if (id == "Bombardero") 
-			return new VistaBombardero();
+			return new VistaBombardero(proyeccion);
 			
 		else if (id == "Caza") 
-			return new VistaCaza();
+			return new VistaCaza(proyeccion);
 			
 		else if (id == "AvionCivil") 
-			return new VistaCivil();
+			return new VistaCivil(proyeccion);
 				
 		else if (id == "Explorador") 
-			return new VistaExplorador();
+			return new VistaExplorador(proyeccion);
 				
 		else if (id == "HelicopteroFederal") 
-			return new VistaHelicoptero();
+			return new VistaHelicoptero(proyeccion);
 		
 		
 		// Bonus extras
@@ -69,6 +71,9 @@ public class ParserObjetoIdAVista {
 		
 		else if (id == "Explosion"){
 			return new VistaExplosion(nuevoObjeto);
+		}
+		else if (id == "Agua"){
+			return new VistaAgua(nuevoObjeto);
 		}
 		
 		// Si no se reconoce el id se devuelve null.

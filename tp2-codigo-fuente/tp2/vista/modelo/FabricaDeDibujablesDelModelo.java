@@ -20,7 +20,7 @@ public class FabricaDeDibujablesDelModelo {
 		ImagenNubeTipo3.nuevaImagen();
 		
 		// Imagenes de aeronaves
-		ImagenAlgo42.nuevaImagen();
+		ImagenAlgo42.nuevaImagen(1);
 		
 		
 		imagenesCargadas = true;
@@ -68,38 +68,38 @@ public class FabricaDeDibujablesDelModelo {
 	// Imagenes de aeronaves
 	////////////////////////////////////////////////////////////
 	
-	public static Dibujable nuevaImagenAlgo42() {
+	public static Dibujable nuevaImagenAlgo42(double escala) {
 		comprobarCargaDeImagenes();
-		return ImagenAlgo42.nuevaImagen();
+		return ImagenAlgo42.nuevaImagen(escala);
 	}
 	
-	public static Dibujable nuevaImagenAvioneta() {
+	public static Dibujable nuevaImagenAvioneta(double escala) {
 		comprobarCargaDeImagenes();
-		return ImagenAvioneta.nuevaImagen();
+		return ImagenAvioneta.nuevaImagen(escala);
 	}
 	
-	public static Dibujable nuevaImagenBombardero() {
+	public static Dibujable nuevaImagenBombardero(double escala) {
 		comprobarCargaDeImagenes();
-		return ImagenBombardero.nuevaImagen();
+		return ImagenBombardero.nuevaImagen(escala);
 	}
 
-	public static Dibujable nuevaImagenCaza() {
+	public static Dibujable nuevaImagenCaza(double escala) {
 		comprobarCargaDeImagenes();
-		return ImagenCaza.nuevaImagen();
+		return ImagenCaza.nuevaImagen(escala);
 	}
 	
-	public static Dibujable nuevaImagenCivil() {
+	public static Dibujable nuevaImagenCivil(double escala) {
 		comprobarCargaDeImagenes();
-		return ImagenCivil.nuevaImagen();
+		return ImagenCivil.nuevaImagen(escala);
 	}
 	
-	public static Dibujable nuevaImagenExplorador() {
+	public static Dibujable nuevaImagenExplorador(double escala) {
 		comprobarCargaDeImagenes();
-		return ImagenExplorador.nuevaImagen();
+		return ImagenExplorador.nuevaImagen(escala);
 	}
 	
-	public static Dibujable nuevaImagenHelicoptero() {
+	public static Dibujable nuevaImagenHelicoptero(double escala) {
 		comprobarCargaDeImagenes();
-		return ImagenHelicoptero.nuevaImagen();
+		return ImagenHelicoptero.nuevaImagen(escala);
 	}
 }

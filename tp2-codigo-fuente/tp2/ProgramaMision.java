@@ -26,18 +26,18 @@ public class ProgramaMision {
 		controlador.setSuperficieDeDibujo(ventana);
 		ventana.setVisible(true);
 		
-		VistaAgua vistaAgua = new VistaAgua(new Agua(controlador.getEscenario()));
-		controlador.agregarDibujable(vistaAgua);
+		Agua agua = new Agua(controlador.getEscenario());
+		controlador.agregarNuevaVista(agua);
 				
 		// Al llegar al menú de misión, dicho menú se encargará de crear la misión (de acuerdo al nivel de la partida que estará en su menú padre de partida), lo cual va a generar las naves como hacemos en este programa de prueba.
 		FabricaDeNaves fabrica = new FabricaDeNaves(controlador.getEscenario(), "equipo1", null);
 		
-		NaveMilitarControlada algo42 = fabrica.crearAlgo42En(new Point(90, 7));
+		NaveMilitarControlada algo42 = fabrica.crearAlgo42En(new Point(97, 7));
 		
 		fabrica.setEquipoDeLaNave("equipo2");
 		
 		Nave explorador = fabrica.crearExploradorEn(new Point(-10, 65));
-//		Nave explorador2 = fabrica.crearExploradorEn(new Point(-40, 15));
+		Nave explorador2 = fabrica.crearExploradorEn(new Point(-40, 15));
 		Nave bombardero = fabrica.crearBombarderoEn(new Point(40, 90));
 		List<NaveEnemiga> grupoCaza = fabrica.crearGrupoCazaEn(new Point(30,50));
 		
@@ -45,7 +45,7 @@ public class ProgramaMision {
 		
 		controlador.getEscenario().agregarObjeto(algo42);
 		controlador.getEscenario().agregarObjeto(explorador);
-//		controlador.getEscenario().agregarObjeto(explorador2);
+		controlador.getEscenario().agregarObjeto(explorador2);
 		controlador.getEscenario().agregarObjeto(bombardero);
 		
 		Iterator<NaveEnemiga> i = grupoCaza.iterator();

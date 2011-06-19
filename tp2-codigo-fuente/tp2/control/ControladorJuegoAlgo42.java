@@ -12,20 +12,27 @@ import tp2.modelo.extras.Explosion;
 import tp2.modelo.extras.ObjetosExplosivos;
 import tp2.vista.modelo.ParserObjetoIdAVista;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
+import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujoStatic;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
+import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Circulo;
 
 public class ControladorJuegoAlgo42 extends ControladorJuego {
 
 	private Escenario escenario;
 	private Map<Visible, Dibujable> vistas = new HashMap<Visible, Dibujable>();
-	
+	private ProyeccionSobreSuperficieDeDibujo proyeccion;
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
 		this.escenario = new Escenario(new Rectangle(140, 140));
-		ProyeccionSobreSuperficieDeDibujo.setEspacioDelModelo(this.escenario.getAreaDeCombate());
+	}
+
+	@Override
+	public void setSuperficieDeDibujo(SuperficieDeDibujo superficieDeDibujo) {
+		super.setSuperficieDeDibujo(superficieDeDibujo);
+		this.proyeccion = new ProyeccionSobreSuperficieDeDibujo(this.escenario.getAreaDeCombate(), new Rectangle(500, 500));
 	}
 
 	@Override
@@ -37,7 +44,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			for(ObjetoEspacial objetoCreado: objetosCreados){
 				this.agregarObjetoVivo(objetoCreado);
 				// Creamos círculo para observar la forma del modelo (en esta prueba)
-				Dibujable circulo = new Circulo((int)(objetoCreado.getTamanio() * ProyeccionSobreSuperficieDeDibujo.getEscalaX()));
+				Dibujable circulo = new Circulo((int)(objetoCreado.getTamanio() * proyeccion.getEscalaX()));
 				circulo.setPosicionable(objetoCreado);
 				this.agregarDibujable(circulo);
 				auxiliar.put(objetoCreado, circulo);
@@ -55,12 +62,13 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		} while (this.estaEnEjecucion());
 	}
 	
-	private void agregarNuevaVista(Visible objeto){
-		Dibujable vista = ParserObjetoIdAVista.getVista(objeto);
+	public void agregarNuevaVista(Visible objeto){
+		objeto.setProyeccion(proyeccion);
+		Dibujable vista = ParserObjetoIdAVista.getVista(objeto, proyeccion);
 		// Borrar después:
 		if (vista == null) {
 			vista = new Circulo(
-					(int) (objeto.getTamanio() * ProyeccionSobreSuperficieDeDibujo
+					(int) (objeto.getTamanio() * ProyeccionSobreSuperficieDeDibujoStatic
 							.getEscalaX()));
 		}
 		// Fin borrar después.
@@ -69,7 +77,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.vistas.put(objeto, vista);
 	}
 	
-	private void removerVista(Visible objeto){
+	public void removerVista(Visible objeto){
 		this.removerDibujable(this.vistas.get(objeto));
 		this.vistas.remove(objeto);
 		if(ObjetosExplosivos.esExplosivo(objeto)){

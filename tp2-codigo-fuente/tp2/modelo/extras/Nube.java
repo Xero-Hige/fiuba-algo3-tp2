@@ -3,7 +3,7 @@ package tp2.modelo.extras;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 
-public class Nube  implements Posicionable, ObjetoVivo {
+public class Nube implements Posicionable, ObjetoVivo {
 
 	private int xIni;
 	private int yIni;
@@ -32,12 +32,10 @@ public class Nube  implements Posicionable, ObjetoVivo {
 		this.y = this.y + this.velocidad;
 	}
 
-	@Override
 	public int getX() {
 		return this.x;
 	}
 
-	@Override
 	public int getY() {
 		return this.y;
 	}

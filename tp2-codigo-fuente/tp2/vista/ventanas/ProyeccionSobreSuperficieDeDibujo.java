@@ -7,8 +7,8 @@ import tp2.modelo.excepciones.ObjetoDesconocido;
 
 public class ProyeccionSobreSuperficieDeDibujo implements Proyeccion {
 
-	private Rectangle superficieDeDibujo;
-	private Rectangle espacioDelModelo;
+	private static Rectangle superficieDeDibujo;
+	private static Rectangle espacioDelModelo;
 	
 	public ProyeccionSobreSuperficieDeDibujo(Rectangle espacioDelModelo, Rectangle superficieDeDibujo){
 		this.superficieDeDibujo = superficieDeDibujo;
@@ -35,7 +35,7 @@ public class ProyeccionSobreSuperficieDeDibujo implements Proyeccion {
 		return new Point(x, y);
 	}
 	
-	public double getEscalaX(){
+	public static double getEscalaX(){
 		if((superficieDeDibujo == null) || (espacioDelModelo == null))
 			return 1;
 		return superficieDeDibujo.getWidth() / espacioDelModelo.getWidth();

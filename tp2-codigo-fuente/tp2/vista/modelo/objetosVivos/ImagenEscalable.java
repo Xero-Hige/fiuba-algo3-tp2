@@ -2,7 +2,7 @@ package tp2.vista.modelo.objetosVivos;
 
 import java.awt.Image;
 
-import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujoStatic;
+import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 
@@ -23,8 +23,8 @@ public class ImagenEscalable extends Imagen {
 	}
 	
 	public Imagen getImagenEscalada(int tamanioImagen){
-		if((tamanioActual != tamanioImagen) || (ProyeccionSobreSuperficieDeDibujoStatic.getEscalaX() != escalaActual)){
-			escalaActual = ProyeccionSobreSuperficieDeDibujoStatic.getEscalaX();
+		if((tamanioActual != tamanioImagen) || (ProyeccionSobreSuperficieDeDibujo.getEscalaX() != escalaActual)){
+			escalaActual = ProyeccionSobreSuperficieDeDibujo.getEscalaX();
 			tamanioActual = tamanioImagen;
 			this.escalarImagen(tamanioImagen);
 		}

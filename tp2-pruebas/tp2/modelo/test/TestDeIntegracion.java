@@ -59,7 +59,7 @@ public class TestDeIntegracion {
 		fabricaDeNaves.crearExploradorEn(new Point(-40,50));
                  
 		//El explorador se mueve recto hacia el (0,50), luego describe un círculo con centro en (0 @ 20), con lo cual llega al (0 @ 10) en la parte más baja de su círculo. Como estas naves no pueden estar a 10 de distancia sin haberse tocado, el Algo42 es destruído. El explorador debería tardar más de 4 unidades de tiempo (más o menos entre 5 y 10)
-		for (i=0; i<=4; i = i + 0.02){
+		for (i=0; i<=1; i = i + 0.02){
 			escenario.avanzarTiempoEn(0.02);                
 		}
                  

@@ -13,31 +13,31 @@ public class Programa {
 
 	public static void main(String[] args) {
 		
-//		ControladorJuego controlador = new ControladorJuegoAlgo42(false);
-//		Ventana ventana = new VentanaPrincipal(controlador);
-//		controlador.setSuperficieDeDibujo(ventana);
-//		ventana.setVisible(true);
+		ControladorJuego controlador = new ControladorJuegoAlgo42(false);
+		Ventana ventana = new VentanaPrincipal(controlador);
+		controlador.setSuperficieDeDibujo(ventana);
+		ventana.setVisible(true);
+		
+		controlador.setIntervaloSimulacion(20);
+		controlador.comenzarJuego();
+		
+//		HashMap<String, String> a = null;
+//		String directorioActual = null;
+//
+//		try {
+//			File dir1 = new File (".");
+//			directorioActual = dir1.getCanonicalPath();
+//		}
+//		catch(Exception e){
+//			e.printStackTrace();
+//		}		
+//		try {
+//			System.out.println(directorioActual);
+//			a = BuscadorDeArchivos.getArchivos(directorioActual+"/Saves", "save");
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 //		
-//		controlador.setIntervaloSimulacion(20);
-//		controlador.comenzarJuego();
-		
-		HashMap<String, String> a = null;
-		String directorioActual = null;
-
-		try {
-			File dir1 = new File (".");
-			directorioActual = dir1.getCanonicalPath();
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}		
-		try {
-			System.out.println(directorioActual);
-			a = BuscadorDeArchivos.getArchivos(directorioActual+"/Saves", "save");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println(a.toString());
+//		System.out.println(a.toString());
 	}
 }

@@ -39,21 +39,8 @@ public class MenuPrincipalItemNuevaPartida extends MenuItem {
 
 	@Override
 	public void seleccionar() {
+		
 		MenuNuevaPartida menuNuevaPartida = new MenuNuevaPartida(this.getVentanaPrincipal(), this.getMenuDelItem());
-		
-		Escenario escenario = new Escenario(new Rectangle(140, 140));
-		Mision mision = new Mision(escenario);
-		
-		Map<Double, Collection<ParCadenaPosicion>> datos = new HashMap<Double, Collection<ParCadenaPosicion>>();
-		ParCadenaPosicion par = new ParCadenaPosicion("asdf Falta hacer parser", new Point(40, 100));
-		for(int i = 0; i < 30; i++){
-			Collection<ParCadenaPosicion> lista = new ArrayList<ParCadenaPosicion>();
-			lista.add(par);
-			datos.put((double)i, lista);
-		}
-		mision.generar(datos);
-		this.getVentanaPrincipal().getControladorJuego().setMision(mision);
-		
-//		menuNuevaPartida.mostrar();
+		menuNuevaPartida.mostrar();
 	}
 }

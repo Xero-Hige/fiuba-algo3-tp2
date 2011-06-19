@@ -13,7 +13,7 @@ public class Programa {
 
 	public static void main(String[] args) {
 		
-		ControladorJuego controlador = new ControladorJuegoAlgo42(false);
+		ControladorJuegoAlgo42 controlador = new ControladorJuegoAlgo42(false);
 		Ventana ventana = new VentanaPrincipal(controlador);
 		controlador.setSuperficieDeDibujo(ventana);
 		ventana.setVisible(true);

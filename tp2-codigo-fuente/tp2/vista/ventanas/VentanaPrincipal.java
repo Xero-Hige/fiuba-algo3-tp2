@@ -3,6 +3,7 @@ package tp2.vista.ventanas;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import tp2.control.ControladorJuegoAlgo42;
 import tp2.modelo.menues.menuPrincipal.MenuPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
@@ -14,11 +15,11 @@ import ar.uba.fi.algo3.titiritero.vista.Ventana;
 public class VentanaPrincipal extends Ventana {
 
 	private static final long serialVersionUID = 1L;
-	private ControladorJuego controladorJuego;
+	private ControladorJuegoAlgo42 controladorJuego;
 	private KeyPressedObservador controlKeyPressActivo;
 	private MouseClickObservador controlMouseClickActivo;
 		
-	public VentanaPrincipal(ControladorJuego unControladorJuego) {
+	public VentanaPrincipal(ControladorJuegoAlgo42 unControladorJuego) {
 		
 		super(DimensionesDeVentana.ancho, DimensionesDeVentana.alto + DimensionesDeVentana.altoBarraDeVentana, unControladorJuego);
 		this.setTitle("Algo42");
@@ -32,7 +33,7 @@ public class VentanaPrincipal extends Ventana {
 		menuPrincipal.mostrar();
 	}
 		
-	public ControladorJuego getControladorJuego() {
+	public ControladorJuegoAlgo42 getControladorJuego() {
 		return this.controladorJuego;
 	}
 	

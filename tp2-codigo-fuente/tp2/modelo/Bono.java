@@ -1,7 +1,14 @@
 package tp2.modelo;
 
 import tp2.auxiliares.*;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
+
 import java.util.*;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 // Clase abstracta. Define cómo debe comportarse un bono, pero esta clase no tiene 
 // ningún método concreto (salvo getters y setters). Cada tipo de bono debe heredar 
@@ -62,4 +69,19 @@ public abstract class Bono extends ObjetoVolador {
 		naveDuenia = nuevaNaveDuenia;
 	}
 	
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(naveDuenia, "naveDuenia"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.naveDuenia = (NaveMilitar) ReconstructorDesdeXml.generarObjeto(atributos.get("naveDuenia"));
+		return this;
+	}
 }

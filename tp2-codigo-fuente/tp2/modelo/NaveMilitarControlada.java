@@ -2,12 +2,18 @@ package tp2.modelo;
 
 import java.util.*;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
-// Es una nave militar la cual permite ser controlada externamente. Se le puede 
-// ordenar que se empiece a mover en una dirección o que se detenga, que accione 
-// un arma o detenga sus disparos.
+/** Es una nave militar la cual permite ser controlada externamente. Se le puede 
+* ordenar que se empiece a mover en una dirección o que se detenga, que accione 
+* un arma o detenga sus disparos. */
 public class NaveMilitarControlada extends NaveMilitar {
 
 	// Constructor
@@ -63,5 +69,19 @@ public class NaveMilitarControlada extends NaveMilitar {
 	// El vuelo de una nave controlada no puede cambiarse.
 	public void setVuelo(Vuelo nuevoVuelo) {
 		throw new UnsupportedOperationException("No se puede cambiar el vuelo.");
+	}
+	
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		return this;
 	}
 }

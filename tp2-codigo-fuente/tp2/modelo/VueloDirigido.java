@@ -1,7 +1,15 @@
 package tp2.modelo;
 
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.ComposicionIncompleta;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 // Es un vuelo direccionable que persigue un objeto del espacio (incluso los 
 // móviles).
@@ -43,5 +51,21 @@ public class VueloDirigido extends VueloDireccionable {
 	// Cambia el objetivo del vuelo para que se dirija al objeto recibido.
 	public void setObjetivo(ObjetoEspacial objetivo) {
 		this.objetivo = objetivo;
+	}
+	
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(objetivo, "objetivo"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.objetivo = (ObjetoEspacial) ReconstructorDesdeXml.generarObjeto(atributos.get("objetivo"));
+		return this;
 	}
 }

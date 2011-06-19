@@ -7,7 +7,9 @@ import org.w3c.dom.Node;
 
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.GeneradorXml;
 import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 public class Nave extends ObjetoVolador {
 
@@ -88,13 +90,19 @@ public class Nave extends ObjetoVolador {
 
 	@Override
 	public Element guardar(Element contenedor) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(energia, "energia"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(equipo, "equipo"));
+		return contenedor;
 	}
 
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
-		// TODO Auto-generated method stub
-		return null;
-	}	
+		
+		super.cargar(atributos);
+		this.energia = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("energia"));
+		this.maxEnergia = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("maxEnergia"));
+		return this;
+	}
 }

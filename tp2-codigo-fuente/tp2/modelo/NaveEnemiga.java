@@ -2,8 +2,14 @@ package tp2.modelo;
 
 import java.util.*;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 // Es una nave militar que además, al ser destruída, aumenta la puntuación del 
 // escenario y opcionalmente tira un bono en el mismo.
@@ -76,5 +82,23 @@ public class NaveEnemiga extends NaveMilitar {
 			throw new ValorInvalido ("La puntuación no puede ser negativa");
 		}
 		puntuacion = unaPuntuacion;
+	}
+	
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(puntuacion, "puntuacion"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(bono, "bono"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.puntuacion = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("puntuacion"));
+		this.bono = (Bono) ReconstructorDesdeXml.generarObjeto(atributos.get("bono"));
+		return this;
 	}
 }

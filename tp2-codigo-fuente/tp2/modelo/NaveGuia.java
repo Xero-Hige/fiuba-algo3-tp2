@@ -2,8 +2,14 @@ package tp2.modelo;
 
 import java.util.*;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 // Es una nave guía que sabe controlar una flota, y comunicarse directamente con 
 // ella.
@@ -67,5 +73,23 @@ public class NaveGuia extends NaveMilitar {
 	// Le asigna una flota a la nave.
 	public void setFlota(Flota flota) {
 		this.flota = flota; 
+	}
+	
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(flota, "flota"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(direccionDeRetirada, "direccionDeRetirada"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.flota = (Flota) ReconstructorDesdeXml.generarObjeto(atributos.get("flota"));
+		this.direccionDeRetirada = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("direccionDeRetirada"));
+		return this;
 	}
 }

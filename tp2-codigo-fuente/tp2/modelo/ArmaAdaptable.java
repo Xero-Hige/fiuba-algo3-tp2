@@ -1,7 +1,14 @@
 package tp2.modelo;
 
 import java.util.*;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 public class ArmaAdaptable extends Arma {
 
@@ -53,7 +60,33 @@ public class ArmaAdaptable extends Arma {
 	}
 	
 	
-	
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		
+		contenedor.appendChild(GeneradorXml.generarElementoDe(listaArmas, "listaArmas"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(armaActual, "armaActual"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(tiempoRestanteCambioDeArma, "tiempoRestanteCambioDeArma"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(frecuenciaDeCambioDeArma, "frecuenciaDeCambioDeArma"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(pesoTotalDeProbabilidad, "pesoTotalDeProbabilidad"));
+		
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		
+		this.listaArmas = (List<ArmaConProbabilidad>) ReconstructorDesdeXml.generarObjeto(atributos.get("listaArmas"));
+		this.armaActual = (Arma) ReconstructorDesdeXml.generarObjeto(atributos.get("armaActual"));
+		this.tiempoRestanteCambioDeArma = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("tiempoRestanteCambioDeArma"));
+		this.frecuenciaDeCambioDeArma = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("frecuenciaDeCambioDeArma"));
+		this.pesoTotalDeProbabilidad = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("pesoTotalDeProbabilidad"));
+		
+		return this;
+	}
 
 	
 }

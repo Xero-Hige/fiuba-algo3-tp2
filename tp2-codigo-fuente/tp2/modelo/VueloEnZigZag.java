@@ -1,9 +1,17 @@
 package tp2.modelo;
 
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.ValorInvalido;
 import tp2.modelo.excepciones.VueloIniciado;
 import tp2.modelo.excepciones.VueloNoIniciado;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 // Define un vuelo en zig zag de 45º, de una amplitud dada.
 public class VueloEnZigZag extends VueloCompuesto {
@@ -111,4 +119,26 @@ public class VueloEnZigZag extends VueloCompuesto {
 		throw new UnsupportedOperationException("No se pueden agregar vuelos.");
 	}
 
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(direccion, "direccion"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(proximoSegmentoEsPar, "proximoSegmentoEsPar"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(trayectoriaRestante, "trayectoriaPorSegmento"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(trayectoriaRestante, "trayectoriaRestante"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.direccion = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("direccion"));
+		this.proximoSegmentoEsPar = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("proximoSegmentoEsPar"));
+		this.trayectoriaRestante = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriaRestante"));
+		this.trayectoriaRestante = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriaRestante"));
+		
+		return this;
+	}
 }

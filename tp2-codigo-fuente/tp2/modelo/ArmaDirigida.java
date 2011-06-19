@@ -1,13 +1,20 @@
 package tp2.modelo;
 
 import java.util.Iterator;
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 import tp2.auxiliares.Point;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
-// Es un arma limitada, que puede configurarse para disparar contra una flota 
-// enemiga. Al momento de disparar (si la flota enemiga está definida) se dispara 
-// contra una nave al azar de dicha flota. Si no hay ninguna nave que atacar, el 
-// proyectil sale en la dirección en la cual apunta el arma.
+/** Es un arma limitada, que puede configurarse para disparar contra una flota 
+* enemiga. Al momento de disparar (si la flota enemiga está definida) se dispara 
+* contra una nave al azar de dicha flota. Si no hay ninguna nave que atacar, el 
+* proyectil sale en la dirección en la cual apunta el arma.*/
 public class ArmaDirigida extends ArmaLimitada {
 
 	private Flota flotaObjetivo;
@@ -64,6 +71,22 @@ public class ArmaDirigida extends ArmaLimitada {
 			}
 		}
 		
-		return proyectilDisparado;
+		return proyectilDisparado;		
+	}
+	
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(flotaObjetivo, "flotaObjetivo"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.flotaObjetivo = (Flota) ReconstructorDesdeXml.generarObjeto(atributos.get("flotaObjetivo"));
+		return this;
 	}
 }

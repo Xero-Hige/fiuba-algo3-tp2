@@ -2,8 +2,14 @@ package tp2.modelo;
 
 import java.util.*;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 // Una nave civil es tal que al destruirse, disminuye la puntuación del escenario 
 // según la penalización que tenga.
@@ -60,5 +66,21 @@ public class NaveCivil extends Nave {
 			throw new ValorInvalido ("La penalización no puede ser negativa");
 		}
 		this.penalizacion = unaPenalizacion;
+	}
+	
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(penalizacion, "penalizacion"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.penalizacion = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("penalizacion"));
+		return this;
 	}
 }

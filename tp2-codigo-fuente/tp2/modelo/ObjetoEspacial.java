@@ -1,11 +1,18 @@
 package tp2.modelo;
 
-import ar.uba.fi.algo3.titiritero.*;
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.especificaciones.ReferenciasDeTiempo;
-import tp2.modelo.excepciones.*;
+import tp2.modelo.excepciones.ComposicionIncompleta;
+import tp2.persistencia.GeneradorXml;
 import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
 
@@ -197,6 +204,30 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
 	protected void setComportamiento(
 			ChoqueDeObjetoEspacial comportamientoAlChocar) {
 		this.comportamientoAlChocar = comportamientoAlChocar;
+	}
+
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		contenedor.appendChild(GeneradorXml.generarElementoDe(posicion, "posicion"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(tamanio, "tamanio"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(escenario, "escenario"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(destruido, "destruido"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(identificacion, "identificacion"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+				
+		this.posicion = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("posicion"));
+		this.tamanio = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("tamanio"));
+		this.escenario = (Escenario) ReconstructorDesdeXml.generarObjeto(atributos.get("escenario"));
+		this.destruido = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("destruido"));
+		this.comportamientoAlChocar = (ChoqueDeObjetoEspacial) ReconstructorDesdeXml.generarObjeto(atributos.get("comportamientoAlChocar"));
+		this.identificacion = (String) ReconstructorDesdeXml.generarObjeto(atributos.get("identificacion"));
+		
+		return this;
 	}
 	
 }

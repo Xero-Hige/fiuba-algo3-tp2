@@ -6,7 +6,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.GeneradorXml;
 import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 // Es un bono que al usarse, da las armas de la nave dueña del mismo a la que lo 
 // haya usado.
@@ -32,13 +34,15 @@ public class BonoDeEnergia extends Bono {
 
 	@Override
 	public Element guardar(Element contenedor) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		super.guardar(contenedor);
+		return contenedor;
 	}
 
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
-		// TODO Auto-generated method stub
-		return null;
-	}	
+		
+		super.cargar(atributos);
+		return this;
+	}
 }

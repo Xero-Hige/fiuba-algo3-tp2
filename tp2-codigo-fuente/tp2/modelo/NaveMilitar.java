@@ -2,8 +2,14 @@ package tp2.modelo;
 
 import java.util.*;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 // Una nave militar es una nave que tiene un cierto número de armas (pero una sola 
 // del mismo tipo).
@@ -93,5 +99,21 @@ public class NaveMilitar extends Nave {
 	// según su comportamiento.
 	public void responderChoqueDe(ObjetoEspacial unObjetoEspacial) {
 		unObjetoEspacial.sufrirChoqueDeNaveMilitar(this);
+	}
+	
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(armas, "armas"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.armas = (List<Arma>) ReconstructorDesdeXml.generarObjeto(atributos.get("armas"));
+		return this;
 	}
 }

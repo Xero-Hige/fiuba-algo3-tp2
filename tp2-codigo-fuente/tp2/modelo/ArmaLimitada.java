@@ -1,9 +1,17 @@
 package tp2.modelo;
 
-import tp2.auxiliares.Point;
+import java.util.Map;
 
-// Es un arma, con la diferencia que tiene una carga limitada. Cuando se le acaba, 
-// el arma se desactiva automáticamente y deja de disparar.
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import tp2.auxiliares.Point;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
+
+/** Es un arma, con la diferencia que tiene una carga limitada. Cuando se le acaba, 
+* el arma se desactiva automáticamente y deja de disparar.*/
 public class ArmaLimitada extends Arma {
 
 	private int carga;
@@ -52,5 +60,21 @@ public class ArmaLimitada extends Arma {
 	@Override
 	public Number getCarga() {
 		return this.carga;
+	}
+	
+	@Override
+	public Element guardar(Element contenedor) {
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(carga, "carga"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		
+		super.cargar(atributos);
+		this.carga = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("carga"));
+		return this;
 	}
 }

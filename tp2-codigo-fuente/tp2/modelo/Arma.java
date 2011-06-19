@@ -7,7 +7,9 @@ import org.w3c.dom.Node;
 
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.GeneradorXml;
 import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 // Define un arma, la cual puede disparar proyectiles en el escenario en donde esté.
 public class Arma extends Movil {
@@ -175,13 +177,29 @@ public class Arma extends Movil {
 
 	@Override
 	public Element guardar(Element contenedor) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(naveDuenia, "naveDuenia"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(modeloDeProyectil, "modeloDeProyectil"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(frecuenciaDeDisparo, "frecuenciaDeDisparo"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(tiempoRestante, "tiempoRestante"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(disparando, "disparando"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(velocidadDeDisparo, "velocidadDeDisparo"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(direccionDeDisparo, "direccionDeDisparo"));
+		return contenedor;
 	}
 
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
-		// TODO Auto-generated method stub
-		return null;
-	}	
+		
+		super.cargar(atributos);
+		this.naveDuenia = (Nave) ReconstructorDesdeXml.generarObjeto(atributos.get("naveDuenia"));
+		this.modeloDeProyectil = (Proyectil) ReconstructorDesdeXml.generarObjeto(atributos.get("modeloDeProyectil"));
+		this.frecuenciaDeDisparo = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("frecuenciaDeDisparo"));
+		this.tiempoRestante = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("tiempoRestante"));
+		this.disparando = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("disparando"));
+		this.velocidadDeDisparo = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("velocidadDeDisparo"));
+		this.direccionDeDisparo = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("direccionDeDisparo"));
+		return this;
+	}
 }

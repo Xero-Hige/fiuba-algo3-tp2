@@ -51,7 +51,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		} while (this.estaEnEjecucion());
 	}
 	
-	private void simularJuego() {
+	private synchronized void simularJuego() {
 		Collection<ObjetoEspacial> objetosCreados = this.escenario.getObjetosCreados();
 		Collection<ObjetoEspacial> objetosMuertos = this.escenario.getObjetosMuertos();
 		for(ObjetoEspacial objetoCreado: objetosCreados){
@@ -119,7 +119,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		return mision;
 	}
 
-	public void setMision(Mision mision) {
+	public synchronized void setMision(Mision mision) {
 		this.mision = mision;
 		this.escenario = mision.getEscenario();
 		this.proyeccion = new ProyeccionSobreSuperficieDeDibujo(this.escenario.getAreaDeCombate(), new Rectangle(DimensionesDeVentana.ancho, DimensionesDeVentana.alto));

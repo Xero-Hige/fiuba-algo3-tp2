@@ -3,7 +3,6 @@ package tp2.vista.ventanas;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import tp2.modelo.especificaciones.DimensionesDeVentana;
 import tp2.modelo.menues.menuPrincipal.MenuPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;

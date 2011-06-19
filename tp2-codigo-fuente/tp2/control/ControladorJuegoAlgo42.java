@@ -11,6 +11,7 @@ import tp2.modelo.ObjetoEspacial;
 import tp2.modelo.extras.Explosion;
 import tp2.modelo.extras.ObjetosExplosivos;
 import tp2.vista.modelo.ParserObjetoIdAVista;
+import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujoStatic;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
@@ -32,7 +33,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	@Override
 	public void setSuperficieDeDibujo(SuperficieDeDibujo superficieDeDibujo) {
 		super.setSuperficieDeDibujo(superficieDeDibujo);
-		this.proyeccion = new ProyeccionSobreSuperficieDeDibujo(this.escenario.getAreaDeCombate(), new Rectangle(500, 500));
+		this.proyeccion = new ProyeccionSobreSuperficieDeDibujo(this.escenario.getAreaDeCombate(), new Rectangle(DimensionesDeVentana.ancho, DimensionesDeVentana.alto));
 	}
 
 	@Override

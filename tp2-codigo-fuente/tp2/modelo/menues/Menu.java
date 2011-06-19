@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import tp2.modelo.especificaciones.DimensionesDeVentana;
 import tp2.vista.menues.VistaMenuI;
+import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;

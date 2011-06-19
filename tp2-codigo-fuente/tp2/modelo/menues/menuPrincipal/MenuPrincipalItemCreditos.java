@@ -1,12 +1,12 @@
 package tp2.modelo.menues.menuPrincipal;
 
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
-import tp2.modelo.especificaciones.DimensionesDeVentana;
 import tp2.modelo.menues.MenuI;
 import tp2.modelo.menues.MenuItem;
 import tp2.modelo.menues.menuCreditos.MenuCreditos;
 import tp2.vista.menues.VistaMenuItem;
 import tp2.vista.menues.menuPrincipal.FabricaDeDibujablesDelMenuPrincipal;
+import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.VentanaPrincipal;
 
 

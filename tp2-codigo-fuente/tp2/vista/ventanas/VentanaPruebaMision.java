@@ -1,6 +1,5 @@
 package tp2.vista.ventanas;
 
-import tp2.modelo.especificaciones.DimensionesDeVentana;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.vista.Ventana;
 

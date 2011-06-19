@@ -32,7 +32,7 @@ public class ValoresDeNaves {
 	public static int bombarderoPuntuacion = 30;
 	
 	public static String exploradorIdentificacion = "Explorador";
-	public static double exploradorTamanio = 5;
+	public static double exploradorTamanio = 6;
 	public static double exploradorVelocidad = 48;
 	public static double exploradorEnergia = 1;
 	public static double exploradorVueloLongitudTrayectoria = 40;

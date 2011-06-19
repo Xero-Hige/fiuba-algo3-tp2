@@ -35,6 +35,7 @@ public class Mision implements IGuardable {
 		this.fabricaEnemiga = new FabricaDeNaves(this.escenario,
 				"EquipoEnemigo", this.flotaAliada);
 		this.flotaEnemiga = this.nuevaFlotaEnemiga();
+		this.getEscenario().agregarObjeto(this.flotaEnemiga.getNaveGuia());
 		this.tiempoActual = 0;
 	}
 
@@ -49,7 +50,8 @@ public class Mision implements IGuardable {
 	private Flota nuevaFlotaEnemiga() {
 		Point posicion = new Point(this.escenario.getAreaDeCombate()
 				.getCenterX(), this.escenario.getAreaDeCombate().getHeight()
-				+ ValoresDeNaves.guiaEnemigoTamanio * 2);
+				+ ValoresDeNaves.guiaEnemigoVueloLineaRectaLongitudTrayectoria
+				- ValoresDeNaves.guiaEnemigoTamanio * 3);
 		NaveGuia naveGuia = this.fabricaEnemiga.crearGuiaEnemigoEn(posicion);
 		return naveGuia.getFlota();
 	}

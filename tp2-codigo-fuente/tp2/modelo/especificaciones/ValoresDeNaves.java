@@ -49,7 +49,7 @@ public class ValoresDeNaves {
 	public static double guiaEnemigoTamanio = 15;
 	public static double guiaEnemigoVelocidad = 20;
 	public static double guiaEnemigoEnergia = 1000;
-	public static double guiaEnemigoVueloLineaRectaLongitudTrayectoria = 50;
+	public static double guiaEnemigoVueloLineaRectaLongitudTrayectoria = 200;
 	public static double guiaEnemigoVueloCirculosLongitudTrayectoria = 1;
 	
 	public static String helicopteroFederalIdentificacion = "HelicopteroFederal";

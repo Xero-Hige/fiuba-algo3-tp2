@@ -1,6 +1,7 @@
 package tp2;
 
 import java.io.IOException;
+import java.io.File;
 import java.util.HashMap;
 
 import tp2.control.ControladorJuegoAlgo42;
@@ -21,9 +22,18 @@ public class Programa {
 //		controlador.comenzarJuego();
 		
 		HashMap<String, String> a = null;
-		
+		String directorioActual = null;
+
 		try {
-			a = BuscadorDeArchivos.getArchivos("/Fakultad", "st");
+			File dir1 = new File (".");
+			directorioActual = dir1.getCanonicalPath();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}		
+		try {
+			System.out.println(directorioActual);
+			a = BuscadorDeArchivos.getArchivos(directorioActual+"/Saves", "save");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

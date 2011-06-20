@@ -30,7 +30,7 @@ public class ConstructorMisionDesdeXml {
 
 	static String DIRECTORIO_MISIONES = "/src/tp2/configuraciones";
 	static String ARCHIVO_MISIONES = "/Misiones.settings";
-	static String[] TIPOSDEAVIONES = {"Avioneta","Caza","Bombardero","Explorador","AvionCivil","HelicopteroFederal"};
+	static String[] TIPOSDEAVIONES = {"Avioneta","Cazas","Bombardero","Explorador","AvionCivil","HelicopteroFederal"};
 	
 	
 	private static Element getMision(String numeroMision){

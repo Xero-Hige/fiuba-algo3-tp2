@@ -148,6 +148,7 @@ public class FabricaDeNaves {
 		NaveGuia guiaEnemigo = new  NaveGuia(unaPosicion,ValoresDeNaves.guiaEnemigoTamanio,escenarioActual,ValoresDeNaves.guiaEnemigoVelocidad,ValoresDeNaves.guiaEnemigoEnergia);
 		guiaEnemigo.setIdentificacion("GuiaEnemigo");
 		guiaEnemigo.setEquipo(equipoDeLaNave);
+		guiaEnemigo.setDireccionDeRetirada(new Point(0, 1));
 		VueloCompuesto vuelo = new VueloCompuesto(guiaEnemigo);
 		vuelo.agregarVuelo(new VueloEnLineaRecta(guiaEnemigo,new Point(0,-1)),ValoresDeNaves.guiaEnemigoVueloLineaRectaLongitudTrayectoria);
 		VueloEnCirculos subVuelo = new VueloEnCirculos(guiaEnemigo,new Point(5,0),true);

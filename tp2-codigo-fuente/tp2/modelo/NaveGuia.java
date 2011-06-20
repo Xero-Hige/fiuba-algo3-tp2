@@ -35,13 +35,13 @@ public class NaveGuia extends NaveMilitar {
 	@Override
 	// Ordena a la nave civil actuar en el escenario durante el tiempo específicado.
 	public void actuarDurante(double unTiempo) {
+		this.darOrdenesALaFlota();
 		if (this.estaDestruido()){
 			List<Arma> armas =this.getArmas();
 			Iterator<Arma> iterador = armas.iterator();
 			while(iterador.hasNext()){
 				iterador.next().desaparecerDelEscenario();
 			}
-			this.flota.iniciarRetiradaEnDireccion(direccionDeRetirada);
 			this.desaparecerDelEscenario();
 			return;
 		}
@@ -54,6 +54,12 @@ public class NaveGuia extends NaveMilitar {
 		this.moverDurante(unTiempo);
 	}
 	
+	protected void darOrdenesALaFlota() {
+		if(this.estaDestruido()){
+			this.flota.iniciarRetiradaEnDireccion(direccionDeRetirada);
+		}
+	}
+
 	public Point getDireccionDeRetirada() {
 		return this.direccionDeRetirada;
 	}

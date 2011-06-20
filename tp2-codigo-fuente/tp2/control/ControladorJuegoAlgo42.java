@@ -87,22 +87,26 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 
 	private void construirVistasDeFondo() {
 		Agua agua = new Agua(this.escenario);
-		this.agregarNuevaVista(agua);
+		this.agregarNuevaVista(agua, -1);
 		
 		VistaNubeTipo1 vistaNube1 = new VistaNubeTipo1();
 		Nube nube1 = new Nube(-10, -100, 600, 5);
 		vistaNube1.setPosicionable(nube1);
-		this.agregarDibujable(vistaNube1);
+		this.agregarDibujable(vistaNube1, 1);
 		this.agregarObjetoVivo(nube1);
 		
 		VistaNubeTipo2 vistaNube2 = new VistaNubeTipo2();
 		Nube nube2 = new Nube(300, -300, 700, 6);
 		vistaNube2.setPosicionable(nube2);
-		this.agregarDibujable(vistaNube2);
+		this.agregarDibujable(vistaNube2, 1);
 		this.agregarObjetoVivo(nube2);
 	}
-
+	
 	public void agregarNuevaVista(Visible objeto){
+		this.agregarNuevaVista(objeto, 0);
+	}
+
+	public void agregarNuevaVista(Visible objeto, double prioridad){
 		objeto.setProyeccion(proyeccion);
 		Dibujable vista = ParserObjetoIdAVista.getVista(objeto, proyeccion);
 		// Borrar después:

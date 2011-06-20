@@ -87,7 +87,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		}
 		this.vistaBarraDeEstado.setPuntaje(this.mision.getEscenario().getPuntuacion());
 		NaveMilitarControlada algo42 = this.mision.getNaveDelJugador();
-		this.vistaBarraDeEstado.setPorcentajeDeEnergia(100 * (int)(algo42.getEnergia() / algo42.getMaxEnergia()));
+		this.vistaBarraDeEstado.setPorcentajeDeEnergia((int)(100 * algo42.getEnergia() / algo42.getMaxEnergia()));
 		this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
 	}
 

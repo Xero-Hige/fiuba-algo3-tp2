@@ -19,6 +19,7 @@ import tp2.vista.modelo.extras.VistaNubeTipo1;
 import tp2.vista.modelo.extras.VistaNubeTipo2;
 import tp2.vista.modelo.extras.VistaNubeTipo3;
 import tp2.vista.modelo.mision.VistaBarraDeEstado;
+import tp2.vista.modelo.mision.VistaInicioMision;
 import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
@@ -34,6 +35,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private Mision mision;
 	private HashMap<Visible, Dibujable> auxiliar; // BORRAR después
 	private VistaBarraDeEstado vistaBarraDeEstado;
+	private VistaInicioMision vistaInicioMision;
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
@@ -85,10 +87,13 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			
 			this.removerVista(objetoMuerto);
 		}
+		
 		this.vistaBarraDeEstado.setPuntaje(this.mision.getEscenario().getPuntuacion());
 		NaveMilitarControlada algo42 = this.mision.getNaveDelJugador();
 		this.vistaBarraDeEstado.setPorcentajeDeEnergia((int)(100 * algo42.getEnergia() / algo42.getMaxEnergia()));
 		this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
+		
+		
 	}
 
 	private void construirVistasDeFondo() {
@@ -120,13 +125,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			this.agregarDibujable(objetoDibujable, 1);
 		}
 		
-		//////////////////////////////////////////////////
-		// SETEOS DE PRUEBA (BORRAR DESPUES)
-		//////////////////////////////////////////////////
-		vistaBarraDeEstado.setPuntaje(100);
-		vistaBarraDeEstado.setVidas(3);
-		vistaBarraDeEstado.setPorcentajeDeEnergia(30);
-		//////////////////////////////////////////////////
+//		this.vistaInicioMision = new VistaInicioMision();
+//		this.agregarDibujable(vistaInicioMision);
 	}
 	
 	public void agregarNuevaVista(Visible objeto){

@@ -110,8 +110,13 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			this.agregarDibujable(objetoDibujable, 1);
 		}
 		
+		//////////////////////////////////////////////////
+		// SETEOS DE PRUEBA (BORRAR DESPUES)
+		//////////////////////////////////////////////////
 		vistaBarraDeEstado.setPuntaje(100);
 		vistaBarraDeEstado.setVidas(3);
+		vistaBarraDeEstado.setPorcentajeDeEnergia(60);
+		//////////////////////////////////////////////////
 	}
 	
 	public void agregarNuevaVista(Visible objeto){

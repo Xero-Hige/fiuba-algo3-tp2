@@ -10,7 +10,7 @@ public class VistaBarraDeEnergiaBase extends Cuadrado {
 		super(200, 15);
 		
 		this.setPosicionable(new BarraDeEnergiaBase());
-		this.setColor(Color.LIGHT_GRAY);
+		this.setColor(Color.GRAY);
 	}
 
 }

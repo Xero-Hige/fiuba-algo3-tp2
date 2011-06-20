@@ -13,6 +13,7 @@ public class VistaBarraDeEstado extends Imagen {
 	public VistaTextoPuntuacion vistaTextoPuntacion;
 	public VistaTextoVidas vistaTextoVidas;
 	public VistaBarraDeEnergiaBase vistaBarraDeEnergiaBase; 
+	public VistaBarraDeEnergia vistaBarraDeEnergia; 
 	
 	
 	public VistaBarraDeEstado() {
@@ -33,6 +34,9 @@ public class VistaBarraDeEstado extends Imagen {
 		
 		this.vistaBarraDeEnergiaBase = new VistaBarraDeEnergiaBase();
 		this.agregarObjetoDibujableDeLaVista(vistaBarraDeEnergiaBase);
+		
+		this.vistaBarraDeEnergia = new VistaBarraDeEnergia();
+		this.agregarObjetoDibujableDeLaVista(vistaBarraDeEnergia);
 	}
 	
 	public void setPuntaje(int nuevoPuntaje) {
@@ -41,6 +45,10 @@ public class VistaBarraDeEstado extends Imagen {
 	
 	public void setVidas(int cantidadVidas) {
 		this.vistaTextoVidas.setVidas(cantidadVidas);
+	}
+	
+	public void setPorcentajeDeEnergia(int unPorcentaje) {
+		this.vistaBarraDeEnergia.setPorcentajeEnergia(unPorcentaje);
 	}
 	
 	public void agregarObjetoDibujableDeLaVista(Dibujable unDibujable) {

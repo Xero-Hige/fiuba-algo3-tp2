@@ -93,7 +93,12 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.vistaBarraDeEstado.setPorcentajeDeEnergia((int)(100 * algo42.getEnergia() / algo42.getMaxEnergia()));
 		this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
 		
-		
+		if ((! this.vistaInicioMision.enEscena()) && (! this.vistaInicioMision.salioDeEscena())) {
+			this.vistaInicioMision.salirDeEscena();
+			this.removerDibujable(vistaInicioMision);
+		}
+		else if ((this.vistaInicioMision.enEscena()) && (! this.vistaInicioMision.salioDeEscena()))
+			this.vistaInicioMision.correrCiclo();
 	}
 
 	private void construirVistasDeFondo() {
@@ -125,8 +130,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			this.agregarDibujable(objetoDibujable, 1);
 		}
 		
-//		this.vistaInicioMision = new VistaInicioMision();
-//		this.agregarDibujable(vistaInicioMision);
+		this.vistaInicioMision = new VistaInicioMision();
+		this.agregarDibujable(vistaInicioMision);
 	}
 	
 	public void agregarNuevaVista(Visible objeto){
@@ -166,6 +171,6 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.escenario = mision.getEscenario();
 		this.proyeccion = new ProyeccionSobreSuperficieDeDibujo(this.escenario.getAreaDeCombate(), new Rectangle(DimensionesDeVentana.ancho, DimensionesDeVentana.alto));
 		this.construirVistasDeFondo();
+		this.vistaInicioMision.setNumeroDeMision(1);
 	}
-
 }

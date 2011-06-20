@@ -2,6 +2,7 @@ package tp2.modelo.extras;
 
 import ar.uba.fi.algo3.titiritero.Posicionable;
 import tp2.auxiliares.Point;
+import tp2.vista.ventanas.DimensionesDeVentana;
 
 
 public class InicioMision implements Posicionable {
@@ -10,7 +11,7 @@ public class InicioMision implements Posicionable {
 	
 	public InicioMision() {
 		
-		this.posicion = new Point(250, 250);
+		this.posicion = new Point(DimensionesDeVentana.centroX - 50, DimensionesDeVentana.centroY - 10);
 	}
 	
 	@Override

@@ -1,15 +1,14 @@
 package tp2.modelo;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.Map;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import tp2.auxiliares.Point;
-import tp2.modelo.excepciones.*;
-import tp2.persistencia.GeneradorXml;
+import tp2.modelo.excepciones.ObjetoDesconocido;
 import tp2.persistencia.IGuardable;
-import tp2.persistencia.ReconstructorDesdeXml;
 
 /** Es una nave militar la cual permite ser controlada externamente. Se le puede 
 * ordenar que se empiece a mover en una dirección o que se detenga, que accione 

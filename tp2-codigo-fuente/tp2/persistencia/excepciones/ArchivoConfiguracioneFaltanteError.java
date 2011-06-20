@@ -1,4 +1,4 @@
-package tp2.persistencia;
+package tp2.persistencia.excepciones;
 
 public class ArchivoConfiguracioneFaltanteError extends RuntimeException{
 

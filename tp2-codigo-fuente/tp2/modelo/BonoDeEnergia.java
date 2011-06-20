@@ -5,10 +5,8 @@ import java.util.Map;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import tp2.modelo.excepciones.*;
-import tp2.persistencia.GeneradorXml;
+import tp2.modelo.excepciones.BonoUtilizado;
 import tp2.persistencia.IGuardable;
-import tp2.persistencia.ReconstructorDesdeXml;
 
 // Es un bono que al usarse, da las armas de la nave dueña del mismo a la que lo 
 // haya usado.

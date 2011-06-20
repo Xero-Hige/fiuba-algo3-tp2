@@ -2,7 +2,10 @@ package tp2.persistencia;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,6 +18,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import tp2.auxiliares.ParCadenaPosicion;
+import tp2.auxiliares.Point;
+import tp2.persistencia.excepciones.*;
 
 
 
@@ -25,6 +30,7 @@ public class ConstructorMisionDesdeXml {
 
 	static String DIRECTORIO_MISIONES = "/src/tp2/configuraciones";
 	static String ARCHIVO_MISIONES = "/Misiones.settings";
+	static String[] TIPOSDEAVIONES = {"Avioneta","Caza","Bombardero","Explorador","AvionCivil","HelicopteroFederal"};
 	
 	
 	private static Element getMision(String numeroMision){
@@ -80,9 +86,76 @@ public class ConstructorMisionDesdeXml {
 		
 		NodeList flotas = mision.getElementsByTagName("Flota");
 		if (flotas.getLength() == 0){
+			//Las misiones no puede no tener almenos una Flota
 			throw new ArchivoMisionCorruptoError();
 		}
 		
-		return null;
+		Map<Double, Collection<ParCadenaPosicion>> datos = new HashMap<Double, Collection<ParCadenaPosicion>>();
+		
+		int i=0;
+		while (i<flotas.getLength()){
+			Element flotaActual = (Element) flotas.item(i);
+			Collection<ParCadenaPosicion> flota = getFlota(flotaActual);
+			datos.put(Double.parseDouble(flotaActual.getAttribute("tiempo")), flota);
+			i++;
+		}
+		
+		return datos;
+	}
+
+	private static Collection<ParCadenaPosicion> getFlota(Element elementoFlota) {
+		//Crea una coleccion de Pares cadena posicion
+		
+		ArrayList<Node> aviones = new ArrayList<Node>(); 
+		
+		int x=0;
+		while (x < TIPOSDEAVIONES.length){
+			NodeList avionesIntermedios = elementoFlota.getElementsByTagName("Avioneta");
+			aviones = sumarNodeList(aviones,avionesIntermedios);
+			x++;
+		}
+		
+		if (aviones.isEmpty()){
+			//Las flotas no pueden no tener aviones
+			throw new ArchivoMisionCorruptoError();
+		}
+		
+		Collection<ParCadenaPosicion> flota = new ArrayList<ParCadenaPosicion> ();
+		
+		Iterator<Node> iter = aviones.iterator();
+		while (iter.hasNext()){
+			Element avion = (Element)iter.next();
+			flota.add(getAvion(avion));
+		}
+		
+		return flota;
+	}
+
+	private static ArrayList<Node> sumarNodeList(ArrayList<Node> aviones,NodeList avionesIntermedios) {
+		int i=0;
+		
+		
+		while(i<avionesIntermedios.getLength()){
+			aviones.add(avionesIntermedios.item(i));
+			i++;
+		}
+		
+		return aviones;
+	}
+
+	private static ParCadenaPosicion getAvion(Element avion) {
+		//Crea un par cadena posicion desde un elemento que representa a un avion
+		
+		String posicionX;
+		String posicionY;
+		try{
+			posicionX = avion.getElementsByTagName("X").item(0).getTextContent();
+			posicionY = avion.getElementsByTagName("Y").item(0).getTextContent();
+		}catch(Exception e){
+			throw new ArchivoMisionCorruptoError();
+		}
+				
+		Point posicion = new Point(Double.parseDouble(posicionX),Double.parseDouble(posicionY));
+		return new ParCadenaPosicion(avion.getNodeName(),posicion);
 	}
 }

@@ -5,7 +5,6 @@ import java.util.Iterator;
 
 import tp2.control.ControladorJuegoAlgo42;
 import tp2.modelo.menues.menuPrincipal.MenuPrincipal;
-import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 import ar.uba.fi.algo3.titiritero.MouseClickObservador;

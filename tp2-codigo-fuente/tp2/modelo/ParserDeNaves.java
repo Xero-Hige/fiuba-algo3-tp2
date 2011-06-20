@@ -7,15 +7,15 @@ import tp2.auxiliares.ParCadenaPosicion;
 
 public class ParserDeNaves {
 
-	public static Nave fabricarNave(ParCadenaPosicion datoDeLaNave,
-			FabricaDeNaves fabrica, Flota flotaMilitar) {
+	public static Collection<Nave> fabricarNave(ParCadenaPosicion datoDeLaNave,
+		FabricaDeNaves fabrica, Flota flotaMilitar) {
 		Collection<Nave> naves = new ArrayList<Nave>();
 		
 		NaveEnemiga nave = fabrica.crearExploradorEn(datoDeLaNave.getPosicion());
 		flotaMilitar.agregarNave(nave);
 		naves.add(nave);
 		
-		return nave;
+		return naves;
 	}
 
 }

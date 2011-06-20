@@ -1,8 +1,9 @@
-package tp2;
+package tp2.persistencia;
 import java.io.File;
 import java.io.FilenameFilter;
-import java.io.IOException;
 import java.util.HashMap;
+
+import tp2.persistencia.excepciones.CarpetaNoEncontradaError;
 
 /**
  * Objeto para buscar archivos con una determinada extension
@@ -12,7 +13,7 @@ public class BuscadorDeArchivos{
 	
 	/**
 	 * Busca todos los archivos en el directorio seleccionado con la extension declarada*/
-	public static HashMap<String, String> getArchivos(final String nombreDirectorio,final String extension) throws IOException{
+	public static HashMap<String, String> getArchivos(final String nombreDirectorio,final String extension){
 		
 		// Creo un filtro para los archivos
 		final FilenameFilter filtro = new FilenameFilter(){
@@ -30,7 +31,7 @@ public class BuscadorDeArchivos{
 		
 		if (directorios == null) {
 			//Si el directorio no existe, el parametro no es un directorio o no hay archivos
-			throw new IOException("No hay archivos con esa extension");
+			throw new CarpetaNoEncontradaError();
 		}
 		
 		for (int i=0; i<directorios.length; i++) {

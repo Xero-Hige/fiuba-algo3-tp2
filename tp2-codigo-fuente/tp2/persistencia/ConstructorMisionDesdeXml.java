@@ -54,8 +54,6 @@ public class ConstructorMisionDesdeXml {
 		return(Element)nodos.item(0);		
 	}
 	
-	/**
-	 *@author Hige: Hay que hacer una exepccion no controlada para que avise de esta situacion anomala*/
 	private static String getPathConfiguracion(){
 		
 		String directorioActual = null;

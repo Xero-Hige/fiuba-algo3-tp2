@@ -1,14 +1,10 @@
 package tp2.modelo.menues.menuNuevaPartida;
 
 import java.awt.Rectangle;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 
-import ar.uba.fi.algo3.titiritero.Dibujable;
 import tp2.auxiliares.ParCadenaPosicion;
-import tp2.auxiliares.Point;
 import tp2.control.menues.menuNuevaPartida.ControlKeyPressMenuNuevaPartida;
 import tp2.modelo.Escenario;
 import tp2.modelo.Mision;
@@ -17,6 +13,7 @@ import tp2.modelo.menues.MenuI;
 import tp2.persistencia.ConstructorMisionDesdeXml;
 import tp2.vista.menues.menuNuevaPartida.VistaMenuNuevaPartida;
 import tp2.vista.ventanas.VentanaPrincipal;
+import ar.uba.fi.algo3.titiritero.Dibujable;
 
 
 public class MenuNuevaPartida extends Menu {

@@ -4,20 +4,14 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import tp2.auxiliares.ParCadenaPosicion;
 import tp2.auxiliares.Point;
 import tp2.control.ControladorJuegoAlgo42;
-import tp2.modelo.*;
+import tp2.modelo.Escenario;
+import tp2.modelo.Mision;
 import tp2.modelo.especificaciones.ReferenciasDeTiempo;
-import tp2.modelo.extras.Agua;
-import tp2.modelo.extras.Nube;
-import tp2.vista.modelo.extras.VistaAgua;
-import tp2.vista.modelo.extras.VistaNubeTipo1;
-import tp2.vista.modelo.extras.VistaNubeTipo2;
 import tp2.vista.ventanas.VentanaPruebaMision;
 import ar.uba.fi.algo3.titiritero.vista.Ventana;
 

@@ -1,9 +1,20 @@
 package tp2.persistencia;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.Map;
+
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import tp2.auxiliares.ParCadenaPosicion;
 
 
 
@@ -12,22 +23,34 @@ import org.w3c.dom.Document;
  * */
 public class ConstructorMisionDesdeXml {
 
-	static String DIRECTORIO_MISIONES = "/Configuraciones";
-	static String ARCHIVO_MISIONES = "/Misiones.setings";
+	static String DIRECTORIO_MISIONES = "/src/tp2/configuraciones";
+	static String ARCHIVO_MISIONES = "/Misiones.settings";
 	
 	
-	public static Object getMision(int numeroMision) throws Exception{
+	private static Element getMision(String numeroMision){
 		String path = getPathConfiguracion();
 		
-//		Document documento = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(path));
+		Document doc = null;
+		try {
+			doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(path));
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			throw new ArchivoConfiguracioneFaltanteError();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		return null;
-		
+		NodeList nodos = doc.getElementsByTagName("Mision"+numeroMision);		
+		if (nodos.getLength()==0) return null;		
+		return(Element)nodos.item(0);		
 	}
 	
 	/**
 	 *@author Hige: Hay que hacer una exepccion no controlada para que avise de esta situacion anomala*/
-	private static String getPathConfiguracion() throws Exception{
+	private static String getPathConfiguracion(){
 		
 		String directorioActual = null;
 
@@ -38,11 +61,28 @@ public class ConstructorMisionDesdeXml {
 		catch(Exception e){
 			//Exepccion que en ningun caso podria saltar a menos que algo este muy mal
 			//El directorio actual siempre existe
-			throw e;
+			throw new CriticalError();
 		}
 		
 		String ArchivoDeMisiones = directorioActual+ DIRECTORIO_MISIONES + ARCHIVO_MISIONES;
 		return ArchivoDeMisiones;	
 	}
 	
+	public static Map<Double, Collection<ParCadenaPosicion>> datosMision(int numeroMision){
+		String format = String.format("%%0%dd", 3);
+		String sNumeroMision = String.format(format, numeroMision);
+		
+		Element mision = getMision(sNumeroMision);
+		
+		if (mision == null){
+			throw new MisionNoExistenteError();
+		}
+		
+		NodeList flotas = mision.getElementsByTagName("Flota");
+		if (flotas.getLength() == 0){
+			throw new ArchivoMisionCorruptoError();
+		}
+		
+		return null;
+	}
 }

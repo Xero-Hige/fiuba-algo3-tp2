@@ -18,6 +18,7 @@ public class NaveMilitar extends Nave {
 	// las armas de la nave, la cual puede activarlas para que disparen o 
 	// desactivarlas cuando desee.
 	private List<Arma> armas;
+	private boolean enCombate;
 	
 	// Constructor
 	// Inicializa la nave sin un vuelo asignado ni armas, con la posición, tamaño, 
@@ -25,6 +26,7 @@ public class NaveMilitar extends Nave {
 	public NaveMilitar(Point posicion, double tamanio, Escenario escenario, double velocidad, double energia) {
 		super(posicion, tamanio, escenario, velocidad, energia);
 		this.armas = new ArrayList<Arma>();
+		this.enCombate = true;
 	}
 	
 	@Override
@@ -36,6 +38,10 @@ public class NaveMilitar extends Nave {
 			while(iterador.hasNext()){
 				iterador.next().desaparecerDelEscenario();
 			}
+			this.desaparecerDelEscenario();
+			return;
+		}
+		if(this.enCombate == false){
 			this.desaparecerDelEscenario();
 			return;
 		}
@@ -93,6 +99,10 @@ public class NaveMilitar extends Nave {
 	// y el arma en sí como valor.
 	public List<Arma> getArmas() {
 		return this.armas;
+	}
+	
+	public void quitarDeCombate(){
+		this.enCombate = false;
 	}
 	
 	@Override

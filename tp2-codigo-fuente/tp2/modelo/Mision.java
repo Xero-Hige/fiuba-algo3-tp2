@@ -79,10 +79,20 @@ public class Mision implements IGuardable {
 	// inicia una nueva ronda, mientras las naves de la flota anterior viajan
 	// abandonando elescenario.
 	public void simularDurante(double unTiempo) {
-		
+		if(this.flotaEnemiga.getNaveGuia().estaDestruido()){
+			this.flotaEnemiga = this.nuevaFlotaEnemiga();
+			this.tiempoActual = 0;
+			this.generar(this.navesPorTiempoDeSpawn);
+		}
+		this.hacerAparecerNaves();
+		this.tiempoActual += unTiempo;
+		this.escenario.avanzarTiempoEn(unTiempo);
+	}
+
+	private void hacerAparecerNaves() {
 		Double proximoTiempoDeSpawn = this.tiemposDeSpawn.peek();
 		
-		while((proximoTiempoDeSpawn != null) && (this.escenario.getTiempo() >= proximoTiempoDeSpawn)){
+		while((proximoTiempoDeSpawn != null) && (this.tiempoActual >= proximoTiempoDeSpawn)){
 			
 			double tiempo = this.tiemposDeSpawn.poll();
 			for(ParCadenaPosicion datoDeNaves: navesPorTiempoDeSpawn.get(tiempo)){
@@ -93,8 +103,6 @@ public class Mision implements IGuardable {
 			}
 			proximoTiempoDeSpawn = this.tiemposDeSpawn.peek();
 		}
-		
-		this.escenario.avanzarTiempoEn(unTiempo);
 	}
 
 	public Escenario getEscenario() {

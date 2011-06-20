@@ -66,7 +66,11 @@ public class Flota implements IGuardable {
 		VueloEnLineaRecta vuelo = new VueloEnLineaRecta(nave, direccion);
 		nave.setVuelo(vuelo);
 		nave.detenerFuego();
-		
+		if(!nave.getEscenario().getAreaDeCombate().contains(nave.getPosicion())){
+			if(!nave.estaDestruido()){
+				nave.desaparecerDelEscenario();
+			}
+		}
 	}
 	
 	public void iniciarFuego(){

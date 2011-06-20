@@ -15,7 +15,6 @@ import tp2.modelo.Mision;
 import tp2.modelo.menues.Menu;
 import tp2.modelo.menues.MenuI;
 import tp2.vista.menues.menuNuevaPartida.VistaMenuNuevaPartida;
-import tp2.vista.modelo.mision.VistaBarraDeEstado;
 import tp2.vista.ventanas.VentanaPrincipal;
 
 

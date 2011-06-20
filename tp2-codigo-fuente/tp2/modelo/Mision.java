@@ -87,6 +87,7 @@ public class Mision implements IGuardable {
 			double tiempo = this.tiemposDeSpawn.poll();
 			naveDelJugador.iniciarFuego();
 			for(ParCadenaPosicion datoDeLaNave: navesPorTiempoDeSpawn.get(tiempo)){
+				
 				Nave nave = ParserDeNaves.fabricarNave(datoDeLaNave, fabricaEnemiga, flotaEnemiga);
 				this.escenario.agregarObjeto(nave);
 			}

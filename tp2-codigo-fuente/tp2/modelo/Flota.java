@@ -46,12 +46,19 @@ public class Flota implements IGuardable {
 		if (navesMilitares.indexOf(navesMilitares) == -1) {
 			navesMilitares.add(unaNaveMilitar);
 		}
-		this.DarOrdenesALaNave(unaNaveMilitar);
+		if(unaNaveMilitar != this.naveGuia){
+			this.DarOrdenesALaNave(unaNaveMilitar);
+		}
 	}
 
 	protected void DarOrdenesALaNave(NaveMilitar unaNaveMilitar) {
 		if(this.navesEnRetirada){
 			this.darOrdenDeRetirada(unaNaveMilitar, this.direccionDeRetirada);
+		}
+		if(this.navesDisparando){
+			this.iniciarFuegoDeLaNave(unaNaveMilitar);
+		} else {
+			this.detenerFuegoDeLaNave(unaNaveMilitar);
 		}
 	}
 	
@@ -59,6 +66,7 @@ public class Flota implements IGuardable {
 		VueloEnLineaRecta vuelo = new VueloEnLineaRecta(nave, direccion);
 		nave.setVuelo(vuelo);
 		nave.detenerFuego();
+		
 	}
 	
 	public void iniciarFuego(){

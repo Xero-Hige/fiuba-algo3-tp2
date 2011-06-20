@@ -15,6 +15,8 @@ public class FabricaDeDibujablesDelMenuPrincipal {
 		ImagenItemCargarPartidaOver.nuevaImagen();
 		ImagenItemCreditosOut.nuevaImagen();
 		ImagenItemCreditosOver.nuevaImagen();
+		ImagenItemComoJugarOut.nuevaImagen();
+		ImagenItemComoJugarOver.nuevaImagen();
 		ImagenItemSalirOut.nuevaImagen();
 		ImagenItemSalirOver.nuevaImagen();
 		imagenesCargadas = true;
@@ -60,6 +62,16 @@ public class FabricaDeDibujablesDelMenuPrincipal {
 	public static Dibujable nuevaImagenItemCreditosOver() {
 		comprobarCargaDeImagenes();
 		return ImagenItemCreditosOver.nuevaImagen();
+	}
+	
+	public static Dibujable nuevaImagenItemComoJugarOut() {
+		comprobarCargaDeImagenes();
+		return ImagenItemComoJugarOut.nuevaImagen();
+	}
+	
+	public static Dibujable nuevaImagenItemComoJugarOver() {
+		comprobarCargaDeImagenes();
+		return ImagenItemComoJugarOver.nuevaImagen();
 	}
 	
 	public static Dibujable nuevaImagenItemSalirOut() {

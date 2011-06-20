@@ -18,7 +18,7 @@ public class MenuPrincipalItemSalir extends MenuItem {
 		
 		// Establecemos el item sobre la pantalla con sus respectivas coordenadas de alineación.
 		this.setX(DimensionesDeVentana.centroX);
-		this.setY(370);
+		this.setY(410);
 		
 		this.setVistaMenuItem(new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenuPrincipal.nuevaImagenItemSalirOut(),

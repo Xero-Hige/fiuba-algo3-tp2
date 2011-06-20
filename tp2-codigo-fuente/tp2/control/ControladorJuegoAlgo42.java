@@ -83,10 +83,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			
 			this.removerVista(objetoMuerto);
 		}
-		//////////////////////////////////////////////////////////////////
-		//////////////////////////////////////////////////////////////////
-		this.mision.simularDurante(this.getIntervaloSimulacion() / 500.0);
-		//////////////////////////////////////////////////////////////////
+
+		this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
 	}
 
 	private void construirVistasDeFondo() {

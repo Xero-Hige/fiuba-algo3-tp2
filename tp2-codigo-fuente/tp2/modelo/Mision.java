@@ -79,10 +79,9 @@ public class Mision implements IGuardable {
 	// abandonando elescenario.
 	public void simularDurante(double unTiempo) {
 		
-		this.tiempoActual += unTiempo;
 		Double proximoTiempoDeSpawn = this.tiemposDeSpawn.peek();
 		
-		while((proximoTiempoDeSpawn != null) && (this.tiempoActual >= proximoTiempoDeSpawn)){
+		while((proximoTiempoDeSpawn != null) && (this.escenario.getTiempo() >= proximoTiempoDeSpawn)){
 			
 			double tiempo = this.tiemposDeSpawn.poll();
 			for(ParCadenaPosicion datoDeNaves: navesPorTiempoDeSpawn.get(tiempo)){

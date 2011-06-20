@@ -28,6 +28,7 @@ public class Escenario implements IGuardable  {
 	private Map<ObjetoEspacial, Integer> objetos;
 	// La puntuación lograda en dicho escenario.
 	private int puntuacion;
+	private double tiempo;
 
 	private Collection<ObjetoEspacial> objetosCreados;
 	private Collection<ObjetoEspacial> objetosMuertos;
@@ -40,6 +41,7 @@ public class Escenario implements IGuardable  {
 		this.proximoId = 1;
 		this.puntuacion = 0;
 		this.areaDeCombate = areaDeCombate;
+		this.tiempo = 0;
 		this.objetosCreados = new HashSet<ObjetoEspacial>();
 		this.objetosMuertos = new HashSet<ObjetoEspacial>();
 	}
@@ -90,6 +92,7 @@ public class Escenario implements IGuardable  {
 	// que algún objeto no tenga pueda actuar y tire una excepción, se levantará
 	// la misma.
 	public void avanzarTiempoEn(double unTiempo) {
+		this.tiempo += unTiempo;
 		Set<ObjetoEspacial> objetos = new HashSet<ObjetoEspacial>(
 				this.objetos.keySet());
 		for (ObjetoEspacial objeto : objetos) {
@@ -105,6 +108,10 @@ public class Escenario implements IGuardable  {
 		if (this.puntuacion < 0) {
 			this.puntuacion = 0;
 		}
+	}
+
+	public double getTiempo() {
+		return tiempo;
 	}
 
 	public int getPuntuacion() {

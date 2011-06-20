@@ -17,8 +17,7 @@ public class NaveGuia extends NaveMilitar {
 	
 	// La flota controlada por la nave.
 	private Flota flota;
-	// Hacia dónde van a huir las naves de la flota cuando ésta sea destruída.
-	private Point direccionDeRetirada;
+	private ComandoDeNaves comando;
 	
 	
 	// Constructor
@@ -27,15 +26,14 @@ public class NaveGuia extends NaveMilitar {
 	// le asigna una nueva flota.
 	public NaveGuia(Point posicion, double tamanio, Escenario escenario, double velocidad, double energia) {
 		super(posicion, tamanio, escenario, velocidad, energia);
-		equipo = "equipo";
-		flota = new Flota(this);
-		
+		this.setEquipo("");
+		this.flota = new Flota(this);
 	}
 	
 	@Override
 	// Ordena a la nave civil actuar en el escenario durante el tiempo específicado.
 	public void actuarDurante(double unTiempo) {
-		this.darOrdenesALaFlota();
+		this.comando.comandarNaves();
 		if (this.estaDestruido()){
 			List<Arma> armas =this.getArmas();
 			Iterator<Arma> iterador = armas.iterator();
@@ -54,39 +52,19 @@ public class NaveGuia extends NaveMilitar {
 		this.moverDurante(unTiempo);
 	}
 	
-	protected void darOrdenesALaFlota() {
-		if(this.estaDestruido()){
-			this.flota.iniciarRetiradaEnDireccion(direccionDeRetirada);
-		}
-	}
-
-	public Point getDireccionDeRetirada() {
-		return this.direccionDeRetirada;
-	}
-	
-	// Cambia la dirección de retirada. La dirección debe ser no nula.
-	public void setDireccionDeRetirada(Point nuevaDireccionDeRetirada) {
-		if (nuevaDireccionDeRetirada.radio() == 0){
-			throw new ValorInvalido("La dirección de retirada no puede ser nula");
-		}
-		direccionDeRetirada = nuevaDireccionDeRetirada;
-	}
-	
 	public Flota getFlota() {
 		return this.flota;
 	}
 	
-	// Le asigna una flota a la nave.
-	public void setFlota(Flota flota) {
-		this.flota = flota; 
+	public void setComando(ComandoDeNaves comando) {
+		this.comando = comando;
 	}
-	
+
 	@Override
 	public Element guardar(Element contenedor) {
 		
 		super.guardar(contenedor);
 		contenedor.appendChild(GeneradorXml.generarElementoDe(flota, "flota"));
-		contenedor.appendChild(GeneradorXml.generarElementoDe(direccionDeRetirada, "direccionDeRetirada"));
 		return contenedor;
 	}
 
@@ -95,7 +73,7 @@ public class NaveGuia extends NaveMilitar {
 		
 		super.cargar(atributos);
 		this.flota = (Flota) ReconstructorDesdeXml.generarObjeto(atributos.get("flota"));
-		this.direccionDeRetirada = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("direccionDeRetirada"));
 		return this;
 	}
+
 }

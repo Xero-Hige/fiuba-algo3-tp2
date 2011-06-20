@@ -13,6 +13,11 @@ public class ParserDeNaves {
 		Collection<Nave> naves = new ArrayList<Nave>();
 		Point posicion = datoDeLaNave.getPosicion();
 		
+		if(datoDeLaNave.getCadena().equals("Avioneta")){
+			NaveEnemiga nave = fabrica.crearAvionetaEn(posicion);
+			flotaMilitar.agregarNave(nave);
+			naves.add(nave);
+		}
 		if(datoDeLaNave.getCadena().equals("Explorador")){
 			NaveEnemiga nave = fabrica.crearExploradorEn(posicion);
 			flotaMilitar.agregarNave(nave);

@@ -94,7 +94,6 @@ public class Nave extends ObjetoVolador {
 		
 		super.guardar(contenedor);
 		contenedor.appendChild(GeneradorXml.generarElementoDe(energia, "energia"));
-		contenedor.appendChild(GeneradorXml.generarElementoDe(equipo, "equipo"));
 		return contenedor;
 	}
 

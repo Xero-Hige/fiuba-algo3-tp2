@@ -13,7 +13,7 @@ import tp2.persistencia.ReconstructorDesdeXml;
 public abstract class Movil extends ObjetoEspacial {
 
 	private double velocidad;
-	protected String equipo;
+	private String equipo;
 
 	// Inicializa el móvil con la posición, tamaño, escenario y velocidad
 	// recibidos. Lo agrega al escenario.

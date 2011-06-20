@@ -7,23 +7,23 @@ package tp2.modelo.especificaciones;
  */
 public class ValoresDeArmas {
 
-	public static int canionLaserVelocidad = 100;
+	public static int canionLaserVelocidad = 150;
 	public static double canionLaserFrecuencia = 5;
-	public static double canionLaserProyectilTamanio = 2;
+	public static double canionLaserProyectilTamanio = 0.7;
 	public static double canionLaserProyectilVelocidad = 0;
 	public static double canionLaserProyectilDanio = 10;
 	
-	public static int lanzaCohetesVelocidad = 50;
+	public static int lanzaCohetesVelocidad = 100;
 	public static double lanzaCohetesFrecuencia = 2;
 	public static int lanzaCohetesCantidadProyectiles = 10;
-	public static double lanzaCohetesProyectilTamanio = 0.5;
+	public static double lanzaCohetesProyectilTamanio = 1.4;
 	public static double lanzaCohetesProyectilVelocidad = 0;
 	public static double lanzaCohetesProyectilDanio = 50;
 	
-	public static int lanzaTorpedosVelocidad = 20;
+	public static int lanzaTorpedosVelocidad = 70;
 	public static double lanzaTorpedosFrecuencia = 0.5;
 	public static int lanzaTorpedosCantidadProyectiles = 5;
-	public static double lanzaTorpedosProyectilTamanio = 0.1;
+	public static double lanzaTorpedosProyectilTamanio = 2;
 	public static double lanzaTorpedosProyectilVelocidad = 0;
 	public static double lanzaTorpedosProyectilDanio = 150;
 		

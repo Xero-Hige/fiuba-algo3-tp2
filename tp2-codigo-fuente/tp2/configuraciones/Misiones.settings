@@ -10,12 +10,14 @@
       <Cazas>
         <Posicion>
           <X>100</X>
-          <Y>200</Y>
+          <Y>150</Y>
         </Posicion>
       </Cazas>
       <Avioneta>
-        <X>150</X>
-        <Y>340</Y>
+      	<Posicion>
+          <X>10</X>
+          <Y>150</Y>
+        </Posicion>
       </Avioneta>
     </Flota>
     <Flota tiempo="0025">

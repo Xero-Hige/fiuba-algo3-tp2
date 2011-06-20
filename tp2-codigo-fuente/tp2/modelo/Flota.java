@@ -76,6 +76,22 @@ public class Flota implements IGuardable {
 		}
 		nave.iniciarFuego();
 	}
+	
+	public void detenerFuego() {
+		this.navesDisparando = false;
+		Iterator<NaveMilitar> iter = navesMilitares.iterator();
+		while (iter.hasNext()) {
+			NaveMilitar nave = iter.next();
+			nave.detenerFuego();
+		}
+	}
+	
+	public void detenerFuegoDeLaNave(NaveMilitar nave){
+		if(!this.navesMilitares.contains(nave)){
+			throw new ObjetoDesconocido("La nave no pertenece a la flota.");
+		}
+		nave.detenerFuego();
+	}
 
 	// Ordena a los aviones de la flota detener sus disparos y huir en la
 	// direccion recibida.

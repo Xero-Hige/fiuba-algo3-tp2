@@ -110,7 +110,7 @@ public class ConstructorMisionDesdeXml {
 		
 		int x=0;
 		while (x < TIPOSDEAVIONES.length){
-			NodeList avionesIntermedios = elementoFlota.getElementsByTagName("Avioneta");
+			NodeList avionesIntermedios = elementoFlota.getElementsByTagName(TIPOSDEAVIONES[x]);
 			aviones = sumarNodeList(aviones,avionesIntermedios);
 			x++;
 		}

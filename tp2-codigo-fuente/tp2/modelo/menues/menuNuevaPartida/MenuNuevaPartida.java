@@ -14,6 +14,7 @@ import tp2.modelo.Escenario;
 import tp2.modelo.Mision;
 import tp2.modelo.menues.Menu;
 import tp2.modelo.menues.MenuI;
+import tp2.persistencia.ConstructorMisionDesdeXml;
 import tp2.vista.menues.menuNuevaPartida.VistaMenuNuevaPartida;
 import tp2.vista.ventanas.VentanaPrincipal;
 
@@ -63,14 +64,16 @@ public class MenuNuevaPartida extends Menu {
 		Escenario escenario = new Escenario(new Rectangle(140, 140));
 		Mision mision = new Mision(escenario);
 		
-		Map<Double, Collection<ParCadenaPosicion>> datos = new HashMap<Double, Collection<ParCadenaPosicion>>();
-		ParCadenaPosicion par = new ParCadenaPosicion("Cazas", new Point(40, 100));
+//		Map<Double, Collection<ParCadenaPosicion>> datos = new HashMap<Double, Collection<ParCadenaPosicion>>();
+//		ParCadenaPosicion par = new ParCadenaPosicion("Cazas", new Point(40, 100));
 		
-		for(int i = 0; i < 30; i+=2){
-			Collection<ParCadenaPosicion> lista = new ArrayList<ParCadenaPosicion>();
-			lista.add(par);
-			datos.put((double)i, lista);
-		}
+//		for(int i = 0; i < 30; i+=2){
+//			Collection<ParCadenaPosicion> lista = new ArrayList<ParCadenaPosicion>();
+//			lista.add(par);
+//			datos.put((double)i, lista);
+//		}
+		
+		Map<Double, Collection<ParCadenaPosicion>> datos = ConstructorMisionDesdeXml.datosMision(1);
 		
 		mision.generar(datos);
 		this.getVentanaPrincipal().getControladorJuego().setMision(mision);

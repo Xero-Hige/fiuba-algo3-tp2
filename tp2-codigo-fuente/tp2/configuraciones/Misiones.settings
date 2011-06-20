@@ -1,18 +1,18 @@
 <Misiones>
   <Mision001>
     <Flota tiempo="0001">
-      <Bombardero guia="Yes">
+      <Explorador>
         <Posicion>
-          <X>67</X>
-          <Y>143</Y>
+          <X>50</X>
+          <Y>50</Y>
         </Posicion>
-      </Bombardero>
-      <Caza>
+      </Explorador>
+      <Cazas>
         <Posicion>
           <X>100</X>
           <Y>200</Y>
         </Posicion>
-      </Caza>
+      </Cazas>
       <Avioneta>
         <X>150</X>
         <Y>340</Y>
@@ -25,12 +25,12 @@
           <Y>143</Y>
         </Posicion>
       </Bombardero>
-      <Caza>
+      <Cazas>
         <Posicion>
           <X>100</X>
           <Y>200</Y>
         </Posicion>
-      </Caza>
+      </Cazas>
       <Avioneta>
         <X>150</X>
         <Y>340</Y>

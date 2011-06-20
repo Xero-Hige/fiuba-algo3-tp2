@@ -109,6 +109,10 @@ public class Mision implements IGuardable {
 		this.jugador = nuevoJugador;
 	}
 
+	public NaveMilitarControlada getNaveDelJugador() {
+		return naveDelJugador;
+	}
+
 	@Override
 	public Element guardar(Element contenedor) {
 		

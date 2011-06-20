@@ -7,6 +7,7 @@ import java.util.Map;
 
 import tp2.modelo.Escenario;
 import tp2.modelo.Mision;
+import tp2.modelo.NaveMilitarControlada;
 import tp2.modelo.Visible;
 import tp2.modelo.ObjetoEspacial;
 import tp2.modelo.extras.Agua;
@@ -32,6 +33,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private ProyeccionSobreSuperficieDeDibujo proyeccion;
 	private Mision mision;
 	private HashMap<Visible, Dibujable> auxiliar; // BORRAR después
+	private VistaBarraDeEstado vistaBarraDeEstado;
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
@@ -83,7 +85,9 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			
 			this.removerVista(objetoMuerto);
 		}
-
+		this.vistaBarraDeEstado.setPuntaje(this.mision.getEscenario().getPuntuacion());
+		NaveMilitarControlada algo42 = this.mision.getNaveDelJugador();
+		this.vistaBarraDeEstado.setPorcentajeDeEnergia(100 * (int)(algo42.getEnergia() / algo42.getMaxEnergia()));
 		this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
 	}
 
@@ -109,7 +113,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.agregarDibujable(vistaNube3, 1);
 		this.agregarObjetoVivo(nube3);	
 		
-		VistaBarraDeEstado vistaBarraDeEstado = new VistaBarraDeEstado();
+		this.vistaBarraDeEstado = new VistaBarraDeEstado();
 		this.agregarDibujable(vistaBarraDeEstado, 1);
 		
 		for(Dibujable objetoDibujable: vistaBarraDeEstado.getObjetosDibujablesDeLaVista()){

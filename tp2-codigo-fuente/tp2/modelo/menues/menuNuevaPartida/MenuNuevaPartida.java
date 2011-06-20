@@ -12,11 +12,10 @@ import tp2.auxiliares.Point;
 import tp2.control.menues.menuNuevaPartida.ControlKeyPressMenuNuevaPartida;
 import tp2.modelo.Escenario;
 import tp2.modelo.Mision;
-import tp2.modelo.extras.InicioMision;
 import tp2.modelo.menues.Menu;
 import tp2.modelo.menues.MenuI;
 import tp2.vista.menues.menuNuevaPartida.VistaMenuNuevaPartida;
-import tp2.vista.modelo.mision.VistaInicioMision;
+import tp2.vista.modelo.mision.VistaBarraDeEstado;
 import tp2.vista.ventanas.VentanaPrincipal;
 
 
@@ -77,9 +76,14 @@ public class MenuNuevaPartida extends Menu {
 		mision.generar(datos);
 		this.getVentanaPrincipal().getControladorJuego().setMision(mision);
 		
-		VistaInicioMision textoMision = new VistaInicioMision();
-		textoMision.setPosicionable(new InicioMision());
 		
-		this.getVentanaPrincipal().agregarObjetoDibujable(textoMision);
+		VistaBarraDeEstado vistaBarraDeEstado = new VistaBarraDeEstado();
+		this.getVentanaPrincipal().agregarObjetoDibujable(vistaBarraDeEstado);
+		
+		for(Dibujable objetoDibujable: vistaBarraDeEstado.getObjetosDibujablesDeLaVista()){
+			this.getVentanaPrincipal().agregarObjetoDibujable(objetoDibujable);
+		}
+		
+		vistaBarraDeEstado.setPuntaje(100);
 	}
 }

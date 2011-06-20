@@ -93,6 +93,7 @@ public class Mision implements IGuardable {
 			
 			proximoTiempoDeSpawn = this.tiemposDeSpawn.peek();
 		}
+		
 		this.escenario.avanzarTiempoEn(unTiempo);
 	}
 

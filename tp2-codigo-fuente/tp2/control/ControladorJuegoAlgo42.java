@@ -52,25 +52,36 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	}
 	
 	private synchronized void simularJuego() {
+		
 		Collection<ObjetoEspacial> objetosCreados = this.escenario.getObjetosCreados();
 		Collection<ObjetoEspacial> objetosMuertos = this.escenario.getObjetosMuertos();
+		
 		for(ObjetoEspacial objetoCreado: objetosCreados){
+			
 			this.agregarObjetoVivo(objetoCreado);
+			
 			// Creamos círculo para observar la forma del modelo (borrar después)
 			Dibujable circulo = new Circulo((int)(objetoCreado.getTamanio() * proyeccion.getEscalaX()));
 			circulo.setPosicionable(objetoCreado);
 			this.agregarDibujable(circulo);
 			auxiliar.put(objetoCreado, circulo);
+			
 			// Fin Creamos círculo para observar la forma del modelo (borrar después)
 			this.agregarNuevaVista(objetoCreado);
+			
 		}
+		
 		for(ObjetoEspacial objetoMuerto: objetosMuertos){
+			
 			this.removerObjetoVivo(objetoMuerto);
+			
 			// Creamos círculo para observar la forma del modelo (borrar después)
 			this.removerDibujable(auxiliar.get(objetoMuerto));
+			
 			// Fin Creamos círculo para observar la forma del modelo (borrar después)
 			this.removerVista(objetoMuerto);
 		}
+		
 		this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
 	}
 

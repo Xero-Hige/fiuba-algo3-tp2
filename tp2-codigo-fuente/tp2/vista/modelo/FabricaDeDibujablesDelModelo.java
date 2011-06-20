@@ -1,6 +1,7 @@
 package tp2.vista.modelo;
 
 import tp2.vista.modelo.extras.*;
+import tp2.vista.modelo.mision.ImagenBarraDeEstado;
 import tp2.vista.modelo.objetosVivos.*;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
@@ -61,6 +62,16 @@ public class FabricaDeDibujablesDelModelo {
 	public static Dibujable nuevaImagenNubeTipo3() {
 		comprobarCargaDeImagenes();
 		return ImagenNubeTipo3.nuevaImagen();
+	}
+	
+	
+	////////////////////////////////////////////////////////////
+	// Imagenes de mision
+	////////////////////////////////////////////////////////////
+	
+	public static Dibujable nuevaImagenBarraDeEstado() {
+		comprobarCargaDeImagenes();
+		return ImagenBarraDeEstado.nuevaImagen();
 	}
 	
 	

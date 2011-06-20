@@ -85,12 +85,10 @@ public class Mision implements IGuardable {
 		while((proximoTiempoDeSpawn != null) && (this.tiempoActual >= proximoTiempoDeSpawn)){
 			
 			double tiempo = this.tiemposDeSpawn.poll();
-			
+			naveDelJugador.iniciarFuego();
 			for(ParCadenaPosicion datoDeLaNave: navesPorTiempoDeSpawn.get(tiempo)){
-				Collection<Nave> naves = ParserDeNaves.fabricarNave(datoDeLaNave, fabricaEnemiga, flotaEnemiga);
-				for(Nave nave: naves){
-					this.escenario.agregarObjeto(nave);
-				}
+				Nave nave = ParserDeNaves.fabricarNave(datoDeLaNave, fabricaEnemiga, flotaEnemiga);
+				this.escenario.agregarObjeto(nave);
 			}
 			
 			proximoTiempoDeSpawn = this.tiemposDeSpawn.peek();

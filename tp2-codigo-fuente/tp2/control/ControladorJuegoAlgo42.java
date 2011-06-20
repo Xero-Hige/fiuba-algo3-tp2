@@ -16,6 +16,7 @@ import tp2.modelo.extras.ObjetosExplosivos;
 import tp2.vista.modelo.ParserObjetoIdAVista;
 import tp2.vista.modelo.extras.VistaNubeTipo1;
 import tp2.vista.modelo.extras.VistaNubeTipo2;
+import tp2.vista.modelo.extras.VistaNubeTipo3;
 import tp2.vista.modelo.mision.VistaBarraDeEstado;
 import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
@@ -66,8 +67,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			circulo.setPosicionable(objetoCreado);
 			this.agregarDibujable(circulo);
 			auxiliar.put(objetoCreado, circulo);
-			
 			// Fin Creamos círculo para observar la forma del modelo (borrar después)
+			
 			this.agregarNuevaVista(objetoCreado);
 			
 		}
@@ -78,8 +79,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			
 			// Creamos círculo para observar la forma del modelo (borrar después)
 			this.removerDibujable(auxiliar.get(objetoMuerto));
-			
 			// Fin Creamos círculo para observar la forma del modelo (borrar después)
+			
 			this.removerVista(objetoMuerto);
 		}
 		
@@ -91,17 +92,22 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.agregarNuevaVista(agua, -1);
 				
 		VistaNubeTipo1 vistaNube1 = new VistaNubeTipo1();
-		Nube nube1 = new Nube(-10, -100, 600, 5);
+		Nube nube1 = new Nube(70, -100, 600, 5);
 		vistaNube1.setPosicionable(nube1);
 		this.agregarDibujable(vistaNube1, 1);
 		this.agregarObjetoVivo(nube1);
 		
 		VistaNubeTipo2 vistaNube2 = new VistaNubeTipo2();
-		Nube nube2 = new Nube(300, -300, 700, 6);
+		Nube nube2 = new Nube(470, -300, 700, 6);
 		vistaNube2.setPosicionable(nube2);
 		this.agregarDibujable(vistaNube2, 1);
 		this.agregarObjetoVivo(nube2);	
 		
+		VistaNubeTipo3 vistaNube3 = new VistaNubeTipo3();
+		Nube nube3 = new Nube(280, -600, 700, 6);
+		vistaNube3.setPosicionable(nube3);
+		this.agregarDibujable(vistaNube3, 1);
+		this.agregarObjetoVivo(nube3);	
 		
 		VistaBarraDeEstado vistaBarraDeEstado = new VistaBarraDeEstado();
 		this.agregarDibujable(vistaBarraDeEstado, 1);
@@ -115,7 +121,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		//////////////////////////////////////////////////
 		vistaBarraDeEstado.setPuntaje(100);
 		vistaBarraDeEstado.setVidas(3);
-		vistaBarraDeEstado.setPorcentajeDeEnergia(60);
+		vistaBarraDeEstado.setPorcentajeDeEnergia(30);
 		//////////////////////////////////////////////////
 	}
 	

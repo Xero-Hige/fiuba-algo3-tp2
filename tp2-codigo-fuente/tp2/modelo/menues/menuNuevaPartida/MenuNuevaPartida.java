@@ -64,9 +64,9 @@ public class MenuNuevaPartida extends Menu {
 		Mision mision = new Mision(escenario);
 		
 		Map<Double, Collection<ParCadenaPosicion>> datos = new HashMap<Double, Collection<ParCadenaPosicion>>();
-		ParCadenaPosicion par = new ParCadenaPosicion("asdf Falta hacer parser", new Point(40, 100));
+		ParCadenaPosicion par = new ParCadenaPosicion("Cazas", new Point(40, 100));
 		
-		for(int i = 0; i < 30; i++){
+		for(int i = 0; i < 30; i+=2){
 			Collection<ParCadenaPosicion> lista = new ArrayList<ParCadenaPosicion>();
 			lista.add(par);
 			datos.put((double)i, lista);

@@ -29,6 +29,11 @@ public class VistaBarraDeEnergia extends Cuadrado {
 			this.setColor(Color.GREEN);
 		else
 			this.setColor(Color.RED);
-	}	
+	}
+
+	private void setAncho(int i) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 

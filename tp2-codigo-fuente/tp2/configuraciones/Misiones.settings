@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Misiones>
   <Mision001>
     <Flota tiempo="0001">
@@ -12,7 +11,7 @@
         <Posicion>
           <X>100</X>
           <Y>200</Y>
-        </Posicion>>
+        </Posicion>
       </Caza>
       <Avioneta>
         <X>150</X>
@@ -30,7 +29,7 @@
         <Posicion>
           <X>100</X>
           <Y>200</Y>
-        </Posicion>>
+        </Posicion>
       </Caza>
       <Avioneta>
         <X>150</X>
@@ -50,7 +49,7 @@
         <Posicion>
           <X>100</X>
           <Y>200</Y>
-        </Posicion>>
+        </Posicion>
       </Caza>
       <Avioneta>
         <X>150</X>
@@ -68,7 +67,7 @@
         <Posicion>
           <X>100</X>
           <Y>200</Y>
-        </Posicion>>
+        </Posicion>
       </Caza>
       <Avioneta>
         <X>150</X>

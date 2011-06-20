@@ -19,7 +19,14 @@ public class ObjetosExplosivos {
 	
 	private static void generarIdsExplosivos(){
 		idsExplosivos = new HashSet<String>();
+		idsExplosivos.add(ValoresDeNaves.algo42Identificacion);
+		idsExplosivos.add(ValoresDeNaves.avionCivilIdentificacion);
+		idsExplosivos.add(ValoresDeNaves.avionetaIdentificacion);
+		idsExplosivos.add(ValoresDeNaves.bombarderoIdentificacion);
+		idsExplosivos.add(ValoresDeNaves.cazaIdentificacion);
 		idsExplosivos.add(ValoresDeNaves.exploradorIdentificacion);
+		idsExplosivos.add(ValoresDeNaves.guiaEnemigoIdentificacion);
+		idsExplosivos.add(ValoresDeNaves.helicopteroFederalIdentificacion);
 	}
 
 }

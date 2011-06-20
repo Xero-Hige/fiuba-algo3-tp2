@@ -75,15 +75,5 @@ public class MenuNuevaPartida extends Menu {
 		
 		mision.generar(datos);
 		this.getVentanaPrincipal().getControladorJuego().setMision(mision);
-		
-		
-		VistaBarraDeEstado vistaBarraDeEstado = new VistaBarraDeEstado();
-		this.getVentanaPrincipal().agregarObjetoDibujable(vistaBarraDeEstado);
-		
-		for(Dibujable objetoDibujable: vistaBarraDeEstado.getObjetosDibujablesDeLaVista()){
-			this.getVentanaPrincipal().agregarObjetoDibujable(objetoDibujable);
-		}
-		
-		vistaBarraDeEstado.setPuntaje(100);
 	}
 }

@@ -16,6 +16,7 @@ import tp2.modelo.extras.ObjetosExplosivos;
 import tp2.vista.modelo.ParserObjetoIdAVista;
 import tp2.vista.modelo.extras.VistaNubeTipo1;
 import tp2.vista.modelo.extras.VistaNubeTipo2;
+import tp2.vista.modelo.mision.VistaBarraDeEstado;
 import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
@@ -88,7 +89,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private void construirVistasDeFondo() {
 		Agua agua = new Agua(this.escenario);
 		this.agregarNuevaVista(agua, -1);
-		
+				
 		VistaNubeTipo1 vistaNube1 = new VistaNubeTipo1();
 		Nube nube1 = new Nube(-10, -100, 600, 5);
 		vistaNube1.setPosicionable(nube1);
@@ -99,7 +100,18 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		Nube nube2 = new Nube(300, -300, 700, 6);
 		vistaNube2.setPosicionable(nube2);
 		this.agregarDibujable(vistaNube2, 1);
-		this.agregarObjetoVivo(nube2);
+		this.agregarObjetoVivo(nube2);	
+		
+		
+		VistaBarraDeEstado vistaBarraDeEstado = new VistaBarraDeEstado();
+		this.agregarDibujable(vistaBarraDeEstado, 1);
+		
+		for(Dibujable objetoDibujable: vistaBarraDeEstado.getObjetosDibujablesDeLaVista()){
+			this.agregarDibujable(objetoDibujable, 1);
+		}
+		
+		vistaBarraDeEstado.setPuntaje(100);
+		vistaBarraDeEstado.setVidas(3);
 	}
 	
 	public void agregarNuevaVista(Visible objeto){

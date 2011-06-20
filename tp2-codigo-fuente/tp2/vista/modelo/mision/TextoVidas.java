@@ -23,8 +23,7 @@ public class TextoVidas implements ObjetoDeTexto, Posicionable {
 	@Override
 	public String getTexto() {
 		
-		String format = String.format("%%0%dd", 4); 
-		return txtVidas + " " + String.format(format, vidas);
+		return txtVidas + " " + vidas;
 	}
 	
 	@Override

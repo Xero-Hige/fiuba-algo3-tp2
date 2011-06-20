@@ -11,6 +11,8 @@ public class VistaBarraDeEstado extends Imagen {
 
 	public ArrayList<Dibujable> objetosDibujablesDeLaVista;
 	public VistaTextoPuntuacion vistaTextoPuntacion;
+	public VistaTextoVidas vistaTextoVidas;
+	public VistaBarraDeEnergiaBase vistaBarraDeEnergiaBase; 
 	
 	
 	public VistaBarraDeEstado() {
@@ -24,11 +26,21 @@ public class VistaBarraDeEstado extends Imagen {
 		
 		// Creamos los textos de puntuacion, cantidad de vidas y barra de energia
 		this.vistaTextoPuntacion = new VistaTextoPuntuacion();
-		this.agregarObjetoDibujableDeLaVista(vistaTextoPuntacion);		
+		this.agregarObjetoDibujableDeLaVista(vistaTextoPuntacion);
+		
+		this.vistaTextoVidas = new VistaTextoVidas();
+		this.agregarObjetoDibujableDeLaVista(vistaTextoVidas);	
+		
+		this.vistaBarraDeEnergiaBase = new VistaBarraDeEnergiaBase();
+		this.agregarObjetoDibujableDeLaVista(vistaBarraDeEnergiaBase);
 	}
 	
 	public void setPuntaje(int nuevoPuntaje) {
 		this.vistaTextoPuntacion.setPuntaje(nuevoPuntaje);
+	}
+	
+	public void setVidas(int cantidadVidas) {
+		this.vistaTextoVidas.setVidas(cantidadVidas);
 	}
 	
 	public void agregarObjetoDibujableDeLaVista(Dibujable unDibujable) {

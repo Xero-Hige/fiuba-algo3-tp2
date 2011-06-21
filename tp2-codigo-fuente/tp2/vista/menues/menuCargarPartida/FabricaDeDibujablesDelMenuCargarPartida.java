@@ -9,6 +9,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import tp2.persistencia.BuscadorDeArchivos;
+
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
@@ -37,9 +39,11 @@ public class FabricaDeDibujablesDelMenuCargarPartida {
 	public static Imagen nuevaImagenDesde(String texto) {
 		Imagen i = new Imagen();
 		
+		String directorioActual = BuscadorDeArchivos.getPathDirectoriActual();
+		
 		Image imagen = null;
 		try {
-			imagen = ImageIO.read(new FileInputStream("./src/tp2/vista/imagenes/extras/eleccion.png"));
+			imagen = ImageIO.read(new FileInputStream(directorioActual+"/src/tp2/vista/imagenes/extras/eleccion.png"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();		

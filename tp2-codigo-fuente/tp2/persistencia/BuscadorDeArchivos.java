@@ -4,6 +4,7 @@ import java.io.FilenameFilter;
 import java.util.HashMap;
 
 import tp2.persistencia.excepciones.CarpetaNoEncontradaError;
+import tp2.persistencia.excepciones.CriticalError;
 
 /**
  * Objeto para buscar archivos con una determinada extension
@@ -41,5 +42,18 @@ public class BuscadorDeArchivos{
 	    }
 		
 		return diccionario;
-	};
+	}
+	
+	public static String getPathDirectoriActual() {
+
+		try {
+			File directorio = new File (".");
+			return directorio.getCanonicalPath();
+			}
+		catch(Exception e){
+			//Exepccion que en ningun caso podria saltar a menos que algo este muy mal
+			//El directorio actual siempre existe
+			throw new CriticalError();
+		}
+	}
 }

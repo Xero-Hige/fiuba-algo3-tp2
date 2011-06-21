@@ -56,22 +56,14 @@ public class ConstructorMisionDesdeXml {
 	
 	private static String getPathConfiguracion(){
 		
-		String directorioActual = null;
-
-		try {
-			File directorio = new File (".");
-			directorioActual = directorio.getCanonicalPath();
-			}
-		catch(Exception e){
-			//Exepccion que en ningun caso podria saltar a menos que algo este muy mal
-			//El directorio actual siempre existe
-			throw new CriticalError();
-		}
+		String directorioActual = BuscadorDeArchivos.getPathDirectoriActual();
 		
 		String ArchivoDeMisiones = directorioActual+ DIRECTORIO_MISIONES + ARCHIVO_MISIONES;
 		return ArchivoDeMisiones;	
 	}
 	
+
+
 	public static Map<Double, Collection<ParCadenaPosicion>> datosMision(int numeroMision){
 		String format = String.format("%%0%dd", 3);
 		String sNumeroMision = String.format(format, numeroMision);

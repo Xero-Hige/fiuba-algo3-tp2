@@ -55,11 +55,7 @@ public class MenuCargarPartida extends Menu  {
 		}
 	}	
 	
-	public void resetear() {
-		
-		//Todo
-	}
-	
+
 	@Override
 	public void activarControl() {
 		
@@ -67,5 +63,11 @@ public class MenuCargarPartida extends Menu  {
 		// del menú principal.
 		this.setControlKeyPress(new ControlKeyPressMenuCargarPartida(this));
 		this.getVentanaPrincipal().setControlKeyPressActivo(this.getControlKeyPress());
+	}
+
+	@Override
+	public void resetear() {
+		// TODO Auto-generated method stub
+		
 	}
 }

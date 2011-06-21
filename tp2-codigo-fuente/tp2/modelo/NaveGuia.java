@@ -1,12 +1,14 @@
 package tp2.modelo;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import tp2.auxiliares.Point;
-import tp2.modelo.excepciones.*;
 import tp2.persistencia.GeneradorXml;
 import tp2.persistencia.IGuardable;
 import tp2.persistencia.ReconstructorDesdeXml;

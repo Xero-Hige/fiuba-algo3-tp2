@@ -26,6 +26,7 @@ public class ControlKeyPressMenuCargarPartida implements KeyPressedObservador {
 				
 			case KeyEvent.VK_DOWN:
 				this.menuCargarPartida.siguienteElemento();
+				this.menuCargarPartida.ocultar();
 				this.menuCargarPartida.mostrar();
 				break;
 				

@@ -1,12 +1,13 @@
 package tp2.modelo.menues.menuPrincipal;
 
-import ar.uba.fi.algo3.titiritero.vista.Imagen;
 import tp2.modelo.menues.MenuI;
 import tp2.modelo.menues.MenuItem;
+import tp2.modelo.menues.menuCargarPartida.MenuCargarPartida;
 import tp2.vista.menues.VistaMenuItem;
 import tp2.vista.menues.menuPrincipal.FabricaDeDibujablesDelMenuPrincipal;
 import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.VentanaPrincipal;
+import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 
 public class MenuPrincipalItemCargarPartida extends MenuItem {
@@ -27,6 +28,7 @@ public class MenuPrincipalItemCargarPartida extends MenuItem {
 
 	@Override
 	public void seleccionar() {
-		
+		MenuCargarPartida menuCargarPartida = new MenuCargarPartida(this.getVentanaPrincipal(), this.getMenuDelItem());
+		menuCargarPartida.mostrar();
 	}
 }

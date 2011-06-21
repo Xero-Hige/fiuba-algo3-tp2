@@ -39,7 +39,7 @@ public class FabricaDeDibujablesDelMenuCargarPartida {
 		
 		Image imagen = null;
 		try {
-			imagen = ImageIO.read(new FileInputStream("C:/Users/Hige/workspace/tp2-codigo-fuente/src/tp2/vista/imagenes/extras/eleccion.png"));
+			imagen = ImageIO.read(new FileInputStream("./src/tp2/vista/imagenes/extras/eleccion.png"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();		
@@ -51,8 +51,8 @@ public class FabricaDeDibujablesDelMenuCargarPartida {
 		
 		Graphics graficos = imagen.getGraphics();
 		graficos.drawImage(imagen, 0, 0, null);
-		graficos.setFont(new Font("Arial", Font.BOLD, 20));
-		graficos.drawString(texto, 10, 22);
+		graficos.setFont(new Font("Arial", Font.BOLD, 12));
+		graficos.drawString(texto, 3, 22);
 		graficos.dispose();
 
         i.setImagen(imagen);

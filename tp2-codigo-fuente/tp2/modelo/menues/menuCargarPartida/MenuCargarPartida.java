@@ -1,5 +1,7 @@
 package tp2.modelo.menues.menuCargarPartida;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import tp2.control.menues.menuCargarPartida.ControlKeyPressMenuCargarPartida;
@@ -12,8 +14,9 @@ import tp2.vista.ventanas.VentanaPrincipal;
 public class MenuCargarPartida extends Menu  {
 	
 	List<String[]> archivos;
-	int archivoActual = -1;
+	int archivoActual = 0;
 	MenuItemTexto cuadroDeTexto = null;
+	List<MenuItemTexto> textos = new ArrayList<MenuItemTexto>();
 		
 	public MenuCargarPartida(VentanaPrincipal ventanaPrincipal, MenuI menuPadre) {
 		super(ventanaPrincipal, menuPadre);
@@ -23,39 +26,34 @@ public class MenuCargarPartida extends Menu  {
 		this.getVistaMenu().setPosicionable(this);
 		
 		archivos = ManejadorPartidasGuardadas.getListaPartidasGuardadas();
-		this.cuadroDeTexto = new MenuItemTexto(this.getVentanaPrincipal(), this,"");
+		Iterator<String[]> iter = archivos.iterator();
+		MenuCargarPartida a=this;
+		while (iter.hasNext()){
+			String[] datos = iter.next();
+			textos.add(new MenuItemTexto(ventanaPrincipal,a,datos[0]+" "+datos[1]));
+		}
 		
-		siguienteElemento();
+		this.cuadroDeTexto = textos.get(0);
+		this.agregarItem(cuadroDeTexto);
 	}
 	
-	private void recargarCuadroTexto(String texto) {
-		this.cuadroDeTexto.cambiarTexto(texto);
-	}
-
-	private String[] getArchivoActual() {
-		return archivos.get(archivoActual);
-	}
-
 	public void siguienteElemento(){
 		if(archivoActual<archivos.size()-1){
 			archivoActual++;
-		}
-		
-		//Exception
-		
-		String[] texto = getArchivoActual();
-		this.recargarCuadroTexto(texto[0]+" "+texto[1]);
-		this.agregarItem(cuadroDeTexto);
+			this.removerItem(cuadroDeTexto);
+			cuadroDeTexto = textos.get(archivoActual);
+			this.agregarItem(cuadroDeTexto);
+		};
 	}
 	
 	public void anteriorElemento(){
 		if(archivoActual>0){
 			archivoActual--;
+			this.removerItem(cuadroDeTexto);
+			cuadroDeTexto = textos.get(archivoActual);
+			this.agregarItem(cuadroDeTexto);
 		}
-		String[] texto = getArchivoActual();
-		this.recargarCuadroTexto(texto[0]+" "+texto[1]);
-		this.agregarItem(cuadroDeTexto);
-	}
+	}	
 	
 	public void resetear() {
 		

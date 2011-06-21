@@ -127,4 +127,9 @@ public class FabricaDeDibujablesDelModelo {
 		comprobarCargaDeImagenes();
 		return ImagenBonoDeEnergia.nuevaImagen(escala);
 	}
+	
+	public static Dibujable nuevaImagenBonoDeArmas(double escala) {
+		comprobarCargaDeImagenes();
+		return ImagenBonoDeArmas.nuevaImagen(escala);
+	}
 }

@@ -8,7 +8,7 @@ package tp2.modelo.especificaciones;
 public class ValoresDeArmas {
 
 	public static int canionLaserVelocidad = 150;
-	public static double canionLaserFrecuencia = 5;
+	public static double canionLaserFrecuencia = 20;
 	public static double canionLaserProyectilTamanio = 0.7;
 	public static double canionLaserProyectilVelocidad = 0;
 	public static double canionLaserProyectilDanio = 15;

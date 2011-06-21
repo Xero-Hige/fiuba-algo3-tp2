@@ -5,16 +5,17 @@ import tp2.vista.modelo.ArchivosDeImagenes;
 import tp2.vista.modelo.FactoresDeImagenes;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
+
 public class ImagenBonoDeEnergia extends Imagen {
 	
 	private static ImagenBonoDeEnergia imagenPrincipal;
 	private static ImagenEscalable imagenEscalable;
 
-	private ImagenBonoDeEnergia () {
+	private ImagenBonoDeEnergia() {
 		this.setNombreArchivoImagen(ArchivosDeImagenes.IMAGEN_BONO_ENERGIA);
 	}
 
-	private ImagenBonoDeEnergia (Imagen imagen) {
+	private ImagenBonoDeEnergia(Imagen imagen) {
 		super(imagen);
 	}
 	
@@ -23,12 +24,12 @@ public class ImagenBonoDeEnergia extends Imagen {
 		imagenEscalable = new ImagenEscalable(imagenPrincipal);
 	}
 	
-	public static ImagenBonoDeEnergia  nuevaImagen(double escala){
+	public static ImagenBonoDeEnergia nuevaImagen(double escala){
 		if(imagenPrincipal == null){
 			crearImagenBonoDeEnergia();
 		}
 		int tamanioImagen = (int) (FactoresDeImagenes.FACTOR_BONO_ENERGIA * 2 * ValoresDeBonos.bonoDeEnergiaTamanio * escala);
-		return new ImagenBonoDeEnergia (imagenEscalable.getImagenEscalada(tamanioImagen));
+		return new ImagenBonoDeEnergia(imagenEscalable.getImagenEscalada(tamanioImagen));
 	}
 
 }

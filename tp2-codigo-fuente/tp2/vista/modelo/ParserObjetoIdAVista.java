@@ -8,6 +8,7 @@ import tp2.vista.modelo.extras.VistaExplosion;
 import tp2.vista.modelo.objetosVivos.VistaAlgo42;
 import tp2.vista.modelo.objetosVivos.VistaAvioneta;
 import tp2.vista.modelo.objetosVivos.VistaBombardero;
+import tp2.vista.modelo.objetosVivos.VistaBonoDeArmas;
 import tp2.vista.modelo.objetosVivos.VistaBonoDeEnergia;
 import tp2.vista.modelo.objetosVivos.VistaCaza;
 import tp2.vista.modelo.objetosVivos.VistaCivil;
@@ -61,21 +62,9 @@ public class ParserObjetoIdAVista {
 		else if (id == ValoresDeBonos.bonoDeEnergiaIdentificacion) 
 			return new VistaBonoDeEnergia(proyeccion);
 		
-//		else if (id == "BonusArmaLaser") 
-//			return null;
-//		
-//		else if (id == "BonusArmaCohete") 
-//			return null;
-//		
-//		else if (id == "BonusArmaTorpedoSimple") 
-//			return null;
-//		
-//		else if (id == "BonusArmaTorpedoRastreador") 
-//			return null;
-//		
-//		else if (id == "BonusArmaTorpedoAdaptable") 
-//			return null;
-		
+		else if (id == ValoresDeBonos.bonoDeArmasIdentificacion) 
+			return new VistaBonoDeArmas(proyeccion);
+				
 		
 		// Extras
 		

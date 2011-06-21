@@ -12,4 +12,5 @@ public class FactoresDeImagenes {
 	public static final double FACTOR_NAVE_GUIA = 70.0 / 41.0;
 	
 	public static final double FACTOR_BONO_ENERGIA = 70.0 / 41.0;
+	public static final double FACTOR_BONO_ARMAS = 70.0 / 41.0;
 }

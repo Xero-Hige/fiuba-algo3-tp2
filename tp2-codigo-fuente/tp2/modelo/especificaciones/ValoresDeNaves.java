@@ -9,7 +9,7 @@ public class ValoresDeNaves {
 	
 	public static String algo42Identificacion = "Algo42";
 	public static double algo42Tamanio = 7;
-	public static double algo42Velocidad = 75;
+	public static double algo42Velocidad = 200;
 	public static double algo42Energia = 500;
 	
 	public static String avionCivilIdentificacion = "AvionCivil";
@@ -19,7 +19,7 @@ public class ValoresDeNaves {
 	public static int avionCivilPenalizacion = 300;
 	
 	public static String avionetaIdentificacion = "Avioneta";
-	public static double avionetaTamanio = 3;
+	public static double avionetaTamanio = 5;
 	public static double avionetaVelocidad = 60;
 	public static double avionetaEnergia = 10;
 	public static int avionetaPuntuacion = 20;

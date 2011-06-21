@@ -8,6 +8,7 @@ import java.util.Map;
 import tp2.modelo.Escenario;
 import tp2.modelo.Mision;
 import tp2.modelo.NaveMilitarControlada;
+import tp2.modelo.Partida;
 import tp2.modelo.Visible;
 import tp2.modelo.ObjetoEspacial;
 import tp2.modelo.extras.Agua;
@@ -29,13 +30,14 @@ import ar.uba.fi.algo3.titiritero.vista.Circulo;
 
 public class ControladorJuegoAlgo42 extends ControladorJuego {
 
-	private Escenario escenario;
 	private Map<Visible, Dibujable> vistas = new HashMap<Visible, Dibujable>();
 	private ProyeccionSobreSuperficieDeDibujo proyeccion;
-	private Mision mision;
 	private HashMap<Visible, Dibujable> auxiliar; // BORRAR después
 	private VistaBarraDeEstado vistaBarraDeEstado;
 	private VistaInicioMision vistaInicioMision;
+	private Partida partida;
+	private Mision mision;
+	private Escenario escenario;
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
@@ -91,7 +93,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.vistaBarraDeEstado.setPuntaje(this.mision.getEscenario().getPuntuacion());
 		NaveMilitarControlada algo42 = this.mision.getNaveDelJugador();
 		this.vistaBarraDeEstado.setPorcentajeDeEnergia((int)(100 * algo42.getEnergia() / algo42.getMaxEnergia()));
-		this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
+		this.mision.simularDurante(this.getIntervaloSimulacion() / 100.0);
 		
 		if ((! this.vistaInicioMision.enEscena()) && (! this.vistaInicioMision.salioDeEscena())) {
 			this.removerDibujable(vistaInicioMision);
@@ -166,8 +168,9 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		return mision;
 	}
 
-	public synchronized void setMision(Mision mision) {
-		this.mision = mision;
+	public synchronized void setPartida(Partida partida) {
+		this.partida = partida;
+		this.mision = partida.getMisionActual();
 		this.escenario = mision.getEscenario();
 		this.proyeccion = new ProyeccionSobreSuperficieDeDibujo(this.escenario.getAreaDeCombate(), new Rectangle(DimensionesDeVentana.ancho, DimensionesDeVentana.alto));
 		this.construirVistasDeFondo();

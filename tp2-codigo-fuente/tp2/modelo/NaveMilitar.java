@@ -42,8 +42,10 @@ public class NaveMilitar extends Nave {
 			return;
 		}
 		if(this.enCombate == false){
-			this.desaparecerDelEscenario();
-			return;
+			if(this.getEscenario().getAreaDeCombate().contains(this.getPosicion())){
+				this.desaparecerDelEscenario();
+				return;
+			}
 		}
 		if (unTiempo <= 0) return;
 		Set<ObjetoEspacial> objetosChocados = this.getEscenario().getObjetosEnColisionCon(this);
@@ -99,6 +101,10 @@ public class NaveMilitar extends Nave {
 	// y el arma en sí como valor.
 	public List<Arma> getArmas() {
 		return this.armas;
+	}
+	
+	public boolean estaEnCombate(){
+		return this.enCombate;
 	}
 	
 	public void quitarDeCombate(){

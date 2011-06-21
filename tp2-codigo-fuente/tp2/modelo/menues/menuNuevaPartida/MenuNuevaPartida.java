@@ -8,8 +8,10 @@ import tp2.auxiliares.ParCadenaPosicion;
 import tp2.control.menues.menuNuevaPartida.ControlKeyPressMenuNuevaPartida;
 import tp2.modelo.Escenario;
 import tp2.modelo.Mision;
+import tp2.modelo.Partida;
 import tp2.modelo.menues.Menu;
 import tp2.modelo.menues.MenuI;
+import tp2.modelo.menues.menuMision.MenuMision;
 import tp2.persistencia.ConstructorMisionDesdeXml;
 import tp2.vista.menues.menuNuevaPartida.VistaMenuNuevaPartida;
 import tp2.vista.ventanas.VentanaPrincipal;
@@ -54,25 +56,15 @@ public class MenuNuevaPartida extends Menu {
 		// Removemos la pantalla de cargando nueva partida
 		this.getVentanaPrincipal().removerObjetoDibujable((Dibujable) this.getVistaMenu());
 		this.getVentanaPrincipal().removerObjetosDibujables(this.getVistaMenu().getObjetosDibujables());
+		
+//		MenuMision menuMision = new MenuMision(this.getVentanaPrincipal(), this);
+//		menuMision.mostrar();
 	}
 	
 	public void iniciarNuevaPartida() {
 		
-		Escenario escenario = new Escenario(new Rectangle(140, 140));
-		Mision mision = new Mision(escenario);
-		
-//		Map<Double, Collection<ParCadenaPosicion>> datos = new HashMap<Double, Collection<ParCadenaPosicion>>();
-//		ParCadenaPosicion par = new ParCadenaPosicion("Cazas", new Point(40, 100));
-		
-//		for(int i = 0; i < 30; i+=2){
-//			Collection<ParCadenaPosicion> lista = new ArrayList<ParCadenaPosicion>();
-//			lista.add(par);
-//			datos.put((double)i, lista);
-//		}
-		
-		Map<Double, Collection<ParCadenaPosicion>> datos = ConstructorMisionDesdeXml.datosMision(1);
-		
-		mision.generar(datos);
-		this.getVentanaPrincipal().getControladorJuego().setMision(mision);
+		Partida partida = new Partida(2);
+		this.getVentanaPrincipal().getControladorJuego().setPartida(partida);
+
 	}
 }

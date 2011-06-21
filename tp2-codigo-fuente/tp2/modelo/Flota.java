@@ -67,9 +67,7 @@ public class Flota implements IGuardable {
 		nave.setVuelo(vuelo);
 		nave.detenerFuego();
 		if(!nave.getEscenario().getAreaDeCombate().contains(nave.getPosicion())){
-			if(!nave.estaDestruido()){
-				nave.quitarDeCombate();
-			}
+			nave.quitarDeCombate();
 		}
 	}
 	

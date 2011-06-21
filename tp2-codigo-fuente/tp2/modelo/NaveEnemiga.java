@@ -44,6 +44,12 @@ public class NaveEnemiga extends NaveMilitar {
 			this.desaparecerDelEscenario();
 			return;
 		}
+		if(this.estaEnCombate() == false){
+			if(this.getEscenario().getAreaDeCombate().contains(this.getPosicion())){
+				this.desaparecerDelEscenario();
+				return;
+			}
+		}
 		if (unTiempo <= 0) return;
 		Set<ObjetoEspacial> objetosChocados = this.getEscenario().getObjetosEnColisionCon(this);
 		Iterator<ObjetoEspacial> iterador = objetosChocados.iterator();

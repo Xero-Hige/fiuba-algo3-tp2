@@ -94,8 +94,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
 		
 		if ((! this.vistaInicioMision.enEscena()) && (! this.vistaInicioMision.salioDeEscena())) {
-			this.vistaInicioMision.salirDeEscena();
 			this.removerDibujable(vistaInicioMision);
+			this.vistaInicioMision.salirDeEscena();
 		}
 		else if ((this.vistaInicioMision.enEscena()) && (! this.vistaInicioMision.salioDeEscena()))
 			this.vistaInicioMision.correrCiclo();

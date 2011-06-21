@@ -10,6 +10,7 @@ import tp2.vista.modelo.objetosVivos.VistaCaza;
 import tp2.vista.modelo.objetosVivos.VistaCivil;
 import tp2.vista.modelo.objetosVivos.VistaExplorador;
 import tp2.vista.modelo.objetosVivos.VistaHelicoptero;
+import tp2.vista.modelo.objetosVivos.VistaNaveGuia;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
@@ -47,6 +48,9 @@ public class ParserObjetoIdAVista {
 				
 		else if (id == "HelicopteroFederal") 
 			return new VistaHelicoptero(proyeccion);
+		
+		else if (id == "GuiaEnemigo") 
+			return new VistaNaveGuia(proyeccion);
 		
 		
 		// Bonus extras

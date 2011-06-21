@@ -9,5 +9,5 @@ public class FactoresDeImagenes {
 	public static final double FACTOR_CAZA = 85.0 / 41.0;
 	public static final double FACTOR_EXPLORADOR = 65.0 / 41.0;
 	public static final double FACTOR_HELICOPTERO_FEDERAL = 91.0 / 41.0;
-
+	public static final double FACTOR_NAVE_GUIA = 91.0 / 41.0;
 }

@@ -113,4 +113,9 @@ public class FabricaDeDibujablesDelModelo {
 		comprobarCargaDeImagenes();
 		return ImagenHelicoptero.nuevaImagen(escala);
 	}
+	
+	public static Dibujable nuevaImagenNaveGuia(double escala) {
+		comprobarCargaDeImagenes();
+		return ImagenNaveGuia.nuevaImagen(escala);
+	}
 }

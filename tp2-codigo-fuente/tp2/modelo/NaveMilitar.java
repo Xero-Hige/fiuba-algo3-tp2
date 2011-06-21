@@ -69,7 +69,9 @@ public class NaveMilitar extends Nave {
 		while(iter.hasNext()){
 			Arma arma = iter.next(); 
 			if (arma.getIdentificacion() == id){
-				arma.cargarCon((Integer) unArma.getCarga());
+				if(!unArma.getCarga().toString().equals("Infinity")){
+					arma.cargarCon(new Integer(unArma.getCarga().toString()));
+				}
 				return;
 			}
 		}

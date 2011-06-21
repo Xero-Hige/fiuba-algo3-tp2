@@ -9,7 +9,7 @@ public class ValoresDeNaves {
 	
 	public static String algo42Identificacion = "Algo42";
 	public static double algo42Tamanio = 7;
-	public static double algo42Velocidad = 200;
+	public static double algo42Velocidad = 250;
 	public static double algo42Energia = 500;
 	
 	public static String avionCivilIdentificacion = "AvionCivil";
@@ -33,7 +33,7 @@ public class ValoresDeNaves {
 	
 	public static String exploradorIdentificacion = "Explorador";
 	public static double exploradorTamanio = 6;
-	public static double exploradorVelocidad = 48;
+	public static double exploradorVelocidad = 150;
 	public static double exploradorEnergia = 1;
 	public static double exploradorVueloLongitudTrayectoria = 40;
 	public static int exploradorPuntuacion = 50;

@@ -12,7 +12,7 @@ public class VistaInicioMision extends TextoDinamico {
 
 	private static TextoInicioMision textoInicioMision = new TextoInicioMision();
 	private static Font fuente = new Font("Arial", Font.BOLD, 25);
-	private int cantidadDeCiclosVisible = 200;
+	private int cantidadDeCiclosVisible = 150;
 	private int ciclosCorridos;
 	private boolean enEscena;
 	private boolean salioDeEscena;

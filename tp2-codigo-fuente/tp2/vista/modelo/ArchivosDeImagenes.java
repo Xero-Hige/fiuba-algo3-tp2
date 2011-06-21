@@ -12,4 +12,6 @@ public class ArchivosDeImagenes {
 	public static final String IMAGEN_EXPLORADOR = RUTA_BASE + "/modelo/aeronaves/explorador.png";
 	public static final String IMAGEN_HELICOPTERO_FEDERAL = RUTA_BASE + "/modelo/aeronaves/helicoptero.png";
 	public static final String IMAGEN_NAVE_GUIA = RUTA_BASE + "/modelo/aeronaves/naveGuiaMision1.png";
+	
+	public static final String IMAGEN_BONO_ENERGIA = RUTA_BASE + "/modelo/bonos/bonus-energia.png";
 }

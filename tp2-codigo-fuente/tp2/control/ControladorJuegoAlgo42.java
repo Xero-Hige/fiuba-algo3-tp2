@@ -4,7 +4,6 @@ import java.awt.Rectangle;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
 import tp2.modelo.Escenario;
 import tp2.modelo.Mision;
 import tp2.modelo.NaveMilitarControlada;
@@ -32,7 +31,6 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 
 	private Map<Visible, Dibujable> vistas = new HashMap<Visible, Dibujable>();
 	private ProyeccionSobreSuperficieDeDibujo proyeccion;
-	private HashMap<Visible, Dibujable> auxiliar; // BORRAR después
 	private VistaBarraDeEstado vistaBarraDeEstado;
 	private VistaInicioMision vistaInicioMision;
 	private Partida partida;
@@ -50,7 +48,6 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 
 	@Override
 	public void comenzarJuego() {
-		this.auxiliar = new HashMap<Visible, Dibujable>();
 		do {
 			if(this.mision != null){
 				this.simularJuego();
@@ -67,14 +64,6 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		for(ObjetoEspacial objetoCreado: objetosCreados){
 			
 			this.agregarObjetoVivo(objetoCreado);
-			
-			// Creamos círculo para observar la forma del modelo (borrar después)
-			Dibujable circulo = new Circulo((int)(objetoCreado.getTamanio() * proyeccion.getEscalaX()));
-			circulo.setPosicionable(objetoCreado);
-			this.agregarDibujable(circulo);
-			auxiliar.put(objetoCreado, circulo);
-			// Fin Creamos círculo para observar la forma del modelo (borrar después)
-			
 			this.agregarNuevaVista(objetoCreado);
 			
 		}
@@ -82,11 +71,6 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		for(ObjetoEspacial objetoMuerto: objetosMuertos){
 			
 			this.removerObjetoVivo(objetoMuerto);
-			
-			// Creamos círculo para observar la forma del modelo (borrar después)
-			this.removerDibujable(auxiliar.get(objetoMuerto));
-			// Fin Creamos círculo para observar la forma del modelo (borrar después)
-			
 			this.removerVista(objetoMuerto);
 		}
 		
@@ -133,7 +117,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		}
 		
 		this.vistaInicioMision = new VistaInicioMision();
-		this.agregarDibujable(vistaInicioMision);
+		this.agregarDibujable(vistaInicioMision, 1);
 	}
 	
 	public void agregarNuevaVista(Visible objeto){
@@ -174,7 +158,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.escenario = mision.getEscenario();
 		this.proyeccion = new ProyeccionSobreSuperficieDeDibujo(this.escenario.getAreaDeCombate(), new Rectangle(DimensionesDeVentana.ancho, DimensionesDeVentana.alto));
 		this.construirVistasDeFondo();
-		this.vistaInicioMision.setNumeroDeMision(1);
+		this.vistaInicioMision.setNumeroDeMision(this.partida.getNivelActual());
 	}
 	
 }

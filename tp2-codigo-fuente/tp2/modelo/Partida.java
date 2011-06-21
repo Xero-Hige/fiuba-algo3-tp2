@@ -22,6 +22,7 @@ public class Partida implements IGuardable {
 	private Mision misionActual;
 	private int cantidadNiveles;
 	private int nivelActual;
+
 	private Boolean enCurso;
 	
 	
@@ -69,6 +70,10 @@ public class Partida implements IGuardable {
 
 	public Mision getMisionActual() {
 		return misionActual;
+	}
+	
+	public int getNivelActual() {
+		return nivelActual;
 	}
 
 	@Override

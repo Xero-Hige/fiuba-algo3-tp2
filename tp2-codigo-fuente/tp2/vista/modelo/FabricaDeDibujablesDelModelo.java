@@ -118,4 +118,13 @@ public class FabricaDeDibujablesDelModelo {
 		comprobarCargaDeImagenes();
 		return ImagenNaveGuia.nuevaImagen(escala);
 	}
+	
+	////////////////////////////////////////////////////////////
+	// Imagenes de bonos
+	////////////////////////////////////////////////////////////
+		
+	public static Dibujable nuevaImagenBonoDeEnergia(double escala) {
+		comprobarCargaDeImagenes();
+		return ImagenBonoDeEnergia.nuevaImagen(escala);
+	}
 }

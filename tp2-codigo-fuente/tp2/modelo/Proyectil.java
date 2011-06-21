@@ -55,6 +55,9 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 	// escenario o vuelo, se levanta una excepción.
 	public void actuarDurante(double unTiempo) {
 
+		if(!this.getEscenario().getAreaDeCombate().contains(this.getPosicion())){
+			this.destruir();
+		}
 		if (this.estaDestruido()) {
 			this.desaparecerDelEscenario();
 			return;

@@ -44,6 +44,7 @@ public class ValoresDeNaves {
 	public static double cazaEnergia = 30;
 	public static double cazaUnidadesPorFormacion = 3;
 	public static int cazaPuntuacion = 30;
+	public static String grupoCazaIdentificacion = "Cazas";
 	
 	public static String guiaEnemigoIdentificacion = "GuiaEnemigo";
 	public static double guiaEnemigoTamanio = 15;

@@ -20,11 +20,11 @@
         </Posicion>
       </Avioneta>
     </Flota>
-    <Flota tiempo="0025">
+    <Flota tiempo="0005">
       <Bombardero>
         <Posicion>
           <X>10</X>
-          <Y>100</Y>
+          <Y>150</Y>
         </Posicion>
       </Bombardero>
       <Cazas>

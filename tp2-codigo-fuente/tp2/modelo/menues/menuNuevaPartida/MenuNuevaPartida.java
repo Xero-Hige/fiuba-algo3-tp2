@@ -1,18 +1,10 @@
 package tp2.modelo.menues.menuNuevaPartida;
 
-import java.awt.Rectangle;
-import java.util.Collection;
-import java.util.Map;
-
-import tp2.auxiliares.ParCadenaPosicion;
 import tp2.control.menues.menuNuevaPartida.ControlKeyPressMenuNuevaPartida;
-import tp2.modelo.Escenario;
-import tp2.modelo.Mision;
 import tp2.modelo.Partida;
 import tp2.modelo.menues.Menu;
 import tp2.modelo.menues.MenuI;
 import tp2.modelo.menues.menuMision.MenuMision;
-import tp2.persistencia.ConstructorMisionDesdeXml;
 import tp2.vista.menues.menuNuevaPartida.VistaMenuNuevaPartida;
 import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.Dibujable;
@@ -57,8 +49,9 @@ public class MenuNuevaPartida extends Menu {
 		this.getVentanaPrincipal().removerObjetoDibujable((Dibujable) this.getVistaMenu());
 		this.getVentanaPrincipal().removerObjetosDibujables(this.getVistaMenu().getObjetosDibujables());
 		
-//		MenuMision menuMision = new MenuMision(this.getVentanaPrincipal(), this);
-//		menuMision.mostrar();
+		MenuMision menuMision = new MenuMision(this.getVentanaPrincipal(), this);
+		menuMision.mostrar();
+		menuMision.activarControl();
 	}
 	
 	public void iniciarNuevaPartida() {

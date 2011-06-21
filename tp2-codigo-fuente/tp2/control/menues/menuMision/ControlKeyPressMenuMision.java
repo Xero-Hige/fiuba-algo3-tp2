@@ -2,26 +2,36 @@ package tp2.control.menues.menuMision;
 
 import java.awt.event.KeyEvent;
 
+import tp2.control.ControladorDelJugador;
+import tp2.modelo.NaveMilitarControlada;
 import tp2.modelo.menues.menuMision.MenuMision;
 
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 
 public class ControlKeyPressMenuMision implements KeyPressedObservador {
 
+	private ControladorDelJugador controladorDelJugador;
+
 	public ControlKeyPressMenuMision(MenuMision menuMision) {
-		// TODO Auto-generated constructor stub
+		NaveMilitarControlada naveDelJugador = menuMision.getVentanaPrincipal().getControladorJuego().getPartida().getMisionActual().getNaveDelJugador();
+		this.controladorDelJugador = new ControladorDelJugador(naveDelJugador);
 	}
 
 	@Override
 	public void keyPressed(KeyEvent event) {
-		// TODO Auto-generated method stub
-
+		this.controladorDelJugador.recibirTeclaPresionada(event);
+		switch(event.getKeyCode()) {
+			case KeyEvent.VK_P:
+				System.out.println("Se pone pausa");
+		}
 	}
 
 	@Override
 	public void keyRelease(KeyEvent event) {
-		// TODO Auto-generated method stub
-
+		this.controladorDelJugador.recibirTeclaSoltada(event);
+		switch(event.getKeyCode()) {
+			
+		}
 	}
 
 }

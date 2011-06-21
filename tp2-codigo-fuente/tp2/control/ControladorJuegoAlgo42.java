@@ -164,8 +164,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		}
 	}
 
-	public Mision getMision() {
-		return mision;
+	public Partida getPartida() {
+		return partida;
 	}
 
 	public synchronized void setPartida(Partida partida) {
@@ -176,4 +176,5 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.construirVistasDeFondo();
 		this.vistaInicioMision.setNumeroDeMision(1);
 	}
+	
 }

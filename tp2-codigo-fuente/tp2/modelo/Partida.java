@@ -88,5 +88,6 @@ public class Partida implements IGuardable {
 		this.nivelActual = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("nivelActual"));
 		this.enCurso = false;
 		return this;
-	}	
+	}
+	
 }

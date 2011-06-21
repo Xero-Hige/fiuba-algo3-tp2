@@ -4,7 +4,6 @@ import tp2.modelo.menues.MenuI;
 import tp2.modelo.menues.MenuItem;
 import tp2.vista.menues.VistaMenuItem;
 import tp2.vista.menues.menuCargarPartida.FabricaDeDibujablesDelMenuCargarPartida;
-import tp2.vista.menues.menuPrincipal.FabricaDeDibujablesDelMenuPrincipal;
 import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;

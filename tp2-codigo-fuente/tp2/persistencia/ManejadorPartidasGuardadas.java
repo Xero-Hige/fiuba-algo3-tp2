@@ -33,7 +33,7 @@ public class ManejadorPartidasGuardadas {
 			throw new CriticalError();
 		}
 		
-		HashMap<String, String> archivosSave = BuscadorDeArchivos.getArchivos(directorioActual,"save");
+		HashMap<String, String> archivosSave = BuscadorDeArchivos.getArchivos(directorioActual+"/Saves","save");
 		
 		Set<String> nombresArchivos = archivosSave.keySet();
 		Iterator<String> iter = nombresArchivos.iterator();

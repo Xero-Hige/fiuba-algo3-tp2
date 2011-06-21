@@ -1,6 +1,8 @@
 package tp2.vista.modelo;
 
 import tp2.modelo.Visible;
+import tp2.modelo.especificaciones.ValoresDeBonos;
+import tp2.modelo.especificaciones.ValoresDeNaves;
 import tp2.vista.modelo.extras.VistaAgua;
 import tp2.vista.modelo.extras.VistaExplosion;
 import tp2.vista.modelo.objetosVivos.VistaAlgo42;
@@ -29,34 +31,34 @@ public class ParserObjetoIdAVista {
 		
 		// Aeronaves
 		
-		if (id == "Algo42")
+		if (id == ValoresDeNaves.algo42Identificacion)
 			return new VistaAlgo42(proyeccion);
 		
-		else if (id == "Avioneta") 
+		else if (id == ValoresDeNaves.avionetaIdentificacion) 
 			return new VistaAvioneta(proyeccion);
 		
-		else if (id == "Bombardero") 
+		else if (id == ValoresDeNaves.bombarderoIdentificacion) 
 			return new VistaBombardero(proyeccion);
 			
-		else if (id == "Caza") 
+		else if (id == ValoresDeNaves.cazaIdentificacion) 
 			return new VistaCaza(proyeccion);
 			
-		else if (id == "AvionCivil") 
+		else if (id == ValoresDeNaves.avionCivilIdentificacion) 
 			return new VistaCivil(proyeccion);
 				
-		else if (id == "Explorador") 
+		else if (id == ValoresDeNaves.exploradorIdentificacion) 
 			return new VistaExplorador(proyeccion);
 				
-		else if (id == "HelicopteroFederal") 
+		else if (id == ValoresDeNaves.helicopteroFederalIdentificacion) 
 			return new VistaHelicoptero(proyeccion);
 		
-		else if (id == "GuiaEnemigo") 
+		else if (id == ValoresDeNaves.guiaEnemigoIdentificacion) 
 			return new VistaNaveGuia(proyeccion);
 		
 		
 		// Bonus
 		
-		else if (id == "BonusEnergia") 
+		else if (id == ValoresDeBonos.bonoDeEnergiaIdentificacion) 
 			return new VistaBonoDeEnergia(proyeccion);
 		
 //		else if (id == "BonusArmaLaser") 

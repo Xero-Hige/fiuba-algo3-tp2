@@ -5,6 +5,7 @@ import java.util.Map;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import tp2.modelo.especificaciones.ValoresDeBonos;
 import tp2.modelo.excepciones.BonoUtilizado;
 import tp2.persistencia.IGuardable;
 
@@ -17,6 +18,7 @@ public class BonoDeEnergia extends Bono {
 	// Inicializa el bono con el tamaño recibido.
 	public BonoDeEnergia(double tamanio) {
 		super(tamanio);
+		this.setIdentificacion(ValoresDeBonos.bonoDeEnergiaIdentificacion);
 	}
 	
 	@Override

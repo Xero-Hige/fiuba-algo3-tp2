@@ -3,8 +3,8 @@
     <Flota tiempo="0001">
       <Explorador>
         <Posicion>
-          <X>50</X>
-          <Y>50</Y>
+          <X>-10</X>
+          <Y>60</Y>
         </Posicion>
       </Explorador>
       <Cazas>
@@ -15,22 +15,22 @@
       </Cazas>
       <Avioneta>
       	<Posicion>
-          <X>64</X>
-          <Y>150</Y>
+          <X>25</X>
+          <Y>120</Y>
         </Posicion>
       </Avioneta>
     </Flota>
     <Flota tiempo="0025">
-      <Bombardero guia="Yes">
+      <Bombardero>
         <Posicion>
-          <X>67</X>
-          <Y>143</Y>
+          <X>10</X>
+          <Y>100</Y>
         </Posicion>
       </Bombardero>
       <Cazas>
         <Posicion>
           <X>100</X>
-          <Y>200</Y>
+          <Y>150</Y>
         </Posicion>
       </Cazas>
       <Avioneta>

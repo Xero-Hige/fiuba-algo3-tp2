@@ -115,7 +115,7 @@ public class ReconstructorDesdeXml {
 		return crearNuevoDocumento(nombreDeArchivo);
 	}
 	
-	private static Document crearNuevoDocumento(String nombreDeArchivo) {
+	public static Document crearNuevoDocumento(String nombreDeArchivo) {
 		try {
 			documento = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(nombreDeArchivo));
 			return documento;

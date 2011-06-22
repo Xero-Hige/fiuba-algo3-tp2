@@ -40,7 +40,7 @@ public class MenuCargarPartida extends Menu  {
 		MenuCargarPartida a=this;
 		//Agrego 2 vacias al principio
 		for(int i=0;i<2;i++){
-			textos.add(new MenuItemTexto(ventanaPrincipal,a," ", 0));
+			textos.add(new MenuItemTexto(ventanaPrincipal,a,"", 0));
 		}		
 		//Agrego los elementos
 		while (iter.hasNext()){
@@ -49,7 +49,7 @@ public class MenuCargarPartida extends Menu  {
 		}
 		//Agrego 3 por si no hay saves
 		for(int i=0;i<3;i++){
-			textos.add(new MenuItemTexto(ventanaPrincipal,a," ", 0));
+			textos.add(new MenuItemTexto(ventanaPrincipal,a,"", 0));
 		}
 		
 		setElementosDesde(0);		
@@ -118,5 +118,10 @@ public class MenuCargarPartida extends Menu  {
 	public void resetear() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public String getArchivoSeleccionado() {
+		String directorio = ManejadorPartidasGuardadas.getPathSaves();
+		return directorio+"/"+this.cuadroDeTexto3.getTexto()+".save";
 	}
 }

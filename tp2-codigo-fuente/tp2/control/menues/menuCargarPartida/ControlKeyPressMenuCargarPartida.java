@@ -2,8 +2,11 @@ package tp2.control.menues.menuCargarPartida;
 
 import java.awt.event.KeyEvent;
 
-import tp2.modelo.menues.menuCargarPartida.MenuCargarPartida;
+import org.w3c.dom.Document;
 
+import tp2.modelo.Partida;
+import tp2.modelo.menues.menuCargarPartida.MenuCargarPartida;
+import tp2.persistencia.ReconstructorDesdeXml;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 
 public class ControlKeyPressMenuCargarPartida implements KeyPressedObservador {
@@ -39,10 +42,10 @@ public class ControlKeyPressMenuCargarPartida implements KeyPressedObservador {
 				
 			// Se presiona enter, por lo que se selecciona la opción del item actual.	
 			case KeyEvent.VK_ENTER:
-//				ELEMENTO PATHdelSAVE = this.menuPrincipal.GETELEMENTOFOCUSENTABLA();
-//				VENTANAPARTIDA = CARGAR(PATHdelSAVE);
-//				this.menuCargarPartida.PARTIDA(VENTANAPARTIDA).mostrar();
-//				this.menuCargarPartida.ocultar();
+				String path = this.menuCargarPartida.getArchivoSeleccionado();
+				Document documento = ReconstructorDesdeXml.crearNuevoDocumento(path);
+				Partida partida = (Partida) ReconstructorDesdeXml.recuperarPersistenciaDe(documento);
+				this.menuCargarPartida.getVentanaPrincipal().getControladorJuego().setPartida(partida);				
 				break;
 		}	
 	}

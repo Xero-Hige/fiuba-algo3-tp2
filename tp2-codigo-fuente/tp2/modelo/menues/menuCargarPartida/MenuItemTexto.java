@@ -12,6 +12,8 @@ import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 public class MenuItemTexto extends MenuItem {
 	
+	private String texto;
+
 	public MenuItemTexto(VentanaPrincipal ventanaPrincipal, MenuI menuDelItem, String texto,int posicion) {
 				
 		super(ventanaPrincipal, menuDelItem);
@@ -19,7 +21,9 @@ public class MenuItemTexto extends MenuItem {
 		// Establecemos el item sobre la pantalla con sus respectivas coordenadas de alineación.
 		this.setX(DimensionesDeVentana.centroX);
 		this.setY(290);
-		
+		if (texto != null){
+			this.texto = texto.split("\\s")[0];
+		}
 		this.setVistaMenuItem(new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenuCargarPartida.nuevaImagenDesde(texto),
 				(Imagen) FabricaDeDibujablesDelMenuCargarPartida.nuevaImagenDesde(texto)));
@@ -33,5 +37,9 @@ public class MenuItemTexto extends MenuItem {
 	@Override
 	public void seleccionar() {
 		
+	}
+
+	public String getTexto() {
+		return this.texto;
 	}
 }

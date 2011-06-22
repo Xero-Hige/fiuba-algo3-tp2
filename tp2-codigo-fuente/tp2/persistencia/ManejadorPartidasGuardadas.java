@@ -10,9 +10,10 @@ import java.util.List;
 import java.util.Set;
 
 import tp2.persistencia.excepciones.CarpetaNoEncontradaError;
-import tp2.persistencia.excepciones.CriticalError;
 
 public class ManejadorPartidasGuardadas {
+	
+	static private String PATH_SAVES = "/Saves";
 	
 	/**
 	 * Metodo que devuelve un List con los nombres y fechas de modificaciones de las save
@@ -68,16 +69,19 @@ public class ManejadorPartidasGuardadas {
 	 * nombreSave El nombre debe ser un nombre obtenido en el metodo getListaPartidasGuardadas
 	 * */
 	public static String getArchivoSave(String nombreSave){
-		String directorioActual = BuscadorDeArchivos.getPathDirectoriActual();
 		
 		HashMap<String, String> archivosSave = new HashMap<String, String>();
 		
 		try{
-			archivosSave = BuscadorDeArchivos.getArchivos(directorioActual,"save");
+			archivosSave = BuscadorDeArchivos.getArchivos(getPathSaves(),"save");
 		}catch(CarpetaNoEncontradaError e){
-			new File(directorioActual+"/Saves").mkdirs();
+			new File(getPathSaves()).mkdirs();
 		}
 		
 		return archivosSave.get(nombreSave+".save");		
+	}
+	
+	public static String getPathSaves(){
+		return BuscadorDeArchivos.getPathDirectoriActual()+PATH_SAVES;
 	}
 }

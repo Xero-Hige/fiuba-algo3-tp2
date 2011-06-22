@@ -43,7 +43,8 @@ public class ControlKeyPressMenuCargarPartida implements KeyPressedObservador {
 			// Se presiona enter, por lo que se selecciona la opción del item actual.	
 			case KeyEvent.VK_ENTER:
 				String path = this.menuCargarPartida.getArchivoSeleccionado();
-				Document documento = ReconstructorDesdeXml.crearNuevoDocumento(path);
+				System.out.println(path);
+				Document documento = ReconstructorDesdeXml.cargar(path);
 				Partida partida = (Partida) ReconstructorDesdeXml.recuperarPersistenciaDe(documento);
 				this.menuCargarPartida.getVentanaPrincipal().getControladorJuego().setPartida(partida);				
 				break;

@@ -12,7 +12,7 @@ import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 public class MenuItemTexto extends MenuItem {
 	
-	public MenuItemTexto(VentanaPrincipal ventanaPrincipal, MenuI menuDelItem, String texto) {
+	public MenuItemTexto(VentanaPrincipal ventanaPrincipal, MenuI menuDelItem, String texto,int posicion) {
 				
 		super(ventanaPrincipal, menuDelItem);
 		
@@ -31,6 +31,10 @@ public class MenuItemTexto extends MenuItem {
 				(Imagen) FabricaDeDibujablesDelMenuCargarPartida.nuevaImagenDesde(nuevoTexto),
 				(Imagen) FabricaDeDibujablesDelMenuCargarPartida.nuevaImagenDesde("-"+nuevoTexto+"")));
 		this.getVistaMenuItem().setPosicionable(this);
+	}
+	
+	public void setPosicion(int y){
+		this.setY(y);
 	}
 	
 	@Override

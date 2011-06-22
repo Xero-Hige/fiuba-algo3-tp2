@@ -16,6 +16,10 @@ public abstract class ObjetoVolador extends Movil {
 		this.vuelo = null;
 	}
 
+	public ObjetoVolador() {
+		super();
+	}
+
 	@Override
 	// Mueve al objeto volador de acuerdo al tiempo recibido y el vuelo que
 	// tenga. Si no tiene un vuelo definido o un escenario asignado, se

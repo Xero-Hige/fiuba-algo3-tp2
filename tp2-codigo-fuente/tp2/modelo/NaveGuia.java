@@ -32,6 +32,10 @@ public class NaveGuia extends NaveMilitar {
 		this.flota = new Flota(this);
 	}
 	
+	public NaveGuia() {
+		super();
+	}
+	
 	@Override
 	// Ordena a la nave civil actuar en el escenario durante el tiempo específicado.
 	public void actuarDurante(double unTiempo) {
@@ -67,6 +71,7 @@ public class NaveGuia extends NaveMilitar {
 		
 		super.guardar(contenedor);
 		contenedor.appendChild(GeneradorXml.generarElementoDe(flota, "flota"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(comando, "comando"));
 		return contenedor;
 	}
 
@@ -75,6 +80,7 @@ public class NaveGuia extends NaveMilitar {
 		
 		super.cargar(atributos);
 		this.flota = (Flota) ReconstructorDesdeXml.generarObjeto(atributos.get("flota"));
+		this.comando = (ComandoDeNaves) ReconstructorDesdeXml.generarObjeto(atributos.get("comando"));
 		return this;
 	}
 

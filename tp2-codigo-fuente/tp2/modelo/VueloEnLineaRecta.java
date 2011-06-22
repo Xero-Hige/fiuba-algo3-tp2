@@ -18,6 +18,10 @@ public class VueloEnLineaRecta extends Vuelo {
 		super(objetoVolador);
 		this.setDireccion(direccion);
 	}
+	
+	public VueloEnLineaRecta() {
+		super();
+	}
 
 	public Point getDireccion() {
 		return direccion;

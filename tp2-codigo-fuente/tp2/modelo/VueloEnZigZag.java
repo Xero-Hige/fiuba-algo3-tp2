@@ -37,6 +37,10 @@ public class VueloEnZigZag extends VueloCompuesto {
 		this.proximoSegmentoEsPar = false;
 		this.trayectoriaRestante = 0;
 	}
+	
+	public VueloEnZigZag(){
+		super();
+	}
 
 	@Override
 	// Avanza el vuelo en el tiempo recibido, y devuelve el desplazamiento del

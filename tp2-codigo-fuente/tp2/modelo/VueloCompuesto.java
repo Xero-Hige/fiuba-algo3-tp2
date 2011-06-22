@@ -32,6 +32,10 @@ public class VueloCompuesto extends Vuelo {
 		trayectoriaDeVueloActual = null;
 	}
 
+	public VueloCompuesto() {
+		super();
+	}
+
 	// Avanza el vuelo en el tiempo recibido, y devuelve el desplazamiento del
 	// mismo respecto al estado anterior. Si el vuelo no comenzó, se levanta una
 	// excepción.

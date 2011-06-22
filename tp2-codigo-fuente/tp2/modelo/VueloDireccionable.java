@@ -24,6 +24,10 @@ public class VueloDireccionable extends Vuelo {
 		this.setDireccion(direccion);
 	}
 	
+	public VueloDireccionable() {
+		super();
+	}
+	
 	@Override
 	// Avanza el vuelo durante el tiempo indicado. Si la dirección es la nula, 
 	// entonces el vuelo permanece en el mismo lugar. Devuelve el desplazamiento

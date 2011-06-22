@@ -28,6 +28,10 @@ public abstract class Vuelo implements IGuardable{
 		this.trayectoriaDeVuelo = 0.0;
 	}
 
+	public Vuelo() {
+		super();
+	}
+
 	public ObjetoVolador getObjetoVolador() {
 		return objetoVolador;
 	}

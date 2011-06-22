@@ -38,6 +38,10 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
 		}
 	}
 
+	public ObjetoEspacial() {
+		super();
+	}
+
 	// Devuelve true si el objeto recibido está superpuesto con el receptor
 	// del mensaje. Sino false.
 	// Devuelve true si el objeto recibido está superpuesto con el receptor
@@ -213,12 +217,13 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
 
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
-				
+		
+		System.out.println((Double)null);
 		this.posicion = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("posicion"));
 		this.tamanio = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("tamanio"));
 		this.escenario = (Escenario) ReconstructorDesdeXml.generarObjeto(atributos.get("escenario"));
 		this.destruido = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("destruido"));
-		this.comportamientoAlChocar = (ChoqueDeObjetoEspacial) ReconstructorDesdeXml.generarObjeto(atributos.get("comportamientoAlChocar"));
+		this.comportamientoAlChocar = new ChoqueDeObjetoEspacial(this);
 		this.identificacion = (String) ReconstructorDesdeXml.generarObjeto(atributos.get("identificacion"));
 		
 		return this;

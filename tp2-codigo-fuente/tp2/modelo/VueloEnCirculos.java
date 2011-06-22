@@ -24,6 +24,10 @@ public class VueloEnCirculos extends Vuelo {
 		super(objetoVolador);
 		this.configurarCon(centroRelativo, sentido);
 	}
+	
+	public VueloEnCirculos() {
+		super();
+	}
 
 	// Recibe la posición relativa (distinta de la nula) al objeto sobre la cual
 	// éste describirá el movimiento, y el sentido de giro, que es antihorario

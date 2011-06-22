@@ -34,6 +34,10 @@ public class Flota implements IGuardable {
 		this.setNaveGuia(naveGuia);
 		this.agregarNave(naveGuia);
 	}
+	
+	public Flota() {
+		super();
+	}
 
 	// Agrega la nave a la flota (si ya se encontraba, se ignora el mensaje). Si
 	// la nave no pertencece al mismo equipo que la guía, se levanta una
@@ -130,20 +134,22 @@ public class Flota implements IGuardable {
 	@Override
 	public Element guardar(Element contenedor) {
 
-		contenedor.appendChild(GeneradorXml.generarElementoDe(naveGuia,
-				"naveGuia"));
-		contenedor.appendChild(GeneradorXml.generarElementoDe(navesMilitares,
-				"navesMilitares"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(naveGuia,"naveGuia"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(navesMilitares,"navesMilitares"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(direccionDeRetirada,"direccionDeRetirada"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(navesEnRetirada,"navesEnRetirada"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(navesDisparando,"navesDisparando"));
 		return contenedor;
 	}
 
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 
-		this.naveGuia = (NaveMilitar) ReconstructorDesdeXml
-				.generarObjeto(atributos.get("naveGuia"));
-		this.navesMilitares = (List<NaveMilitar>) ReconstructorDesdeXml
-				.generarObjeto(atributos.get("navesMilitares"));
+		this.naveGuia = (NaveMilitar) ReconstructorDesdeXml.generarObjeto(atributos.get("naveGuia"));
+		this.navesMilitares = (List<NaveMilitar>) ReconstructorDesdeXml.generarObjeto(atributos.get("navesMilitares"));
+		this.direccionDeRetirada = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("direccionDeRetirada"));
+		this.navesEnRetirada = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("navesEnRetirada"));
+		this.navesDisparando = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("navesDisparando"));
 		return this;
 	}
 

@@ -23,6 +23,10 @@ public abstract class Movil extends ObjetoEspacial {
 		this.equipo = null;
 	}
 
+	public Movil() {
+		super();
+	}
+
 	public double getVelocidad() {
 		return velocidad;
 	}

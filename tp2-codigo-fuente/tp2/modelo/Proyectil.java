@@ -26,6 +26,10 @@ public class Proyectil extends ObjetoVolador implements Cloneable {
 		this.danio = danio;
 		this.setComportamiento(new ChoqueDeProyectil(this));
 	}
+	
+	public Proyectil() {
+		super();
+	}
 
 	@Override
 	// Simple Cloning parcial del objeto. Genera una copia de un modelo de

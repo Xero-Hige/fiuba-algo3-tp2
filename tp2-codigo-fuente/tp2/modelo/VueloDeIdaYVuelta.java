@@ -29,6 +29,10 @@ public class VueloDeIdaYVuelta extends VueloCompuesto{
 		super(unObjetoVolador);
 		this.destino = destinoRelativo;
 	}
+	
+	public VueloDeIdaYVuelta() {
+		super();
+	}
 
 	@Override
 	// Iniciar el vuelo.

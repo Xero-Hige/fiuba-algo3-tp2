@@ -50,7 +50,7 @@ public class ReconstructorDesdeXml {
 			if(objetosPorId.containsKey(id)){
 				return objetosPorId.get(id);
 			}
-			return generarObjeto(nodosPorId.get(atributo.getNodeValue()));
+			return generarObjeto(nodosPorId.get(id));
 		}
 		return parsearNodo(nodo);
 	}
@@ -61,22 +61,17 @@ public class ReconstructorDesdeXml {
 		if(atributo != null){
 			return parsearGuardable(nodo, Integer.parseInt(atributo.getNodeValue()));
 		}
-		atributo = nodo.getAttributes().getNamedItem(ATRIBUTO_CLASE);
 		Class<?> clase;
 		try {
-			clase = Class.forName(atributo.getNodeValue());
-			if(clase.equals(String.class)){
-				return nodo.getTextContent();
-			}
-			if(clase.equals(Integer.class)){
-				return Integer.parseInt(nodo.getTextContent());
-			}
+			clase = Class.forName(nodo.getAttributes().getNamedItem(ATRIBUTO_CLASE).getNodeValue());
+			return ParserElementoAObjeto.cargarObjeto(nodo, clase);
 		} catch (DOMException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// Acá saltaría error: falta agregar cómo parsear cierta clase.
 		return null;
 	}
 	

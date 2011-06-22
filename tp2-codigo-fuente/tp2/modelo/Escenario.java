@@ -16,7 +16,7 @@ import tp2.persistencia.ReconstructorDesdeXml;
 * la vida de dichos objetos a lo largo del tiempo, y ellos a la vez pueden 
 * comunicarse con él.*/
 
-public class Escenario implements IGuardable  {
+public class Escenario implements IGuardable {
 
 	// Es el área rectangular asignada de combate.
 	private Rectangle areaDeCombate;
@@ -44,6 +44,10 @@ public class Escenario implements IGuardable  {
 		this.tiempo = 0;
 		this.objetosCreados = new HashSet<ObjetoEspacial>();
 		this.objetosMuertos = new HashSet<ObjetoEspacial>();
+	}
+	
+	public Escenario() {
+		super();
 	}
 
 	// Agrega un objeto al escenario, el cual ya tiene asignado dicho escenario.
@@ -171,6 +175,7 @@ public class Escenario implements IGuardable  {
 		contenedor.appendChild(GeneradorXml.generarElementoDe(proximoId, "proximoId"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(puntuacion, "puntuacion"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(areaDeCombate, "areaDeCombate"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(tiempo, "tiempo"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(objetosCreados, "objetosCreados"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(objetosMuertos, "objetosMuertos"));
 		return contenedor;
@@ -179,10 +184,11 @@ public class Escenario implements IGuardable  {
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 		
-		objetos = (Map<ObjetoEspacial, Integer>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetos"));
+		this.objetos = (Map<ObjetoEspacial, Integer>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetos"));
 		this.proximoId = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("proximoId"));
 		this.puntuacion = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("puntuacion"));
 		this.areaDeCombate = (Rectangle) ReconstructorDesdeXml.generarObjeto(atributos.get("areaDeCombate"));
+		this.tiempo = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("tiempo"));
 		this.objetosCreados = (Collection<ObjetoEspacial>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetosCreados"));
 		this.objetosMuertos = (Collection<ObjetoEspacial>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetosMuertos"));
 		

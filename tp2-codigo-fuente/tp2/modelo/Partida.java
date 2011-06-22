@@ -34,6 +34,10 @@ public class Partida implements IGuardable {
 		this.enCurso = false;
 	}
 	
+	public Partida() {
+		super();
+	}
+	
 	// Inicia la partida para que pueda ser corrida.
 	public void iniciar() {
 		this.enCurso = true;
@@ -88,7 +92,7 @@ public class Partida implements IGuardable {
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 		this.jugador = (Jugador) ReconstructorDesdeXml.generarObjeto(atributos.get("jugador"));
-		this.misionActual = (Mision) ReconstructorDesdeXml.generarObjeto(atributos.get("misonActual"));
+		this.misionActual = (Mision) ReconstructorDesdeXml.generarObjeto(atributos.get("misionActual"));
 		this.cantidadNiveles =(Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("cantidadNiveles"));
 		this.nivelActual = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("nivelActual"));
 		this.enCurso = false;

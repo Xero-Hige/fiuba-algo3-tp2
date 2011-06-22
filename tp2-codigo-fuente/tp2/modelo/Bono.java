@@ -28,6 +28,10 @@ public abstract class Bono extends ObjetoVolador {
 		
 	}
 		
+	public Bono() {
+		super();
+	}
+
 	// Hace actuar al objeto volador en el escenario durante el tiempo específicado, 
 	// haciendo que el mismo vuele durante ese tiempo. Si no tiene escenario o vuelo,
 	// se levanta una excepción.

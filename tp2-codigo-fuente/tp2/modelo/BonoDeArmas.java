@@ -21,6 +21,10 @@ public class BonoDeArmas extends Bono {
 		this.setIdentificacion(ValoresDeBonos.bonoDeArmasIdentificacion);
 	}
 	
+	public BonoDeArmas() {
+		super();
+	}
+	
 	@Override
 	// La nave recibida toma las armas de la enemiga que tiró el bono. Si el bono 
 	// ya se usó levanta una excepción.

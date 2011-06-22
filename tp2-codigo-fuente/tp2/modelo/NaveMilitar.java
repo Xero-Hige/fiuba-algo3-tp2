@@ -29,6 +29,10 @@ public class NaveMilitar extends Nave {
 		this.enCombate = true;
 	}
 	
+	public NaveMilitar() {
+		super();
+	}
+
 	@Override
 	// Ordena a la nave Militar actuar en el escenario durante el tiempo específicado.
 	public void actuarDurante(double unTiempo) {

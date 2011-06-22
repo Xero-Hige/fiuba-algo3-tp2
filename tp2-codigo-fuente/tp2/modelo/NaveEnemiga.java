@@ -30,6 +30,10 @@ public class NaveEnemiga extends NaveMilitar {
 		puntuacion = 0;
 	}
 	
+	public NaveEnemiga() {
+		super();
+	}
+	
 	@Override
 	// Ordena a la nave enemiga actuar en el escenario durante el tiempo 
 	// específicado.

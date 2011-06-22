@@ -1,8 +1,16 @@
 package tp2.modelo;
 
-import tp2.auxiliares.Point;
+import java.util.Map;
 
-public class ComandoGuiaEnemigo implements ComandoDeNaves {
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import tp2.auxiliares.Point;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
+
+public class ComandoGuiaEnemigo implements ComandoDeNaves, IGuardable {
 
 	private NaveGuia guiaEnemigo;
 	private boolean navesDisparando;
@@ -10,6 +18,10 @@ public class ComandoGuiaEnemigo implements ComandoDeNaves {
 	public ComandoGuiaEnemigo(NaveGuia guiaEnemigo) {
 		this.guiaEnemigo = guiaEnemigo;
 		this.navesDisparando = false;
+	}
+	
+	public ComandoGuiaEnemigo() {
+		super();
 	}
 	
 	@Override
@@ -29,6 +41,20 @@ public class ComandoGuiaEnemigo implements ComandoDeNaves {
 				this.guiaEnemigo.getFlota().detenerFuego();	
 			}
 		}
+	}
+
+	@Override
+	public Element guardar(Element contenedor) {
+		contenedor.appendChild(GeneradorXml.generarElementoDe(guiaEnemigo, "guiaEnemigo"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(navesDisparando, "navesDisparando"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		this.guiaEnemigo = (NaveGuia) ReconstructorDesdeXml.generarObjeto(atributos.get("guiaEnemigo"));
+		this.navesDisparando = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("navesDisparando"));
+		return this;
 	}
 
 }

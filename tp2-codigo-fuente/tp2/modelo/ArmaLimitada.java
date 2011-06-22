@@ -26,6 +26,10 @@ public class ArmaLimitada extends Arma {
 		carga = 0;
 	}
 	
+	public ArmaLimitada() {
+		super();
+	}
+
 	@Override
 	// Ordena al arma actuar en el escenario durante el tiempo específicado. Si no  
 	// tiene, se levanta una excepción.

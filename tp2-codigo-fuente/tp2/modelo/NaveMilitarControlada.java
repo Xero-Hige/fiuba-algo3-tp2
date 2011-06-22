@@ -24,6 +24,10 @@ public class NaveMilitarControlada extends NaveMilitar {
 		super.setVuelo(new VueloDireccionable(this, new Point(0, 0)));
 		this.setComportamiento(new ChoqueDeNaveMilitarControlada(this));
 	}
+	
+	public NaveMilitarControlada() {
+		super();
+	}
 
 	// Recibe la identificación del arma que se desea disparar. Si no existe
 	// dicha arma, se levanta una excepción.

@@ -26,6 +26,10 @@ public class NaveCivil extends Nave {
 		super(posicion, tamanio, escenario, velocidad, energia);
 	}
 	
+	public NaveCivil() {
+		super();
+	}
+	
 	@Override
 	// Ordena a la nave civil actuar en el escenario durante el tiempo específicado.
 	public void actuarDurante(double unTiempo) {

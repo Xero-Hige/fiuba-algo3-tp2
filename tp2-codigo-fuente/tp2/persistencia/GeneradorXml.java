@@ -76,6 +76,9 @@ public class GeneradorXml {
 		if (unObjeto == null) {
 			return generarElementoNull(unObjeto, nombre);
 		}
+		if (unObjeto instanceof IGuardable){
+			return generarElementoDe((IGuardable)unObjeto, nombre);
+		}
 		Element elemento = documento.createElement(nombre);
 		Map<String, String> atributos = new HashMap<String, String>();
 		atributos.put(ATRIBUTO_CLASE, unObjeto.getClass().getName());

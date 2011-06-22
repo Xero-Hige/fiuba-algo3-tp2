@@ -25,6 +25,10 @@ public class VueloDirigido extends VueloDireccionable {
 		super(unObjetoVolador, objetivo.getPosicion());
 		this.objetivo = objetivo;
 	}
+	
+	public VueloDirigido() {
+		super();
+	}
 
 	// Avanza el vuelo durante el tiempo indicado, dirigiéndose hacia la
 	// posición del objetivo. Devuelve el desplazamiento del vuelo. Si el vuelo

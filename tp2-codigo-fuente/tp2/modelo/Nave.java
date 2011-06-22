@@ -26,6 +26,10 @@ public class Nave extends ObjetoVolador {
 		this.setComportamiento(new ChoqueDeNave(this));
 	}
 
+	public Nave() {
+		super();
+	}
+
 	@Override
 	// Ordena a la nave actuar durante el tiempo específicado. La nave debe
 	// tener un vuelo y un escenario especificados, o de lo contrario se
@@ -94,6 +98,7 @@ public class Nave extends ObjetoVolador {
 		
 		super.guardar(contenedor);
 		contenedor.appendChild(GeneradorXml.generarElementoDe(energia, "energia"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(maxEnergia, "maxEnergia"));
 		return contenedor;
 	}
 

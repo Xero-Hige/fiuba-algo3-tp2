@@ -34,6 +34,10 @@ public class Arma extends Movil {
 		this.velocidadDeDisparo = velocidad;
 	}
 	
+	public Arma(){
+		super();
+	}
+	
 	@Override
 	// Ordena al arma actuar en el escenario durante el tiempo específicado. Si no 
 	// tiene, se levanta una excepción.

@@ -29,6 +29,10 @@ public class ArmaDirigida extends ArmaLimitada {
 		flotaObjetivo = null;
 	}
 	
+	public ArmaDirigida() {
+		super();
+	}
+	
 	public Flota getFlotaObjetivo() {
 		return this.flotaObjetivo;
 	}

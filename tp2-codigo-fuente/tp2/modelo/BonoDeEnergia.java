@@ -21,6 +21,10 @@ public class BonoDeEnergia extends Bono {
 		this.setIdentificacion(ValoresDeBonos.bonoDeEnergiaIdentificacion);
 	}
 	
+	public BonoDeEnergia() {
+		super();
+	}
+	
 	@Override
 	// La nave recibida toma las armas de la enemiga que tiró el bono. Si el bono 
 	// ya se usó levanta una excepción.

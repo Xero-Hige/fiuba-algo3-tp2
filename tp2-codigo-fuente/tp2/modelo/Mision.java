@@ -40,6 +40,10 @@ public class Mision implements IGuardable {
 		this.getEscenario().agregarObjeto(this.flotaEnemiga.getNaveGuia());
 		this.tiempoActual = 0;
 	}
+	
+	public Mision() {
+		super();
+	}
 
 	private NaveMilitarControlada nuevaNaveDelJugador() {
 		
@@ -124,9 +128,13 @@ public class Mision implements IGuardable {
 	public Element guardar(Element contenedor) {
 		
 		contenedor.appendChild(GeneradorXml.generarElementoDe(escenario,"escenario"));
-		contenedor.appendChild(GeneradorXml.generarElementoDe(escenario,"flotaEnemiga"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(naveDelJugador,"naveDelJugador"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(flotaEnemiga,"flotaEnemiga"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(flotaAliada,"flotaAliada"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(jugador,"jugador"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(navesPorTiempoDeSpawn,"navesPorTiempoDeSpawn"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(tiemposDeSpawn,"tiemposDeSpawn"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(tiempoActual,"tiempoActual"));
 		
 		return contenedor;
 	}
@@ -134,17 +142,15 @@ public class Mision implements IGuardable {
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 		
-		this.jugador = (Jugador) ReconstructorDesdeXml.generarObjeto(atributos
-				.get("jugador"));
-		
-		this.flotaEnemiga = (Flota) ReconstructorDesdeXml
-				.generarObjeto(atributos.get("flotaEnemiga"));
-		
-		this.flotaAliada = (Flota) ReconstructorDesdeXml
-				.generarObjeto(atributos.get("flotaAliada"));
-		
-		this.escenario = (Escenario) ReconstructorDesdeXml
-				.generarObjeto(atributos.get("escenario"));
+		this.jugador = (Jugador) ReconstructorDesdeXml.generarObjeto(atributos.get("jugador"));
+		this.naveDelJugador = (NaveMilitarControlada) ReconstructorDesdeXml.generarObjeto(atributos.get("naveDelJugador"));
+		this.flotaEnemiga = (Flota) ReconstructorDesdeXml.generarObjeto(atributos.get("flotaEnemiga"));
+		this.flotaAliada = (Flota) ReconstructorDesdeXml.generarObjeto(atributos.get("flotaAliada"));
+		this.escenario = (Escenario) ReconstructorDesdeXml.generarObjeto(atributos.get("escenario"));
+		this.tiemposDeSpawn = (PriorityQueue<Double>) ReconstructorDesdeXml.generarObjeto(atributos.get("tiemposDeSpawn"));
+		this.tiempoActual = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("tiempoActual"));
+		this.fabricaJugador = new FabricaDeNaves(this.escenario, "EquipoJugador", null);
+		this.fabricaEnemiga = new FabricaDeNaves(this.escenario, "EquipoEnemigo", this.flotaAliada);
 		
 		return this;
 	}

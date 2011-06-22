@@ -80,13 +80,7 @@ public class GeneradorXml {
 		Map<String, String> atributos = new HashMap<String, String>();
 		atributos.put(ATRIBUTO_CLASE, unObjeto.getClass().getName());
 		asignarAtributos(elemento, atributos);
-
-		if ((unObjeto instanceof String) || (unObjeto instanceof Number)
-				|| (unObjeto instanceof Boolean)) {
-			elemento.setTextContent(unObjeto.toString());
-		}
-		// Acá faltaría hacer la lógica para guardar los distintos tipos de
-		// colecciones, y algunas clases como Rectangle, Point, etc.
+		ParserObjetoAElemento.guardarObjeto(unObjeto, elemento);
 		return elemento;
 	}
 

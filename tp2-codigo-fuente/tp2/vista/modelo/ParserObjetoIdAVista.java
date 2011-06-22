@@ -48,13 +48,13 @@ public class ParserObjetoIdAVista {
 		
 		// Proyectiles
 		
-		else if (id == ValoresDeArmas.canionLaserProyectilIdentificacion) 
+		else if (id == ValoresDeArmas.laserIdentificacion) 
 			return new VistaProyectilLaser(proyeccion);
 		
-		else if (id == ValoresDeArmas.canionCohetesProyectilIdentificacion) 
+		else if (id == ValoresDeArmas.coheteIdentificacion) 
 			return new VistaProyectilCohetes(proyeccion);
 		
-		else if (id == ValoresDeArmas.canionTorpedosProyectilIdentificacion) 
+		else if (id == ValoresDeArmas.torpedoIdentificacion) 
 			return new VistaProyectilTorpedos(proyeccion);
 		
 		
@@ -75,7 +75,7 @@ public class ParserObjetoIdAVista {
 		else if (id == "Agua"){
 			return new VistaAgua(nuevoObjeto);
 		}
-		
+
 		// Si no se reconoce el id se devuelve null.
 		return null;
 	}

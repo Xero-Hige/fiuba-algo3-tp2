@@ -70,6 +70,7 @@ public class Arma extends Movil {
 		Vuelo vuelo;
 
 		proyectilDisparado = this.modeloDeProyectil.clone();
+		proyectilDisparado.setIdentificacion(this.modeloDeProyectil.getIdentificacion());
 		proyectilDisparado.setPosicion(this.getPosicion());
 		proyectilDisparado.setVelocidad(this.velocidadDeDisparo);
 		

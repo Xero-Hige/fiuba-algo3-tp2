@@ -20,6 +20,7 @@ public class FabricaDeArmas {
 	public Arma crearCanionLaser() {
 		Arma canionLaser = new Arma(new Point(0,0), escenarioActual, ValoresDeArmas.canionLaserVelocidad, ValoresDeArmas.canionLaserFrecuencia, new Point(0,-1), "CanionLaser");
 		Proyectil laser = new Proyectil(new Point(0,0), ValoresDeArmas.canionLaserProyectilTamanio, ValoresDeArmas.canionLaserProyectilVelocidad, ValoresDeArmas.canionLaserProyectilDanio);
+		laser.setIdentificacion(ValoresDeArmas.laserIdentificacion);
 		canionLaser.setModeloDeProyectil(laser);
 		return canionLaser;
 	}
@@ -32,6 +33,7 @@ public class FabricaDeArmas {
 		ArmaLimitada lanzacohetes = new ArmaLimitada(new Point(0,0), escenarioActual, ValoresDeArmas.lanzaCohetesVelocidad, ValoresDeArmas.lanzaCohetesFrecuencia, new Point(0,-1), "LanzaCohetes");
 		lanzacohetes.cargarCon(ValoresDeArmas.lanzaCohetesCantidadProyectiles);
 		Proyectil cohete = new Proyectil(new Point(0,0), ValoresDeArmas.lanzaCohetesProyectilTamanio, ValoresDeArmas.lanzaCohetesProyectilVelocidad, ValoresDeArmas.lanzaCohetesProyectilDanio);
+		cohete.setIdentificacion(ValoresDeArmas.coheteIdentificacion);
 		lanzacohetes.setModeloDeProyectil(cohete);
 		return lanzacohetes;
 	}
@@ -46,6 +48,7 @@ public class FabricaDeArmas {
 		ArmaDirigida lanzatorpedos = new ArmaDirigida(new Point(0,0), escenarioActual, ValoresDeArmas.lanzaTorpedosVelocidad, ValoresDeArmas.lanzaTorpedosFrecuencia, new Point(0,-1), "LanzaTorpedos");
 		lanzatorpedos.cargarCon(ValoresDeArmas.lanzaTorpedosCantidadProyectiles);
 		Proyectil torpedo = new Proyectil(new Point(0,0), ValoresDeArmas.lanzaTorpedosProyectilTamanio, ValoresDeArmas.lanzaTorpedosProyectilVelocidad, ValoresDeArmas.lanzaTorpedosProyectilDanio);
+		torpedo.setIdentificacion(ValoresDeArmas.torpedoIdentificacion);
 		lanzatorpedos.setModeloDeProyectil(torpedo);
 		return lanzatorpedos;
 	}

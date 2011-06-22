@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.w3c.dom.Element;
 
+import tp2.auxiliares.ParCadenaPosicion;
 import tp2.auxiliares.Point;
 
 public class ParserObjetoAElemento {
@@ -46,6 +47,11 @@ public class ParserObjetoAElemento {
 			Point punto = (Point)unObjeto;
 			contenedor.appendChild(GeneradorXml.generarElementoDe(punto.getX(), "x"));
 			contenedor.appendChild(GeneradorXml.generarElementoDe(punto.getY(), "y"));
+		}
+		else if((unObjeto instanceof ParCadenaPosicion)){
+			ParCadenaPosicion par = (ParCadenaPosicion)unObjeto;
+			contenedor.appendChild(GeneradorXml.generarElementoDe(par.getCadena(), "cadena"));
+			contenedor.appendChild(GeneradorXml.generarElementoDe(par.getPosicion(), "posicion"));
 		}
 	}
 	

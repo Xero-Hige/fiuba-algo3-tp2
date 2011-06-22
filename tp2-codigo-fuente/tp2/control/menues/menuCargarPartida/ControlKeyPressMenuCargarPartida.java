@@ -25,12 +25,14 @@ public class ControlKeyPressMenuCargarPartida implements KeyPressedObservador {
 				break;
 				
 			case KeyEvent.VK_DOWN:
+				this.menuCargarPartida.ocultar();
 				this.menuCargarPartida.siguienteElemento();
 				this.menuCargarPartida.mostrar();
 				break;
 				
 			// Se presiona flecha hacia arriba.	
 			case KeyEvent.VK_UP:
+				this.menuCargarPartida.ocultar();
 				this.menuCargarPartida.anteriorElemento();
 				this.menuCargarPartida.mostrar();
 				break;

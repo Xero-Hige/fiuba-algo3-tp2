@@ -23,15 +23,7 @@ public class ManejadorPartidasGuardadas {
 		String directorioActual;
 		ArrayList<String[]> lista = new ArrayList<String[]>();
 		
-		try {
-			File directorio = new File (".");
-			directorioActual = directorio.getCanonicalPath();
-			}
-		catch(Exception e){
-			//Exepccion que en ningun caso podria saltar a menos que algo este muy mal
-			//El directorio actual siempre existe
-			throw new CriticalError();
-		}
+		directorioActual = BuscadorDeArchivos.getPathDirectoriActual();
 		
 		HashMap<String, String> archivosSave = BuscadorDeArchivos.getArchivos(directorioActual+"/Saves","save");
 		
@@ -42,6 +34,7 @@ public class ManejadorPartidasGuardadas {
 			String nombreArchivo = iter.next();
 			String pathArchivo = archivosSave.get(nombreArchivo);
 			String fechaDeModificacion = getFechaModificacion(pathArchivo);
+			nombreArchivo = nombreArchivo.split("\\.")[0];
 			String[] archivoYFecha = {nombreArchivo,fechaDeModificacion};
 			lista.add(archivoYFecha);
 		}
@@ -81,6 +74,6 @@ public class ManejadorPartidasGuardadas {
 		}
 		
 		HashMap<String, String> archivosSave = BuscadorDeArchivos.getArchivos(directorioActual,"save");
-		return archivosSave.get(nombreSave);		
+		return archivosSave.get(nombreSave+".\\save");		
 	}
 }

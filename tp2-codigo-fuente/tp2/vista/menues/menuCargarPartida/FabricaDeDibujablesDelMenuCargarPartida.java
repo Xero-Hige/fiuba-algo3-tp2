@@ -48,14 +48,14 @@ public class FabricaDeDibujablesDelMenuCargarPartida {
 			// TODO Auto-generated catch block
 			e.printStackTrace();		
 		} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 			
 		}
 		
 		Graphics graficos = imagen.getGraphics();
 		graficos.drawImage(imagen, 0, 0, null);
-		graficos.setFont(new Font("Arial", Font.BOLD, 12));
+		graficos.setFont(new Font("Arial", Font.BOLD, 13));
 		graficos.drawString(texto, 3, 22);
 		graficos.dispose();
 

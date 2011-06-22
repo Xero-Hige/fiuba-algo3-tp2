@@ -21,7 +21,9 @@ public class MenuCargarPartida extends Menu  {
 	MenuItemTexto cuadroDeTexto4 = null;
 	MenuItemTexto cuadroDeTexto5 = null;
 	List<MenuItemTexto> textos = new ArrayList<MenuItemTexto>();
-	int[] posiciones = {100,150,200,250,300};
+	
+	
+	int[] posiciones = {105,155,200,246,296};
 		
 	public MenuCargarPartida(VentanaPrincipal ventanaPrincipal, MenuI menuPadre) {
 		super(ventanaPrincipal, menuPadre);
@@ -82,7 +84,7 @@ public class MenuCargarPartida extends Menu  {
 	}
 
 	public void siguienteElemento(){
-		if(archivoActual<archivos.size()-3){
+		if(archivoActual<archivos.size()-1){
 			archivoActual++;
 			setElementosDesde(archivoActual);		
 			actualizarPosiciones();

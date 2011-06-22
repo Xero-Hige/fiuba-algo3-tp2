@@ -22,14 +22,7 @@ public class MenuItemTexto extends MenuItem {
 		
 		this.setVistaMenuItem(new VistaMenuItem(
 				(Imagen) FabricaDeDibujablesDelMenuCargarPartida.nuevaImagenDesde(texto),
-				(Imagen) FabricaDeDibujablesDelMenuCargarPartida.nuevaImagenDesde("-"+texto+"")));
-		this.getVistaMenuItem().setPosicionable(this);
-	}
-
-	public void cambiarTexto(String nuevoTexto){
-		this.setVistaMenuItem(new VistaMenuItem(
-				(Imagen) FabricaDeDibujablesDelMenuCargarPartida.nuevaImagenDesde(nuevoTexto),
-				(Imagen) FabricaDeDibujablesDelMenuCargarPartida.nuevaImagenDesde("-"+nuevoTexto+"")));
+				(Imagen) FabricaDeDibujablesDelMenuCargarPartida.nuevaImagenDesde(texto)));
 		this.getVistaMenuItem().setPosicionable(this);
 	}
 	

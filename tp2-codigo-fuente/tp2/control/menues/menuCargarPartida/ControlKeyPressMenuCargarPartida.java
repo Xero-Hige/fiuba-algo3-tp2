@@ -19,7 +19,7 @@ public class ControlKeyPressMenuCargarPartida implements KeyPressedObservador {
 		switch(event.getKeyCode()) {
 						
 			// Se presiona backspace, por lo que se vuelve al menu padre.	
-			case KeyEvent.VK_BACK_SPACE:
+			case KeyEvent.VK_V:
 				this.menuCargarPartida.getMenuPadre().mostrar();
 				this.menuCargarPartida.ocultar();				
 				break;

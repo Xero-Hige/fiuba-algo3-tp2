@@ -1,20 +1,9 @@
 package tp2.vista.modelo;
 
 import tp2.modelo.Visible;
-import tp2.modelo.especificaciones.ValoresDeBonos;
-import tp2.modelo.especificaciones.ValoresDeNaves;
-import tp2.vista.modelo.extras.VistaAgua;
-import tp2.vista.modelo.extras.VistaExplosion;
-import tp2.vista.modelo.objetosVivos.VistaAlgo42;
-import tp2.vista.modelo.objetosVivos.VistaAvioneta;
-import tp2.vista.modelo.objetosVivos.VistaBombardero;
-import tp2.vista.modelo.objetosVivos.VistaBonoDeArmas;
-import tp2.vista.modelo.objetosVivos.VistaBonoDeEnergia;
-import tp2.vista.modelo.objetosVivos.VistaCaza;
-import tp2.vista.modelo.objetosVivos.VistaCivil;
-import tp2.vista.modelo.objetosVivos.VistaExplorador;
-import tp2.vista.modelo.objetosVivos.VistaHelicoptero;
-import tp2.vista.modelo.objetosVivos.VistaNaveGuia;
+import tp2.modelo.especificaciones.*;
+import tp2.vista.modelo.extras.*;
+import tp2.vista.modelo.objetosVivos.*;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
@@ -55,6 +44,18 @@ public class ParserObjetoIdAVista {
 		
 		else if (id == ValoresDeNaves.guiaEnemigoIdentificacion) 
 			return new VistaNaveGuia(proyeccion);
+		
+		
+		// Proyectiles
+		
+		else if (id == ValoresDeArmas.canionLaserProyectilIdentificacion) 
+			return new VistaProyectilLaser(proyeccion);
+		
+		else if (id == ValoresDeArmas.canionCohetesProyectilIdentificacion) 
+			return new VistaProyectilCohetes(proyeccion);
+		
+		else if (id == ValoresDeArmas.canionTorpedosProyectilIdentificacion) 
+			return new VistaProyectilTorpedos(proyeccion);
 		
 		
 		// Bonus

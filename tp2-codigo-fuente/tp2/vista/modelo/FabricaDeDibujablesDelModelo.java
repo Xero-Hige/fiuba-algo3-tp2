@@ -119,6 +119,27 @@ public class FabricaDeDibujablesDelModelo {
 		return ImagenNaveGuia.nuevaImagen(escala);
 	}
 	
+	
+	////////////////////////////////////////////////////////////
+	// Imagenes de bonos
+	////////////////////////////////////////////////////////////
+		
+	public static Dibujable nuevaImagenProyectilLaser(double escala) {
+		comprobarCargaDeImagenes();
+		return ImagenProyectilLaser.nuevaImagen(escala);
+	}
+	
+	public static Dibujable nuevaImagenProyectilCohetes(double escala) {
+		comprobarCargaDeImagenes();
+		return ImagenProyectilCohetes.nuevaImagen(escala);
+	}
+	
+	public static Dibujable nuevaImagenProyectilTorpedos(double escala) {
+		comprobarCargaDeImagenes();
+		return ImagenProyectilTorpedos.nuevaImagen(escala);
+	}
+	
+	
 	////////////////////////////////////////////////////////////
 	// Imagenes de bonos
 	////////////////////////////////////////////////////////////

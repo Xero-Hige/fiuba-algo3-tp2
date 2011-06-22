@@ -15,4 +15,8 @@ public class ArchivosDeImagenes {
 	
 	public static final String IMAGEN_BONO_ENERGIA = RUTA_BASE + "/modelo/bonos/bonus-energia.png";
 	public static final String IMAGEN_BONO_ARMAS = RUTA_BASE + "/modelo/bonos/bonus-armas.png";
+	
+	public static final String IMAGEN_PROYECTIL_LASER = RUTA_BASE + "/modelo/proyectiles/proyectil-laser.png";
+	public static final String IMAGEN_PROYECTIL_COHETES = RUTA_BASE + "/modelo/proyectiles/proyectil-cohetes.png";
+	public static final String IMAGEN_PROYECTIL_TORPEDOS = RUTA_BASE + "/modelo/proyectiles/proyectil-torpedos.png";
 }

@@ -20,28 +20,20 @@ public class ParserObjetoAElemento {
 		}
 		else if((unObjeto instanceof Collection)){
 			for(Object objeto: (Collection)unObjeto){
-				if(objeto instanceof IGuardable){
-					contenedor.appendChild(GeneradorXml.generarElementoDe((IGuardable)objeto, "elemento"));
-				} else {
-					contenedor.appendChild(GeneradorXml.generarElementoDe(objeto, "elemento"));
-				}
+				contenedor.appendChild(GeneradorXml.generarElementoDe(objeto, "elemento"));
 			}
 		}
 		else if((unObjeto instanceof Map)){
-			Map map = (Map)unObjeto;
-			for(Object key: map.keySet()){
-				Object value = map.get(key);
-				if(key instanceof IGuardable){
-					contenedor.appendChild(GeneradorXml.generarElementoDe((IGuardable)key, "clave"));
-				} else {
-					contenedor.appendChild(GeneradorXml.generarElementoDe(key, "clave"));
-				}
-				if(value instanceof IGuardable){
-					contenedor.appendChild(GeneradorXml.generarElementoDe((IGuardable)value, "valor"));
-				} else {
-					contenedor.appendChild(GeneradorXml.generarElementoDe(value, "valor"));
-				}
+			Map<Object, Object> map = (Map<Object, Object>)unObjeto;
+			map.entrySet();
+			for(Map.Entry<Object, Object> entry: map.entrySet()){
+				contenedor.appendChild(GeneradorXml.generarElementoDe(entry, "elemento"));
 			}
+		}
+		else if((unObjeto instanceof Map.Entry)){
+			Map.Entry<Object, Object> entry = (Map.Entry<Object, Object>) unObjeto;
+			contenedor.appendChild(GeneradorXml.generarElementoDe(entry.getKey(), "clave"));
+			contenedor.appendChild(GeneradorXml.generarElementoDe(entry.getValue(), "valor"));
 		}
 		else if((unObjeto instanceof Rectangle)){
 			Rectangle rectangle = (Rectangle)unObjeto;

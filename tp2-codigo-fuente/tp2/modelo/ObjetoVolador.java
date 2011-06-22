@@ -1,7 +1,15 @@
 package tp2.modelo;
 
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import tp2.auxiliares.Point;
 import tp2.modelo.excepciones.*;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
 public abstract class ObjetoVolador extends Movil {
 
@@ -49,4 +57,18 @@ public abstract class ObjetoVolador extends Movil {
 	public void setVuelo(Vuelo nuevoVuelo) {
 		this.vuelo = nuevoVuelo;
 	}
+
+	@Override
+	public Element guardar(Element contenedor) {
+		super.guardar(contenedor);
+		contenedor.appendChild(GeneradorXml.generarElementoDe(vuelo, "vuelo"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		this.vuelo = (Vuelo) ReconstructorDesdeXml.generarObjeto(atributos.get("vuelo"));
+		return this;
+	}
+	
 }

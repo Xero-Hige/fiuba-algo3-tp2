@@ -88,7 +88,7 @@ public abstract class Vuelo implements IGuardable{
 		this.objetoVolador = (ObjetoVolador) ReconstructorDesdeXml.generarObjeto(atributos.get("objetoVolador"));
 		this.iniciado = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("iniciado"));
 		this.origen = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("origen"));
-		this.trayectoriaDeVuelo = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriaDeVuelo"));
+		this.trayectoriaDeVuelo = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("trayectoriaDeVuelo"));
 		return this;
 	}
 }

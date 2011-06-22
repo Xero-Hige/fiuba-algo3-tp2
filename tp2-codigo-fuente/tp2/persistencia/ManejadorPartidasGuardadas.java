@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import tp2.persistencia.excepciones.CarpetaNoEncontradaError;
 import tp2.persistencia.excepciones.CriticalError;
 
 public class ManejadorPartidasGuardadas {
@@ -25,7 +26,13 @@ public class ManejadorPartidasGuardadas {
 		
 		directorioActual = BuscadorDeArchivos.getPathDirectoriActual();
 		
-		HashMap<String, String> archivosSave = BuscadorDeArchivos.getArchivos(directorioActual+"/Saves","save");
+		HashMap<String, String> archivosSave = new HashMap<String, String>();
+		
+		try{
+			archivosSave = BuscadorDeArchivos.getArchivos(directorioActual+"/Saves","save");
+		}catch (CarpetaNoEncontradaError e){
+			
+		}
 		
 		Set<String> nombresArchivos = archivosSave.keySet();
 		Iterator<String> iter = nombresArchivos.iterator();
@@ -61,19 +68,16 @@ public class ManejadorPartidasGuardadas {
 	 * nombreSave El nombre debe ser un nombre obtenido en el metodo getListaPartidasGuardadas
 	 * */
 	public static String getArchivoSave(String nombreSave){
-		String directorioActual;
+		String directorioActual = BuscadorDeArchivos.getPathDirectoriActual();
 		
-		try {
-			File directorio = new File (".");
-			directorioActual = directorio.getCanonicalPath();
-			}
-		catch(Exception e){
-			//Exepccion que en ningun caso podria saltar a menos que algo este muy mal
-			//El directorio actual siempre existe
-			throw new CriticalError();
+		HashMap<String, String> archivosSave = new HashMap<String, String>();
+		
+		try{
+			archivosSave = BuscadorDeArchivos.getArchivos(directorioActual,"save");
+		}catch(CarpetaNoEncontradaError e){
+			new File(directorioActual+"/Saves").mkdirs();
 		}
 		
-		HashMap<String, String> archivosSave = BuscadorDeArchivos.getArchivos(directorioActual,"save");
-		return archivosSave.get(nombreSave+".\\save");		
+		return archivosSave.get(nombreSave+".save");		
 	}
 }

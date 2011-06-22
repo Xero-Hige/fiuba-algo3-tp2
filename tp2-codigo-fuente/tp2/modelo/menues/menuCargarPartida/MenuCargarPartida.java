@@ -15,14 +15,17 @@ public class MenuCargarPartida extends Menu  {
 	
 	List<String[]> archivos;
 	int archivoActual = 0;
+	
+	
 	MenuItemTexto cuadroDeTexto1 = null;
 	MenuItemTexto cuadroDeTexto2 = null;
 	MenuItemTexto cuadroDeTexto3 = null;
 	MenuItemTexto cuadroDeTexto4 = null;
 	MenuItemTexto cuadroDeTexto5 = null;
+	
 	List<MenuItemTexto> textos = new ArrayList<MenuItemTexto>();
 	
-	
+	//Las posiciones donde se ponen cada uno de los items
 	int[] posiciones = {105,155,200,246,296};
 		
 	public MenuCargarPartida(VentanaPrincipal ventanaPrincipal, MenuI menuPadre) {
@@ -35,13 +38,16 @@ public class MenuCargarPartida extends Menu  {
 		archivos = ManejadorPartidasGuardadas.getListaPartidasGuardadas();
 		Iterator<String[]> iter = archivos.iterator();
 		MenuCargarPartida a=this;
+		//Agrego 2 vacias al principio
 		for(int i=0;i<2;i++){
 			textos.add(new MenuItemTexto(ventanaPrincipal,a," ", 0));
 		}		
+		//Agrego los elementos
 		while (iter.hasNext()){
 			String[] datos = iter.next();
 			textos.add(new MenuItemTexto(ventanaPrincipal,a,datos[0]+" "+datos[1], 0));
 		}
+		//Agrego 3 por si no hay saves
 		for(int i=0;i<3;i++){
 			textos.add(new MenuItemTexto(ventanaPrincipal,a," ", 0));
 		}

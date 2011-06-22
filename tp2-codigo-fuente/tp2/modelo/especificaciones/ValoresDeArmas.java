@@ -11,7 +11,7 @@ public class ValoresDeArmas {
 	public static int canionLaserVelocidad = 150;
 	public static double canionLaserFrecuencia = 20;
 	public static String canionLaserProyectilIdentificacion = "ProyectilLaser";
-	public static double canionLaserProyectilTamanio = 0.7;
+	public static double canionLaserProyectilTamanio = 0.9;
 	public static double canionLaserProyectilVelocidad = 0;
 	public static double canionLaserProyectilDanio = 15;
 	public static String laserIdentificacion = "Laser";

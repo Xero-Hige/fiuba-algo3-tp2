@@ -212,19 +212,20 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
 		contenedor.appendChild(GeneradorXml.generarElementoDe(escenario, "escenario"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(destruido, "destruido"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(identificacion, "identificacion"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(proyeccion, "proyeccion"));
 		return contenedor;
 	}
 
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 		
-		System.out.println((Double)null);
 		this.posicion = (Point) ReconstructorDesdeXml.generarObjeto(atributos.get("posicion"));
 		this.tamanio = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("tamanio"));
 		this.escenario = (Escenario) ReconstructorDesdeXml.generarObjeto(atributos.get("escenario"));
 		this.destruido = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("destruido"));
 		this.comportamientoAlChocar = new ChoqueDeObjetoEspacial(this);
 		this.identificacion = (String) ReconstructorDesdeXml.generarObjeto(atributos.get("identificacion"));
+		this.proyeccion = (Proyeccion) ReconstructorDesdeXml.generarObjeto(atributos.get("proyeccion"));
 		
 		return this;
 	}

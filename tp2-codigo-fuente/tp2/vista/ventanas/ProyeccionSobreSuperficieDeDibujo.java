@@ -1,11 +1,19 @@
 package tp2.vista.ventanas;
 
 import java.awt.Rectangle;
+import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 import tp2.auxiliares.Point;
+import tp2.modelo.Vuelo;
 import tp2.modelo.excepciones.ObjetoDesconocido;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.IGuardable;
+import tp2.persistencia.ReconstructorDesdeXml;
 
-public class ProyeccionSobreSuperficieDeDibujo implements Proyeccion {
+public class ProyeccionSobreSuperficieDeDibujo implements Proyeccion, IGuardable {
 
 	private Rectangle superficieDeDibujo;
 	private Rectangle espacioDelModelo;
@@ -14,6 +22,8 @@ public class ProyeccionSobreSuperficieDeDibujo implements Proyeccion {
 		this.superficieDeDibujo = superficieDeDibujo;
 		this.espacioDelModelo = espacioDelModelo;
 	}
+	
+	public ProyeccionSobreSuperficieDeDibujo() {}
 	
 	public void setSuperficieDeDibujo(int ancho, int alto) {
 		this.superficieDeDibujo = new Rectangle(ancho, alto);
@@ -45,6 +55,20 @@ public class ProyeccionSobreSuperficieDeDibujo implements Proyeccion {
 		if((superficieDeDibujo == null) || (espacioDelModelo == null))
 			return 1;
 		return superficieDeDibujo.getHeight() / espacioDelModelo.getHeight();
+	}
+
+	@Override
+	public Element guardar(Element contenedor) {
+		contenedor.appendChild(GeneradorXml.generarElementoDe(superficieDeDibujo, "superficieDeDibujo"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(espacioDelModelo, "espacioDelModelo"));
+		return contenedor;
+	}
+
+	@Override
+	public IGuardable cargar(Map<String, Node> atributos) {
+		this.superficieDeDibujo = (Rectangle) ReconstructorDesdeXml.generarObjeto(atributos.get("superficieDeDibujo"));
+		this.espacioDelModelo = (Rectangle) ReconstructorDesdeXml.generarObjeto(atributos.get("espacioDelModelo"));
+		return this;
 	}
 	
 }

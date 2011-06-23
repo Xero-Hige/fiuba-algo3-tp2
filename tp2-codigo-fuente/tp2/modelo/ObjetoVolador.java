@@ -67,6 +67,7 @@ public abstract class ObjetoVolador extends Movil {
 
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
+		super.cargar(atributos);
 		this.vuelo = (Vuelo) ReconstructorDesdeXml.generarObjeto(atributos.get("vuelo"));
 		return this;
 	}

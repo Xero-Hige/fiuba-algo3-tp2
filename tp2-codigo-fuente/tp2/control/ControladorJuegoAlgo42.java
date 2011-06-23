@@ -17,7 +17,6 @@ import tp2.modelo.extras.Agua;
 import tp2.modelo.extras.Explosion;
 import tp2.modelo.extras.Nube;
 import tp2.modelo.extras.ObjetosExplosivos;
-import tp2.modelo.menues.Menu;
 import tp2.modelo.menues.menuPrincipal.MenuPrincipal;
 import tp2.vista.modelo.ParserObjetoIdAVista;
 import tp2.vista.modelo.extras.VistaAgua;
@@ -33,7 +32,6 @@ import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Circulo;
-import ar.uba.fi.algo3.titiritero.vista.Ventana;
 
 public class ControladorJuegoAlgo42 extends ControladorJuego {
 

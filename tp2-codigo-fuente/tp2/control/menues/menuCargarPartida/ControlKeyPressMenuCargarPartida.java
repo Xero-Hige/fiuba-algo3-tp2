@@ -49,6 +49,7 @@ public class ControlKeyPressMenuCargarPartida implements KeyPressedObservador {
 				Document documento = ReconstructorDesdeXml.cargar(path);
 				Partida partida = (Partida) ReconstructorDesdeXml.recuperarPersistenciaDe(documento);
 				this.menuCargarPartida.getVentanaPrincipal().getControladorJuego().iniciarJuego(partida);
+				partida.iniciar();
 				
 				MenuMision menuMision = new MenuMision(this.menuCargarPartida.getVentanaPrincipal(), this.menuCargarPartida);
 				menuMision.mostrar();

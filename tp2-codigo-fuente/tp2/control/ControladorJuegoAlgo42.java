@@ -70,8 +70,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			else if(this.partida != null){
 				if(this.partida.estaEnCurso()){
 					this.controlarPartida();
+					this.simularJuego();
 				}
-				this.simularJuego();
 				this.corriendoElJuego = true;
 			}
 			super.comenzarJuego(1);

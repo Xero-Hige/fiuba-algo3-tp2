@@ -21,6 +21,7 @@ public class ControlKeyPressMenuMisionPausa implements KeyPressedObservador {
 			// Se presiona flecha hacia abajo.
 			case KeyEvent.VK_P:
 				this.menuMisionPausa.ocultar();
+				this.menuMisionPausa.getVentanaPrincipal().getControladorJuego().getPartida().reanudar();
 				this.menuMisionPausa.getMenuPadre().activarControl();
 				break;
 		}	

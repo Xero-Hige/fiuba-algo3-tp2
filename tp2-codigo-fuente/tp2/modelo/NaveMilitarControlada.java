@@ -83,7 +83,6 @@ public class NaveMilitarControlada extends NaveMilitar {
 
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
-		
 		super.cargar(atributos);
 		return this;
 	}

@@ -29,6 +29,7 @@ public class ReconstructorDesdeXml {
 	private static void cargarElementosGuardables(Node nodo) {
 		if(nodo.getAttributes() != null){
 			if(nodo.getAttributes().getNamedItem(ATRIBUTO_ID) != null){
+				Map<Integer, Node> nodos = nodosPorId;
 				nodosPorId.put(Integer.parseInt(nodo.getAttributes().getNamedItem(ATRIBUTO_ID).getNodeValue()), nodo);
 			}
 		}
@@ -66,16 +67,17 @@ public class ReconstructorDesdeXml {
 			clase = Class.forName(nodo.getAttributes().getNamedItem(ATRIBUTO_CLASE).getNodeValue());
 			return ParserElementoAObjeto.cargarObjeto(nodo, clase);
 		} catch (DOMException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
 	private static Object parsearGuardable(Node nodo, int id) {
+		if(objetosPorId.containsKey(id)){
+			return objetosPorId.get(id);
+		}
 		NamedNodeMap atributos = nodo.getAttributes();
 		Node atributo = atributos.getNamedItem(ATRIBUTO_CLASE);
 		IGuardable unGuardable = null;

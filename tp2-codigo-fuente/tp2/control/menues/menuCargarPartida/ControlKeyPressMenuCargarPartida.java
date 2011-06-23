@@ -6,6 +6,7 @@ import org.w3c.dom.Document;
 
 import tp2.modelo.Partida;
 import tp2.modelo.menues.menuCargarPartida.MenuCargarPartida;
+import tp2.modelo.menues.menuMision.MenuMision;
 import tp2.modelo.menues.menuPrincipal.MenuPrincipal;
 import tp2.persistencia.ReconstructorDesdeXml;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
@@ -48,6 +49,12 @@ public class ControlKeyPressMenuCargarPartida implements KeyPressedObservador {
 				Document documento = ReconstructorDesdeXml.cargar(path);
 				Partida partida = (Partida) ReconstructorDesdeXml.recuperarPersistenciaDe(documento);
 				this.menuCargarPartida.getVentanaPrincipal().getControladorJuego().iniciarJuego(partida);
+				
+				MenuMision menuMision = new MenuMision(this.menuCargarPartida.getVentanaPrincipal(), this.menuCargarPartida);
+				menuMision.mostrar();
+				menuMision.activarControl();
+				menuCargarPartida.ocultar();
+				
 				((MenuPrincipal)(this.menuCargarPartida.getMenuPadre())).getAudio().stop();
 				((MenuPrincipal)(this.menuCargarPartida.getMenuPadre())).getAudio().rebobinar();
 				break;

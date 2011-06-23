@@ -43,7 +43,7 @@ public class Flota implements IGuardable {
 	// la nave no pertencece al mismo equipo que la guía, se levanta una
 	// excepción.
 	public void agregarNave(NaveMilitar unaNaveMilitar) {
-		if (unaNaveMilitar.getEquipo() != naveGuia.getEquipo()) {
+		if (!unaNaveMilitar.getEquipo().equals(naveGuia.getEquipo())) {
 			throw new NaveEnemigaALaFlota(
 					"La flota no puede tener naves de distinto equipo");
 		}

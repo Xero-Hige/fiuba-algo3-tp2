@@ -147,6 +147,7 @@ public class Mision implements IGuardable {
 		this.flotaEnemiga = (Flota) ReconstructorDesdeXml.generarObjeto(atributos.get("flotaEnemiga"));
 		this.flotaAliada = (Flota) ReconstructorDesdeXml.generarObjeto(atributos.get("flotaAliada"));
 		this.escenario = (Escenario) ReconstructorDesdeXml.generarObjeto(atributos.get("escenario"));
+		this.navesPorTiempoDeSpawn = (Map<Double, Collection<ParCadenaPosicion>>) ReconstructorDesdeXml.generarObjeto(atributos.get("navesPorTiempoDeSpawn"));
 		this.tiemposDeSpawn = (PriorityQueue<Double>) ReconstructorDesdeXml.generarObjeto(atributos.get("tiemposDeSpawn"));
 		this.tiempoActual = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("tiempoActual"));
 		this.fabricaJugador = new FabricaDeNaves(this.escenario, "EquipoJugador", null);

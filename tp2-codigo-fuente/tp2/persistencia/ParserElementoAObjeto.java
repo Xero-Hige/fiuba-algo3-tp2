@@ -1,19 +1,17 @@
 package tp2.persistencia;
 
-import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
+import tp2.auxiliares.ParCadenaPosicion;
 import tp2.auxiliares.Point;
 
 public class ParserElementoAObjeto {
 
+	@SuppressWarnings("unchecked")
 	public static Object cargarObjeto(Node nodo, Class<?> clase) {
 		try {
 			if(clase.equals(String.class)){
@@ -84,6 +82,12 @@ public class ParserElementoAObjeto {
 				double x = (Double) ReconstructorDesdeXml.generarObjeto(nodosHijos.get("x"));
 				double y = (Double) ReconstructorDesdeXml.generarObjeto(nodosHijos.get("y"));
 				return new Point(x, y);
+			}
+			if(clase.equals(ParCadenaPosicion.class)){
+				Map<String, Node> nodosHijos = ReconstructorDesdeXml.construirMapaDeHijos(nodo);
+				String cadena = (String) ReconstructorDesdeXml.generarObjeto(nodosHijos.get("cadena"));
+				Point posicion = (Point) ReconstructorDesdeXml.generarObjeto(nodosHijos.get("posicion"));
+				return new ParCadenaPosicion(cadena, posicion);
 			}
 		} catch (DOMException e) {
 			e.printStackTrace();

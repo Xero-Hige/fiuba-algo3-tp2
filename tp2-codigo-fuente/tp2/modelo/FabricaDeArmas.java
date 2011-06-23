@@ -4,7 +4,7 @@ import tp2.auxiliares.Point;
 import tp2.modelo.especificaciones.ValoresDeArmas;
 
 // La fábrica de armas puede crear las armas particulares del juego.
-public class FabricaDeArmas {
+public class FabricaDeArmas{
 
 	private Escenario escenarioActual;
 		

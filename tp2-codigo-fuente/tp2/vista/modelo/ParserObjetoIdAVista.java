@@ -21,55 +21,55 @@ public class ParserObjetoIdAVista {
 		
 		// Aeronaves
 		
-		if (id == ValoresDeNaves.algo42Identificacion)
+		if (id.equals(ValoresDeNaves.algo42Identificacion))
 			return new VistaAlgo42(proyeccion);
 		
-		else if (id == ValoresDeNaves.avionetaIdentificacion) 
+		else if (id.equals(ValoresDeNaves.avionetaIdentificacion)) 
 			return new VistaAvioneta(proyeccion);
 		
-		else if (id == ValoresDeNaves.bombarderoIdentificacion) 
+		else if (id.equals(ValoresDeNaves.bombarderoIdentificacion)) 
 			return new VistaBombardero(proyeccion);
 			
-		else if (id == ValoresDeNaves.cazaIdentificacion) 
+		else if (id.equals(ValoresDeNaves.cazaIdentificacion)) 
 			return new VistaCaza(proyeccion);
 			
-		else if (id == ValoresDeNaves.avionCivilIdentificacion) 
+		else if (id.equals(ValoresDeNaves.avionCivilIdentificacion)) 
 			return new VistaCivil(proyeccion);
 				
-		else if (id == ValoresDeNaves.exploradorIdentificacion) 
+		else if (id.equals(ValoresDeNaves.exploradorIdentificacion)) 
 			return new VistaExplorador(proyeccion);
 				
-		else if (id == ValoresDeNaves.helicopteroFederalIdentificacion) 
+		else if (id.equals(ValoresDeNaves.helicopteroFederalIdentificacion)) 
 			return new VistaHelicoptero(proyeccion);
 		
-		else if (id == ValoresDeNaves.guiaEnemigoIdentificacion) 
+		else if (id.equals(ValoresDeNaves.guiaEnemigoIdentificacion)) 
 			return new VistaNaveGuia(proyeccion);
 		
 		
 		// Proyectiles
 		
-		else if (id == ValoresDeArmas.laserIdentificacion) 
+		else if (id.equals(ValoresDeArmas.laserIdentificacion)) 
 			return new VistaProyectilLaser(proyeccion);
 		
-		else if (id == ValoresDeArmas.coheteIdentificacion) 
+		else if (id.equals(ValoresDeArmas.coheteIdentificacion)) 
 			return new VistaProyectilCohetes(proyeccion);
 		
-		else if (id == ValoresDeArmas.torpedoIdentificacion) 
+		else if (id.equals(ValoresDeArmas.torpedoIdentificacion)) 
 			return new VistaProyectilTorpedos(proyeccion);
 		
 		
 		// Bonus
 		
-		else if (id == ValoresDeBonos.bonoDeEnergiaIdentificacion) 
+		else if (id.equals(ValoresDeBonos.bonoDeEnergiaIdentificacion)) 
 			return new VistaBonoDeEnergia(proyeccion);
 		
-		else if (id == ValoresDeBonos.bonoDeArmasIdentificacion) 
+		else if (id.equals(ValoresDeBonos.bonoDeArmasIdentificacion)) 
 			return new VistaBonoDeArmas(proyeccion);
 				
 		
 		// Extras
 		
-		else if (id == "Explosion"){
+		else if (id.equals("Explosion")){
 			return new VistaExplosion(nuevoObjeto);
 		}
 

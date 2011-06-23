@@ -64,15 +64,16 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 				if(partida != null){
 					this.borrarObjetosDelJuego();
 					this.borrarObjetosDelFondo();
+					System.out.println("asdf");
 				}
 				this.partida = null;
 			}
 			else if(this.partida != null){
-				if(this.partida.estaEnCurso()){
-					this.controlarPartida();
-					this.simularJuego();
-				}
 				this.corriendoElJuego = true;
+				if(this.partida.estaEnCurso()){
+					this.simularJuego();
+					this.controlarPartida();
+				}
 			}
 			super.comenzarJuego(1);
 		} while (this.estaEnEjecucion());
@@ -98,6 +99,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			this.partida.avanzarNivel();
 			if(this.partida.estaGanada()){
 				// Se ganó
+				this.corriendoElJuego = false;
+				return;
 			}
 			this.setMision(this.partida.getMisionActual());
 		}
@@ -106,6 +109,9 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			this.partida.perderVida();
 			if(partida.getVidas() == 0){
 				// Game Over
+				System.out.println("fdsfd");
+				this.corriendoElJuego = false;
+				return;
 			}
 			this.setMision(this.partida.getMisionActual());
 		}

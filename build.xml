@@ -101,6 +101,14 @@
 			</fileset>
 		</copy>
 		<jar destfile="release/Algo42.jar" basedir="bin" includes="**" manifest="MANIFEST.MF"/>
+		<mkdir dir="release/src"/>
+		<copy todir="release/src">
+			<fileset dir="${srcfuente}">
+				<include name="**/*.png"/>
+				<include name="**/*.settings"/>
+			</fileset>
+		</copy>
+		<mkdir dir="release/Saves"/>
 	</target>
 
 	<target name="correrPrograma" depends="makeJar" description="Corre el programa desde un Jar">

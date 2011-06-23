@@ -16,7 +16,7 @@ public class ValoresDeArmas {
 	public static double canionLaserProyectilDanio = 15;
 	public static String laserIdentificacion = "Laser";
 	
-	public static String canionCohetesIdentificacion = "CanionCohetes";
+	public static String lanzaCohetesIdentificacion = "LanzaCohetes";
 	public static int lanzaCohetesVelocidad = 100;
 	public static double lanzaCohetesFrecuencia = 2;
 	public static String canionCohetesProyectilIdentificacion = "ProyectilCohetes";
@@ -26,7 +26,7 @@ public class ValoresDeArmas {
 	public static double lanzaCohetesProyectilDanio = 50;
 	public static String coheteIdentificacion = "Cohete";
 	
-	public static String canionTorpedosIdentificacion = "CanionTorpedos";
+	public static String lanzaTorpedosIdentificacion = "LanzaTorpedos";
 	public static int lanzaTorpedosVelocidad = 70;
 	public static double lanzaTorpedosFrecuencia = 0.5;
 	public static String canionTorpedosProyectilIdentificacion = "ProyectilTorpedos";

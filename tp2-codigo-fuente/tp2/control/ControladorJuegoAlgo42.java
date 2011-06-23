@@ -13,6 +13,7 @@ import tp2.modelo.NaveMilitarControlada;
 import tp2.modelo.ObjetoEspacial;
 import tp2.modelo.Partida;
 import tp2.modelo.Visible;
+import tp2.modelo.especificaciones.ValoresDeLaPartida;
 import tp2.modelo.extras.Agua;
 import tp2.modelo.extras.Explosion;
 import tp2.modelo.extras.Nube;
@@ -93,22 +94,22 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	}
 
 	private void controlarPartida() {
-		if(this.escenario.getPuntuacion() > 50){
+		if(this.mision.getNaveDelJugador().estaDestruido()){
 			this.borrarObjetosDelJuego();
-			this.partida.avanzarNivel();
-			if(this.partida.estaGanada()){
-				// Se ganó
+			this.partida.perderVida();
+			if(partida.getVidas() == 0){
+				// Game Over
 				this.corriendoElJuego = false;
 				this.abrirMenuPrincipal();
 				return;
 			}
 			this.setMision(this.partida.getMisionActual());
 		}
-		else if(this.mision.getNaveDelJugador().estaDestruido()){
+		else if(this.escenario.getPuntuacion() >= ValoresDeLaPartida.puntuacionDeTriunfoDeMision){
 			this.borrarObjetosDelJuego();
-			this.partida.perderVida();
-			if(partida.getVidas() == 0){
-				// Game Over
+			this.partida.avanzarNivel();
+			if(this.partida.estaGanada()){
+				// Se ganó
 				this.corriendoElJuego = false;
 				this.abrirMenuPrincipal();
 				return;
@@ -210,7 +211,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		// Borrar después:
 		if (vista == null) {
 			vista = new Circulo(
-					(int) (objeto.getTamanio() * proyeccion.getEscalaX()));
+					(int) (50));
 		}
 		// Fin borrar después.
 		vista.setPosicionable(objeto);

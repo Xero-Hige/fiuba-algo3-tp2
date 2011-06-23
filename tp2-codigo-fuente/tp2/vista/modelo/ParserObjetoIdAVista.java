@@ -6,6 +6,7 @@ import tp2.vista.modelo.extras.*;
 import tp2.vista.modelo.objetosVivos.*;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.Dibujable;
+import ar.uba.fi.algo3.titiritero.vista.Circulo;
 
 /**
  * Clase que traduce un id a una vista, devolviendo dependiendo del
@@ -45,6 +46,14 @@ public class ParserObjetoIdAVista {
 		else if (id.equals(ValoresDeNaves.guiaEnemigoIdentificacion)) 
 			return new VistaNaveGuia(proyeccion);
 		
+		// Armas: no se ven
+		
+		else if (id.equals(ValoresDeArmas.canionLaserIdentificacion)) 
+			return new Circulo(0);
+		else if (id.equals(ValoresDeArmas.lanzaCohetesIdentificacion)) 
+			return new Circulo(0);
+		else if (id.equals(ValoresDeArmas.lanzaTorpedosIdentificacion)) 
+			return new Circulo(0);
 		
 		// Proyectiles
 		
@@ -72,6 +81,8 @@ public class ParserObjetoIdAVista {
 		else if (id.equals("Explosion")){
 			return new VistaExplosion(nuevoObjeto);
 		}
+		
+		System.out.print(id);
 
 		// Si no se reconoce el id se devuelve null.
 		return null;

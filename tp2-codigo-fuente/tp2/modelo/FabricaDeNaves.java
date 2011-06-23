@@ -36,6 +36,15 @@ public class FabricaDeNaves {
 		Arma canionLaser = fabricaDeArmas.crearCanionLaser();
 		canionLaser.setDireccionDeDisparo(new Point(0, 1));
 		algo42.agregarArma(canionLaser);
+		ArmaLimitada lanzaCohetes = fabricaDeArmas.crearLanzaCohetes();
+		lanzaCohetes.setDireccionDeDisparo(new Point(0, 1));
+		lanzaCohetes.descargarEn((Integer) lanzaCohetes.getCarga());
+		algo42.agregarArma(lanzaCohetes);
+		ArmaDirigida lanzaTorpedos = fabricaDeArmas.crearLanzaTorpedos();
+		lanzaTorpedos.setDireccionDeDisparo(new Point(0, 1));
+		lanzaTorpedos.descargarEn((Integer) lanzaTorpedos.getCarga());
+		lanzaTorpedos.setFlotaObjetivo(flotaEnemiga);
+		algo42.agregarArma(lanzaTorpedos);
 		
 		return algo42;
 	}

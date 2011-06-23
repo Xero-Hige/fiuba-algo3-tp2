@@ -30,13 +30,14 @@ public class Mision implements IGuardable {
 	public Mision(Escenario escenario) {
 		
 		this.escenario = escenario;
+		this.fabricaEnemiga = new FabricaDeNaves(this.escenario,
+				"EquipoEnemigo", null);
+		this.flotaEnemiga = this.nuevaFlotaEnemiga();
 		this.fabricaJugador = new FabricaDeNaves(this.escenario,
-				"EquipoJugador", null);
+				"EquipoJugador", flotaEnemiga);
 		this.naveDelJugador = this.nuevaNaveDelJugador();
 		this.flotaAliada = new Flota(this.naveDelJugador);
-		this.fabricaEnemiga = new FabricaDeNaves(this.escenario,
-				"EquipoEnemigo", this.flotaAliada);
-		this.flotaEnemiga = this.nuevaFlotaEnemiga();
+		this.fabricaEnemiga.setFlotaEnemiga(this.flotaAliada);
 		this.getEscenario().agregarObjeto(this.flotaEnemiga.getNaveGuia());
 		this.tiempoActual = 0;
 	}

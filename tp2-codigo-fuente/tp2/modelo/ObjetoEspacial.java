@@ -211,6 +211,7 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
 		contenedor.appendChild(GeneradorXml.generarElementoDe(tamanio, "tamanio"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(escenario, "escenario"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(destruido, "destruido"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(comportamientoAlChocar, "comportamientoAlChocar"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(identificacion, "identificacion"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(proyeccion, "proyeccion"));
 		return contenedor;
@@ -223,7 +224,7 @@ public abstract class ObjetoEspacial implements Visible, ObjetoVivo, IGuardable{
 		this.tamanio = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("tamanio"));
 		this.escenario = (Escenario) ReconstructorDesdeXml.generarObjeto(atributos.get("escenario"));
 		this.destruido = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("destruido"));
-		this.comportamientoAlChocar = new ChoqueDeObjetoEspacial(this);
+		this.comportamientoAlChocar = (ChoqueDeObjetoEspacial) ReconstructorDesdeXml.generarObjeto(atributos.get("comportamientoAlChocar"));
 		this.identificacion = (String) ReconstructorDesdeXml.generarObjeto(atributos.get("identificacion"));
 		this.proyeccion = (Proyeccion) ReconstructorDesdeXml.generarObjeto(atributos.get("proyeccion"));
 		

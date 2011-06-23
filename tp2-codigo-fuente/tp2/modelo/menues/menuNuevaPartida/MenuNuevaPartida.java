@@ -2,6 +2,7 @@ package tp2.modelo.menues.menuNuevaPartida;
 
 import tp2.control.menues.menuNuevaPartida.ControlKeyPressMenuNuevaPartida;
 import tp2.modelo.Partida;
+import tp2.modelo.especificaciones.ValoresDeLaPartida;
 import tp2.modelo.menues.Menu;
 import tp2.modelo.menues.MenuI;
 import tp2.modelo.menues.menuMision.MenuMision;
@@ -56,7 +57,7 @@ public class MenuNuevaPartida extends Menu {
 	
 	public void iniciarNuevaPartida() {
 		
-		Partida partida = new Partida(2, 3);
+		Partida partida = new Partida(ValoresDeLaPartida.cantidadDeNiveles, ValoresDeLaPartida.vidasIniciales);
 		partida.iniciar();
 		this.getVentanaPrincipal().getControladorJuego().iniciarJuego(partida);
 	}

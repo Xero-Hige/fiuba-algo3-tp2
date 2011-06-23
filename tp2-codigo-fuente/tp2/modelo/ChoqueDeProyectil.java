@@ -9,6 +9,8 @@ public class ChoqueDeProyectil extends ChoqueDeObjetoEspacial {
 		super((ObjetoEspacial)unProyectil);
 	}
 	
+	public ChoqueDeProyectil() {}
+	
 	@Override
 	// Un proyectil se destruye cuando choca con una nave.
 	public void sufrirChoqueDeNave(Nave unaNave) {

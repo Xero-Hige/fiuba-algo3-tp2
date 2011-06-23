@@ -81,4 +81,5 @@ public class ArmaLimitada extends Arma {
 		this.carga = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("carga"));
 		return this;
 	}
+
 }

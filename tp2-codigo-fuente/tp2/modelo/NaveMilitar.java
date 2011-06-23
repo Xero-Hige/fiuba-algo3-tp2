@@ -129,6 +129,7 @@ public class NaveMilitar extends Nave {
 		
 		super.guardar(contenedor);
 		contenedor.appendChild(GeneradorXml.generarElementoDe(armas, "armas"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(enCombate, "enCombate"));
 		return contenedor;
 	}
 
@@ -138,6 +139,7 @@ public class NaveMilitar extends Nave {
 		
 		super.cargar(atributos);
 		this.armas = (List<Arma>) ReconstructorDesdeXml.generarObjeto(atributos.get("armas"));
+		this.enCombate = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("enCombate"));
 		return this;
 	}
 }

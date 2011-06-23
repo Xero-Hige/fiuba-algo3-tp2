@@ -9,6 +9,8 @@ public class ChoqueDeNaveMilitarControlada extends ChoqueDeNave {
 		super((NaveMilitar) unaNaveMilitarControlada);
 	}
 	
+	public ChoqueDeNaveMilitarControlada() {}
+	
 	@Override
 	// Una nave militar controlada puede recolectar los bonos al chocar con ellos.
 	public void sufrirChoqueDeBono(Bono unBono) {

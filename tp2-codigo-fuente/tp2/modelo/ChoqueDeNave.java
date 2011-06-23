@@ -9,6 +9,8 @@ public class ChoqueDeNave extends ChoqueDeObjetoEspacial {
 		super((ObjetoEspacial) unaNave);
 	}
 	
+	public ChoqueDeNave() {}
+	
 	@Override
 	// Una nave se destruye cuando choca con una nave militar que no es aliada.
 	public void sufrirChoqueDeNaveMilitar(NaveMilitar unaNaveMilitar) {

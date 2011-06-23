@@ -2,7 +2,6 @@ package tp2.modelo;
 
 import java.awt.Rectangle;
 import java.util.*;
-import java.util.Map.Entry;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -182,6 +181,7 @@ public class Escenario implements IGuardable {
 		return contenedor;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 		

@@ -3,7 +3,7 @@ package tp2;
 import tp2.control.ControladorJuegoAlgo42;
 import tp2.modelo.especificaciones.ReferenciasDeTiempo;
 import tp2.vista.ventanas.VentanaPrincipal;
-import ar.uba.fi.algo3.titiritero.vista.Ventana;
+
 
 public class Programa {
 
@@ -17,8 +17,5 @@ public class Programa {
 		
 		controlador.setIntervaloSimulacion(ReferenciasDeTiempo.intervaloDeSimulacion);
 		controlador.comenzarJuego();
-		
-//		Map<Double, Collection<ParCadenaPosicion>> a = ConstructorMisionDesdeXml.datosMision(1);
-//		System.out.println(a.toString());
 	}
 }

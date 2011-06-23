@@ -74,6 +74,7 @@ public class ArmaAdaptable extends Arma {
 		return contenedor;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 		

@@ -142,6 +142,7 @@ public class Flota implements IGuardable {
 		return contenedor;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 

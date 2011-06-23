@@ -13,7 +13,6 @@ import tp2.modelo.NaveMilitarControlada;
 import tp2.modelo.ObjetoEspacial;
 import tp2.modelo.Partida;
 import tp2.modelo.Visible;
-import tp2.modelo.especificaciones.ValoresDeNaves;
 import tp2.modelo.extras.Agua;
 import tp2.modelo.extras.Explosion;
 import tp2.modelo.extras.Nube;

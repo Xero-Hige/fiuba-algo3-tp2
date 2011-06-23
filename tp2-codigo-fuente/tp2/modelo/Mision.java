@@ -139,6 +139,7 @@ public class Mision implements IGuardable {
 		return contenedor;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 		

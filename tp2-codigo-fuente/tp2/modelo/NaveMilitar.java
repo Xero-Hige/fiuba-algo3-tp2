@@ -132,6 +132,7 @@ public class NaveMilitar extends Nave {
 		return contenedor;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 		

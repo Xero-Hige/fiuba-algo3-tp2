@@ -114,6 +114,7 @@ public class VueloCompuesto extends Vuelo {
 		return contenedor;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public IGuardable cargar(Map<String, Node> atributos) {
 		

@@ -29,6 +29,7 @@ public class ReconstructorDesdeXml {
 	private static void cargarElementosGuardables(Node nodo) {
 		if(nodo.getAttributes() != null){
 			if(nodo.getAttributes().getNamedItem(ATRIBUTO_ID) != null){
+				@SuppressWarnings("unused")
 				Map<Integer, Node> nodos = nodosPorId;
 				nodosPorId.put(Integer.parseInt(nodo.getAttributes().getNamedItem(ATRIBUTO_ID).getNodeValue()), nodo);
 			}

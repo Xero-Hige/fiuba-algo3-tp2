@@ -3,7 +3,9 @@ package tp2.control;
 import java.awt.Rectangle;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import tp2.modelo.Escenario;
@@ -26,6 +28,7 @@ import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Circulo;
@@ -39,12 +42,12 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private Partida partida;
 	private Mision mision;
 	private Escenario escenario;
-	private Boolean dibujandoElJuego;
-	private Set<Dibujable> dibujosDeFondo;
+	private Boolean corriendoElJuego;
+	private Collection<Dibujable> dibujosDeFondo;
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
-		this.dibujandoElJuego = false;
+		this.corriendoElJuego = false;
 	}
 
 	@Override
@@ -55,14 +58,32 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	@Override
 	public void comenzarJuego() {
 		do {
-			if((this.partida != null) && (this.partida.estaEnCurso())){
-				this.controlarPartida();
+			if(!this.corriendoElJuego){
+				if(partida != null){
+					this.borrarObjetosDelJuego();
+				}
+				this.partida = null;
+			}
+			else if(this.partida != null){
+				if(this.partida.estaEnCurso()){
+					this.controlarPartida();
+				}
 				this.simularJuego();
+				this.corriendoElJuego = true;
 			}
 			super.comenzarJuego(1);
 		} while (this.estaEnEjecucion());
 	}
 	
+	private synchronized void borrarObjetosDelJuego() {
+		for(Dibujable dibujable: this.dibujosDeFondo){
+			this.removerDibujable(dibujable);
+		}
+		for(Entry<Visible, Dibujable> entry: this.vistas.entrySet()){
+			this.removerVista(entry.getKey());
+		}
+	}
+
 	private void controlarPartida() {
 		// TODO Auto-generated method stub
 		
@@ -101,43 +122,52 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	}
 
 	private void construirVistasDeFondo() {
+		
+		this.dibujosDeFondo = new HashSet<Dibujable>();
+		
 		Agua agua = new Agua(this.escenario);
-		this.agregarNuevaVista(agua, -1);
+		Dibujable dibujable = this.agregarNuevaVista(agua, -1);
+		this.dibujosDeFondo.add(dibujable);
 				
 		VistaNubeTipo1 vistaNube1 = new VistaNubeTipo1();
 		Nube nube1 = new Nube(70, -100, 600, 5);
 		vistaNube1.setPosicionable(nube1);
 		this.agregarDibujable(vistaNube1, 1);
 		this.agregarObjetoVivo(nube1);
+		this.dibujosDeFondo.add(vistaNube1);
 		
 		VistaNubeTipo2 vistaNube2 = new VistaNubeTipo2();
 		Nube nube2 = new Nube(470, -300, 700, 6);
 		vistaNube2.setPosicionable(nube2);
 		this.agregarDibujable(vistaNube2, 1);
-		this.agregarObjetoVivo(nube2);	
+		this.agregarObjetoVivo(nube2);
+		this.dibujosDeFondo.add(vistaNube2);
 		
 		VistaNubeTipo3 vistaNube3 = new VistaNubeTipo3();
 		Nube nube3 = new Nube(280, -600, 700, 6);
 		vistaNube3.setPosicionable(nube3);
 		this.agregarDibujable(vistaNube3, 1);
-		this.agregarObjetoVivo(nube3);	
+		this.agregarObjetoVivo(nube3);
+		this.dibujosDeFondo.add(vistaNube3);
 		
 		this.vistaBarraDeEstado = new VistaBarraDeEstado();
 		this.agregarDibujable(vistaBarraDeEstado, 1);
+		this.dibujosDeFondo.add(vistaBarraDeEstado);
 		
 		for(Dibujable objetoDibujable: vistaBarraDeEstado.getObjetosDibujablesDeLaVista()){
 			this.agregarDibujable(objetoDibujable, 1);
+			this.dibujosDeFondo.add(objetoDibujable);
 		}
 		
 		this.vistaInicioMision = new VistaInicioMision();
 		this.agregarDibujable(vistaInicioMision, 1);
 	}
 	
-	public void agregarNuevaVista(Visible objeto){
-		this.agregarNuevaVista(objeto, 0);
+	public Dibujable agregarNuevaVista(Visible objeto){
+		return this.agregarNuevaVista(objeto, 0);
 	}
 
-	public void agregarNuevaVista(Visible objeto, double prioridad){
+	public Dibujable agregarNuevaVista(Visible objeto, double prioridad){
 		objeto.setProyeccion(proyeccion);
 		Dibujable vista = ParserObjetoIdAVista.getVista(objeto, proyeccion);
 		// Borrar después:
@@ -149,6 +179,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		vista.setPosicionable(objeto);
 		this.agregarDibujable(vista);
 		this.vistas.put(objeto, vista);
+		return vista;
 	}
 	
 	public void removerVista(Visible objeto){
@@ -165,9 +196,14 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		return partida;
 	}
 
-	public synchronized void setPartida(Partida partida) {
+	public synchronized void iniciarJuego(Partida partida) {
+		this.corriendoElJuego = true;
 		this.partida = partida;
 		this.setMision(partida.getMisionActual());
+	}
+	
+	public synchronized void finalizarJuego(){
+		this.corriendoElJuego = false;
 	}
 
 	private void setMision(Mision mision) {

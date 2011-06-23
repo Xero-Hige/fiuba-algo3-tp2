@@ -28,6 +28,7 @@ public class MenuMisionOpcionesItemSalir extends MenuItem {
 	public void seleccionar() {
 		
 		this.getMenuDelItem().ocultar();
+		this.getVentanaPrincipal().getControladorJuego().finalizarJuego();
 		this.getMenuDelItem().getMenuPadre().getMenuPadre().getMenuPadre().mostrar();
 	}
 }

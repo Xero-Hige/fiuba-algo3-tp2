@@ -2,6 +2,7 @@ package tp2.modelo;
 
 import java.awt.Rectangle;
 import java.util.*;
+import java.util.Map.Entry;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -190,6 +191,9 @@ public class Escenario implements IGuardable {
 		this.areaDeCombate = (Rectangle) ReconstructorDesdeXml.generarObjeto(atributos.get("areaDeCombate"));
 		this.tiempo = (Double) ReconstructorDesdeXml.generarObjeto(atributos.get("tiempo"));
 		this.objetosCreados = (Collection<ObjetoEspacial>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetosCreados"));
+		for(ObjetoEspacial objeto: objetos.keySet()){
+			this.objetosCreados.add(objeto);
+		}
 		this.objetosMuertos = (Collection<ObjetoEspacial>) ReconstructorDesdeXml.generarObjeto(atributos.get("objetosMuertos"));
 		
 		return this;

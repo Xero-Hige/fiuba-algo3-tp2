@@ -6,6 +6,7 @@ import org.w3c.dom.Document;
 
 import tp2.modelo.Partida;
 import tp2.modelo.menues.menuCargarPartida.MenuCargarPartida;
+import tp2.modelo.menues.menuPrincipal.MenuPrincipal;
 import tp2.persistencia.ReconstructorDesdeXml;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 
@@ -46,7 +47,8 @@ public class ControlKeyPressMenuCargarPartida implements KeyPressedObservador {
 				System.out.println(path);
 				Document documento = ReconstructorDesdeXml.cargar(path);
 				Partida partida = (Partida) ReconstructorDesdeXml.recuperarPersistenciaDe(documento);
-				this.menuCargarPartida.getVentanaPrincipal().getControladorJuego().iniciarJuego(partida);				
+				this.menuCargarPartida.getVentanaPrincipal().getControladorJuego().iniciarJuego(partida);
+				((MenuPrincipal)(this.menuCargarPartida.getMenuPadre())).getAudio().stop();
 				break;
 		}	
 	}

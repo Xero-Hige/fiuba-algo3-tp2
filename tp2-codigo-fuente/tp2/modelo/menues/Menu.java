@@ -118,12 +118,12 @@ public abstract class Menu implements MenuI, Posicionable  {
 		}
 		
 		this.activarControl();
+		
+		realizarAlMostrar();
 	}
 
 	public void ocultar() {
-		
-//		this.desactivarControl();
-		
+				
 		this.ventanaPrincipal.removerObjetoDibujable((Dibujable) this.vistaMenu);
 		this.ventanaPrincipal.removerObjetosDibujables(this.vistaMenu.getObjetosDibujables());
 		
@@ -131,11 +131,16 @@ public abstract class Menu implements MenuI, Posicionable  {
 		
 		while (i.hasNext()) 
 			this.ventanaPrincipal.removerObjetoDibujable(i.next().getVistaMenuItem());
+		
+		realizarAlOcultar();
 	}
 	
 	@Override
-	public abstract void activarControl();
+	public abstract void realizarAlMostrar();
 	
+	@Override
+	public abstract void activarControl();
+		
 	@Override
 	public void desactivarControl() {
 		this.ventanaPrincipal.desactivarKeyPressObservador();

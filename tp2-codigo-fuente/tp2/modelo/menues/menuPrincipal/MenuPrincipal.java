@@ -2,6 +2,7 @@ package tp2.modelo.menues.menuPrincipal;
 
 import java.util.Iterator;
 
+import tp2.audio.AudioMenuPrincipal;
 import tp2.control.menues.menuPrincipal.ControlKeyPressMenuPrincipal;
 import tp2.modelo.menues.Menu;
 import tp2.modelo.menues.MenuItem;
@@ -10,6 +11,7 @@ import tp2.vista.ventanas.VentanaPrincipal;
 
 public class MenuPrincipal extends Menu  {
 	
+	private AudioMenuPrincipal audio;
 		
 	public MenuPrincipal(VentanaPrincipal ventanaPrincipal){
 		
@@ -18,6 +20,10 @@ public class MenuPrincipal extends Menu  {
 		// Creamos la vista del menu principal
 		this.setVistaMenu(new VistaMenuPrincipal());
 		this.getVistaMenu().setPosicionable(this);
+		this.audio = new AudioMenuPrincipal();
+		this.audio.play();
+		
+		// Creamos el audio del menu principal
 		
 		// Creamos los items de las opciones del menu principal
 		this.agregarItem(new MenuPrincipalItemNuevaPartida(this.getVentanaPrincipal(), this));
@@ -51,5 +57,19 @@ public class MenuPrincipal extends Menu  {
 		// del menú principal.
 		this.setControlKeyPress(new ControlKeyPressMenuPrincipal(this));
 		this.getVentanaPrincipal().setControlKeyPressActivo(this.getControlKeyPress());
+	}
+	
+	public AudioMenuPrincipal getAudio() {
+		return audio;
+	}
+
+	@Override
+	public void realizarAlMostrar() {
+		this.audio.play();
+	}
+
+	@Override
+	public void realizarAlOcultar() {
+		this.audio.stop();
 	}
 }

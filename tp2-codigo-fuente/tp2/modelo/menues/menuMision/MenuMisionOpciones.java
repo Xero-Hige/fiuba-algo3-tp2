@@ -33,4 +33,10 @@ public class MenuMisionOpciones extends Menu {
 		this.setControlKeyPress(new ControlKeyPressMenuMisionOpciones(this));
 		this.getVentanaPrincipal().setControlKeyPressActivo(this.getControlKeyPress());
 	}
+
+	@Override
+	public void realizarAlOcultar() {}
+
+	@Override
+	public void realizarAlMostrar() {}
 }

@@ -28,4 +28,10 @@ public class MenuComoJugar extends Menu {
 		this.setControlKeyPress(new ControlKeyPressMenuComoJugar(this));
 		this.getVentanaPrincipal().setControlKeyPressActivo(this.getControlKeyPress());
 	}
+	
+	@Override
+	public void realizarAlOcultar() {}
+
+	@Override
+	public void realizarAlMostrar() {}
 }

@@ -29,4 +29,10 @@ public class MenuCreditos extends Menu {
 		this.setControlKeyPress(new ControlKeyPressMenuCreditos(this));
 		this.getVentanaPrincipal().setControlKeyPressActivo(this.getControlKeyPress());
 	}
+	
+	@Override
+	public void realizarAlOcultar() {}
+
+	@Override
+	public void realizarAlMostrar() {}
 }

@@ -124,4 +124,10 @@ public class MenuCargarPartida extends Menu  {
 		String directorio = ManejadorPartidasGuardadas.getPathSaves();
 		return directorio+"/"+this.cuadroDeTexto3.getTexto()+".save";
 	}
+	
+	@Override
+	public void realizarAlOcultar() {}
+
+	@Override
+	public void realizarAlMostrar() {}
 }

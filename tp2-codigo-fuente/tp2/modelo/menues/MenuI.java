@@ -19,4 +19,9 @@ public interface MenuI {
 	public void resetear();
 	public void activarControl();
 	public void desactivarControl();
+	
+	// Define acciones propias de cada menu que deben realizarse al mostrar el mismo.
+	public void realizarAlMostrar();
+	// Define acciones propias de cada menu que deben realizarse al ocultar el mismo.
+	public void realizarAlOcultar();
 }

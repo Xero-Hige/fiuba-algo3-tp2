@@ -15,4 +15,10 @@ public class MenuSalir extends Menu {
 
 	@Override
 	public void activarControl() {}
+	
+	@Override
+	public void realizarAlOcultar() {}
+
+	@Override
+	public void realizarAlMostrar() {}
 }

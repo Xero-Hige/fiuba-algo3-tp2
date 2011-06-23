@@ -5,15 +5,14 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import tp2.modelo.Escenario;
 import tp2.modelo.Mision;
 import tp2.modelo.NaveMilitarControlada;
+import tp2.modelo.ObjetoEspacial;
 import tp2.modelo.Partida;
 import tp2.modelo.Visible;
-import tp2.modelo.ObjetoEspacial;
 import tp2.modelo.extras.Agua;
 import tp2.modelo.extras.Explosion;
 import tp2.modelo.extras.Nube;
@@ -29,8 +28,6 @@ import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
-import ar.uba.fi.algo3.titiritero.ObjetoVivo;
-import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Circulo;
 

@@ -75,7 +75,8 @@ public class ManejadorPartidasGuardadas {
 		try{
 			archivosSave = BuscadorDeArchivos.getArchivos(getPathSaves(),"save");
 		}catch(CarpetaNoEncontradaError e){
-			new File(getPathSaves()).mkdirs();
+			new File(getPathSaves()).mkdir();
+			new File(getPathSaves()).mkdir();
 		}
 		
 		return archivosSave.get(nombreSave+".save");		

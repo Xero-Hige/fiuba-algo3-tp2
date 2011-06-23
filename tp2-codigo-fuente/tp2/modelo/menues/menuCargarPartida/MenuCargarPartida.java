@@ -121,6 +121,11 @@ public class MenuCargarPartida extends Menu  {
 	}
 
 	public String getArchivoSeleccionado() {
+		if (this.cuadroDeTexto3.getTexto() == ""){
+			//Si se esta tratando de obtener el nombre de archivo desde
+			//una no save devuelve null
+			return null;
+		}		
 		String directorio = ManejadorPartidasGuardadas.getPathSaves();
 		return directorio+"/"+this.cuadroDeTexto3.getTexto()+".save";
 	}

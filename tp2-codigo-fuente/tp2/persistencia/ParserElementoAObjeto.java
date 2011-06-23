@@ -1,5 +1,7 @@
 package tp2.persistencia;
 
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +9,8 @@ import java.util.Map;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import tp2.auxiliares.Point;
 
 public class ParserElementoAObjeto {
 
@@ -64,6 +68,22 @@ public class ParserElementoAObjeto {
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
 				}
+			}
+			if(clase.equals(Rectangle.class)){
+				Map<String, Node> nodosHijos = ReconstructorDesdeXml.construirMapaDeHijos(nodo);
+				double x = (Double) ReconstructorDesdeXml.generarObjeto(nodosHijos.get("x"));
+				double y = (Double) ReconstructorDesdeXml.generarObjeto(nodosHijos.get("y"));
+				double ancho = (Double) ReconstructorDesdeXml.generarObjeto(nodosHijos.get("ancho"));
+				double alto = (Double) ReconstructorDesdeXml.generarObjeto(nodosHijos.get("alto"));
+				Rectangle resultado = new Rectangle();
+				resultado.setRect(x, y, ancho, alto);
+				return resultado;
+			}
+			if(clase.equals(Point.class)){
+				Map<String, Node> nodosHijos = ReconstructorDesdeXml.construirMapaDeHijos(nodo);
+				double x = (Double) ReconstructorDesdeXml.generarObjeto(nodosHijos.get("x"));
+				double y = (Double) ReconstructorDesdeXml.generarObjeto(nodosHijos.get("y"));
+				return new Point(x, y);
 			}
 		} catch (DOMException e) {
 			e.printStackTrace();

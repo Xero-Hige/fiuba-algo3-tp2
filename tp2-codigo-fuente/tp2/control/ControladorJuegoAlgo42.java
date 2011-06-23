@@ -17,6 +17,8 @@ import tp2.modelo.extras.Agua;
 import tp2.modelo.extras.Explosion;
 import tp2.modelo.extras.Nube;
 import tp2.modelo.extras.ObjetosExplosivos;
+import tp2.modelo.menues.Menu;
+import tp2.modelo.menues.menuPrincipal.MenuPrincipal;
 import tp2.vista.modelo.ParserObjetoIdAVista;
 import tp2.vista.modelo.extras.VistaAgua;
 import tp2.vista.modelo.extras.VistaNubeTipo1;
@@ -26,10 +28,12 @@ import tp2.vista.modelo.mision.VistaBarraDeEstado;
 import tp2.vista.modelo.mision.VistaInicioMision;
 import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
+import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Circulo;
+import ar.uba.fi.algo3.titiritero.vista.Ventana;
 
 public class ControladorJuegoAlgo42 extends ControladorJuego {
 
@@ -43,6 +47,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private Boolean corriendoElJuego;
 	private Collection<Dibujable> dibujosDeFondo;
 	private ControladorDelJugador controladorDelJugador;
+	private VentanaPrincipal ventana;
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
@@ -61,7 +66,6 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 				if(partida != null){
 					this.borrarObjetosDelJuego();
 					this.borrarObjetosDelFondo();
-					System.out.println("asdf");
 				}
 				this.partida = null;
 			}
@@ -97,6 +101,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			if(this.partida.estaGanada()){
 				// Se ganó
 				this.corriendoElJuego = false;
+				this.abrirMenuPrincipal();
 				return;
 			}
 			this.setMision(this.partida.getMisionActual());
@@ -106,12 +111,20 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			this.partida.perderVida();
 			if(partida.getVidas() == 0){
 				// Game Over
-				System.out.println("fdsfd");
 				this.corriendoElJuego = false;
+				this.abrirMenuPrincipal();
 				return;
 			}
 			this.setMision(this.partida.getMisionActual());
 		}
+	}
+	
+	private void abrirMenuPrincipal(){
+		this.finalizarJuego();
+		MenuPrincipal menuPrincipal = new MenuPrincipal(ventana);
+		menuPrincipal.mostrar();
+		menuPrincipal.activarControl();
+		menuPrincipal.getAudio().play();
 	}
 
 	private synchronized void simularJuego() {
@@ -252,6 +265,10 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	public void setControladorDelJugador(
 			ControladorDelJugador controladorDelJugador) {
 		this.controladorDelJugador = controladorDelJugador;
+	}
+
+	public void setVentana(VentanaPrincipal ventana) {
+		this.ventana = ventana;
 	}
 	
 }

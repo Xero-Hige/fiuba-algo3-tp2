@@ -1,7 +1,12 @@
 package tp2.modelo.menues.menuMision;
 
+import org.w3c.dom.Document;
+
+import tp2.modelo.Partida;
 import tp2.modelo.menues.MenuI;
 import tp2.modelo.menues.MenuItem;
+import tp2.persistencia.GeneradorXml;
+import tp2.persistencia.ManejadorPartidasGuardadas;
 import tp2.vista.menues.VistaMenuItem;
 import tp2.vista.menues.menuMision.FabricaDeDibujablesDelMenuMision;
 import tp2.vista.ventanas.DimensionesDeVentana;
@@ -27,7 +32,12 @@ public class MenuMisionOpcionesItemGuardarPartida extends MenuItem {
 	@Override
 	public void seleccionar() {
 		
-//		MenuNuevaPartida menuNuevaPartida = new MenuNuevaPartida(this.getVentanaPrincipal(), this.getMenuDelItem());
-//		menuNuevaPartida.mostrar();
+		Partida partida = this.getVentanaPrincipal().getControladorJuego().getPartida();
+		Document documento = GeneradorXml.generarPersistenciaDe(partida, "Partida", "Esta es una partida de Algo42.");
+		GeneradorXml.grabar(documento, ManejadorPartidasGuardadas.getPathSaves() + "/partida.save");
+		
+		partida.reanudar();
+		this.getMenuDelItem().ocultar();
+		this.getMenuDelItem().getMenuPadre().activarControl();
 	}
 }

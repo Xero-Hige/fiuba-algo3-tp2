@@ -10,7 +10,8 @@ public class Programa {
 	public static void main(String[] args) {
 		
 		ControladorJuegoAlgo42 controlador = new ControladorJuegoAlgo42(false);
-		Ventana ventana = new VentanaPrincipal(controlador);
+		VentanaPrincipal ventana = new VentanaPrincipal(controlador);
+		controlador.setVentana(ventana);
 		controlador.setSuperficieDeDibujo(ventana);
 		ventana.setVisible(true);
 		

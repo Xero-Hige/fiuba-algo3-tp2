@@ -72,9 +72,6 @@ public class ParserObjetoIdAVista {
 		else if (id == "Explosion"){
 			return new VistaExplosion(nuevoObjeto);
 		}
-		else if (id == "Agua"){
-			return new VistaAgua(nuevoObjeto);
-		}
 
 		// Si no se reconoce el id se devuelve null.
 		return null;

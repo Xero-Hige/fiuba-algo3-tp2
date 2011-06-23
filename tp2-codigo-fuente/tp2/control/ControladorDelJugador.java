@@ -29,6 +29,10 @@ public class ControladorDelJugador {
 		this.tecla_izquierda = DESACTIVADA;
 	}
 
+	public void setNaveDelJugador(NaveMilitarControlada naveDelJugador) {
+		this.naveDelJugador = naveDelJugador;
+	}
+
 	public void recibirTeclaPresionada(KeyEvent event) {
 		switch (event.getKeyCode()) {
 		case KeyEvent.VK_A:

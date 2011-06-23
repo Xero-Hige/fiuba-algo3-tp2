@@ -91,12 +91,17 @@ public class ReconstructorDesdeXml {
 		}
 
 		objetosPorId.put(id, unGuardable);
+		Map<String, Node> nodosHijos = construirMapaDeHijos(nodo);
+		return unGuardable.cargar(nodosHijos);
+	}
+
+	public static Map<String, Node> construirMapaDeHijos(Node nodo) {
 		Map<String, Node> nodosHijos = new HashMap<String, Node>();
 		NodeList subElementos = nodo.getChildNodes();
 		for(int i = 0; i < subElementos.getLength(); i++){
 			nodosHijos.put(subElementos.item(i).getNodeName(), subElementos.item(i));		
 		}
-		return unGuardable.cargar(nodosHijos);
+		return nodosHijos;
 	}
 
 	public static IGuardable recuperarPersistenciaDe(Document documento){

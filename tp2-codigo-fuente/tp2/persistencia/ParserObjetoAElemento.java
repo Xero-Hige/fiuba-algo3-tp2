@@ -12,20 +12,21 @@ public class ParserObjetoAElemento {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void guardarObjeto(Object unObjeto, Element contenedor) {
+		int i = 0;
 		if ((unObjeto instanceof String) || (unObjeto instanceof Number)
 				|| (unObjeto instanceof Boolean)) {
 			contenedor.setTextContent(unObjeto.toString());
 		}
 		else if((unObjeto instanceof Collection)){
 			for(Object objeto: (Collection)unObjeto){
-				contenedor.appendChild(GeneradorXml.generarElementoDe(objeto, "elemento"));
+				contenedor.appendChild(GeneradorXml.generarElementoDe(objeto, String.format("elemento%d", i++)));
 			}
 		}
 		else if((unObjeto instanceof Map)){
 			Map<Object, Object> map = (Map<Object, Object>)unObjeto;
 			map.entrySet();
 			for(Map.Entry<Object, Object> entry: map.entrySet()){
-				contenedor.appendChild(GeneradorXml.generarElementoDe(entry, "elemento"));
+				contenedor.appendChild(GeneradorXml.generarElementoDe(entry, String.format("elemento%d", i++)));
 			}
 		}
 		else if((unObjeto instanceof Map.Entry)){

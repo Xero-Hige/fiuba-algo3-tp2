@@ -19,6 +19,7 @@ public class ControlKeyPressMenuMision implements KeyPressedObservador {
 		this.menuMision = menuMision;
 		NaveMilitarControlada naveDelJugador = menuMision.getVentanaPrincipal().getControladorJuego().getPartida().getMisionActual().getNaveDelJugador();
 		this.controladorDelJugador = new ControladorDelJugador(naveDelJugador);
+		menuMision.getVentanaPrincipal().getControladorJuego().setControladorDelJugador(controladorDelJugador);
 	}
 
 	@Override

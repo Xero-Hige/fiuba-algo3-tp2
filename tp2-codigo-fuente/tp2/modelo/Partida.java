@@ -68,7 +68,11 @@ public class Partida implements IGuardable {
 	
 	public void avanzarNivel(){
 		this.nivelActual++;
-		this.misionActual = this.generarMision();
+		if(!this.estaGanada()){
+			this.misionActual = this.generarMision();
+		} else {
+			this.detener();
+		}
 	}
 
 	private Mision generarMision() {
@@ -110,6 +114,13 @@ public class Partida implements IGuardable {
 		this.vidas = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("vidas"));
 		this.enCurso = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("enCurso"));
 		return this;
+	}
+
+	public void perderVida() {
+		if(this.vidas > 0){
+			this.vidas -= 1;
+		}
+		this.misionActual = this.generarMision();
 	}
 	
 }

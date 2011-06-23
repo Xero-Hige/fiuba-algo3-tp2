@@ -19,6 +19,7 @@ import tp2.modelo.extras.Explosion;
 import tp2.modelo.extras.Nube;
 import tp2.modelo.extras.ObjetosExplosivos;
 import tp2.vista.modelo.ParserObjetoIdAVista;
+import tp2.vista.modelo.extras.VistaAgua;
 import tp2.vista.modelo.extras.VistaNubeTipo1;
 import tp2.vista.modelo.extras.VistaNubeTipo2;
 import tp2.vista.modelo.extras.VistaNubeTipo3;
@@ -44,6 +45,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private Escenario escenario;
 	private Boolean corriendoElJuego;
 	private Collection<Dibujable> dibujosDeFondo;
+	private ControladorDelJugador controladorDelJugador;
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
@@ -61,6 +63,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			if(!this.corriendoElJuego){
 				if(partida != null){
 					this.borrarObjetosDelJuego();
+					this.borrarObjetosDelFondo();
 				}
 				this.partida = null;
 			}
@@ -77,18 +80,32 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	
 	private void borrarObjetosDelJuego() {
 		
-		for(Dibujable dibujable: this.dibujosDeFondo){
-			this.removerDibujable(dibujable);
-		}
 		Set<Visible> aux = new HashSet<Visible>(this.vistas.keySet());
 		for(Visible visible: aux){
 			this.removerVista(visible);
 		}
 	}
+	
+	private void borrarObjetosDelFondo() {
+		for(Dibujable dibujable: this.dibujosDeFondo){
+			this.removerDibujable(dibujable);
+		}
+	}
 
 	private void controlarPartida() {
-		// TODO Auto-generated method stub
-		
+		if(this.escenario.getPuntuacion() > 50){
+			this.borrarObjetosDelJuego();
+			this.partida.avanzarNivel();
+			this.setMision(this.partida.getMisionActual());
+		}
+		else if(this.mision.getNaveDelJugador().estaDestruido()){
+			this.borrarObjetosDelJuego();
+			this.partida.perderVida();
+			if(partida.getVidas() == 0){
+				// Game Over
+			}
+			this.setMision(this.partida.getMisionActual());
+		}
 	}
 
 	private synchronized void simularJuego() {
@@ -128,8 +145,11 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.dibujosDeFondo = new HashSet<Dibujable>();
 		
 		Agua agua = new Agua(this.escenario);
-		Dibujable dibujable = this.agregarNuevaVista(agua, -1);
-		this.dibujosDeFondo.add(dibujable);
+		agua.setProyeccion(proyeccion);
+		Dibujable vistaAgua = new VistaAgua(agua);
+		vistaAgua.setPosicionable(agua);
+		this.agregarDibujable(vistaAgua, -1);
+		this.dibujosDeFondo.add(vistaAgua);
 				
 		VistaNubeTipo1 vistaNube1 = new VistaNubeTipo1();
 		Nube nube1 = new Nube(70, -100, 600, 5);
@@ -160,9 +180,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			this.agregarDibujable(objetoDibujable, 1);
 			this.dibujosDeFondo.add(objetoDibujable);
 		}
-		
-		this.vistaInicioMision = new VistaInicioMision();
-		this.agregarDibujable(vistaInicioMision, 1);
+
 	}
 	
 	public Dibujable agregarNuevaVista(Visible objeto){
@@ -202,6 +220,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.corriendoElJuego = true;
 		this.partida = partida;
 		this.setMision(partida.getMisionActual());
+		this.construirVistasDeFondo();
 	}
 	
 	public synchronized void finalizarJuego(){
@@ -212,8 +231,21 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.mision = mision;
 		this.escenario = mision.getEscenario();
 		this.proyeccion = new ProyeccionSobreSuperficieDeDibujo(this.escenario.getAreaDeCombate(), new Rectangle(DimensionesDeVentana.ancho, DimensionesDeVentana.alto));
-		this.construirVistasDeFondo();
+		if(this.controladorDelJugador != null){
+			this.controladorDelJugador.setNaveDelJugador(this.mision.getNaveDelJugador());
+		}
+		this.construirVistaDeInicioDeMision();
+	}
+
+	private void construirVistaDeInicioDeMision() {
+		this.vistaInicioMision = new VistaInicioMision();
+		this.agregarDibujable(vistaInicioMision, 1);
 		this.vistaInicioMision.setNumeroDeMision(this.partida.getNivelActual());
+	}
+
+	public void setControladorDelJugador(
+			ControladorDelJugador controladorDelJugador) {
+		this.controladorDelJugador = controladorDelJugador;
 	}
 	
 }

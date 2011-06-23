@@ -75,12 +75,14 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		} while (this.estaEnEjecucion());
 	}
 	
-	private synchronized void borrarObjetosDelJuego() {
+	private void borrarObjetosDelJuego() {
+		
 		for(Dibujable dibujable: this.dibujosDeFondo){
 			this.removerDibujable(dibujable);
 		}
-		for(Entry<Visible, Dibujable> entry: this.vistas.entrySet()){
-			this.removerVista(entry.getKey());
+		Set<Visible> aux = new HashSet<Visible>(this.vistas.keySet());
+		for(Visible visible: aux){
+			this.removerVista(visible);
 		}
 	}
 
@@ -185,7 +187,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	public void removerVista(Visible objeto){
 		this.removerDibujable(this.vistas.get(objeto));
 		this.vistas.remove(objeto);
-		if(ObjetosExplosivos.esExplosivo(objeto)){
+		if((ObjetosExplosivos.esExplosivo(objeto)) && (this.corriendoElJuego)){
 			Explosion explosion = new Explosion(objeto, 10, objeto.getTamanio());
 			this.agregarObjetoVivo(explosion);
 			this.agregarNuevaVista(explosion);

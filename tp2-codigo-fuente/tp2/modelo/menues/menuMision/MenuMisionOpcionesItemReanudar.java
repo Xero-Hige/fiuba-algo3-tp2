@@ -28,6 +28,7 @@ public class MenuMisionOpcionesItemReanudar extends MenuItem {
 	@Override
 	public void seleccionar() {
 		
+		this.getVentanaPrincipal().getControladorJuego().getPartida().reanudar();
 		this.getMenuDelItem().ocultar();
 		this.getMenuDelItem().getMenuPadre().activarControl();
 	}

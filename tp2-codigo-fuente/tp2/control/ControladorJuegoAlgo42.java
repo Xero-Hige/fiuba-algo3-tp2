@@ -4,6 +4,8 @@ import java.awt.Rectangle;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+
 import tp2.modelo.Escenario;
 import tp2.modelo.Mision;
 import tp2.modelo.NaveMilitarControlada;
@@ -24,6 +26,7 @@ import tp2.vista.ventanas.DimensionesDeVentana;
 import tp2.vista.ventanas.ProyeccionSobreSuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
+import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Circulo;
 
@@ -36,9 +39,12 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private Partida partida;
 	private Mision mision;
 	private Escenario escenario;
+	private Boolean dibujandoElJuego;
+	private Set<Dibujable> dibujosDeFondo;
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
+		this.dibujandoElJuego = false;
 	}
 
 	@Override
@@ -49,13 +55,19 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	@Override
 	public void comenzarJuego() {
 		do {
-			if(this.mision != null){
+			if((this.partida != null) && (this.partida.estaEnCurso())){
+				this.controlarPartida();
 				this.simularJuego();
 			}
 			super.comenzarJuego(1);
 		} while (this.estaEnEjecucion());
 	}
 	
+	private void controlarPartida() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private synchronized void simularJuego() {
 		
 		Collection<ObjetoEspacial> objetosCreados = this.escenario.getObjetosCreados();
@@ -77,6 +89,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.vistaBarraDeEstado.setPuntaje(this.mision.getEscenario().getPuntuacion());
 		NaveMilitarControlada algo42 = this.mision.getNaveDelJugador();
 		this.vistaBarraDeEstado.setPorcentajeDeEnergia((int)(100 * algo42.getEnergia() / algo42.getMaxEnergia()));
+		this.vistaBarraDeEstado.setVidas(this.partida.getVidas());
 		this.mision.simularDurante(this.getIntervaloSimulacion() / 1000.0);
 		
 		if ((! this.vistaInicioMision.enEscena()) && (! this.vistaInicioMision.salioDeEscena())) {
@@ -154,7 +167,11 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 
 	public synchronized void setPartida(Partida partida) {
 		this.partida = partida;
-		this.mision = partida.getMisionActual();
+		this.setMision(partida.getMisionActual());
+	}
+
+	private void setMision(Mision mision) {
+		this.mision = mision;
 		this.escenario = mision.getEscenario();
 		this.proyeccion = new ProyeccionSobreSuperficieDeDibujo(this.escenario.getAreaDeCombate(), new Rectangle(DimensionesDeVentana.ancho, DimensionesDeVentana.alto));
 		this.construirVistasDeFondo();

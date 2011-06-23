@@ -49,7 +49,7 @@ public class NaveEnemiga extends NaveMilitar {
 			return;
 		}
 		if(this.estaEnCombate() == false){
-			if(this.getEscenario().getAreaDeCombate().contains(this.getPosicion())){
+			if(!this.getEscenario().getAreaDeCombate().contains(this.getPosicion())){
 				this.desaparecerDelEscenario();
 				return;
 			}

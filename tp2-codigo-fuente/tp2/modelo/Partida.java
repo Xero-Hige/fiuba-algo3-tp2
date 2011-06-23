@@ -22,16 +22,18 @@ public class Partida implements IGuardable {
 	private Mision misionActual;
 	private int cantidadNiveles;
 	private int nivelActual;
+	private int vidas;
 
 	private Boolean enCurso;
 	
 	
 	//Constructor
-	public Partida(int cantidadNiveles) {
+	public Partida(int cantidadNiveles, int vidas) {
 		this.cantidadNiveles = cantidadNiveles;
 		this.nivelActual = 1;
 		this.misionActual = this.generarMision();
 		this.enCurso = false;
+		this.vidas = vidas;
 	}
 	
 	public Partida() {
@@ -40,6 +42,10 @@ public class Partida implements IGuardable {
 	
 	// Inicia la partida para que pueda ser corrida.
 	public void iniciar() {
+		this.enCurso = true;
+	}
+	
+	public void reanudar() {
 		this.enCurso = true;
 	}
 	
@@ -80,12 +86,18 @@ public class Partida implements IGuardable {
 		return nivelActual;
 	}
 
+	public int getVidas() {
+		return vidas;
+	}
+
 	@Override
 	public Element guardar(Element contenedor) {		
 		contenedor.appendChild(GeneradorXml.generarElementoDe(jugador, "jugador"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(misionActual, "misionActual"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(cantidadNiveles, "cantidadNiveles"));
 		contenedor.appendChild(GeneradorXml.generarElementoDe(nivelActual, "nivelActual"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(vidas, "vidas"));
+		contenedor.appendChild(GeneradorXml.generarElementoDe(enCurso, "enCurso"));
 		return contenedor;
 	}
 
@@ -95,7 +107,8 @@ public class Partida implements IGuardable {
 		this.misionActual = (Mision) ReconstructorDesdeXml.generarObjeto(atributos.get("misionActual"));
 		this.cantidadNiveles =(Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("cantidadNiveles"));
 		this.nivelActual = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("nivelActual"));
-		this.enCurso = false;
+		this.vidas = (Integer) ReconstructorDesdeXml.generarObjeto(atributos.get("vidas"));
+		this.enCurso = (Boolean) ReconstructorDesdeXml.generarObjeto(atributos.get("enCurso"));
 		return this;
 	}
 	

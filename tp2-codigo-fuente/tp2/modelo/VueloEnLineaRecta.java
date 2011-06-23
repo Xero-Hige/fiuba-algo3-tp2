@@ -1,6 +1,5 @@
 package tp2.modelo;
 
-import java.util.LinkedList;
 import java.util.Map;
 
 import org.w3c.dom.Element;

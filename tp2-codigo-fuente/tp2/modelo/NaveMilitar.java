@@ -46,7 +46,7 @@ public class NaveMilitar extends Nave {
 			return;
 		}
 		if(this.enCombate == false){
-			if(this.getEscenario().getAreaDeCombate().contains(this.getPosicion())){
+			if(!this.getEscenario().getAreaDeCombate().contains(this.getPosicion())){
 				this.desaparecerDelEscenario();
 				return;
 			}

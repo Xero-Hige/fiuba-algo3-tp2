@@ -3,9 +3,6 @@ package tp2.persistencia;
 import java.awt.Rectangle;
 import java.util.Collection;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import org.w3c.dom.Element;
 
 import tp2.auxiliares.ParCadenaPosicion;
@@ -13,7 +10,7 @@ import tp2.auxiliares.Point;
 
 public class ParserObjetoAElemento {
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void guardarObjeto(Object unObjeto, Element contenedor) {
 		if ((unObjeto instanceof String) || (unObjeto instanceof Number)
 				|| (unObjeto instanceof Boolean)) {

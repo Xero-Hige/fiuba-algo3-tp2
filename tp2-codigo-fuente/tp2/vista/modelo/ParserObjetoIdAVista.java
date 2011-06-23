@@ -20,7 +20,7 @@ public class ParserObjetoIdAVista {
 		String id = nuevoObjeto.getIdentificacion();
 		
 		// Aeronaves
-		
+
 		if (id.equals(ValoresDeNaves.algo42Identificacion))
 			return new VistaAlgo42(proyeccion);
 		

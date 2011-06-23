@@ -2,6 +2,7 @@ package tp2.modelo.menues.menuMision;
 
 import tp2.modelo.menues.MenuI;
 import tp2.modelo.menues.MenuItem;
+import tp2.modelo.menues.menuPrincipal.MenuPrincipal;
 import tp2.vista.menues.VistaMenuItem;
 import tp2.vista.menues.menuMision.FabricaDeDibujablesDelMenuMision;
 import tp2.vista.ventanas.DimensionesDeVentana;
@@ -30,5 +31,6 @@ public class MenuMisionOpcionesItemSalir extends MenuItem {
 		this.getMenuDelItem().ocultar();
 		this.getVentanaPrincipal().getControladorJuego().finalizarJuego();
 		this.getMenuDelItem().getMenuPadre().getMenuPadre().getMenuPadre().mostrar();
+		((MenuPrincipal)(this.getMenuDelItem().getMenuPadre().getMenuPadre().getMenuPadre())).getAudio().play();
 	}
 }

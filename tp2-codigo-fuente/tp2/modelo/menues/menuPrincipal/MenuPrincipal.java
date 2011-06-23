@@ -64,12 +64,8 @@ public class MenuPrincipal extends Menu  {
 	}
 
 	@Override
-	public void realizarAlMostrar() {
-		this.audio.play();
-	}
+	public void realizarAlMostrar() {}
 
 	@Override
-	public void realizarAlOcultar() {
-		this.audio.stop();
-	}
+	public void realizarAlOcultar() {}
 }

@@ -29,7 +29,8 @@ public class MenuPrincipalItemNuevaPartida extends MenuItem {
 
 	@Override
 	public void seleccionar() {
-		
+		((MenuPrincipal)(this.getMenuDelItem())).getAudio().stop();
+		((MenuPrincipal)(this.getMenuDelItem())).getAudio().rebobinar();
 		MenuNuevaPartida menuNuevaPartida = new MenuNuevaPartida(this.getVentanaPrincipal(), this.getMenuDelItem());
 		menuNuevaPartida.mostrar();
 	}

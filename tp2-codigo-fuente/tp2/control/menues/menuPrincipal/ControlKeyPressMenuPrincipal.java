@@ -39,7 +39,6 @@ public class ControlKeyPressMenuPrincipal implements KeyPressedObservador {
 			// Se presiona enter, por lo que se selecciona la opción del item actual.	
 			case KeyEvent.VK_ENTER:
 				this.menuPrincipal.getListaDeItems().get(this.itemActivo).seleccionar();
-				((MenuPrincipal)(this.menuPrincipal)).getAudio().stop();
 				this.menuPrincipal.ocultar();
 				this.menuPrincipal.resetear();
 				break;

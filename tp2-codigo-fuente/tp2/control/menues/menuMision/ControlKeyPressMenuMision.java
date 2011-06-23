@@ -6,6 +6,7 @@ import tp2.control.ControladorDelJugador;
 import tp2.modelo.NaveMilitarControlada;
 import tp2.modelo.menues.menuMision.MenuMision;
 import tp2.modelo.menues.menuMision.MenuMisionOpciones;
+import tp2.modelo.menues.menuMision.MenuMisionPausa;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 
 
@@ -22,12 +23,22 @@ public class ControlKeyPressMenuMision implements KeyPressedObservador {
 
 	@Override
 	public void keyPressed(KeyEvent event) {
+		
 		this.controladorDelJugador.recibirTeclaPresionada(event);
+		
 		switch(event.getKeyCode()) {
+		
 			case KeyEvent.VK_ENTER:
 				this.menuMision.getVentanaPrincipal().getControladorJuego().getPartida().detener();
 				MenuMisionOpciones menuMisionOpciones = new MenuMisionOpciones(this.menuMision.getVentanaPrincipal(), this.menuMision);
 				menuMisionOpciones.mostrar();
+				break;
+			
+			case KeyEvent.VK_P:
+				this.menuMision.getVentanaPrincipal().getControladorJuego().getPartida().detener();
+				MenuMisionPausa menuMisionPausa = new MenuMisionPausa(this.menuMision.getVentanaPrincipal(), this.menuMision);
+				menuMisionPausa.mostrar();
+				break;
 		}
 	}
 

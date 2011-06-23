@@ -53,4 +53,14 @@ public class FabricaDeDibujablesDelMenuMision {
 		comprobarCargaDeImagenes();
 		return ImagenItemSalirOver.nuevaImagen();
 	}
+	
+	public static Dibujable nuevaImagenMenuPausa() {
+		comprobarCargaDeImagenes();
+		return ImagenMenuPausa.nuevaImagen();
+	}
+	
+	public static Dibujable nuevaImagenGameOver() {
+		comprobarCargaDeImagenes();
+		return ImagenGameOver.nuevaImagen();
+	}
 }

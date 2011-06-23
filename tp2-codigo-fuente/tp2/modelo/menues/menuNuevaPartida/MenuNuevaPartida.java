@@ -56,7 +56,7 @@ public class MenuNuevaPartida extends Menu {
 	
 	public void iniciarNuevaPartida() {
 		
-		Partida partida = new Partida(3, 3);
+		Partida partida = new Partida(2, 3);
 		partida.iniciar();
 		this.getVentanaPrincipal().getControladorJuego().iniciarJuego(partida);
 	}

@@ -96,6 +96,9 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		if(this.escenario.getPuntuacion() > 50){
 			this.borrarObjetosDelJuego();
 			this.partida.avanzarNivel();
+			if(this.partida.estaGanada()){
+				// Se ganó
+			}
 			this.setMision(this.partida.getMisionActual());
 		}
 		else if(this.mision.getNaveDelJugador().estaDestruido()){

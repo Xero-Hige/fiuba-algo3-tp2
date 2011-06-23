@@ -32,7 +32,6 @@ import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
-import ar.uba.fi.algo3.titiritero.vista.Circulo;
 
 public class ControladorJuegoAlgo42 extends ControladorJuego {
 
@@ -208,12 +207,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	public Dibujable agregarNuevaVista(Visible objeto, double prioridad){
 		objeto.setProyeccion(proyeccion);
 		Dibujable vista = ParserObjetoIdAVista.getVista(objeto, proyeccion);
-		// Borrar después:
-		if (vista == null) {
-			vista = new Circulo(
-					(int) (50));
-		}
-		// Fin borrar después.
+		
 		vista.setPosicionable(objeto);
 		this.agregarDibujable(vista);
 		this.vistas.put(objeto, vista);

@@ -47,7 +47,7 @@ public abstract class Movil extends ObjetoEspacial {
 	public Boolean esAliadoDe(Movil movil) {
 		if (this.getEquipo() == null)
 			return false;
-		return this.getEquipo() == movil.getEquipo();
+		return this.getEquipo().equals(movil.getEquipo());
 	}
 
 	// Mueve al móvil de acuerdo al tiempo recibido.

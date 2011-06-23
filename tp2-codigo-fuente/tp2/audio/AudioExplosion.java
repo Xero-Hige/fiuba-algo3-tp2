@@ -6,6 +6,6 @@ public class AudioExplosion extends Sonido {
 	
 	public AudioExplosion() {
 		
-		this.setArchivoDeAudio("sonidos/explosion-theme.wav");
+		this.setArchivoDeAudio("sonidos/explosion-sound.wav");
 	}
 }

@@ -19,6 +19,7 @@ public class ControlKeyPressMenuMisionGameOver implements KeyPressedObservador  
 						
 			// Se presiona enter, por lo que se selecciona la opción del item actual.	
 			case KeyEvent.VK_ENTER:
+				this.menuMisionGameOver.audioJuegoGanado.stop();
 				MenuPrincipal menuPrincipal = new MenuPrincipal(this.menuMisionGameOver.getVentanaPrincipal());
 				menuPrincipal.mostrar();
 				menuPrincipal.activarControl();

@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import tp2.audio.AudioAvion;
 import tp2.audio.AudioExplosion;
 import tp2.modelo.Escenario;
 import tp2.modelo.Mision;
@@ -33,6 +34,7 @@ import tp2.vista.ventanas.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
+import ar.uba.fi.algo3.titiritero.audio.Sonido;
 
 public class ControladorJuegoAlgo42 extends ControladorJuego {
 
@@ -47,6 +49,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private Collection<Dibujable> dibujosDeFondo;
 	private ControladorDelJugador controladorDelJugador;
 	private VentanaPrincipal ventana;
+	private Sonido audioPartida;
 	
 	public ControladorJuegoAlgo42(boolean activarReproductor) {
 		super(activarReproductor);
@@ -60,6 +63,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 
 	@Override
 	public void comenzarJuego() {
+				
 		do {
 			if(!this.corriendoElJuego){
 				if(partida != null){
@@ -117,6 +121,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	}
 	
 	private void abrirGameOver(boolean juegoGanado){
+		
+		audioPartida.stop();
 		this.corriendoElJuego = false;
 		this.finalizarJuego();
 		MenuMisionGameOver menuMisionGameOver = new MenuMisionGameOver(this.ventana, null, juegoGanado);
@@ -156,7 +162,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	}
 
 	private void construirVistasDeFondo() {
-		
+				
 		this.dibujosDeFondo = new HashSet<Dibujable>();
 		
 		Agua agua = new Agua(this.escenario);
@@ -195,7 +201,9 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			this.agregarDibujable(objetoDibujable, 1);
 			this.dibujosDeFondo.add(objetoDibujable);
 		}
-
+		
+		this.audioPartida = new AudioAvion();
+		audioPartida.play();
 	}
 	
 	public Dibujable agregarNuevaVista(Visible objeto){

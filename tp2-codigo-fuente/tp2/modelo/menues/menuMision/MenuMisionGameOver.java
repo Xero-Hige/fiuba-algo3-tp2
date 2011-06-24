@@ -1,5 +1,6 @@
 package tp2.modelo.menues.menuMision;
 
+import tp2.audio.AudioJuegoGanado;
 import tp2.control.ControladorJuegoAlgo42;
 import tp2.control.menues.menuMision.ControlKeyPressMenuMisionGameOver;
 import tp2.modelo.menues.Menu;
@@ -9,6 +10,7 @@ import tp2.vista.ventanas.VentanaPrincipal;
 
 public class MenuMisionGameOver extends Menu {
 	
+	public AudioJuegoGanado audioJuegoGanado = new AudioJuegoGanado();
 	
 	public MenuMisionGameOver(VentanaPrincipal ventanaPrincipal, ControladorJuegoAlgo42 controladorJuegoAlgo42, boolean juegoGanado){
 		
@@ -18,6 +20,7 @@ public class MenuMisionGameOver extends Menu {
 			// Creamos la vista para el caso en que se gana el juego
 			this.setVistaMenu(new VistaMenuMisionGameOverJuegoGanado());
 			this.getVistaMenu().setPosicionable(this);
+			audioJuegoGanado.play();
 		}
 		else {
 			// Creamos la vista para el caso en que se pierde el juego

@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import tp2.audio.AudioExplosion;
 import tp2.modelo.Escenario;
 import tp2.modelo.Mision;
 import tp2.modelo.NaveMilitarControlada;
@@ -221,6 +222,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			Explosion explosion = new Explosion(objeto, 10, objeto.getTamanio());
 			this.agregarObjetoVivo(explosion);
 			this.agregarNuevaVista(explosion);
+			AudioExplosion audioExplosion = new AudioExplosion();
+			audioExplosion.play();
 		}
 	}
 

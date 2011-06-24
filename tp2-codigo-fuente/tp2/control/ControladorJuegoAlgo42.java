@@ -19,7 +19,7 @@ import tp2.modelo.extras.Agua;
 import tp2.modelo.extras.Explosion;
 import tp2.modelo.extras.Nube;
 import tp2.modelo.extras.ObjetosExplosivos;
-import tp2.modelo.menues.menuPrincipal.MenuPrincipal;
+import tp2.modelo.menues.menuMision.MenuMisionGameOver;
 import tp2.vista.modelo.ParserObjetoIdAVista;
 import tp2.vista.modelo.extras.VistaAgua;
 import tp2.vista.modelo.extras.VistaNubeTipo1;
@@ -99,8 +99,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			this.partida.perderVida();
 			if(partida.getVidas() == 0){
 				// Game Over
-				this.corriendoElJuego = false;
-				this.abrirMenuPrincipal();
+				abrirGameOver(false);
 				return;
 			}
 			this.setMision(this.partida.getMisionActual());
@@ -110,20 +109,18 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 			this.partida.avanzarNivel();
 			if(this.partida.estaGanada()){
 				// Se ganó
-				this.corriendoElJuego = false;
-				this.abrirMenuPrincipal();
+				abrirGameOver(true);
 				return;
 			}
 			this.setMision(this.partida.getMisionActual());
 		}
 	}
 	
-	private void abrirMenuPrincipal(){
+	private void abrirGameOver(boolean juegoGanado){
+		this.corriendoElJuego = false;
 		this.finalizarJuego();
-		MenuPrincipal menuPrincipal = new MenuPrincipal(ventana);
-		menuPrincipal.mostrar();
-		menuPrincipal.activarControl();
-		menuPrincipal.getAudio().play();
+		MenuMisionGameOver menuMisionGameOver = new MenuMisionGameOver(this.ventana, null, juegoGanado);
+		menuMisionGameOver.mostrar();
 	}
 
 	private synchronized void simularJuego() {

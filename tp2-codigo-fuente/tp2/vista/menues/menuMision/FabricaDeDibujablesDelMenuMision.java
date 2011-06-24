@@ -59,8 +59,13 @@ public class FabricaDeDibujablesDelMenuMision {
 		return ImagenMenuPausa.nuevaImagen();
 	}
 	
-	public static Dibujable nuevaImagenGameOver() {
+	public static Dibujable nuevaImagenGameOverJuegoPerdido() {
 		comprobarCargaDeImagenes();
-		return ImagenGameOver.nuevaImagen();
+		return ImagenGameOverJuegoPerdido.nuevaImagen();
+	}
+	
+	public static Dibujable nuevaImagenGameOverJuegoGanado() {
+		comprobarCargaDeImagenes();
+		return ImagenGameOverJuegoGanado.nuevaImagen();
 	}
 }

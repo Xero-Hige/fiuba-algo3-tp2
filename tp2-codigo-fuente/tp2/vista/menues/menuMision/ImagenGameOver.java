@@ -7,7 +7,7 @@ public class ImagenGameOver extends Imagen {
 	public static ImagenGameOver imagenPrincipal; 
 
 	private ImagenGameOver() {
-		this.setNombreArchivoImagen("/tp2/vista/imagenes/extras/juego-finalizado.png");
+		this.setNombreArchivoImagen("/tp2/vista/imagenes/menues/menu-mision-game-over-juego-perdido.jpg");
 	}
 
 	private ImagenGameOver(Imagen imagen) {

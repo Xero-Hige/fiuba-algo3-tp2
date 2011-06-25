@@ -45,7 +45,7 @@ public class MenuCargarPartida extends Menu  {
 		//Agrego los elementos
 		while (iter.hasNext()){
 			String[] datos = iter.next();
-			textos.add(new MenuItemTexto(ventanaPrincipal,a,datos[0]+" "+datos[1], 0));
+			textos.add(new MenuItemTexto(ventanaPrincipal,a,datos[0]+" ("+datos[1]+")", 0));
 		}
 		//Agrego 3 por si no hay saves
 		for(int i=0;i<3;i++){

@@ -5,6 +5,7 @@ import org.w3c.dom.Document;
 import tp2.modelo.Partida;
 import tp2.modelo.menues.MenuI;
 import tp2.modelo.menues.MenuItem;
+import tp2.persistencia.BuscadorDeArchivos;
 import tp2.persistencia.GeneradorXml;
 import tp2.persistencia.ManejadorPartidasGuardadas;
 import tp2.vista.menues.VistaMenuItem;
@@ -33,8 +34,9 @@ public class MenuMisionOpcionesItemGuardarPartida extends MenuItem {
 	public void seleccionar() {
 		
 		Partida partida = this.getVentanaPrincipal().getControladorJuego().getPartida();
+		int numeroDePartida = BuscadorDeArchivos.getArchivos(ManejadorPartidasGuardadas.getPathSaves(), "save").size() + 1;
 		Document documento = GeneradorXml.generarPersistenciaDe(partida, "Partida", "Esta es una partida de Algo42.");
-		GeneradorXml.grabar(documento, ManejadorPartidasGuardadas.getPathSaves() + "/partida.save");
+		GeneradorXml.grabar(documento, ManejadorPartidasGuardadas.getPathSaves() + String.format("/partida_%04d.save", numeroDePartida));
 		
 		partida.reanudar();
 		this.getMenuDelItem().ocultar();

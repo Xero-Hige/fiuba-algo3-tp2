@@ -43,7 +43,7 @@ public class ManejadorPartidasGuardadas {
 			String pathArchivo = archivosSave.get(nombreArchivo);
 			String fechaDeModificacion = getFechaModificacion(pathArchivo);
 			nombreArchivo = nombreArchivo.split("\\.")[0];
-			String[] archivoYFecha = {nombreArchivo,fechaDeModificacion};
+			String[] archivoYFecha = {nombreArchivo, fechaDeModificacion};
 			lista.add(archivoYFecha);
 		}
 		

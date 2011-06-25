@@ -40,11 +40,11 @@
         <Y>170</Y>
       </Avioneta>
     </Flota>
-    <Flota tiempo="0006">
-      <Avioneta>
-        <X>70</X>
+    <Flota tiempo="0008">
+      <AvionCivil>
+        <X>110</X>
         <Y>150</Y>
-      </Avioneta>
+      </AvionCivil>
     </Flota>
     <Flota tiempo="0060">
       <Bombardero>
@@ -279,6 +279,10 @@
       </Explorador>
     </Flota>
     <Flota tiempo="0008">
+      <HelicopteroFederal>
+        <X>120</X>
+        <Y>150</Y>
+      </HelicopteroFederal>
       <Cazas>
         <Posicion>
           <X>50</X>
@@ -321,6 +325,10 @@
       </Cazas>
     </Flota>
     <Flota tiempo="0017">
+      <AvionCivil>
+        <X>50</X>
+        <Y>150</Y>
+      </AvionCivil>
       <Avioneta>
         <X>55</X>
         <Y>150</Y>

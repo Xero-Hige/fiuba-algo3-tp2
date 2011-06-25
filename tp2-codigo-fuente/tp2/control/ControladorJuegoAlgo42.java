@@ -69,6 +69,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 				if(partida != null){
 					this.borrarObjetosDelJuego();
 					this.borrarObjetosDelFondo();
+					this.removerDibujable(vistaInicioMision);
 				}
 				this.partida = null;
 			}
@@ -100,6 +101,7 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 	private void controlarPartida() {
 		if(this.mision.getNaveDelJugador().estaDestruido()){
 			this.borrarObjetosDelJuego();
+			this.removerDibujable(vistaInicioMision);
 			this.partida.perderVida();
 			if(partida.getVidas() == 0){
 				// Game Over

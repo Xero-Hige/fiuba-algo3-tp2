@@ -28,7 +28,7 @@ import tp2.persistencia.excepciones.*;
  * */
 public class ConstructorMisionDesdeXml {
 
-	static String DIRECTORIO_MISIONES = "/src/tp2/configuraciones";
+	static String DIRECTORIO_MISIONES = "/configuraciones";
 	static String ARCHIVO_MISIONES = "/Misiones.settings";
 	static String[] TIPOSDEAVIONES = {"Avioneta","Cazas","Bombardero","Explorador","AvionCivil","HelicopteroFederal"};
 	

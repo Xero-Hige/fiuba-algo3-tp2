@@ -57,6 +57,6 @@ public class ValoresDeNaves {
 	public static double helicopteroFederalTamanio = 5;
 	public static double helicopteroFederalVelocidad = 20;
 	public static double helicopteroFederalEnergia = 1;
-	public static double helicopteroFederalVueloLongitudTrayectoria = 30;
+	public static double helicopteroFederalVueloLongitudTrayectoria = 60;
 	public static int helicopteroFederalPenalizacion = 200;
 }

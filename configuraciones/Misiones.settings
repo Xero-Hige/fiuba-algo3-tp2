@@ -1,0 +1,134 @@
+<Misiones>
+  <Mision001>
+    <Flota tiempo="0001">
+      <Explorador>
+        <Posicion>
+          <X>-10</X>
+          <Y>60</Y>
+        </Posicion>
+      </Explorador>
+      <Cazas>
+        <Posicion>
+          <X>100</X>
+          <Y>150</Y>
+        </Posicion>
+      </Cazas>
+      <Avioneta>
+      	<Posicion>
+          <X>25</X>
+          <Y>120</Y>
+        </Posicion>
+      </Avioneta>
+    </Flota>
+    <Flota tiempo="0005">
+      <Bombardero>
+        <Posicion>
+          <X>10</X>a
+          <Y>150</Y>
+        </Posicion>
+      </Bombardero>
+      <Cazas>
+        <Posicion>
+          <X>50</X>
+          <Y>150</Y>
+        </Posicion>
+      </Cazas>
+      <Avioneta>
+        <X>150</X>
+        <Y>340</Y>
+      </Avioneta>      
+    </Flota>
+  </Mision001>
+  <Mision002>
+    <Flota tiempo="0011">
+      <Bombardero guia="Yes">
+        <Posicion>
+          <X>67</X>
+          <Y>143</Y>
+        </Posicion>
+      </Bombardero>
+      <Cazas>
+        <Posicion>
+          <X>50</X>
+          <Y>150</Y>
+        </Posicion>
+      </Cazas>
+      <Avioneta>
+        <X>150</X>
+        <Y>340</Y>
+      </Avioneta>
+    </Flota>
+    <Flota tiempo="0003">
+		<Explorador>
+        <Posicion>
+          <X>-10</X>
+          <Y>80</Y>
+        </Posicion>
+      </Explorador>
+      <Bombardero guia="Yes">
+        <Posicion>
+          <X>67</X>
+          <Y>143</Y>
+        </Posicion>
+      </Bombardero>
+      <Cazas>
+        <Posicion>
+          <X>100</X>
+          <Y>150</Y>
+        </Posicion>
+      </Cazas>
+      <Avioneta>
+        <X>150</X>
+        <Y>340</Y>
+      </Avioneta>
+    </Flota>
+    <Flota tiempo="0015">
+		<Explorador>
+        <Posicion>
+          <X>-10</X>
+          <Y>80</Y>
+        </Posicion>
+      </Explorador>
+      <Bombardero guia="Yes">
+        <Posicion>
+          <X>67</X>
+          <Y>143</Y>
+        </Posicion>
+      </Bombardero>
+      <Cazas>
+        <Posicion>
+          <X>100</X>
+          <Y>150</Y>
+        </Posicion>
+      </Cazas>
+      <Avioneta>
+        <X>150</X>
+        <Y>340</Y>
+      </Avioneta>
+    </Flota>
+    <Flota tiempo="0020">
+		<Explorador>
+        <Posicion>
+          <X>-10</X>
+          <Y>80</Y>
+        </Posicion>
+      </Explorador>
+      <Bombardero guia="Yes">
+        <Posicion>
+          <X>67</X>
+          <Y>143</Y>
+        </Posicion>
+      </Bombardero>
+      <Cazas>
+        <Posicion>
+          <X>100</X>
+          <Y>150</Y>
+        </Posicion>
+      </Cazas>
+      <Avioneta>
+        <X>150</X>
+        <Y>340</Y>
+      </Avioneta>
+    </Flota>
+  </Mision002>
+</Misiones>

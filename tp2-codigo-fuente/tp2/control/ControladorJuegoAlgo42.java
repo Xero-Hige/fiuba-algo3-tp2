@@ -274,4 +274,8 @@ public class ControladorJuegoAlgo42 extends ControladorJuego {
 		this.ventana = ventana;
 	}
 	
+	public Sonido getAudioPartida() {
+		return audioPartida;
+	}
+	
 }

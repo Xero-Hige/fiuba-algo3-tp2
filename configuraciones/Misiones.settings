@@ -1,47 +1,77 @@
 <Misiones>
   <Mision001>
     <Flota tiempo="0001">
-      <Explorador>
-        <Posicion>
-          <X>-10</X>
-          <Y>60</Y>
-        </Posicion>
-      </Explorador>
       <Cazas>
         <Posicion>
           <X>100</X>
           <Y>150</Y>
         </Posicion>
       </Cazas>
-      <Avioneta>
-      	<Posicion>
-          <X>25</X>
-          <Y>120</Y>
-        </Posicion>
-      </Avioneta>
-    </Flota>
-    <Flota tiempo="0005">
-      <Bombardero>
-        <Posicion>
-          <X>10</X>a
-          <Y>150</Y>
-        </Posicion>
-      </Bombardero>
       <Cazas>
         <Posicion>
           <X>50</X>
           <Y>150</Y>
         </Posicion>
       </Cazas>
+    </Flota>
+    <Flota tiempo="0005">
       <Avioneta>
-        <X>150</X>
-        <Y>340</Y>
-      </Avioneta>      
+        <X>40</X>
+        <Y>160</Y>
+      </Avioneta>
+      <Avioneta>
+        <X>50</X>
+        <Y>160</Y>
+      </Avioneta>
+    </Flota>
+    <Flota tiempo="0080">
+      <Bombardero>
+        <Posicion>
+          <X>40</X>
+          <Y>180</Y>
+        </Posicion>
+      </Bombardero>
+      <Bombardero>
+        <Posicion>
+          <X>50</X>
+          <Y>170</Y>
+        </Posicion>
+      </Bombardero>
+      <Bombardero>
+        <Posicion>
+          <X>60</X>
+          <Y>160</Y>
+        </Posicion>
+      </Bombardero>
+      <Bombardero>
+        <Posicion>
+          <X>70</X>
+          <Y>150</Y>
+        </Posicion>
+      </Bombardero>
+      <Bombardero>
+        <Posicion>
+          <X>80</X>
+          <Y>160</Y>
+        </Posicion>
+      </Bombardero>
+      <Bombardero>
+        <Posicion>
+          <X>90</X>
+          <Y>170</Y>
+        </Posicion>
+      </Bombardero>
+      <Bombardero>
+        <Posicion>
+          <X>100</X>
+          <Y>180</Y>
+        </Posicion>
+      </Bombardero>
     </Flota>
   </Mision001>
   <Mision002>
     <Flota tiempo="0011">
-      <Bombardero guia="Yes">
+      <Bombardero>
         <Posicion>
           <X>67</X>
           <Y>143</Y>
@@ -65,7 +95,7 @@
           <Y>80</Y>
         </Posicion>
       </Explorador>
-      <Bombardero guia="Yes">
+      <Bombardero>
         <Posicion>
           <X>67</X>
           <Y>143</Y>
@@ -89,7 +119,7 @@
           <Y>80</Y>
         </Posicion>
       </Explorador>
-      <Bombardero guia="Yes">
+      <Bombardero>
         <Posicion>
           <X>67</X>
           <Y>143</Y>
@@ -107,13 +137,13 @@
       </Avioneta>
     </Flota>
     <Flota tiempo="0020">
-		<Explorador>
+	<Explorador>
         <Posicion>
           <X>-10</X>
           <Y>80</Y>
         </Posicion>
       </Explorador>
-      <Bombardero guia="Yes">
+      <Bombardero>
         <Posicion>
           <X>67</X>
           <Y>143</Y>

@@ -101,10 +101,9 @@
 			</fileset>
 		</copy>
 		<jar destfile="release/Algo42.jar" basedir="bin" includes="**" manifest="MANIFEST.MF"/>
-		<mkdir dir="release/src"/>
-		<copy todir="release/src">
-			<fileset dir="${srcfuente}">
-				<include name="**/*.png"/>
+		<mkdir dir="release/configuraciones"/>
+		<copy todir="release/configuraciones">
+			<fileset dir="configuraciones">
 				<include name="**/*.settings"/>
 			</fileset>
 		</copy>
